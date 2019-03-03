@@ -12,7 +12,7 @@ def menu():
          col = db["restaurants"]
          cursor = col.find()
          restaurant = cursor[0]
-         print(restaurant[restaurant]["menu"])
+         print(restaurant["Taj"]["menu"])
          return render_template("headerfooter.html",menu=restaurant[restaurant]["menu"])
          #return render_template('chart.html',menu=menu)
 
