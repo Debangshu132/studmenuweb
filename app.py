@@ -15,3 +15,6 @@ def menu():
          print(restaurant[restaurant]["menu"])
          return render_template("headerfooter.html",menu=restaurant[restaurant]["menu"])
          #return render_template('chart.html',menu=menu)
+
+if __name__ == "__main__":
+    app.run()         
