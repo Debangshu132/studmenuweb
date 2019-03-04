@@ -123,7 +123,7 @@ function populateFooter(restaurantName,foodOrDrink){
    
     div.className="swiper-slide";
     var img = document.createElement("img");
-    img.src = "http://3.bp.blogspot.com/_5pqCqLjs8WA/TGmMutN5ISI/AAAAAAAAACw/rMgIXNxHSN8/s400/Aspect1x1.png";
+    img.src = "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png";
     img.className="menuitemspic"
     var divChild = document.createElement("div");
     divChild.className="menuitemsdescription";
