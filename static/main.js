@@ -128,7 +128,9 @@ function populateFooter(restaurantName,foodOrDrink){
     var divChild = document.createElement("div");
     divChild.className="menuitemsdescription";
     divChild.innerHTML += foodOrDrink[i]; 
-    var item= {{menu}};
+    var menuData = $('#menu').data();    
+        
+    var item= menuData;
     img.onclick= function(arg) {
         return function() {
             var body = document.getElementById("menu");
