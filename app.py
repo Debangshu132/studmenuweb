@@ -14,7 +14,7 @@ def menu():
          cursor = col.find()
          restaurant = cursor[0]
          print(restaurant["Taj"]["menu"])
-         return render_template("headerfooter.html",menuitems="deep")
+         return render_template("headerfooter.html",menuitems='deep')
          #return render_template('chart.html',menu=menu)
 
 if __name__ == "__main__":
