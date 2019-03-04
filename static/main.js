@@ -129,8 +129,8 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
     divChild.className="menuitemsdescription";
     divChild.innerHTML += foodOrDrink[i]; 
        
-       
-    var item=menuitem[Foods];
+    menuitem=JSON.parse(menuitem);   
+    var item=menuitem["Foods"];
     
       
        
