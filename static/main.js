@@ -1,4 +1,4 @@
-window.item='abc';
+
 window.swiper = new Swiper('.swiper-container', {
     slidesPerView:5,
     simulateTouch:true,
@@ -130,7 +130,7 @@ function populateFooter(restaurantName,foodOrDrink){
     divChild.innerHTML += foodOrDrink[i]; 
        
         
-    var item=menuitem;
+    var item="abc";
     img.onclick= function(arg) {
         return function() {
             var body = document.getElementById("menu");
