@@ -40,13 +40,13 @@ window.swiper = new Swiper('.swiper-container', {
   
  });
 
-food=['rice','paratha','pizza','chicken','fish','egg','desserts',"veg","nonveg",'beer','water',"rum","beer1",'beer2','water','whiskey','water',"pani"];
+food=['rice','paratha','pizza','chicken','fish','egg','desserts',"veg","nonveg"];
 drink=['beer','water',"rum","beer1",'beer2','water','whiskey','water',"pani"];
 document.getElementById("food").onclick=function()
 {
     document.getElementById("menuit").style.background="#1a8cff";
     clearFooter("menuite");
-    populateFooter("Taj",food);
+    populateFooter("Taj",food,"Foods");
 } 
 
 
@@ -55,7 +55,7 @@ document.getElementById("drink").onclick=function()
 {document.getElementById("menuit").style.background="#46cc3d";
 clearFooter("menuite");
 
-populateFooter("Taj",drink);
+populateFooter("Taj",drink,"Drinks");
 }  
 
 
@@ -116,7 +116,7 @@ function clearFooter(elementID)
 
 
 }
-function populateFooter(restaurantName,foodOrDrink){
+function populateFooter(restaurantName,foodOrDrink,foodDrink){
     
     for(i=0;i<foodOrDrink.length;i++){
     var div = document.createElement("div");
@@ -129,8 +129,12 @@ function populateFooter(restaurantName,foodOrDrink){
     divChild.className="menuitemsdescription";
     divChild.innerHTML += foodOrDrink[i]; 
        
+    try{    
+    var item=menuitem[foodDrink][foodOrDrink[i]];}
+    catch{
+        var item="not available";
+    }    
         
-    var item=menuitem;
     img.onclick= function(arg) {
         return function() {
             var body = document.getElementById("menu");
