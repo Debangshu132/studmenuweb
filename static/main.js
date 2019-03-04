@@ -62,7 +62,7 @@ populateFooter("Taj",drink,"Drinks");
 
 
 window.onload = function() {
-    populateFooter("Taj",food);
+    populateFooter("Taj",food,"Foods");
     
     };
     function createSwiper(){
