@@ -65,48 +65,7 @@ window.onload = function() {
     populateFooter("Taj",food,"Foods");
     
     };
-    function createSwiper(){
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView:5,
-            simulateTouch:true,
-            
-            lazy: {
-                //  tell swiper to load images before they appear
-                loadPrevNext: true,
-                // amount of images to load
-                  loadPrevNextAmount: 2,
-              },
-            spaceBetween: 30,
-
-            breakpoints: {
-                1300: {
-                    slidesPerView: 11,
-                    spaceBetween: 40,
-                  },
-                1000: {
-                    slidesPerView: 9,
-                    spaceBetween: 40,
-                  },
-                790: {
-                  slidesPerView: 8,
-                  spaceBetween: 40,
-                },
-                640: {
-                  slidesPerView: 7,
-                  spaceBetween: 30,
-                },
-                500: {
-                  slidesPerView: 6,
-                  spaceBetween: 20,
-                },
-                320: {
-                  slidesPerView: 5,
-                  spaceBetween: 10,
-                }
-              }
-          
-         });
-
+   
 
     }
 
