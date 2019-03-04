@@ -2,7 +2,7 @@ html, body {
      
       height: 100%;
       width:100%;
-      font-size: 12px;
+      font-size: 10px;
       position:fixed;
       padding-left:0%;
       margin-left:0%;
@@ -108,7 +108,7 @@ html, body {
   
   @media screen and (min-height: 1000px) {
     body {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
  
