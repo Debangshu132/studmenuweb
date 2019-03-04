@@ -130,7 +130,7 @@ function populateFooter(restaurantName,foodOrDrink){
     divChild.innerHTML += foodOrDrink[i]; 
        
         
-    var item={{menu|safe}};
+    var item="{{menu|safe}}";
     img.onclick= function(arg) {
         return function() {
             var body = document.getElementById("menu");
