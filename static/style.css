@@ -68,6 +68,8 @@ html, body {
    
 }
 #food {
+    font-size: 10px; 
+    font-family: "Times New Roman", Times, serif; 
     background-color: Transparent;
     color:white;
     background-repeat:no-repeat;
@@ -81,7 +83,8 @@ html, body {
     outline: none;
     }
 #drink {
-   
+    font-size: 10px; 
+    font-family: "Times New Roman", Times, serif; 
     background-color: Transparent;
     background-repeat:no-repeat;
     color:white;
