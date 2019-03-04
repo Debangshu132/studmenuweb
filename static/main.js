@@ -129,11 +129,11 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
     divChild.className="menuitemsdescription";
     divChild.innerHTML += foodOrDrink[i]; 
        
-    try{    
-    var item=menuitem.foodDrink.foodOrDrink[i];}
-    catch{
+       
+    var item=menuitem.foodDrink.foodOrDrink[i];
+    
         var item="not available";
-    }    
+       
         
     img.onclick= function(arg) {
         return function() {
