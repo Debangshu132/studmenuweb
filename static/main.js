@@ -136,7 +136,7 @@ function populateFooter(restaurantName,foodOrDrink){
             var body = document.getElementById("menu");
             body.innerHTML=arg;
         }
-    }(item;
+    }(item);
     div.appendChild(img);
     div.appendChild(divChild);
     var currentDiv = document.getElementById("div1"); 
