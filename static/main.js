@@ -130,7 +130,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
     divChild.innerHTML += foodOrDrink[i]; 
        
     
-    var item=menuitem;
+    var item=menuitem.Foods;
     
       
        
