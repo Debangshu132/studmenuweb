@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import json
 from flask import Flask, request,render_template
 app = Flask(__name__)
 #@app.route("/", methods=['GET', 'POST'])
@@ -13,7 +14,7 @@ def menu():
          cursor = col.find()
          restaurant = cursor[0]
          print(restaurant["Taj"]["menu"])
-         return render_template("headerfooter.html",menu=str(restaurant["Taj"]["menu"]))
+         return render_template("headerfooter.html",menu=str(json.dumps(restaurant["Taj"]["menu"]))
          #return render_template('chart.html',menu=menu)
 
 if __name__ == "__main__":
