@@ -40,8 +40,8 @@ window.swiper = new Swiper('.swiper-container', {
   
  });
 
-food=['rice','paratha','pizza','chicken','fish','egg','desserts',"veg","nonveg"];
-drink=['beer','water',"rum","beer1",'beer2','water','whiskey','water',"pani"];
+food=['rice','paratha','pizza','chicken'];
+drink=['beer','water','whiskey','water'];
 document.getElementById("food").onclick=function()
 {
     document.getElementById("menuit").style.background="#1a8cff";
