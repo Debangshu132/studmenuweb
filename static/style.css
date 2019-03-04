@@ -47,7 +47,7 @@ html, body {
         padding-block-start: 0%;
         margin-block-start: 0%;
         margin-inline-start: 0%;
-        
+        box-shadow: 10px 10px grey;
         position: fixed;
         
    }
