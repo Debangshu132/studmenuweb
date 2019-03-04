@@ -132,8 +132,8 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
     var menuitemjson=JSON.parse(menuitem);
    
     var item=JSON.stringify(menuitemjson[foodDrink][foodOrDrink[i]]);}
-    if(item=='undefined'){
-    var item="Its not available";}
+    if(item==='undefined'){
+    item="Its not available";}
         
     
       
