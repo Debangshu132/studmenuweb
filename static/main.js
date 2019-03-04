@@ -40,7 +40,7 @@ window.swiper = new Swiper('.swiper-container', {
   
  });
 
-food=['rice','paratha','pizza','chicken'];
+food=['best sellers','rice','paratha','pizza','chicken','veg','nonveg','egg','fish','italian','chinese'];
 drink=['beer','water','whiskey','water'];
 document.getElementById("food").onclick=function()
 {
