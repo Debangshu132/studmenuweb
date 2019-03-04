@@ -130,7 +130,11 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
     divChild.innerHTML += foodOrDrink[i]; 
        
     var menuitemjson=JSON.parse(menuitem);
-    var item=JSON.stringify(menuitemjson[foodDrink][foodOrDrink[i]]);
+    try{    
+    var item=JSON.stringify(menuitemjson[foodDrink][foodOrDrink[i]]);}
+    catch{
+    var item="Its not available";
+    }    
     
       
        
