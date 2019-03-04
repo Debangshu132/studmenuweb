@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="../static/style.css">
     <link rel="stylesheet" type="text/css" href="../static/swiper.min.css">
-    <script type="text/javascript" src="../static/swiper.min.js"></script>
     <script type="text/javascript">
-       var menuitem={{menuitems|tojson}};
-    </script>      
+       var menuitem={{menuitems|tojson|safe}};
+    </script>  
+    <script type="text/javascript" src="../static/swiper.min.js"></script>
+        
     <script src="../static/main.js"></script>
   </head>
   <body>
