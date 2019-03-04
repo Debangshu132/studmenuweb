@@ -130,7 +130,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
     divChild.innerHTML += foodOrDrink[i]; 
        
        
-    var item=menuitem.foodDrink.foodOrDrink[i];
+    var item=menuitem.foodDrink;
     
         var item="not available";
        
