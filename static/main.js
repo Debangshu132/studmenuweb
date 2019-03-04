@@ -132,7 +132,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
        
     var item=menuitem.foodDrink;
     
-        var item="not available";
+      
        
         
     img.onclick= function(arg) {
