@@ -121,10 +121,15 @@ html, body {
         
       }  
      .menuitemsbodyplus{
-        padding-top:2px; 
+        padding-top:8px; 
         max-width:50%;
         max-height:50%;
 
+     }  
+     .menuitemsbodyminus{
+        padding-top:12px; 
+        max-width:50%;
+        max-height:50%;
      }  
 .foods{
     color:white;
