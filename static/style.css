@@ -59,7 +59,7 @@ html, body {
    .supermenu{
        }
 .swiper-slide-body {
-        width:83%;
+        width:80%;
         display:inline;
         height:120px;
         text-align: bottom;
@@ -79,7 +79,7 @@ html, body {
       height:80px;
       border-radius: 20px;
       margin-top:10px;
-       margin-left:-5%;
+       margin-left:-8%;
       background: white;
       z-index: 3;
       box-shadow: 5px 10px;
