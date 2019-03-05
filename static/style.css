@@ -38,11 +38,7 @@ html, body {
         
         
     }
-  .menuitemsbodyactualpic{
-
-    max-width: 50%;
-    max-height: 50%;
-}
+ 
     .footer{
         font-family: "Times New Roman", Times, serif;
         height:80px;
@@ -65,7 +61,7 @@ html, body {
 .swiper-slide-body {
         width:90%;
         display:inline;
-        height:200px;
+        height:150px;
         text-align: bottom;
         color:black;
         text-align: center;
@@ -96,6 +92,11 @@ html, body {
   .menuitemsdescriptionbody{
       text-align: right;
   }
+ .menuitemsbodyactualpic{
+
+    max-width: 50%;
+    max-height: 50%;
+}
 .foods{
     color:white;
     text-align: center;
