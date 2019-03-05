@@ -131,6 +131,18 @@ html, body {
         max-width:50%;
         max-height:50%;
      }  
+.menuitemsbodyDescriptionOfFood{
+       color:grey;
+       position: relative;
+       width:40%;
+       height:100px;
+       top:-70px;
+       left:130px;
+       text-align: right;
+       overflow: hidden;
+       overflow-wrap: break-word;
+
+     }
 .foods{
     color:white;
     text-align: center;
