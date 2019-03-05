@@ -75,11 +75,11 @@ html, body {
 -moz-box-shadow: 0 0 20px rgb(200,200,200);
   }
   .menuitemsbodypic{
-      width:125px;
+      width:100px;
 
-      border-radius: 30px;
+      border-radius: 20px;
       margin-top:10px;
-      margin-left:-30px;
+      margin-left:-20px;
       background: white;
       z-index: 3;
       box-shadow: 5px 10px;
