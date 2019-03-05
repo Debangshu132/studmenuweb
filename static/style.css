@@ -79,7 +79,7 @@ html, body {
       height:80px;
       border-radius: 20px;
       margin-top:10px;
-      margin-left:-20px;
+       margin-left:-5%;
       background: white;
       z-index: 3;
       box-shadow: 5px 10px;
@@ -103,6 +103,29 @@ html, body {
     max-width: 80%;
     max-height: 80%;
 }
+.menuitemsbodyplusminus{
+        width:30px;
+        height:60px;
+        float:right;
+        position:relative;
+        top:-80px;
+        
+        background:white;
+        margin-right:-15px;
+        box-shadow: 5px 10px;
+        
+        -webkit-box-shadow: 0 0 20px rgb(200,200,200);
+  -moz-box-shadow: 0 0 20px rgb(200,200,200);
+  border-radius: 10%;
+        
+        
+      }  
+     .menuitemsbodyplus{
+        padding-top:2px; 
+        max-width:50%;
+        max-height:50%;
+
+     }  
 .foods{
     color:white;
     text-align: center;
