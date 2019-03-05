@@ -154,6 +154,7 @@ function populateBody(restaurantName,arrayofitems){
   divChild.className="menuitemsdescriptionbody";
   divChild.innerHTML += arrayofitems[i]; 
   var divChildPic = document.createElement("div");
+  var divChildPlusMinus = document.createElement("div");    
   divChildPic.className="menuitemsbodypic";
   divChildPlusMinus.className="menuitemsbodyplusminus";
   divChildPlusMinus.innerHTML = '<img class="menuitemsbodyplus" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg">';
