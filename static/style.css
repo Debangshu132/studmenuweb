@@ -56,6 +56,40 @@ html, body {
    }
    .supermenu{
        }
+.swiper-slide-body {
+        width:90%;
+        display:inline;
+        height:200px;
+        text-align: bottom;
+        color:black;
+        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:20px;
+        border-radius:15px;
+        background:white;
+        box-shadow: 5px 10px;
+        -webkit-box-shadow: 0 0 20px rgb(200,200,200);
+-moz-box-shadow: 0 0 20px rgb(200,200,200);
+  }
+  .menuitemsbodypic{
+      width:150px;
+
+      border-radius: 30px;
+      margin-top:10px;
+      margin-left:-30px;
+      background: white;
+      z-index: 3;
+      box-shadow: 5px 10px;
+      -webkit-box-shadow: 0 0 20px rgb(200,200,200);
+-moz-box-shadow: 0 0 20px rgb(200,200,200);
+
+
+
+  }
+  .menuitemsdescriptionbody{
+      text-align: right;
+  }
 .foods{
     color:white;
     text-align: center;
