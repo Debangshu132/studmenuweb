@@ -63,7 +63,7 @@ populateFooter("Taj",drink,"Drinks");
 
 window.onload = function() {
     populateFooter("Taj",food,"Foods");
-    
+    populateBody("restaurantName",food);
     };
    
 
@@ -119,4 +119,48 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
         var body = document.getElementById("menu");
         body.innerHTML=data;
      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.swiperbody = new Swiper('.swiper-container-body', {
+    slidesPerView:4,simulateTouch:true,direction: 'vertical',
+    lazy: {loadPrevNext: true,loadPrevNextAmount: 2,},spaceBetween: 60,
+    breakpoints: {
+        1300: {slidesPerView: 11,spaceBetween: 40,},
+        }});  
+
+
+function populateBody(restaurantName,arrayofitems){
+    
+  for(i=0;i<arrayofitems.length;i++){
+  var div = document.createElement("div");
+ 
+  div.className="swiper-slide-body";
+  var img = document.createElement("img");
+  img.src = "http://3.bp.blogspot.com/_5pqCqLjs8WA/TGmMutN5ISI/AAAAAAAAACw/rMgIXNxHSN8/s400/Aspect1x1.png";
+  img.className="menuitemspicbody"
+  var divChild = document.createElement("div");
+  divChild.className="menuitemsdescriptionbody";
+  divChild.innerHTML += arrayofitems[i]; 
+  div.appendChild(img);
+  div.appendChild(divChild);
+  var currentDiv = document.getElementById("div1"); 
+  document.getElementById("menuitebody").insertBefore(div,currentDiv);}
+  window.swiperbody.updateSize(); 
+  window.swiperbody.updateSlides();
+}
         
