@@ -63,14 +63,7 @@ html, body {
     z-index:4; 
     
 }
-#menuitebody{
-  position: fixed;
 
-  overflow:scroll;
-}
-.menu{
-   height:70%;
-}
 .supermenu{
    }
 .swiper-slide-body {
