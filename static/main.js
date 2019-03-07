@@ -110,9 +110,9 @@ var div = document.createElement("div");
 div.className="slidebody";
 div.onclick=  function(arg) {
   return function() {
-      resetAllHeights();
+   
       if( arg.style.height==='120px'){
-
+      resetAllHeights();
 
        
 
