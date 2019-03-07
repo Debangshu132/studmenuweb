@@ -84,18 +84,20 @@ html, body {
     background:white;
     box-shadow: 5px 10px;
     -webkit-box-shadow: 0 0 20px rgb(200,200,200);
--moz-box-shadow: 0 0 20px rgb(200,200,200);
+    -moz-box-shadow: 0 0 20px rgb(200,200,200);
 }
 ::-webkit-scrollbar {
    /* remove scrollbar space */
   background: transparent;  /* optional: just make scrollbar invisible */
 }
 .menuitemsbodypic{
+  position:relative;
+  top:15px;
+  left:-25px;
   width:100px;
   height:80px;
   border-radius: 20px;
-  margin-top:10px;
-   margin-left:-8%;
+  
   background: white;
   z-index: 3;
   box-shadow: 5px 10px;
