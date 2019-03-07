@@ -1,19 +1,8 @@
-window.swiperbody = new Swiper('.swiper-container-body', {
-  slidesPerView:4,simulateTouch:true,direction: 'vertical',loop:true,
-  lazy: {loadPrevNext: true,loadPrevNextAmount: 2,},spaceBetween: 60,
-  breakpoints: {
-      1300: {slidesPerView: 11,spaceBetween: 40,},
-      }});  
 window.swiper = new Swiper('.swiper-container', {
   slidesPerView:5,
   simulateTouch:true,
   initialSlide:0,
-  lazy: {
-      //  tell swiper to load images before they appear
-      loadPrevNext: true,
-      // amount of images to load
-        loadPrevNextAmount: 2,
-    },
+  lazy: {loadPrevNext: true,loadPrevNextAmount: 2,},
   spaceBetween: 30,
 
   breakpoints: {
@@ -68,7 +57,7 @@ populateFooter("Taj",drink,"Drinks");
 
 window.onload = function() {
   populateFooter("Taj",food,"Foods");
-  populateBody("restaurantName",food);
+  populateBody("restaurantName",['z','e','n','z','e','n','z','e','n','z','e','n']);
   };
  
 
@@ -119,11 +108,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
 }
 
 
-   function showClicked(data){
-
-      var body = document.getElementById("menu");
-      body.innerHTML=data;
-   }
+   
 
 
 
@@ -141,14 +126,14 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
 
 
 
-
+ 
 
 
 function populateBody(restaurantName,arrayofitems){
- 
+  clearFooter("menuitbody");  
 for(i=0;i<arrayofitems.length;i++){
 var div = document.createElement("div");
-div.className="swiper-slide-body";
+div.className="slidebody";
 
 var divChild = document.createElement("div");
 divChild.className="menuitemsdescriptionbody";
@@ -169,10 +154,6 @@ div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
 div.appendChild(divChildDescriptionOfFood);    
 
-document.getElementById("menuitebody").appendChild(div);}
-
-
-
-
+document.getElementById("menuitbody").appendChild(div);}
 }
       
