@@ -23,7 +23,7 @@ html, body {
   margin-right:auto;
   overflow-x:visible;
   margin-bottom:10px;
-  width:70%;
+  width:80%;
  }
 .swiper-slide {
   text-align: bottom;
@@ -64,7 +64,7 @@ html, body {
 }
 .menu{
   overflow:scroll;
-  height:100%;
+  height:90%;
   margin-bottom:170px;
   width:100%;
 }
