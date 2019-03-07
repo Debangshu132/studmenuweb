@@ -102,34 +102,31 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink){
 }
 
 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
 function populateBody(restaurantName,jsonofitems){
 clearFooter("menuitbody");  
 var itemnamearray=Object.keys(jsonofitems); 
 for(i=0;i<itemnamearray.length;i++){
 var div = document.createElement("div");
 div.className="slidebody";
+div.onclick=  function(arg) {
+  return function() {
+      resetAllHeights();
+      if( arg.style.height==='120px'){
 
+
+   
+          $(arg).animate({height: "240px"});
+        
+
+
+
+
+      }
+      else{
+        arg.style.height='120px';
+      } 
+  }
+}(div);
 var divChild = document.createElement("div");
 divChild.className="menuitemsdescriptionbody";
 var tempname=JSON.stringify(itemnamearray[i]);
@@ -154,11 +151,14 @@ div.appendChild(divChildPic);
 div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
 div.appendChild(divChildDescriptionOfFood);    
-
 document.getElementById("menuitbody").appendChild(div);}
 }
+function resetAllHeights(){
+  var items=document.getElementsByClassName("slidebody");
+  for (var i=0; i < items.length; i++) {
+    $(items[i]).animate({height: "120px"});
+    items[i].style.height='120px' ;
+  }
+
+}
       
-
- 
-
-
