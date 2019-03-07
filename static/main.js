@@ -114,14 +114,12 @@ div.onclick=  function(arg) {
       if( arg.style.height==='120px'){
 
 
-   
-          $(arg).animate({height: "240px"});
-        
+       
 
 
 
 
-      }
+      arg.style.height='240px';}
       else{
         arg.style.height='120px';
       } 
@@ -156,7 +154,6 @@ document.getElementById("menuitbody").appendChild(div);}
 function resetAllHeights(){
   var items=document.getElementsByClassName("slidebody");
   for (var i=0; i < items.length; i++) {
-    $(items[i]).animate({height: "120px"});
     items[i].style.height='120px' ;
   }
 
