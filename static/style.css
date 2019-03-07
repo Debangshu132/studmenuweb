@@ -9,6 +9,7 @@ html, body {
 
 }
 
+
 .swiper-container {
   background: #1a8cff;
   height:100%;
@@ -16,20 +17,18 @@ html, body {
  
 
  }
- .swiper-container-body{
 
-  height:100%;
-  overflow:scroll;
-
+.containerbody {
+  margin-left:auto;
+  margin-right:auto;
+  overflow-x:visible;
+  margin-bottom:10px;
+  width:70%;
  }
 .swiper-slide {
   text-align: bottom;
   
   }
-  ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
-}
 .menuitemspic{
     border-radius:50%;
     display:block;
@@ -63,12 +62,17 @@ html, body {
     z-index:4; 
     
 }
+.menu{
+  overflow:scroll;
+  height:100%;
+  margin-bottom:170px;
+  width:100%;
+}
 
 .supermenu{
    }
-.swiper-slide-body {
-    width:80%;
-    display:inline;
+.slidebody {
+
     height:120px;
     text-align: bottom;
     color:black;
@@ -81,6 +85,10 @@ html, body {
     box-shadow: 5px 10px;
     -webkit-box-shadow: 0 0 20px rgb(200,200,200);
 -moz-box-shadow: 0 0 20px rgb(200,200,200);
+}
+::-webkit-scrollbar {
+   /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 .menuitemsbodypic{
   width:100px;
@@ -216,5 +224,4 @@ body {
 }
 
 
-}
 
