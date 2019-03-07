@@ -63,6 +63,7 @@ html, body {
     
 }
 .menu{
+  margin-top:-15px;;
   overflow:scroll;
   height:90%;
   margin-bottom:170px;
@@ -72,7 +73,7 @@ html, body {
 .supermenu{
    }
 .slidebody {
-
+  margin-top:15px;
     height:120px;
     text-align: bottom;
     color:black;
@@ -100,7 +101,7 @@ html, body {
   
   background: white;
   z-index: 3;
-  box-shadow: 5px 10px;
+  box-shadow: 5px 10px; 
   -webkit-box-shadow: 0 0 20px rgb(200,200,200);
   -moz-box-shadow: 0 0 20px rgb(200,200,200);
 
