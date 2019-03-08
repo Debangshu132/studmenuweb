@@ -203,7 +203,7 @@ function fadeOutEffect() {
       } else {
           clearInterval(fadeEffect);
       }
-  }, 30);
+  }, 50);
 }
 
 
