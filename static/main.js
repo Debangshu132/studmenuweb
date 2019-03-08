@@ -185,7 +185,7 @@ document.onreadystatechange = function () {
          document.getElementById('interactive');
          fadeOutEffect();
          //document.getElementById('load').style.visibility="hidden";
-         //document.getElementById('menu').style.visibility="visible";
+          document.getElementById('menu').style.visibility="visible";
       },1000);
   }
 }
