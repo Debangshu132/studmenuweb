@@ -180,6 +180,15 @@ text-align: center;
 display: inline-block;
 
 }
+#loading {
+  background: url('https://cdn.dribbble.com/users/645440/screenshots/3266490/loader-2_food.gif?fbclid=IwAR0f-sCgnFW0H6K9_G58H8hrBDC5B4-k5QKvt-TCpRiBtYHQysHLb0Pw0Ig') no-repeat center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999999;
+}
 #food {
 font-size: 10px; 
 font-family: "Times New Roman", Times, serif; 
