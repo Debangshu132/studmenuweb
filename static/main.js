@@ -184,8 +184,8 @@ document.onreadystatechange = function () {
       setTimeout(function(){
          document.getElementById('interactive');
          fadeOutEffect();
-         document.getElementById('load').style.visibility="hidden";
-         document.getElementById('menu').style.visibility="visible";
+         //document.getElementById('load').style.visibility="hidden";
+         //document.getElementById('menu').style.visibility="visible";
       },1000);
   }
 }
@@ -196,6 +196,10 @@ function fadeOutEffect() {
   var fadeEffect = setInterval(function () {
       if (!fadeTarget.style.opacity) {
           fadeTarget.style.opacity = 1;
+      }
+     if(fadeTarget.style.opacity === 0){
+        document.getElementById('load').style.visibility="hidden";
+        document.getElementById('menu').style.visibility="visible";
       }
       if (fadeTarget.style.opacity > 0) {
           fadeTarget.style.opacity -= 0.1;
