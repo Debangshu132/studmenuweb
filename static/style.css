@@ -1,4 +1,5 @@
 
+
 @font-family: 'Roboto Condensed';
 
 html, body {
@@ -14,7 +15,7 @@ html, body {
 
 
 .swiper-container {
-  background: #1a8cff;
+  background: #ffffff;
   height:100%;
   bottom:0;
  
@@ -50,7 +51,7 @@ html, body {
     text-align: center;
     margin-left: auto;
     margin-right:auto;
-    color: white;
+    color: #555;
     
     
 }
@@ -64,9 +65,13 @@ html, body {
     padding-block-start: 0%;
     margin-block-start: 0%;
     margin-inline-start: 0%;
-    box-shadow: 10px 10px grey;
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
     position: fixed;
     z-index:4; 
+    box-shadow: 5px 10px;
+    -webkit-box-shadow: 0 0 20px rgb(200,200,200);
+    -moz-box-shadow: 0 0 20px rgb(200,200,200);
     
 }
 .menu{
@@ -94,6 +99,12 @@ html, body {
     -webkit-box-shadow: 0 0 20px rgb(200,200,200);
     -moz-box-shadow: 0 0 20px rgb(200,200,200);
 }
+
+
+
+
+
+
 ::-webkit-scrollbar {
    /* remove scrollbar space */
   background: transparent;  /* optional: just make scrollbar invisible */
@@ -172,20 +183,21 @@ border-radius: 10%;
 .foods{
 color:white;
 text-align: center;
- background: #1a8cff;
+ background: #fff;
  width:50%;  
  height: 10%;
  padding-top:5px;
  padding-bottom: 5px;
 display: inline-block;
+border-top-left-radius:30px;
+
 
 }
-
 #food {
 font-size: 10px; 
 font-family: "Times New Roman", Times, serif; 
 background-color: Transparent;
-color:white;
+color:#555;
 background-repeat:no-repeat;
 border: none;
 cursor:pointer;
@@ -201,25 +213,27 @@ font-size: 10px;
 font-family: "Times New Roman", Times, serif; 
 background-color: Transparent;
 background-repeat:no-repeat;
-color:white;
+color:#555;
 border: none;
 cursor:pointer;
 overflow: hidden;
 outline:none;
 }
+
 #drink:focus{
 outline: none;
 }
 .drinks{
 
-color:white;
+color:#555;
 text-align: center;
 padding-top:5px;
 padding-bottom: 5px;
-background:#46cc3d;
+background:#ffffff;
 width:50%;
 height: 10%; 
 display: inline-block;
+border-top-right-radius:30px;
 }
 
 
@@ -263,5 +277,16 @@ body {
 }
 
 
+
+@keyframes expand {
+  0% {
+    height:120px;
+      
+  }
+  100% {
+    height:240px;
+      
+  }
+}
 
 
