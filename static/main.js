@@ -183,8 +183,25 @@ document.onreadystatechange = function () {
   } else if (state == 'complete') {
       setTimeout(function(){
          document.getElementById('interactive');
-         document.getElementById('load').style.visibility="hidden";
+         fadeOutEffect();
+         //document.getElementById('load').style.visibility="hidden";
          //document.getElementById('contents').style.visibility="visible";
       },1000);
   }
 }
+
+
+function fadeOutEffect() {
+  var fadeTarget = document.getElementById('load');
+  var fadeEffect = setInterval(function () {
+      if (!fadeTarget.style.opacity) {
+          fadeTarget.style.opacity = 1;
+      }
+      if (fadeTarget.style.opacity > 0) {
+          fadeTarget.style.opacity -= 0.1;
+      } else {
+          clearInterval(fadeEffect);
+      }
+  }, 200);
+}
+
