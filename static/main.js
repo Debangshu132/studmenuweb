@@ -202,6 +202,6 @@ function fadeOutEffect() {
       } else {
           clearInterval(fadeEffect);
       }
-  }, 200);
+  }, 30);
 }
 
