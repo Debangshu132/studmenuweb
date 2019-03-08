@@ -179,13 +179,13 @@ function resetAllHeights(){
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'interactive') {
-       document.getElementById('contents').style.visibility="hidden";
+       document.getElementById('menu').style.visibility="hidden";
   } else if (state == 'complete') {
       setTimeout(function(){
          document.getElementById('interactive');
          fadeOutEffect();
          //document.getElementById('load').style.visibility="hidden";
-         //document.getElementById('contents').style.visibility="visible";
+         document.getElementById('menu').style.visibility="visible";
       },1000);
   }
 }
