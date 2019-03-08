@@ -49,8 +49,12 @@ picCategoryArrayFood=[
 "https://img.icons8.com/dusk/64/000000/italian-pizza.png",
 "https://img.icons8.com/dusk/64/000000/italian-pizza.png",
 "https://img.icons8.com/color/48/000000/wrap.png"
-
-
+]
+picCategoryArrayDrink=[
+  "https://img.icons8.com/color/48/000000/beer-glass.png",
+  "https://img.icons8.com/cotton/64/000000/water-glass.png",
+  "https://img.icons8.com/dusk/64/000000/wine-glass.png",
+  "https://img.icons8.com/cotton/64/000000/water-glass.png"
 ]
 
 
@@ -68,7 +72,7 @@ document.getElementById("drink").onclick=function()
 {//document.getElementById("menuit").style.background="#46cc3d";
 clearFooter("menuite");
 
-populateFooter("Taj",drink,"Drinks",picCategoryArrayFood);
+populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink);
 }  
 
 
