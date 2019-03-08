@@ -36,27 +36,46 @@ window.swiper = new Swiper('.swiper-container', {
 
 food=['best sellers','rice','paratha','pizza','chicken','veg','nonveg','egg','fish','italian','chinese'];
 drink=['beer','water','whiskey','water'];
+picCategoryArrayFood=[
+"https://img.icons8.com/color/48/000000/best-seller.png",  
+"https://img.icons8.com/plasticine/100/000000/rice-bowl.png",
+"https://img.icons8.com/dusk/64/000000/naan.png",
+"https://img.icons8.com/doodle/48/000000/pizza.png",
+"https://img.icons8.com/cotton/64/000000/chicken-box.png",
+"https://img.icons8.com/color/48/000000/vegetarian-mark.png",
+"https://img.icons8.com/color/48/000000/vegetarian-mark.png",
+"https://img.icons8.com/cotton/64/000000/sunny-side-up-eggs.png",
+"https://img.icons8.com/color/48/000000/fish-food.png",
+"https://img.icons8.com/dusk/64/000000/italian-pizza.png",
+"https://img.icons8.com/dusk/64/000000/italian-pizza.png",
+"https://img.icons8.com/color/48/000000/wrap.png"
+
+
+]
+
+
+
 document.getElementById("food").onclick=function()
 {
-  document.getElementById("menuit").style.background="#1a8cff";
+  //document.getElementById("menuit").style.background="#1a8cff";
   clearFooter("menuite");
-  populateFooter("Taj",food,"Foods");
+  populateFooter("Taj",food,"Foods",picCategoryArrayFood);
 } 
 
 
 
 document.getElementById("drink").onclick=function()
-{document.getElementById("menuit").style.background="#46cc3d";
+{//document.getElementById("menuit").style.background="#46cc3d";
 clearFooter("menuite");
 
-populateFooter("Taj",drink,"Drinks");
+populateFooter("Taj",drink,"Drinks",picCategoryArrayFood);
 }  
 
 
 
 
 window.onload = function() {
-  populateFooter("Taj",food,"Foods");
+  populateFooter("Taj",food,"Foods",picCategoryArrayFood);
   var menuitemjson=JSON.parse(menuitem);
  
   populateBody("restaurantName",menuitemjson["Foods"]["rice"]);
@@ -71,14 +90,14 @@ function clearFooter(elementID)
 
 
 }
-function populateFooter(restaurantName,foodOrDrink,foodDrink){
+function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
   
   for(i=0;i<foodOrDrink.length;i++){
   var div = document.createElement("div");
  
   div.className="swiper-slide";
   var img = document.createElement("img");
-  img.src = "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png";
+  img.src = arraypic[i];
   img.className="menuitemspic"
   var divChild = document.createElement("div");
   divChild.className="menuitemsdescription";
@@ -110,17 +129,12 @@ var div = document.createElement("div");
 div.className="slidebody";
 div.onclick=  function(arg) {
   return function() {
-   
+      
       if( arg.style.height==='120px'){
-      resetAllHeights();
 
-       
-
-
-
-
-      arg.style.height='240px';}
-      else{
+        resetAllHeights();
+        arg.style.height='240px';}
+        else{
         arg.style.height='120px';
       } 
   }
@@ -139,7 +153,7 @@ divChildDescriptionOfFood.className="menuitemsbodyDescriptionOfFood"
   
 divChildPic.className="menuitemsbodypic";
 divChildPlusMinus.className="menuitemsbodyplusminus";
-divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
+divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus"  onclick="alert(yeah1);" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
 var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
 
 divChildDescriptionOfFood.innerHTML= jsonofitems[itemnamearray[i]];
@@ -158,4 +172,3 @@ function resetAllHeights(){
   }
 
 }
-
