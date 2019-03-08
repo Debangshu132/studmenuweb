@@ -199,7 +199,7 @@ function fadeOutEffect() {
       }
      if(fadeTarget.style.opacity === 0){
         document.getElementById('load').style.visibility="hidden";
-        document.getElementById('menu').style.visibility="visible";
+        //document.getElementById('menu').style.visibility="visible";
       }
       if (fadeTarget.style.opacity > 0) {
           fadeTarget.style.opacity -= 0.1;
