@@ -12,6 +12,13 @@ html, body {
   margin-left:0%;
 
 }
+#load{
+  width:100%;
+  height:100%;
+  position:fixed;
+  z-index:9999;
+  background:url("https://cdn.dribbble.com/users/645440/screenshots/3266490/loader-2_food.gif?fbclid=IwAR0f-sCgnFW0H6K9_G58H8hrBDC5B4-k5QKvt-TCpRiBtYHQysHLb0Pw0Ig") no-repeat center center rgba(0,0,0,0.25)
+}
 
 
 .swiper-container {
