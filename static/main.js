@@ -186,7 +186,7 @@ divChildPic.style.backgroundImage=menuPicArray[Math.floor(1+Math.random() * 10)]
 div.appendChild(divChildPic);
 div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
-div.appendChild(divChildDescriptionOfFood);    
+//div.appendChild(divChildDescriptionOfFood);    
 document.getElementById("menuitbody").appendChild(div);}
 }
 function resetAllHeights(){
