@@ -393,7 +393,7 @@ body {
 
 .search > div > input:focus,
 .search > div > input:valid {
-  width: 150px;
+  width: 110px;
 }
 
 
