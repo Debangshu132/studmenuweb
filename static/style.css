@@ -375,7 +375,7 @@ body {
   outline: none;
   border-radius: 20px;
   
-  transition: width 0.5s;
+  transition: width 0.2s;
 }
 
 .search > div > input::placeholder {
