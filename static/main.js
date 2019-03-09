@@ -56,6 +56,19 @@ picCategoryArrayDrink=[
   "https://img.icons8.com/dusk/64/000000/wine-glass.png",
   "https://img.icons8.com/cotton/64/000000/water-glass.png"
 ]
+menuPicArray=[
+  "url('../static/1.jpg')",
+  "url('../static/2.jpg')",
+  "url('../static/3.jpg')",
+  "url('../static/4.jpg')",
+  "url('../static/5.jpg')",
+  "url('../static/6.jpg')",
+  "url('../static/7.jpg')",
+  "url('../static/8.jpg')",
+  "url('../static/9.jpg')",
+  "url('../static/10.jpg')"
+  
+]
 
 
 
@@ -82,7 +95,7 @@ window.onload = function() {
   populateFooter("Taj",food,"Foods",picCategoryArrayFood);
   var menuitemjson=JSON.parse(menuitem);
  
-  populateBody("restaurantName",menuitemjson["Foods"]["rice"]);
+  populateBody("restaurantName",menuitemjson["Foods"]["rice"],menuPicArray);
   };
  
 
@@ -112,7 +125,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
   item="Its not available";}
   img.onclick= function(arg) {
       return function() {
-          populateBody("restaurantName",arg);
+          populateBody("restaurantName",arg,menuPicArray);
           
       }
   }(item);
@@ -126,7 +139,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
 }
 
 
-function populateBody(restaurantName,jsonofitems){
+function populateBody(restaurantName,jsonofitems,menuPicArray){
 clearFooter("menuitbody");  
 var itemnamearray=Object.keys(jsonofitems); 
 for(i=0;i<itemnamearray.length;i++){
@@ -162,8 +175,9 @@ divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus"  onclick="alert(y
 var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
 
 divChildDescriptionOfFood.innerHTML= jsonofitems[itemnamearray[i]];
-    
-divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExIWExIWGBUaFxUWFhcVFRgRFRgWFxYYFRgYHyggGB8lHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy0lHyUtLS0tLS0tLS8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAGQAZAMBEQACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAQMEBQYCB//EADUQAAEDAQUHAgUBCQAAAAAAAAEAAgMRBAUhMVEGEhNBYXGBIrEyocHh8HIHFCNCUmKCkdH/xAAaAQACAwEBAAAAAAAAAAAAAAAAAgEDBQQG/8QAKxEAAgIBBAEDAwMFAAAAAAAAAAECEQMEEiExBSJBUTJhgRMUQiMzUqHh/9oADAMBAAIRAxEAPwD3FAAgAQAIAEACABAAgAQAIAEACABAAgAQAIA5fIBmQO6htLslRb6Ist4sHXsqMmphBcl0dPNkCa/6Ggj+f2XE/KR9kdMNDatyMTtDtBbP32LccWxDcc2NpIDjWhD6ULqkHBVS8i3yif2qi9v+zfvvUDMKY+Vt/SULSt9DbNoYa0Jou3HrIz7VDvQZatIsYLSx4q1wd2K6lJPo5Z45Q4kqHUwgIAEACAOZJA0FzjQDMnKihuuyYxcnSMje22NCWwsqP6zgPC5Z6n/E2tP4m1eV/gpY9opHH1Cq5nmfuaL8fjiuGWIvWI0DiQeyplKM+KOX9rlXQxaHE/Ad7ShC4Mulmn6TnccsH0U1ojm4sbjGSWkY4a11VawzSqh1FyTZdRTOPxkN7uCnFpcq9icakl0LaLMwg+vHoQu5aeS5ZfDJNPorW2p0TqseajqrYSnBnW8UcsamjX7ObRtn9D8JPf7rRw5lPh9mFrvHvB6o9GhXQZgIAEAYba29zJIYgaRRn1f3SDOvQe64s+S3tXR6Dx2lUILI+319l/0ys01T0XJJmzjjQnF3VS3ZZt3HLrSCPdC4BY6fAkVr3TUJJckyxb+ziW1muOflTFErEkuBBIDqVYRzZ2MTTeI8qLDr2FfFyr/xFhGXvRzG90bg9pIoRinjPawlGOSLiz1q5LeJ4WycyMf1DNa+Oe6NnidVgeHK4E9Oc4xbptyNz9AT55JZOk2WYob5qPyeSXhNh1NSe5Kymz2eOKIEE+OqrkXbRHz1NK5pKH6I7n07KCxMbNqASsZKzlloBdjl80J8A1S4HBJ1U2JRLhfkUWK0iyhbVI5Uc83QWqzH/EqY5EyceRfk1P7OrT6XR9cPH4VqaOfFGL5vF6lM2y7jz5XbQH+A/sPcKrN9DOrRf3onkl4uqSsts9jjXBV75SsuoSQ0FUthRGtE9ANUrHiiM+StNearLVwI12ITcENkls6WxKJkc+WOAS2RtLu7ZdUs2c2ZccGhsUYOHJcspmZlk0WFwWLgzNpk4n54LW8fl3VZy6zN+tid+xs1tmCQ74j3oXjp7KvKrgy/TS25Ys8dvmMglZL7Pa4ZekqHA0x5fVK2XjVomwCUlRIVoKS7HXAyCgLHGOSsB9klAq2hWrHY3fnVK7GouLnlJISz6Ks0VRu7tjwC43bZgZ5cst7I2srOh+/0Wt41etHDkdY5GjXoTKOXtqCDkRT/AGoatUSnTs8q2nsRa5w0JWROO10ew0WVTgmZeYFVneiLNZ8QlHUyHNHV1ElUOpcHMUGOOShkOXwdCEqA3EllnS0K5jjYVG0FIuLpjx6JMnRVllwbmwmjQuNLkwcvLZd3LHV5dyA+Z/Ct3xuP3M/VSqCiXi2DPBAGY2vuzeHEA6O78iuHVY/5I1/G6na9j/B5xbbLjTJcB6WErRVyxmv5kiywZewUyxSki8OmBUEHbI0rZFklkQB6KtsRttHW6PCATZY3Y3GqryCZHwaixvrQKuGO2ZmWNcm1uyzbjAD8RxPfRen0+L9OCR5/Pk3ztdEtXlIIA5kYHAgioOahpNUyYtxdowe0dxlhqB6TkfoVk6jC4P7Ho9FrFNU+zG2uykE1HnkuWzYjNNEJ8VMCFFj38CGOoroosm/YcawUGGCVsRjrgBXFJbFVncIqPKhvkV9lvYoXOIbkEpTOUYrcbvZ+6N0B7h+kH3WvodLX9SX4PP63V7rhE0C1DMBAAgAJQBFtb2Fpa4VB5JZRUlTGjNxdxMPfd2MqSxwI0Oay8+knHmHKNnTeSXU+DL2qy45LPba7NrHqFJcMhcApXNF36qCToEqZCl9xWDUV6Kb+AcvgtLuu4u1Qk26RzZtTGBt9nrrjZRziHHTl51WvptFt9WTv4MDV6+WT0x6NS11VpGadIAEACAEcEAV1tspdkgDM3jcUjsiUAUU2zE1ahxCSeOM/qVjxnKP0uhh2zdo1+QXM9DgfsdC1uZfyFZs9aByB8KqXjMT6bHXkMy7JUNwzD+RvmqI+NxrtsmXkcrRYQXLOfiOGgFAuvFgx4/pRyTyzn9TNBd13Obmrisu4WUQA8gAQAIAEACAE3QgBOGNEAJwhogA4Q0QAcMaIAXcGiAFogBUACABAH//Z">'; 
+divChildPic.style.backgroundImage=menuPicArray[Math.floor(1+Math.random() * 10)];  
+ 
+//divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
 div.appendChild(divChildPic);
 div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
