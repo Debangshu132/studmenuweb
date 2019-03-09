@@ -14,15 +14,15 @@ window.swiper = new Swiper('.swiper-container', {
           slidesPerView: 9,
           spaceBetween: 40,
         },
-      790: {
+      710: {
         slidesPerView: 8,
         spaceBetween: 40,
       },
-      640: {
+      560: {
         slidesPerView: 7,
         spaceBetween: 30,
       },
-      500: {
+      420: {
         slidesPerView: 6,
         spaceBetween: 20,
       },
@@ -112,7 +112,8 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
   item="Its not available";}
   img.onclick= function(arg) {
       return function() {
-          populateBody("restaurantName",arg)
+          populateBody("restaurantName",arg);
+          
       }
   }(item);
   div.appendChild(img);
@@ -134,12 +135,12 @@ div.className="slidebody";
 div.onclick=  function(arg) {
   return function() {
       
-      if( arg.style.height==='120px'){
+      if( arg.style.height==='90px'){
 
         resetAllHeights();
         arg.style.height='240px';}
         else{
-        arg.style.height='120px';
+        arg.style.height='90px';
       } 
   }
 }(div);
@@ -172,7 +173,7 @@ document.getElementById("menuitbody").appendChild(div);}
 function resetAllHeights(){
   var items=document.getElementsByClassName("slidebody");
   for (var i=0; i < items.length; i++) {
-    items[i].style.height='120px' ;
+    items[i].style.height='90px' ;
   }
 
 }
@@ -205,5 +206,4 @@ function fadeOutEffect() {
       }
   }, 50);
 }
-
 
