@@ -57,6 +57,7 @@ picCategoryArrayDrink=[
   "https://img.icons8.com/cotton/64/000000/water-glass.png"
 ]
 menuPicArray=[
+  "url('../static/0.jpg')",
   "url('../static/1.jpg')",
   "url('../static/2.jpg')",
   "url('../static/3.jpg')",
