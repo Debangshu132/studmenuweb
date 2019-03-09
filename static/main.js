@@ -263,4 +263,5 @@ var a=JSON.stringify(nopethisone);
 //men.innerHTML+=a;
 
 populateBody("restaurantName",nopethisone,menuPicArray);  
+document.getElementById("textsearch").value = "";  
 }
