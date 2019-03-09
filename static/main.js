@@ -124,13 +124,16 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
   var item=menuitemjson[foodDrink][foodOrDrink[i]];
   if(item==='undefined'){
   item="Its not available";}
-  img.onclick= function(arg) {
+  img.onclick= function(arg,arg2) {
       return function() {
           clearFooter("menuitbody");
           populateBody("restaurantName",arg,menuPicArray);
+          clearAllBorders();
+          
+          arg2.style.border = "3px solid #3f6982";
           
       }
-  }(item);
+  }(item,img);
   div.appendChild(img);
   div.appendChild(divChild);
   var currentDiv = document.getElementById("div1"); 
@@ -169,7 +172,7 @@ divChild.style.fontFamily = "Times New Roman, Times, serif";
 var divChildPic = document.createElement("div");
 var divChildPlusMinus = document.createElement("div");  
 var divChildDescriptionOfFood = document.createElement("div");
-divChildDescriptionOfFood.className="menuitemsbodyDescriptionOfFood"
+divChildDescriptionOfFood.className="bodyfoodprice"
   
 divChildPic.className="menuitemsbodypic";
 divChildPlusMinus.className="menuitemsbodyplusminus";
@@ -225,6 +228,15 @@ function fadeOutEffect() {
 
 
 
+function clearAllBorders(){
+  var a=document.getElementsByClassName("menuitemspic");
+  for (var i=0; i < a.length; i++) {
+    a[i].style.border='0px solid green' ;
+  }
+}
+
+
+
 
 
 
@@ -263,6 +275,7 @@ var a=JSON.stringify(nopethisone);
 //men.innerHTML+=a;
 
 populateBody("restaurantName",nopethisone,menuPicArray);  
-document.getElementById("textsearch").value = "";  
-document.getElementById("textsearch").blur();  
+document.getElementById("textsearch").value = "";
+document.getElementById("textsearch").blur();
+
 }
