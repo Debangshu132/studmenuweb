@@ -93,8 +93,8 @@ populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink);
 
 window.onload = function() {
   populateFooter("Taj",food,"Foods",picCategoryArrayFood);
-  var menuitemjson=JSON.parse(menuitem);
- 
+  window.menuitemjson=JSON.parse(menuitem);
+  clearFooter("menuitbody");
   populateBody("restaurantName",menuitemjson["Foods"]["rice"],menuPicArray);
   };
  
@@ -125,6 +125,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
   item="Its not available";}
   img.onclick= function(arg) {
       return function() {
+          clearFooter("menuitbody");
           populateBody("restaurantName",arg,menuPicArray);
           
       }
@@ -140,7 +141,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
 
 
 function populateBody(restaurantName,jsonofitems,menuPicArray){
-clearFooter("menuitbody");  
+  
 var itemnamearray=Object.keys(jsonofitems); 
 for(i=0;i<itemnamearray.length;i++){
 var div = document.createElement("div");
@@ -221,3 +222,44 @@ function fadeOutEffect() {
   }, 50);
 }
 
+
+
+
+
+
+function searchitem(){
+var text= document.getElementById("textsearch");  
+//var men=document.getElementById('menu');
+var textvalue=text.value;
+var jsonofitems={};
+clearFooter("menuitbody");
+//men.innerHTML="";
+//var data=JSON.stringify(menuitemjson);
+var fooddrink;
+for (fooddrink in menuitemjson) { 
+  
+  var category;
+  for(category in menuitemjson[fooddrink]){
+    var fooditem;
+    for(fooditem in menuitemjson[fooddrink][category]){
+      var stringfooditem=JSON.stringify(fooditem);
+      if( stringfooditem.includes(textvalue)){
+
+         var price=menuitemjson[fooddrink][category][fooditem];
+         jsonofitems[stringfooditem]=price;
+        
+         
+      }
+    }
+  }
+}
+var stringresult=JSON.stringify(jsonofitems);
+var finalData = stringresult.replace(/\\/g, "");
+var finallymadedata=finalData.replace('""','"');
+var thisoneisfinal = finallymadedata.replace(/""/g, '"');
+var nopethisone=JSON.parse(thisoneisfinal);
+var a=JSON.stringify(nopethisone);
+//men.innerHTML+=a;
+
+populateBody("restaurantName",nopethisone,menuPicArray);  
+}
