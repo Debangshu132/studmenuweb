@@ -355,12 +355,12 @@ body {
 .search > div:after {
   content: "";
   background: #aaa;
-  width: 4px;
-  height: 12px;
+  width: 2px;
+  height: 9px;
   position: fixed;
   top: 20px;
   margin-top:6px;
-  margin-left:-1px;
+  margin-left:-2px;
   transform: rotate(135deg);
 
 }
