@@ -66,7 +66,7 @@ html, body {
 
 .footer{
     font-family: "Times New Roman", Times, serif;
-    height:12vh;
+    height:80px;
     bottom:0;
     width:100%;
     margin-left:0%;
@@ -391,6 +391,5 @@ body {
 .search > div > input:valid {
   width: 220px;
 }
-
 
 
