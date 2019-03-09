@@ -54,7 +54,7 @@ html, body {
   }
   .menuitemspic:focus, .menuitemspic:active {
          
-    animation: pulse 0.6s;
+    animation: pulse 0.3s;
 }
 .menuitemsdescription{
     text-align: center;
@@ -268,15 +268,7 @@ body {
       max-height:67%;
       box-shadow: 0px 0px 0px 0px rgba(63, 105, 130, 1);
   }
-  20%{
-    max-width:70%;
-      max-height:70%;
-      box-shadow: 0px 0px 5px 5px rgba(63, 105, 130, 0.9);
-  }
-  40%{
-    
-      box-shadow: 0px 0px 10px 10px rgba(63, 105, 130, 0.1);
-  }
+ 
   
   50% {
   
@@ -284,7 +276,7 @@ body {
   }
   100% {
    
-     box-shadow: 0px 0px 15px 15px rgba(63, 105, 130, 0.7);
+     box-shadow: 0px 0px 15px 15px rgba(63, 105, 130, 0.1);
   }
 }
 
