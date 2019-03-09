@@ -366,14 +366,14 @@ body {
   font-size: 13px;
   background: transparent;
   width: 20px;
-  height: 20px;
+  height: 18px;
   margin-top:9px;
 
   float:left;
   margin-left:15px ;
   border: solid 2px #aaa;
   outline: none;
-  border-radius: 16px;
+  border-radius: 20px;
   
   transition: width 0.5s;
 }
