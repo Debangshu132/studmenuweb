@@ -1,6 +1,5 @@
 
 
-
 @font-family: 'Roboto Condensed';
 
 html, body {
@@ -390,5 +389,5 @@ body {
 
 .search > div > input:focus,
 .search > div > input:valid {
-  width: 110px;
+  width: 220px;
 }
