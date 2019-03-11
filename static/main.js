@@ -270,7 +270,7 @@ function createCustomizationTab(text,baseprice){
 
             var priceofoption=document.createElement('div');  
             priceofoption.className='customizationpriceofoption';
-            nameofoption.innerHTML='<input type="radio"  name="option1" value="Bike"> ' + option ;
+            nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
             priceofoption.innerHTML= JSON.stringify(singlesectionoptions[option]) + '<br></br>';
             customizationtabcontent.appendChild(nameofoption);
             customizationtabcontent.appendChild(priceofoption);}}
