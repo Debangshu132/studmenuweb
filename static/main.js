@@ -37,11 +37,12 @@ window.swiper = new Swiper('.swiper-container', {
 food=['best sellers','rice','paratha','pizza','chicken','veg','nonveg','egg','fish','italian','chinese'];
 drink=['beer','water','whiskey','water'];
 picCategoryArrayFood=[
-"https://img.icons8.com/color/48/000000/best-seller.png",  
-"https://img.icons8.com/plasticine/100/000000/rice-bowl.png",
-"https://img.icons8.com/dusk/64/000000/naan.png",
-"https://img.icons8.com/doodle/48/000000/pizza.png",
-"https://img.icons8.com/cotton/64/000000/chicken-box.png",
+
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Dessert-min.png",  
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Dessert2-min.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/bread+(1)-min.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/bread-min.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/pizza-min.png",
 "https://img.icons8.com/color/48/000000/vegetarian-mark.png",
 "https://img.icons8.com/color/48/000000/vegetarian-mark.png",
 "https://img.icons8.com/cotton/64/000000/sunny-side-up-eggs.png",
@@ -248,8 +249,8 @@ function fadeOutEffect() {
 
 function createCustomizationTab(text,baseprice){
     if(text["customization"]==true){
-          
-    
+          var addtocart=document.createElement('div'); 
+          var totalcart=0;
           var singlechoicejson=text["customizationdata"]['singlechoice'];
           var multiplechoicejson=text["customizationdata"]['multiplechoice'];
           var customizationtab=document.createElement('div');
@@ -270,16 +271,35 @@ function createCustomizationTab(text,baseprice){
 
             var priceofoption=document.createElement('div');  
             priceofoption.className='customizationpriceofoption';
-            nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
+            
+
+
+
+            var checkbox = document.createElement("input"); 
+            checkbox.setAttribute("type", "radio");
+            checkbox.setAttribute("name", singlesectionquery);
+            checkbox.setAttribute("value", "ff");
+            checkbox.setAttribute("nclick", "updatecart()");
+           
+              
+
+
+
+
+            var label= document.createElement("label"); 
+            label.setAttribute("for", singlesectionquery);
+            label.innerHTML=option;
+            nameofoption.appendChild(checkbox); 
+            nameofoption.appendChild(label);
+         
+
+            //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
             priceofoption.innerHTML= JSON.stringify(singlesectionoptions[option]) + '<br></br>';
             customizationtabcontent.appendChild(nameofoption);
-            customizationtabcontent.appendChild(priceofoption);}}
+            customizationtabcontent.appendChild(priceofoption);
+          }}
 
-
-
-
-
-          for(section in multiplechoice){
+         for(section in multiplechoice){
             var multiplesectionquery=JSON.stringify(multiplechoice[section]);
             var multiplesectionoptions=multiplechoicejson[multiplechoice[section]];
             multiplesectionquery = JSON.stringify(multiplesectionquery).substring(3, multiplesectionquery.length+1); 
@@ -291,27 +311,43 @@ function createCustomizationTab(text,baseprice){
 
             var priceofoption=document.createElement('div');  
             priceofoption.className='customizationpriceofoption';
-            nameofoption.innerHTML='<input type="checkbox" name="vehicle1" value="Bike"> ' + option ;
-            priceofoption.innerHTML= JSON.stringify(multiplesectionoptions[option]) + '<br></br>';
-            customizationtabcontent.appendChild(nameofoption);
-            customizationtabcontent.appendChild(priceofoption);}}
-            var totalcart=document.createElement('div');
-            totalcart.innerHTML=baseprice;  
-            var addtocart=document.createElement('div');            
+
+
+
+
+            var checkbox = document.createElement("input"); 
+            checkbox.setAttribute("type", "checkbox");
+            checkbox.setAttribute("name", "dd");
+            checkbox.setAttribute("value", "ff");
+            checkbox.checked = true; 
+            nameofoption.appendChild(checkbox); 
+            //nameofoption.innerHTML='<input type="checkbox" name="vehicle1" value="Bike"> ' + option ;
+            //priceofoption.innerHTML= JSON.stringify(multiplesectionoptions[option]) + '<br></br>';
+            //customizationtabcontent.appendChild(nameofoption);
+           // customizationtabcontent.appendChild(priceofoption);
+          }}
+          
+            
+                      
             addtocart.className='customizetabaddtocart';
-            addtocart.innerHTML='ADD TO CART';
-            customizationtabcontent.appendChild(totalcart);
+            addtocart.id="customizetabaddtocart"
+            addtocart.innerHTML='ADD TO CART  '+totalcart.toString();
+            
             customizationtabcontent.appendChild(addtocart);
             customizationtab.appendChild(customizationtabcontent);
             
-           
             document.getElementById("menu").appendChild(customizationtab);}
         else{}   
            
 
     
 }
+function updatecart(){
+  alert("yo");
+ //document.getElementById("customizetabaddtocart").innerHTML="YO";
 
+
+}
 
 
 
