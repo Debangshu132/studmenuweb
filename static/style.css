@@ -1,7 +1,5 @@
 
 
-
-
 @font-family: 'Roboto Condensed';
 
 html, body {
@@ -29,6 +27,14 @@ html, body {
   height:100%;
   bottom:0;
  
+
+ }
+ .carticon{
+   float:right;
+   padding-right:30px;
+   margin-top:5px;
+   height:70%;
+  
 
  }
 
@@ -127,8 +133,8 @@ html, body {
   padding: 10px;
   border: 1px solid #888;
   overflow: scroll; /* Enable scroll if needed */
-  width: 75%; /* Could be more or less, depending on screen size */
-  height:50%;
+  width: 80%; /* Could be more or less, depending on screen size */
+  height:70%;
   border-radius: 5px;
 
   
@@ -214,8 +220,8 @@ border-radius: 10%;
   }  
  .menuitemsbodyplus{
     padding-top:8px; 
-    max-width:50%;
-    max-height:50%;
+    max-width: 55%;
+    max-height:55%;
 
  }  
  .menuitemsbodyminus{
