@@ -1,4 +1,5 @@
-window.cart=[];
+
+ window.cart=[];
 
 window.swiper = new Swiper('.swiper-container', {
   slidesPerView:5,
