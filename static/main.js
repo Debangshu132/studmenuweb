@@ -101,12 +101,26 @@ document.getElementById("carticon").onclick=function(){
   var cartcustomizationname=document.createElement('div');
   var cartitempricename=document.createElement('div');
   var cartitemquantityname=document.createElement('div');
+  var minusbutton=document.createElement('img');
+  var plusbutton=document.createElement('img');
+  var changecartitem=document.createElement('div');
   
   cartitemname.className="cartitemname";
   cartcustomizationname.className="cartcustomizationname";
   cartitempricename.className="cartitempricename";
-  cartitemquantityname.className="cartitemquantitynme";
+  cartitemquantityname.className="cartitemquantityname";
   cartitem.classname="cartitem";
+  changecartitem.className="changecartitem";
+  minusbutton.className="cartminusbutton";
+  plusbutton.className="cartplusbutton";
+
+  plusbutton.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg";
+  minusbutton.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC";
+  
+
+
+
+
   var cartitemnamestring=JSON.stringify(window.cart[i]["item"]).substring(1,JSON.stringify(window.cart[i]["item"]).length-1);
   var cartcustomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
@@ -121,12 +135,35 @@ document.getElementById("carticon").onclick=function(){
   cartitemname.innerHTML=cartitemnamestring;
   cartcustomizationname.innerHTML=cartcustomizationnamestring;
   cartitempricename.innerHTML="Price:Rs"+JSON.stringify(window.cart[i]["price"]);
-  cartitemquantityname.innerHTML="Quantity:"+JSON.stringify(window.cart[i]["quantity"]);
+  cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
+  plusbutton.onclick=function(arg,arg2){
+    return function(){
+    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]+1;   
+    arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);}
 
+  }(i,cartitemquantityname);
+  minusbutton.onclick=function(arg,arg2){
+    return function(){
+    if(window.cart[arg]["quantity"]>0){
+    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1; 
+    arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
+  } 
+    if(window.cart[arg]["quantity"]===0){
+      window.cart[arg].remove();}}
+}(i,cartitemquantityname);
+
+
+
+  changecartitem.appendChild(plusbutton);
+  changecartitem.appendChild(cartitemquantityname);
+  changecartitem.appendChild(minusbutton);
   cartitem.appendChild(cartitemname);
   cartitem.appendChild(cartcustomizationname);
   cartitem.appendChild(cartitempricename);
-  cartitem.appendChild(cartitemquantityname);
+  cartitem.appendChild(changecartitem);
+
+  
+ 
   //cartitem.innerHTML=JSON.stringify(window.cart[i]);
   //tempname = tempname.substring(1, tempname.length-1);
 
@@ -196,10 +233,12 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
   img.onclick= function(arg,arg2) {
       return function() {
           clearFooter("menuitbody");
+          arg2.style.borderRadius="50%";
           populateBody("restaurantName",arg,menuPicArray);
           clearAllBorders();
           
           arg2.style.border = "3px solid #3f6982";
+          arg2.style.borderRadius = "50%";
           
       }
   }(item,img);
@@ -249,6 +288,7 @@ menuitemsbodyminus.setAttribute("src","data:image/png;base64,iVBORw0KGgoAAAANSUh
 
 
 //divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
+
 menuitemsbodyplus.onclick=function(arg,arg2){
   return function() {
     createCustomizationTab(arg,arg2,100);
@@ -564,6 +604,7 @@ function clearAllBorders(){
   var a=document.getElementsByClassName("menuitemspic");
   for (var i=0; i < a.length; i++) {
     a[i].style.border='0px solid green' ;
+    a[i].style.borderRadius="0%";
   }
 }
 
