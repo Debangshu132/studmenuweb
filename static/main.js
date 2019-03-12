@@ -1,5 +1,4 @@
-
- window.cart=[];
+window.cart=[];
 
 window.swiper = new Swiper('.swiper-container', {
   slidesPerView:5,
@@ -60,7 +59,7 @@ picCategoryArrayDrink=[
   "https://img.icons8.com/dusk/64/000000/wine-glass.png",
   "https://img.icons8.com/cotton/64/000000/water-glass.png"
 ]
-menuPicArray=[
+window.menuPicArray=[
   "url('../static/0.jpg')",
   "url('../static/1.jpg')",
   "url('../static/2.jpg')",
@@ -74,7 +73,7 @@ menuPicArray=[
   "url('../static/10.jpg')"
   ] 
 
-document.getElementById("carticon").onclick=function(){
+document.getElementById("carticon").onclick=function(menuPicArray){
  var cart=document.createElement('div');
  cart.className="cart";
  cart.id="cart";
@@ -104,19 +103,22 @@ document.getElementById("carticon").onclick=function(){
   var minusbutton=document.createElement('img');
   var plusbutton=document.createElement('img');
   var changecartitem=document.createElement('div');
+  var cartitempic=document.createElement('IMG');
+
   
   cartitemname.className="cartitemname";
   cartcustomizationname.className="cartcustomizationname";
   cartitempricename.className="cartitempricename";
   cartitemquantityname.className="cartitemquantityname";
-  cartitem.classname="cartitem";
+  cartitem.className="cartitem";
   changecartitem.className="changecartitem";
   minusbutton.className="cartminusbutton";
   plusbutton.className="cartplusbutton";
+  cartitempic.className="cartitempic";
 
   plusbutton.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg";
   minusbutton.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC";
-  
+  cartitempic.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg";
 
 
 
@@ -136,21 +138,28 @@ document.getElementById("carticon").onclick=function(){
   cartcustomizationname.innerHTML=cartcustomizationnamestring;
   cartitempricename.innerHTML="Price:Rs"+JSON.stringify(window.cart[i]["price"]);
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
-  plusbutton.onclick=function(arg,arg2){
+  plusbutton.onclick=function(arg,arg2,arg3){
     return function(){
-    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]+1;   
-    arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);}
-
-  }(i,cartitemquantityname);
-  minusbutton.onclick=function(arg,arg2){
-    return function(){
-    if(window.cart[arg]["quantity"]>0){
-    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1; 
+     var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];
+    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]+1; 
+    window.cart[arg]["price"]=window.cart[arg]["price"]+priceperitem;   
     arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
+    arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
+  }
+
+  }(i,cartitemquantityname,cartitempricename);
+  minusbutton.onclick=function(arg,arg2,arg3){
+    return function(){
+    var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];  
+    if(window.cart[arg]["quantity"]>0){
+    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1;
+    window.cart[arg]["price"]=window.cart[arg]["price"]-priceperitem;   
+    arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
+    arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
   } 
     if(window.cart[arg]["quantity"]===0){
       window.cart[arg].remove();}}
-}(i,cartitemquantityname);
+}(i,cartitemquantityname,cartitempricename);
 
 
 
@@ -161,14 +170,7 @@ document.getElementById("carticon").onclick=function(){
   cartitem.appendChild(cartcustomizationname);
   cartitem.appendChild(cartitempricename);
   cartitem.appendChild(changecartitem);
-
-  
- 
-  //cartitem.innerHTML=JSON.stringify(window.cart[i]);
-  //tempname = tempname.substring(1, tempname.length-1);
-
-
-
+  cartitem.appendChild(cartitempic);
   cart.appendChild(cartitem);
  }
 
@@ -321,7 +323,7 @@ div.onclick=  function(arg) {
 }(div);
 
 divChildDescriptionOfFood.innerHTML= jsonofitems[itemnamearray[i]];
-divChildPic.style.backgroundImage=menuPicArray[Math.floor(1+Math.random() * 10)];  
+divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
  
 //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
 div.appendChild(divChildPic);
