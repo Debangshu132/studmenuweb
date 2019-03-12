@@ -1,3 +1,5 @@
+window.cart=[];
+
 window.swiper = new Swiper('.swiper-container', {
   slidesPerView:5,
   simulateTouch:true,
@@ -42,7 +44,7 @@ picCategoryArrayFood=[
 "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Dessert2-min.png",
 "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/bread+(1)-min.png",
 "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/bread-min.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/pizza-min.png",
+"https://image.flaticon.com/icons/svg/1412/1412511.svg",
 "https://img.icons8.com/color/48/000000/vegetarian-mark.png",
 "https://img.icons8.com/color/48/000000/vegetarian-mark.png",
 "https://img.icons8.com/cotton/64/000000/sunny-side-up-eggs.png",
@@ -71,6 +73,12 @@ menuPicArray=[
   "url('../static/10.jpg')"
   
 ]
+
+
+document.getElementById("carticon").onclick=function(){
+  var url = "http://www.studmenuweb.herokuapp.com/cart/abc";
+  window.location(url);
+}
 
 
 
@@ -170,10 +178,34 @@ divChildPlusMinus.className="menuitemsbodyplusminus";
 divChildPlusMinus.addEventListener('click', function(pEvent) {
   pEvent.stopPropagation();
 })
-divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus"  onclick="alert(yeah1);" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
-divChildPlusMinus.onclick=function(){createCustomizationTab(jsonofitems[tempname],100);};
+
+var menuitemsbodyplus=document.createElement("IMG");
+menuitemsbodyplus.className="menuitemsbodyplus";
+menuitemsbodyplus.setAttribute("src","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg")
+var menuitemsbodyminus=document.createElement("IMG");
+menuitemsbodyminus.className="menuitemsbodyminus";
+menuitemsbodyminus.setAttribute("src","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC")
 
 
+
+//divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
+menuitemsbodyplus.onclick=function(arg,arg2){
+  return function() {
+    createCustomizationTab(arg,arg2,100);
+  }}(tempname,jsonofitems[tempname]);
+menuitemsbodyminus.onclick=function(arg,arg2){
+    return function() {
+      checkandminus(arg,arg2);
+    }}(tempname,jsonofitems[tempname]);  
+
+
+
+
+
+  divChildPlusMinus.appendChild(menuitemsbodyplus);
+  divChildPlusMinus.appendChild(menuitemsbodyminus);
+
+  
 var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
 div.onclick=  function(arg) {
   return function() {
@@ -247,13 +279,54 @@ function fadeOutEffect() {
 }
 
 
-function createCustomizationTab(text,baseprice){
-    if(text["customization"]==true){
+function  checkandminus(item,text){
+   var countfitemareadypresentincart=0;
+   for(var i=0;i<window.cart.length;i++){
+     if(JSON.stringify(window.cart[i]["item"]) === JSON.stringify(item) ){
+       countfitemareadypresentincart= countfitemareadypresentincart+1;}}
+      // alert(countfitemareadypresentincart);
+     if(countfitemareadypresentincart>1){
+       alert("you have multiple vriations.please go to cart to remove");
+     }
+     if(countfitemareadypresentincart===0){
+       alert("you dont have this item in cart yet");
+     }  
+     if(countfitemareadypresentincart===1){
+         for(var j=0;j<window.cart.length;j++){
+           if(JSON.stringify(window.cart[j]["item"])===JSON.stringify(item)){
+                  if(parseInt(window.cart[j]["quantity"])>1){
+                    var priceofsingleitem=parseInt(window.cart[j]["price"])/parseInt(window.cart[j]["quantity"]);
+                    window.cart[j]["quantity"]=window.cart[j]["quantity"]-1;
+                    window.cart[j]["price"]=window.cart[j]["price"]-priceofsingleitem;
+                    console.log(window.cart);
+                  }
+                  if(parseInt(window.cart[j]["quantity"])===1){
+                       window.cart.splice(j,1);
+                       console.log(window.cart);
+                  }
+           }
+         }
+
+
+
+
+
+     } 
+}
+
+
+function createCustomizationTab(item,text,baseprice){
+    if(text["customization"]===true){
           var addtocart=document.createElement('div'); 
           var totalcart=0;
+          var customization={};
           var singlechoicejson=text["customizationdata"]['singlechoice'];
+          var singlechoicearr=Object.keys(singlechoicejson);
+          
           var multiplechoicejson=text["customizationdata"]['multiplechoice'];
+          var multiplechoicearr=Object.keys(multiplechoicejson);
           var customizationtab=document.createElement('div');
+          customizationtab.id="customizationtab";
           var customizationtabcontent=document.createElement('div');
           customizationtab.className='customizationtab';
           customizationtabcontent.className='customizationtabcontent';
@@ -271,17 +344,18 @@ function createCustomizationTab(text,baseprice){
 
             var priceofoption=document.createElement('div');  
             priceofoption.className='customizationpriceofoption';
-            
+                  
 
 
 
             var checkbox = document.createElement("input"); 
             checkbox.setAttribute("type", "radio");
             checkbox.setAttribute("name", singlesectionquery);
-            checkbox.setAttribute("value", "ff");
-            checkbox.setAttribute("nclick", "updatecart()");
+            checkbox.setAttribute("value", [option,singlesectionoptions[option]]);
+            checkbox.setAttribute("checked", true);
+            //checkbox.setAttribute("onclick", "function(){customization='hey'}");
            
-              
+       
 
 
 
@@ -291,8 +365,6 @@ function createCustomizationTab(text,baseprice){
             label.innerHTML=option;
             nameofoption.appendChild(checkbox); 
             nameofoption.appendChild(label);
-         
-
             //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
             priceofoption.innerHTML= JSON.stringify(singlesectionoptions[option]) + '<br></br>';
             customizationtabcontent.appendChild(nameofoption);
@@ -300,53 +372,120 @@ function createCustomizationTab(text,baseprice){
           }}
 
          for(section in multiplechoice){
-            var multiplesectionquery=JSON.stringify(multiplechoice[section]);
-            var multiplesectionoptions=multiplechoicejson[multiplechoice[section]];
-            multiplesectionquery = JSON.stringify(multiplesectionquery).substring(3, multiplesectionquery.length+1); 
-            customizationtabcontent.innerHTML+=multiplesectionquery + '<br></br>';
-            for(option in multiplesectionoptions){
-            option = JSON.stringify(option).substring(1, option.length+1);  
-            var nameofoption=document.createElement('div');
-            nameofoption.className='customizationnameofoption';
+          var multiplesectionquery=JSON.stringify(multiplechoice[section]);
+          var multiplesectionoptions=multiplechoicejson[multiplechoice[section]];
+          multiplesectionquery = JSON.stringify(multiplesectionquery).substring(3, multiplesectionquery.length+1); 
+          customizationtabcontent.innerHTML+=multiplesectionquery + '<br></br>';
+          for(option in multiplesectionoptions){
+          option = JSON.stringify(option).substring(1, option.length+1);  
+          var nameofoption=document.createElement('div');
+          nameofoption.className='customizationnameofoption';
 
-            var priceofoption=document.createElement('div');  
-            priceofoption.className='customizationpriceofoption';
+          var priceofoption=document.createElement('div');  
+          priceofoption.className='customizationpriceofoption';
+                
 
 
 
+          var checkbox = document.createElement("input"); 
+          checkbox.setAttribute("type", "checkbox");
+          checkbox.setAttribute("name", multiplesectionquery);
+          checkbox.setAttribute("value", [option,multiplesectionoptions[option]]);
 
-            var checkbox = document.createElement("input"); 
-            checkbox.setAttribute("type", "checkbox");
-            checkbox.setAttribute("name", "dd");
-            checkbox.setAttribute("value", "ff");
-            checkbox.checked = true; 
-            nameofoption.appendChild(checkbox); 
-            //nameofoption.innerHTML='<input type="checkbox" name="vehicle1" value="Bike"> ' + option ;
-            //priceofoption.innerHTML= JSON.stringify(multiplesectionoptions[option]) + '<br></br>';
-            //customizationtabcontent.appendChild(nameofoption);
-           // customizationtabcontent.appendChild(priceofoption);
-          }}
+
+
+          var label= document.createElement("label"); 
+          label.setAttribute("for", multiplesectionquery);
+          label.innerHTML=option;
+          nameofoption.appendChild(checkbox); 
+          nameofoption.appendChild(label);
+         
+          //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
+          priceofoption.innerHTML= JSON.stringify(multiplesectionoptions[option]) + '<br></br>';
+          customizationtabcontent.appendChild(nameofoption);
+          customizationtabcontent.appendChild(priceofoption);
+        }}
           
             
-                      
+                  
+            var quantity = document.createElement("INPUT");
+            quantity.setAttribute("type", "number");
+            quantity.setAttribute("name", "number of items");
+            quantity.setAttribute("value", "1");
+           
+
             addtocart.className='customizetabaddtocart';
-            addtocart.id="customizetabaddtocart"
-            addtocart.innerHTML='ADD TO CART  '+totalcart.toString();
-            
+            addtocart.id="customizetabaddtocart";
+            addtocart.innerHTML='ADD TO CART';
+           
+
+
+
+            addtocart.onclick=function(){
+              for(var i=0;i < singlechoicearr.length;i++){
+            customization[singlechoicearr[i]]=updatecustomization(singlechoicearr[i]);}
+            for(var i=0;i < multiplechoicearr.length;i++){
+              customization[multiplechoicearr[i]]=updatecustomization(multiplechoicearr[i]);}
+              var quantityofitems=quantity.value;
+            updatecart(item,customization,quantityofitems);
+          }
+          customizationtabcontent.appendChild(quantity);
             customizationtabcontent.appendChild(addtocart);
             customizationtab.appendChild(customizationtabcontent);
-            
             document.getElementById("menu").appendChild(customizationtab);}
-        else{}   
+        else{
+          alert("updating");
+          updatecart(item,"none",1);
+          
+        }   
            
 
     
 }
-function updatecart(){
-  alert("yo");
- //document.getElementById("customizetabaddtocart").innerHTML="YO";
+function updatecart(item,customization,quantity){
+  var priceofindividualitem=calculatepriceofindividualitem(customization)*parseInt(quantity);
+  var newitem={"item":item,"customization":customization,"quantity":parseInt(quantity),"price":priceofindividualitem};
+  if(window.cart.length>0){
+  var ispresentalready=checkforsameitemandcustomizationincart(newitem);
 
-
+  if(ispresentalready===false){
+    window.cart.push(newitem);}}
+  else{
+  window.cart.push(newitem);}
+  try{
+  document.getElementById("customizationtab").remove();}
+  catch{
+    alert("updated!");
+  }
+  console.log(JSON.stringify(window.cart));
+}
+function checkforsameitemandcustomizationincart(newitem){
+   for(var i=0;i<window.cart.length;i++){
+        //alert(JSON.stringify(window.cart[i]));
+        if(newitem["item"]===window.cart[i]["item"] && JSON.stringify(newitem["customization"])===JSON.stringify(window.cart[i]["customization"])){
+          window.cart[i]["quantity"]=window.cart[i]["quantity"]+newitem["quantity"];
+          window.cart[i]["price"]=window.cart[i]["price"]+newitem["price"];
+          return true;
+        }}
+      return false;
+}
+function calculatepriceofindividualitem(customization){
+   var price=0;
+   var sections=Object.keys(customization);
+   for(var i=0;i<sections.length;i++){
+    var arrayofitemsselected=customization[sections[i]];
+    //price=price+arrayofitemsselected ;
+   for(var j=0;j<arrayofitemsselected.length;j++){
+      var itempricearray=arrayofitemsselected[j].split(',');
+      price=price+parseInt(itempricearray[1]);
+   }}
+   return price; 
+}
+function updatecustomization(checkboxName) {
+  var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
+  Array.prototype.forEach.call(checkboxes, function(el) {
+      values.push(el.value);});
+ return values;
 }
 
 
