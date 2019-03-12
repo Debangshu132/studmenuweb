@@ -99,23 +99,32 @@ document.getElementById("carticon").onclick=function(){
   var cartitemname=document.createElement('div');
   var cartcustomizationname=document.createElement('div');
   var cartitempricename=document.createElement('div');
-  var cartitemquantitynme=document.createElement('div');
+  var cartitemquantityname=document.createElement('div');
   
   cartitemname.className="cartitemname";
   cartcustomizationname.className="cartcustomizationname";
   cartitempricename.className="cartitempricename";
-  cartitemquantitynme.className="cartitemquantitynme";
+  cartitemquantityname.className="cartitemquantitynme";
   cartitem.classname="cartitem";
-
-  cartitemname.innerHTML=JSON.stringify(window.cart[i]["item"]);
-  cartcustomizationname.innerHTML=JSON.stringify(window.cart[i]["customization"]);
+  var cartitemnamestring=JSON.stringify(window.cart[i]["item"]).substring(1,JSON.stringify(window.cart[i]["item"]).length-1);
+  var cartcustomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',':');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',':');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace(']}','');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('[','');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('":[','');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('":],"',' ; ');
+  cartitemname.innerHTML=cartitemnamestring;
+  cartcustomizationname.innerHTML=cartcustomizationnamestring;
   cartitempricename.innerHTML="Price:"+JSON.stringify(window.cart[i]["price"]);
-  cartitemquantitynme.innerHTML="Quantity:"+JSON.stringify(window.cart[i]["quantity"]);
+  cartitemquantityname.innerHTML="Quantity:"+JSON.stringify(window.cart[i]["quantity"]);
 
   cartitem.appendChild(cartitemname);
   cartitem.appendChild(cartcustomizationname);
   cartitem.appendChild(cartitempricename);
-  cartitem.appendChild(cartitemquantitynme);
+  cartitem.appendChild(cartitemquantityname);
   //cartitem.innerHTML=JSON.stringify(window.cart[i]);
   //tempname = tempname.substring(1, tempname.length-1);
 
