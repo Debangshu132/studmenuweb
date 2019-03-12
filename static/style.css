@@ -157,6 +157,47 @@ html, body {
 
 
 }
+.cart{
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: #fff; /* Fallback color */
+  color:#000; /* Black w/ opacity */
+  margin:5px;
+}
+.cartitem{
+  width:100%;
+  border-bottom:  1px solid #ddd;
+}
+.cartheader{
+  width:100%;
+  
+
+  display:inline-block;
+}
+.cartheaderback{
+  widows: 20px;
+  
+}
+.cartheadername{
+  height:100%;
+  position:relative;
+  top:-12px; 
+  display:inline-block;
+}
+.cartitemname{
+  font-weight:bold;
+  font-size: 13px;
+  padding-left:5%;
+}
+.cartcustomizationname{
+  color:grey;
+  width:60%;
+  font-size: 10px;
+}
 
 
 
