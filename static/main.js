@@ -148,18 +148,23 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   }
 
   }(i,cartitemquantityname,cartitempricename);
-  minusbutton.onclick=function(arg,arg2,arg3){
+  minusbutton.onclick=function(arg,arg2,arg3,arg4){
     return function(){
-    var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];  
+     
     if(window.cart[arg]["quantity"]>0){
+      var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];   
     window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1;
     window.cart[arg]["price"]=window.cart[arg]["price"]-priceperitem;   
     arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
     arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
   } 
     if(window.cart[arg]["quantity"]===0){
-      window.cart[arg].remove();}}
-}(i,cartitemquantityname,cartitempricename);
+     
+      arg4.remove();
+      window.cart.splice(arg,1);
+    
+    }}
+}(i,cartitemquantityname,cartitempricename,cartitem);
 
 
 
