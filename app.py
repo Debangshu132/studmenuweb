@@ -18,7 +18,7 @@ def menu():
          #return render_template('chart.html',menu=menu)
 @app.route("/cart/<cartdata>", methods=['GET', 'POST'])
 def cart(cartdata):
-         return cartdata
+         return 123
 
 if __name__ == "__main__":
     app.run()         
