@@ -16,6 +16,9 @@ def menu():
          print(restaurant["Taj"]["menu"])
          return render_template("headerfooter.html",menuitems=json.dumps(restaurant["Taj"]["menu"]))
          #return render_template('chart.html',menu=menu)
+@app.route("/cart/<cartdata>", methods=['GET', 'POST'])
+def cart(cartdata):
+         return cartdata
 
 if __name__ == "__main__":
     app.run()         
