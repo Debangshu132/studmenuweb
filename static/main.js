@@ -109,17 +109,18 @@ document.getElementById("carticon").onclick=function(){
   cartitem.classname="cartitem";
   var cartitemnamestring=JSON.stringify(window.cart[i]["item"]).substring(1,JSON.stringify(window.cart[i]["item"]).length-1);
   var cartcustomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',':');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',':');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
   cartcustomizationnamestring=cartcustomizationnamestring.replace(']}','');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('[','');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('":[','');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('":],"',' ; ');
+  cartcustomizationnamestring=cartcustomizationnamestring.replace(',',' ,Rs');
   cartitemname.innerHTML=cartitemnamestring;
   cartcustomizationname.innerHTML=cartcustomizationnamestring;
-  cartitempricename.innerHTML="Price:"+JSON.stringify(window.cart[i]["price"]);
+  cartitempricename.innerHTML="Price:Rs"+JSON.stringify(window.cart[i]["price"]);
   cartitemquantityname.innerHTML="Quantity:"+JSON.stringify(window.cart[i]["quantity"]);
 
   cartitem.appendChild(cartitemname);
