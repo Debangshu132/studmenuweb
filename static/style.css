@@ -170,11 +170,11 @@ html, body {
 }
 .cartitem{
   width:100%;
-  border-bottom:  1px solid #ddd;
+  border-bottom:  1px solid #555;
 }
 .cartheader{
   width:100%;
-  
+  font-family: "Times New Roman", Times, serif; 
 
   display:inline-block;
 }
@@ -183,20 +183,36 @@ html, body {
   
 }
 .cartheadername{
+  font-family: "Times New Roman", Times, serif; 
   height:100%;
   position:relative;
   top:-12px; 
   display:inline-block;
+  font-size: 13px;
 }
 .cartitemname{
+  font-family: "Times New Roman", Times, serif; 
   font-weight:bold;
   font-size: 13px;
   padding-left:5%;
 }
 .cartcustomizationname{
+  font-family: "Times New Roman", Times, serif; 
   color:grey;
-  width:60%;
+  width:80%;
   font-size: 10px;
+}
+.cartitemquantitynme{
+  font-family: "Times New Roman", Times, serif; 
+  position:relative;
+  top:-15px;
+  left:45%;
+  color:grey;
+}
+.cartitempricename{
+  font-family: "Times New Roman", Times, serif; 
+  color:grey;
+  padding-left:10px;
 }
 
 
