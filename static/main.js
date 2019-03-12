@@ -71,13 +71,62 @@ menuPicArray=[
   "url('../static/8.jpg')",
   "url('../static/9.jpg')",
   "url('../static/10.jpg')"
-  
-]
-
+  ] 
 
 document.getElementById("carticon").onclick=function(){
-  var url = "http://www.studmenuweb.herokuapp.com/cart/abc";
-  window.location(url);
+ var cart=document.createElement('div');
+ cart.className="cart";
+ cart.id="cart";
+ //cart.innerHTML=JSON.stringify(window.cart);
+ var cartheader=document.createElement('div');
+ var cartheaderback=document.createElement('IMG'); 
+ var cartheadername=document.createElement('div');
+ cartheader.className="cartheader";
+ cartheaderback.className="cartheaderback";
+ cartheadername.className="cartheadername";
+ cartheaderback.setAttribute("src","https://img.icons8.com/windows/32/000000/left.png");
+ cartheadername.innerHTML="cart"
+ cartheader.appendChild(cartheaderback);
+ cartheader.appendChild(cartheadername);
+ cartheaderback.onclick=function(){
+  document.getElementById("cart").remove();
+ }
+ //cartheader.innerHTML="cart";
+ //document.getElementById("customizationtab").remove();
+ cart.appendChild(cartheader);
+ for(var i=0;i<window.cart.length;i++){
+  var cartitem=document.createElement('div');
+  var cartitemname=document.createElement('div');
+  var cartcustomizationname=document.createElement('div');
+  var cartitempricename=document.createElement('div');
+  var cartitemquantitynme=document.createElement('div');
+  
+  cartitemname.className="cartitemname";
+  cartcustomizationname.className="cartcustomizationname";
+  cartitempricename.className="cartitempricename";
+  cartitemquantitynme.className="cartitemquantitynme";
+  cartitem.classname="cartitem";
+
+  cartitemname.innerHTML=JSON.stringify(window.cart[i]["item"]);
+  cartcustomizationname.innerHTML=JSON.stringify(window.cart[i]["customization"]);
+  cartitempricename.innerHTML="Price:"+JSON.stringify(window.cart[i]["price"]);
+  cartitemquantitynme.innerHTML="Quantity:"+JSON.stringify(window.cart[i]["quantity"]);
+
+  cartitem.appendChild(cartitemname);
+  cartitem.appendChild(cartcustomizationname);
+  cartitem.appendChild(cartitempricename);
+  cartitem.appendChild(cartitemquantitynme);
+  //cartitem.innerHTML=JSON.stringify(window.cart[i]);
+  //tempname = tempname.substring(1, tempname.length-1);
+
+
+
+  cart.appendChild(cartitem);
+ }
+
+
+
+ document.getElementById("menuitbody").appendChild(cart);
 }
 
 
@@ -316,6 +365,7 @@ function  checkandminus(item,text){
 
 
 function createCustomizationTab(item,text,baseprice){
+    
     if(text["customization"]===true){
           var addtocart=document.createElement('div'); 
           var totalcart=0;
