@@ -1,7 +1,5 @@
 
 
-
-
 @font-family: 'Roboto Condensed';
 
 html, body {
@@ -223,7 +221,7 @@ box-shadow: 5px 10px;
 -webkit-box-shadow: 0 0 20px rgb(200,200,200);
 -moz-box-shadow: 0 0 20px rgb(200,200,200);}
 .cartcustomizationname{
-  margin-right:30px;
+  margin-right:40px;
   margin-left:auto;
   font-family: "Times New Roman", Times, serif; 
   color:grey;
@@ -241,20 +239,29 @@ box-shadow: 5px 10px;
   font-family: "Times New Roman", Times, serif; 
   color:grey;
   padding-left:10px;
+  padding-top:5px;
+  font-weight:bold;
 }
 .changecartitem{
   position:relative;
-  top:-37px;
-  left:-10px;
-  height:15px;
+  top:-53px;
+  left:15px;
+  height:60px;
+  width:30px;
   float:right;
+  border-radius: 10px;
+  box-shadow: 5px 10px; 
+-webkit-box-shadow: 0 0 20px rgb(200,200,200);
+-moz-box-shadow: 0 0 20px rgb(200,200,200);
+
 }
 .cartminusbutton{
-  height:100%;  
+  padding-top:5px;
+  width:60%;  
 }
 .cartplusbutton{
 
-  height:100%; 
+  width:60%; 
 }
 
 
