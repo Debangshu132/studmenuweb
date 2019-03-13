@@ -45,7 +45,6 @@ generalIcons={
 }
 
 picCategoryArrayFood=[
-
 "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Attributes.png",  
 "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bread+Drive.png",
 "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bytes.png",  
@@ -54,6 +53,16 @@ picCategoryArrayFood=[
 "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Programmer.png",
 "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png"
 ]
+picCategoryArrayFoodColored=[
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Attributes.png",  
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bread+Drive.png",
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bytes.png",  
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Floppy.png",
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Hardware.png",  
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Programmer.png",
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png"
+  ]
+
 picCategoryArrayDrink=[
   "https://img.icons8.com/color/48/000000/beer-glass.png",
   "https://img.icons8.com/cotton/64/000000/water-glass.png",
@@ -229,7 +238,7 @@ populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink);
 
 
 window.onload = function() {
-  populateFooter("Taj",food,"Foods",picCategoryArrayFood);
+  populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
   populateBody("restaurantName",menuitemjson["Foods"]["rice"],menuPicArray);
@@ -244,7 +253,7 @@ function clearFooter(elementID)
 
 
 }
-function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
+function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypiccolored){
   
   for(i=0;i<foodOrDrink.length;i++){
   var div = document.createElement("div");
@@ -260,18 +269,20 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic){
   var item=menuitemjson[foodDrink][foodOrDrink[i]];
   if(item==='undefined'){
   item="Its not available";}
-  img.onclick= function(arg,arg2) {
+  img.onclick= function(arg,arg2,arg3,index) {
       return function() {
-          clearFooter("menuitbody");
-          arg2.style.borderRadius="50%";
-          populateBody("restaurantName",arg,menuPicArray);
-          clearAllBorders();
           
-          arg2.style.border = "3px solid #3f6982";
-          arg2.style.borderRadius = "50%";
+          clearFooter("menuitbody");
+          clearAllBorders();
+          arg2.src=arg3[index];
+          populateBody("restaurantName",arg,menuPicArray);
+         
+          
+         
+         
           
       }
-  }(item,img);
+  }(item,img,arraypiccolored,i);
   div.appendChild(img);
   div.appendChild(divChild);
   var currentDiv = document.getElementById("div1"); 
@@ -644,11 +655,13 @@ function updatecustomization(checkboxName) {
 
 
 
+
+
 function clearAllBorders(){
   var a=document.getElementsByClassName("menuitemspic");
   for (var i=0; i < a.length; i++) {
-    a[i].style.border='0px solid green' ;
-    a[i].style.borderRadius="0%";
+    a[i].src=picCategoryArrayFood[i] ;
+    
   }
 }
 
