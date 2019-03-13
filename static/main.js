@@ -76,9 +76,10 @@ window.menuPicArray=[
 
   ] 
   function deletecartquantityzeroitems(){
-    for(var i=0;i<window.cart.length;i++){
+    for(var i=window.cart.length-1;i>0;i--){
       if(window.cart[i]["quantity"]===0){
         window.cart.splice(i,1);
+        console.log(i);
       }
     }
   }
@@ -162,7 +163,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   minusbutton.onclick=function(arg,arg2,arg3,arg4){
     return function(){
     console.log(window.cart);
-    console.log(arg);
+    //console.log(arg);
     if(window.cart[arg]["quantity"]>0){
       var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];   
     window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1;
