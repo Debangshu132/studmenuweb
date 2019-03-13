@@ -60,20 +60,29 @@ picCategoryArrayDrink=[
   "https://img.icons8.com/cotton/64/000000/water-glass.png"
 ]
 window.menuPicArray=[
-  "url('../static/0.jpg')",
-  "url('../static/1.jpg')",
-  "url('../static/2.jpg')",
-  "url('../static/3.jpg')",
-  "url('../static/4.jpg')",
-  "url('../static/5.jpg')",
-  "url('../static/6.jpg')",
-  "url('../static/7.jpg')",
-  "url('../static/8.jpg')",
-  "url('../static/9.jpg')",
-  "url('../static/10.jpg')"
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
+  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')"
+ 
+
   ] 
+  function deletecartquantityzeroitems(){
+    for(var i=0;i<window.cart.length;i++){
+      if(window.cart[i]["quantity"]===0){
+        window.cart.splice(i,1);
+      }
+    }
+  }
 
 document.getElementById("carticon").onclick=function(menuPicArray){
+ deletecartquantityzeroitems(); 
  var cart=document.createElement('div');
  cart.className="cart";
  cart.id="cart";
@@ -150,7 +159,8 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   }(i,cartitemquantityname,cartitempricename);
   minusbutton.onclick=function(arg,arg2,arg3,arg4){
     return function(){
-     
+    console.log(window.cart);
+    console.log(arg);
     if(window.cart[arg]["quantity"]>0){
       var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];   
     window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1;
@@ -161,7 +171,8 @@ document.getElementById("carticon").onclick=function(menuPicArray){
     if(window.cart[arg]["quantity"]===0){
      
       arg4.remove();
-      window.cart.splice(arg,1);
+      //window.cart.splice(arg,1);
+      // 
     
     }}
 }(i,cartitemquantityname,cartitempricename,cartitem);
