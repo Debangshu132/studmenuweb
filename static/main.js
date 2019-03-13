@@ -38,6 +38,12 @@ window.swiper = new Swiper('.swiper-container', {
 
 food=['best sellers','rice','paratha','pizza','chicken','veg','nonveg','egg','fish','italian','chinese'];
 drink=['beer','water','whiskey','water'];
+generalIcons={
+"veg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Veg.png",
+"nonveg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Non+Veg.png"
+
+}
+
 picCategoryArrayFood=[
 
 "https://s3.ap-south-1.amazonaws.com/studmenu/Test/64.png",  
@@ -287,13 +293,19 @@ divChild.innerHTML += tempname;
 divChild.style.fontFamily = "Times New Roman, Times, serif";
 
 var divChildPic = document.createElement("div");
+var divChildPicVegNonveg=document.createElement("IMG");
 var divChildPlusMinus = document.createElement("div");  
 var divChildDescriptionOfFood = document.createElement("div");
 divChildDescriptionOfFood.className="bodyfoodprice";
 
   
 divChildPic.className="menuitemsbodypic";
+divChildPicVegNonveg.className="divChildPicVegNonveg";
 divChildPlusMinus.className="menuitemsbodyplusminus";
+
+
+divChildPicVegNonveg.src=generalIcons["veg"];
+
 divChildPlusMinus.addEventListener('click', function(pEvent) {
   pEvent.stopPropagation();
 })
@@ -344,6 +356,7 @@ divChildDescriptionOfFood.innerHTML= jsonofitems[itemnamearray[i]];
 divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
  
 //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
+divChildPic.appendChild(divChildPicVegNonveg);
 div.appendChild(divChildPic);
 div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
