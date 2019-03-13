@@ -249,7 +249,6 @@ box-shadow: 5px 10px;
   height:60px;
   width:30px;
   float:right;
-  background:white;	
   border-radius: 10px;
   box-shadow: 5px 10px; 
 -webkit-box-shadow: 0 0 20px rgb(200,200,200);
@@ -290,6 +289,12 @@ box-shadow: 5px 10px;
 
 
 
+}
+.divChildPicVegNonveg{
+  max-width: 20%;
+  max-height: 20%;
+  float:right;
+  
 }
 .menuitemsdescriptionbody{
   position: relative;
