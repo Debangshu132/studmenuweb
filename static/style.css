@@ -265,7 +265,17 @@ box-shadow: 5px 10px;
   width:60%; 
 }
 
-
+.cartorderbutton{
+  text-align: center;
+  height:30px;
+  width:100%;
+  position:fixed;
+  background: green;
+  bottom: 0;
+    left: 0;
+    
+    color:white;
+}
 
 
 
