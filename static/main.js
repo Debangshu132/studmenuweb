@@ -76,7 +76,7 @@ window.menuPicArray=[
 
   ] 
   function deletecartquantityzeroitems(){
-    for(var i=window.cart.length-1;i>0;i--){
+    for(var i=window.cart.length-1;i>-1;i--){
       if(window.cart[i]["quantity"]===0){
         window.cart.splice(i,1);
         console.log(i);
