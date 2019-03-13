@@ -304,7 +304,10 @@ divChildPicVegNonveg.className="divChildPicVegNonveg";
 divChildPlusMinus.className="menuitemsbodyplusminus";
 
 
-divChildPicVegNonveg.src=generalIcons["veg"];
+
+
+divChildPicVegNonveg.src=generalIcons[jsonofitems[tempname]["vegnonveg"]];
+
 
 divChildPlusMinus.addEventListener('click', function(pEvent) {
   pEvent.stopPropagation();
