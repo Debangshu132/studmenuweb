@@ -40,15 +40,14 @@ food=['best sellers','rice','paratha','pizza','chicken','veg','nonveg','egg','fi
 drink=['beer','water','whiskey','water'];
 picCategoryArrayFood=[
 
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Dessert-min.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Dessert2-min.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/bread+(1)-min.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/bread-min.png",
-"https://image.flaticon.com/icons/svg/1412/1412511.svg",
-"https://img.icons8.com/color/48/000000/vegetarian-mark.png",
-"https://img.icons8.com/color/48/000000/vegetarian-mark.png",
-"https://img.icons8.com/cotton/64/000000/sunny-side-up-eggs.png",
-"https://img.icons8.com/color/48/000000/fish-food.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Test/64.png",  
+"https://s3.ap-south-1.amazonaws.com/studmenu/Test/64c.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Test/128.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Test/128c.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Test/256.png",  
+"https://s3.ap-south-1.amazonaws.com/studmenu/Test/256c.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Test/512.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Test/512c.png",
 "https://img.icons8.com/dusk/64/000000/italian-pizza.png",
 "https://img.icons8.com/dusk/64/000000/italian-pizza.png",
 "https://img.icons8.com/color/48/000000/wrap.png"
