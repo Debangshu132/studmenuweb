@@ -241,7 +241,7 @@ window.onload = function() {
   populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Foods"]["rice"],menuPicArray);
+  populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray);
   };
  
 
