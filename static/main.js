@@ -36,7 +36,7 @@ window.swiper = new Swiper('.swiper-container', {
 
 });
 
-food=['best sellers','rice','paratha','pizza','chicken','veg','nonveg','egg','fish','italian','chinese'];
+food=['Attributes','Bread Drive','Bytes','Floppy','Hardware','Programmer','Software'];
 drink=['beer','water','whiskey','water'];
 generalIcons={
 "veg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Veg.png",
@@ -46,17 +46,13 @@ generalIcons={
 
 picCategoryArrayFood=[
 
-"https://s3.ap-south-1.amazonaws.com/studmenu/Test/64.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Test/64c.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Test/128.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Test/128c.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Test/256.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Test/256c.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Test/512.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Test/512c.png",
-"https://img.icons8.com/dusk/64/000000/italian-pizza.png",
-"https://img.icons8.com/dusk/64/000000/italian-pizza.png",
-"https://img.icons8.com/color/48/000000/wrap.png"
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Attributes.png",  
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bread+Drive.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bytes.png",  
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Floppy.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Hardware.png",  
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Programmer.png",
+"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png"
 ]
 picCategoryArrayDrink=[
   "https://img.icons8.com/color/48/000000/beer-glass.png",
@@ -96,11 +92,13 @@ document.getElementById("carticon").onclick=function(menuPicArray){
  cart.id="cart";
  //cart.innerHTML=JSON.stringify(window.cart);
  var cartheader=document.createElement('div');
+ var cartorderbutton=document.createElement('div');
  var cartheaderback=document.createElement('IMG'); 
  var cartheadername=document.createElement('div');
  cartheader.className="cartheader";
  cartheaderback.className="cartheaderback";
  cartheadername.className="cartheadername";
+ cartorderbutton.className="cartorderbutton";
  cartheaderback.setAttribute("src","https://img.icons8.com/windows/32/000000/left.png");
  cartheadername.innerHTML="cart"
  cartheader.appendChild(cartheaderback);
@@ -155,6 +153,11 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartcustomizationname.innerHTML=cartcustomizationnamestring;
   cartitempricename.innerHTML="Price:Rs"+JSON.stringify(window.cart[i]["price"]);
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
+  cartorderbutton.innerHTML="ORDER";
+  cartorderbutton.onclick=function(){
+
+
+  }
   plusbutton.onclick=function(arg,arg2,arg3){
     return function(){
      var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];
@@ -196,10 +199,11 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartitem.appendChild(changecartitem);
   cartitem.appendChild(cartitempic);
   cart.appendChild(cartitem);
+ 
  }
 
 
-
+ cart.appendChild( cartorderbutton);
  document.getElementById("menuitbody").appendChild(cart);
 }
 
@@ -560,6 +564,9 @@ function createCustomizationTab(item,text,baseprice){
 
 
             addtocart.onclick=function(){
+               
+
+
               for(var i=0;i < singlechoicearr.length;i++){
             customization[singlechoicearr[i]]=updatecustomization(singlechoicearr[i]);}
             for(var i=0;i < multiplechoicearr.length;i++){
@@ -572,8 +579,9 @@ function createCustomizationTab(item,text,baseprice){
             customizationtab.appendChild(customizationtabcontent);
             document.getElementById("menu").appendChild(customizationtab);}
         else{
-          alert("updating");
+          //alert("updating");
           updatecart(item,"none",1);
+          
           
         }   
            
@@ -593,7 +601,7 @@ function updatecart(item,customization,quantity){
   try{
   document.getElementById("customizationtab").remove();}
   catch{
-    alert("updated!");
+    //alert("updated!");
   }
   console.log(JSON.stringify(window.cart));
 }
