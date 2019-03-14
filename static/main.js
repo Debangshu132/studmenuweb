@@ -165,10 +165,13 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartorderbutton.innerHTML="ORDER";
   cartorderbutton.onclick=function(){
     var http = new XMLHttpRequest();
-    var url = '/cart/'+JSON.stringify(window.cart);
-    var params = 'lalala';   
-    http.open("POST", url, true);
-    http.send();
+    //http.setRequestHeader("Content-Type", "application/json");
+    var url = 'http://www.studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+    var params = {'cartdata':window.cart};  
+    http.open("POST", url, true); 
+    http.setRequestHeader("Content-Type", "application/json");
+    
+    http.send(params);
 
   }
   plusbutton.onclick=function(arg,arg2,arg3){
