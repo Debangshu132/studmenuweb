@@ -458,12 +458,23 @@ border-top-right-radius:30px;
 body {
   font-size: 14px;
 }
+.footer{
+  height:90px;
+}
+.menuitemspic{
+  max-width:65%;
+  max-height:65%;
+}
 
 }
 @media screen and (min-width: 450px) {
+  .menuitemspic{
+    max-width:78%;
+    max-height:78%;
+  }
   
   .footer{
-    height:85px;
+    height:100px;
   }
   
   }
@@ -472,34 +483,21 @@ body {
       font-size: 14px;
     }
     .footer{
-      height:90px;
+      height:105px;
+    }
+    .menuitemspic{
+      max-width:110%;
+      max-height:110%;
     }
     
     }
-    @media screen and (min-width: 450px) {
-      body {
-        font-size: 14px;
-      }
-      .footer{
-        height:93px;
-      }
-      
-      }
-      @media screen and (min-width: 560px) {
-        body {
-          font-size: 14px;
-        }
-        .footer{
-          height:96px;
-        }
-        
-        }
+   
         @media screen and (min-width: 710px) {
           body {
             font-size: 12px;
           }
           .footer{
-            height:100px;
+            height:115px;
           }
           
           }
@@ -508,7 +506,7 @@ body {
               font-size: 12px;
             }
             .footer{
-              height:105px;
+              height:130px;
             }
             
             }
@@ -517,7 +515,7 @@ body {
                 font-size: 12px;
               }
               .footer{
-                height:110px;
+                height:145px;
               }
               
               }
