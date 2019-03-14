@@ -177,7 +177,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   }
   plusbutton.onclick=function(arg,arg2,arg3){
     return function(){
-    window.location.replace("https://www.messenger.com/closeWindow/?image_url=https://img.icons8.com/color/48/000000/beer-glass.png&display_text=abc");
+    window.location.replace("https://www.messenger.com/closeWindow/?image_url='https://img.icons8.com/color/48/000000/beer-glass.png'&display_text='abc'");
      var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];
     window.cart[arg]["quantity"]=window.cart[arg]["quantity"]+1; 
     window.cart[arg]["price"]=window.cart[arg]["price"]+priceperitem;   
