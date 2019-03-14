@@ -125,15 +125,15 @@ html, body {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 .customizationtabcontent {
-  
+  float:top;
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 5% auto; /* 15% from the top and centered */
   padding: 10px;
   border: 1px solid #888;
-  overflow: scroll; /* Enable scroll if needed */
+  overflow-y: scroll; /* Enable scroll if needed */
   width: 80%; /* Could be more or less, depending on screen size */
   height:70%;
-  border-radius: 5px;
+  border-radius: 15px;
 
   
 }
@@ -146,15 +146,35 @@ html, body {
   font-weight:bold; 
 }  
 .customizetabaddtocart{
- width:100%;
+ float:top;
+ 
+ margin:10px auto;
+ 
+ width:60%;
  height:30px;
+
+
+ border-radius:10px;
  background:green;
  color:white;
  padding-top:10px;
  text-align: center;
+ bottom:5%;
+ 
 
 
 }
+.quantitycustomizationinput{
+
+  margin-left:auto;
+  margin-right:auto;
+  width:20%;
+  padding:10px;
+  
+  
+  
+  
+  }
 .cart{
   position: fixed; /* Stay in place */
   z-index: 11; /* Sit on top */
@@ -229,6 +249,7 @@ box-shadow: 5px 10px;
   width:50%;
   font-size: 10px;
 }
+
 .cartitemquantityname{
   
   font-family: "Times New Roman", Times, serif; 
@@ -249,8 +270,9 @@ box-shadow: 5px 10px;
   left:15px;
   height:60px;
   width:30px;
+  background:white;
   float:right;
-  border-radius: 10px;
+  border-radius: 1px;
   box-shadow: 5px 10px; 
 -webkit-box-shadow: 0 0 20px rgb(200,200,200);
 -moz-box-shadow: 0 0 20px rgb(200,200,200);
@@ -264,7 +286,6 @@ box-shadow: 5px 10px;
 
   width:60%; 
 }
-
 .cartorderbutton{
   text-align: center;
   height:30px;
@@ -276,6 +297,8 @@ box-shadow: 5px 10px;
     
     color:white;
 }
+
+
 
 
 
@@ -340,6 +363,7 @@ max-height: 80%;
     -webkit-box-shadow: 0 0 20px rgb(200,200,200);
 -moz-box-shadow: 0 0 20px rgb(200,200,200);
 border-radius: 10%;
+
     
     
   }  
@@ -347,12 +371,14 @@ border-radius: 10%;
     padding-top:8px; 
     max-width: 55%;
     max-height:55%;
+   
 
  }  
  .menuitemsbodyminus{
     padding-top:12px; 
     max-width:50%;
     max-height:50%;
+    
  }  
 .bodyfoodprice{
    color:grey;
@@ -428,11 +454,80 @@ border-top-right-radius:30px;
 
 
 
-@media screen and (min-height: 1000px) {
+@media screen and (min-width: 370px) {
 body {
   font-size: 14px;
 }
+
 }
+@media screen and (min-width: 450px) {
+  body {
+    font-size: 14px;
+  }
+  .footer{
+    height:82px;
+  }
+  
+  }
+  @media screen and (min-width: 560px) {
+    body {
+      font-size: 14px;
+    }
+    .footer{
+      height:86px;
+    }
+    
+    }
+    @media screen and (min-width: 450px) {
+      body {
+        font-size: 14px;
+      }
+      .footer{
+        height:82px;
+      }
+      
+      }
+      @media screen and (min-width: 560px) {
+        body {
+          font-size: 14px;
+        }
+        .footer{
+          height:86px;
+        }
+        
+        }
+        @media screen and (min-width: 710px) {
+          body {
+            font-size: 14px;
+          }
+          .footer{
+            height:90px;
+          }
+          
+          }
+          @media screen and (min-width: 1000px) {
+            body {
+              font-size: 14px;
+            }
+            .footer{
+              height:96px;
+            }
+            
+            }
+            @media screen and (min-width: 1300px) {
+              body {
+                font-size: 14px;
+              }
+              .footer{
+                height:100px;
+              }
+              
+              }
+                       
+            
+        
+          
+  
 
 
 
@@ -446,6 +541,24 @@ body {
   100% {
     height:240px;
       
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 
