@@ -12,7 +12,7 @@ window.swiper = new Swiper('.swiper-container', {
           slidesPerView: 11,
           spaceBetween: 40,
         },
-      1000: {
+      900: {
           slidesPerView: 9,
           spaceBetween: 40,
         },
@@ -22,11 +22,11 @@ window.swiper = new Swiper('.swiper-container', {
       },
       560: {
         slidesPerView: 7,
-        spaceBetween: 30,
+        spaceBetween: 15,
       },
       450: {
         slidesPerView: 6,
-        spaceBetween: 20,
+        spaceBetween: 10,
       },
       370: {
         slidesPerView: 5,
