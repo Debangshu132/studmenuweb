@@ -461,11 +461,9 @@ body {
 
 }
 @media screen and (min-width: 450px) {
-  body {
-    font-size: 14px;
-  }
+  
   .footer{
-    height:82px;
+    height:85px;
   }
   
   }
@@ -474,7 +472,7 @@ body {
       font-size: 14px;
     }
     .footer{
-      height:86px;
+      height:90px;
     }
     
     }
@@ -483,7 +481,7 @@ body {
         font-size: 14px;
       }
       .footer{
-        height:82px;
+        height:93px;
       }
       
       }
@@ -492,34 +490,34 @@ body {
           font-size: 14px;
         }
         .footer{
-          height:86px;
+          height:96px;
         }
         
         }
         @media screen and (min-width: 710px) {
           body {
-            font-size: 14px;
+            font-size: 12px;
           }
           .footer{
-            height:90px;
+            height:100px;
           }
           
           }
           @media screen and (min-width: 1000px) {
             body {
-              font-size: 14px;
+              font-size: 12px;
             }
             .footer{
-              height:96px;
+              height:105px;
             }
             
             }
             @media screen and (min-width: 1300px) {
               body {
-                font-size: 14px;
+                font-size: 12px;
               }
               .footer{
-                height:100px;
+                height:110px;
               }
               
               }
