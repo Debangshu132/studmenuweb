@@ -756,5 +756,4 @@ var a=JSON.stringify(nopethisone);
 populateBody("restaurantName",nopethisone,menuPicArray);  
 document.getElementById("textsearch").value = "";
 document.getElementById("textsearch").blur();
-
 }
