@@ -164,10 +164,10 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
-    //var http = new XMLHttpRequest();
+    
     //http.setRequestHeader("Content-Type", "application/json");
     //MessengerExtensions.requestCloseBrowser();
-    //var url = 'http://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+    
     var messageToShare = {"attachment":{
       "type":"template",
       "payload":{
@@ -188,11 +188,26 @@ document.getElementById("carticon").onclick=function(menuPicArray){
         }]
       }
     }};
-      
-    MessengerExtensions.beginShareFlow(function success(response) {
+    MessengerExtensions.requestCloseBrowser((function success() {
+      // webview closed
+      var http = new XMLHttpRequest();
+      var url = 'http://studmenu.herokuapp.com/cart';
+      http.open("POST", url, true);
+      http.setRequestHeader("Content-Type", "application/json");
+      http.send();
+    }, function error(err) {
+      // an error occurred
+    }));
+  
+   /* MessengerExtensions.beginShareFlow(function success(response) {
       if(response.is_sent === true){ 
-      	// User shared. We're done here!
-      	MessengerExtensions.requestCloseBrowser();
+        // User shared. We're done here!
+        
+      	MessengerExtensions.requestCloseBrowser((function success() {
+          // webview closed
+        }, function error(err) {
+          // an error occurred
+        }));
       }
       else{
       	// User canceled their share! 
@@ -203,7 +218,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   	// An error occurred trying to share!
     },
     messageToShare,
-    "current_thread");   
+    "current_thread");  */ 
     //var params = {'cartdata':window.cart};  
     //console.log("ordered");
     //http.open("POST", url, true); 
@@ -756,4 +771,5 @@ var a=JSON.stringify(nopethisone);
 populateBody("restaurantName",nopethisone,menuPicArray);  
 document.getElementById("textsearch").value = "";
 document.getElementById("textsearch").blur();
+
 }
