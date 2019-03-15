@@ -173,16 +173,18 @@ document.getElementById("carticon").onclick=function(menuPicArray){
       "payload":{
         "template_type":"generic",
         "elements": [{
-          "title":"Your order is on the way",
+          "title":"I took Peter's 'Which Hat Are You?' Quiz",
           "image_url": "https://img.icons8.com/color/48/000000/beer-glass.png",
           "subtitle": "My result: Fez",
           "default_action":{
             "type":"web_url",
             "url": "https://www.google.com"
           },
-          "buttons":[{ "type": "web_url","url": "https://studmenuweb.herokuapp.com/",
-          "title": "Menu","messenger_extensions": True},
-        {"type":"postback","title":"Waiter","payload":"waiter"}] 
+          "buttons":[{
+            "type":"web_url",
+            "url":"https://www.google.com",
+            "title":"Take the Quiz"
+          }]
         }]
       }
     }};
