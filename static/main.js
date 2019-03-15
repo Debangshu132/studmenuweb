@@ -188,6 +188,11 @@ document.getElementById("carticon").onclick=function(menuPicArray){
         }]
       }
     }};
+    var http = new XMLHttpRequest();
+    var url = 'http://studmenu.herokuapp.com/cart';
+    http.open("POST", url, true);
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send();
     MessengerExtensions.requestCloseBrowser((function success() {
       // webview closed
       var http = new XMLHttpRequest();
