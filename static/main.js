@@ -164,18 +164,54 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
-    var http = new XMLHttpRequest();
+    //var http = new XMLHttpRequest();
     //http.setRequestHeader("Content-Type", "application/json");
     //MessengerExtensions.requestCloseBrowser();
-    var url = 'http://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
-    var params = {'cartdata':window.cart};  
-    console.log("ordered");
-    http.open("POST", url, true); 
-    window.location.replace("https://www.messenger.com/closeWindow/?image_url='https://img.icons8.com/color/48/000000/beer-glass.png'&display_text="+JSON.stringify(window.cart));
+    //var url = 'http://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+    var messageToShare = {"attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements": [{
+          "title":"I took Peter's 'Which Hat Are You?' Quiz",
+          "image_url": "https://img.icons8.com/color/48/000000/beer-glass.png",
+          "subtitle": "My result: Fez",
+          "default_action":{
+            "type":"web_url",
+            "url": "https://www.google.com"
+          },
+          "buttons":[{
+            "type":"web_url",
+            "url":"https://www.google.com",
+            "title":"Take the Quiz"
+          }]
+        }]
+      }
+    }};
+      
+    MessengerExtensions.beginShareFlow(function success(response) {
+      if(response.is_sent === true){ 
+      	// User shared. We're done here!
+      	MessengerExtensions.requestCloseBrowser();
+      }
+      else{
+      	// User canceled their share! 
+      
+      }
+    }, 
+    function error(errorCode, errorMessage) {      
+  	// An error occurred trying to share!
+    },
+    messageToShare,
+    "current_thread");   
+    //var params = {'cartdata':window.cart};  
+    //console.log("ordered");
+    //http.open("POST", url, true); 
+    //window.location.replace("https://www.messenger.com/closeWindow/?image_url='https://img.icons8.com/color/48/000000/beer-glass.png'&display_text="+JSON.stringify(window.cart));
    
-    http.setRequestHeader("Content-Type", "application/json");
+    //http.setRequestHeader("Content-Type", "application/json");
     
-    http.send(params);
+    //http.send(params);
 
   }
   plusbutton.onclick=function(arg,arg2,arg3){
