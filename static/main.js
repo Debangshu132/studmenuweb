@@ -162,22 +162,24 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartcustomizationname.innerHTML=cartcustomizationnamestring;
   cartitempricename.innerHTML="Price:Rs"+JSON.stringify(window.cart[i]["price"]);
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
-  cartorderbutton.innerHTML="ORDER";
+  cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
     var http = new XMLHttpRequest();
     //http.setRequestHeader("Content-Type", "application/json");
     MessengerExtensions.requestCloseBrowser();
-   // var url = 'http://www.studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
-   // var params = {'cartdata':window.cart};  
-   // http.open("POST", url, true); 
-   // http.setRequestHeader("Content-Type", "application/json");
+    var url = 'http://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+    var params = {'cartdata':window.cart};  
+    console.log("ordered");
+    http.open("POST", url, true); 
+    //window.location.replace("https://www.messenger.com/closeWindow/?image_url='https://img.icons8.com/color/48/000000/beer-glass.png'&display_text="+JSON.stringify(window.cart));
+   
+    http.setRequestHeader("Content-Type", "application/json");
     
-   // http.send(params);
+    http.send(params);
 
   }
   plusbutton.onclick=function(arg,arg2,arg3){
     return function(){
-    window.location.replace("https://www.messenger.com/closeWindow/?image_url='https://img.icons8.com/color/48/000000/beer-glass.png'&display_text='abc'");
      var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];
     window.cart[arg]["quantity"]=window.cart[arg]["quantity"]+1; 
     window.cart[arg]["price"]=window.cart[arg]["price"]+priceperitem;   
