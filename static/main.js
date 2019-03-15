@@ -168,26 +168,12 @@ document.getElementById("carticon").onclick=function(menuPicArray){
     //http.setRequestHeader("Content-Type", "application/json");
     //MessengerExtensions.requestCloseBrowser();
     //var url = 'http://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
-    var messageToShare = {"attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements": [{
-          "title":"I took Peter's 'Which Hat Are You?' Quiz",
-          "image_url": "https://img.icons8.com/color/48/000000/beer-glass.png",
-          "subtitle": "My result: Fez",
-          "default_action":{
-            "type":"web_url",
-            "url": "https://www.google.com"
-          },
-          "buttons":[{
-            "type":"web_url",
-            "url":"https://www.google.com",
-            "title":"Take the Quiz"
-          }]
-        }]
-      }
-    }};
+    var messageToShare = {"attachment":{"type":"template",
+    "payload":{"template_type":"button",
+     "text":"What do you want to do next?",
+     "buttons":[{ "type": "web_url","url": "https://studmenuweb.herokuapp.com/",
+     "title": "Menu","messenger_extensions": True},
+   {"type":"postback","title":"Waiter","payload":"waiter"}] }}};
       
     MessengerExtensions.beginShareFlow(function success(response) {
       if(response.is_sent === true){ 
