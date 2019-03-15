@@ -166,12 +166,12 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartorderbutton.onclick=function(){
     var http = new XMLHttpRequest();
     //http.setRequestHeader("Content-Type", "application/json");
-    MessengerExtensions.requestCloseBrowser();
+    //MessengerExtensions.requestCloseBrowser();
     var url = 'http://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
     var params = {'cartdata':window.cart};  
     console.log("ordered");
     http.open("POST", url, true); 
-    //window.location.replace("https://www.messenger.com/closeWindow/?image_url='https://img.icons8.com/color/48/000000/beer-glass.png'&display_text="+JSON.stringify(window.cart));
+    window.location.replace("https://www.messenger.com/closeWindow/?image_url='https://img.icons8.com/color/48/000000/beer-glass.png'&display_text="+JSON.stringify(window.cart));
    
     http.setRequestHeader("Content-Type", "application/json");
     
