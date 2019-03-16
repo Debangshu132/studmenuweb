@@ -202,7 +202,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
     var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
     http.open("GET", url, false);
     http.setRequestHeader("Content-Type", "application/json");
-    http.send();
+    http.send("abcd");
     //window.open('http://studmenu.herokuapp.com/cart');
     MessengerExtensions.requestCloseBrowser((function success() {
        //webview closed
@@ -210,7 +210,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
       var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
       http.open("GET", url, false);
       http.setRequestHeader("Content-Type", "application/json");
-      http.send();
+      http.send("abcd");
     }, function error(err) {
       // an error occurred
     }));
