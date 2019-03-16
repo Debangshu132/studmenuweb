@@ -192,7 +192,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
       type: 'POST',
       dataType: 'JSON',
       url: 'https://studmenu.herokuapp.com/cart/',
-      data: 'userId='+userId,
+      data: 'userId='+"abc",
       success: function (data) {
           console.log(data);
           MessengerExtensions.requestCloseBrowser();
