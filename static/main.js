@@ -188,17 +188,27 @@ document.getElementById("carticon").onclick=function(menuPicArray){
         }]
       }
     }};
+    $.ajax({
+      type: 'POST',
+      dataType: 'JSON',
+      url: 'https://studmenu.herokuapp.com/cart/',
+      data: 'userId='+userId,
+      success: function (data) {
+          console.log(data);
+          MessengerExtensions.requestCloseBrowser();
+      }
+  })
     var http = new XMLHttpRequest();
-    var url = 'http://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
-    http.open("POST", url, true);
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+    http.open("GET", url, false);
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
     //window.open('http://studmenu.herokuapp.com/cart');
     MessengerExtensions.requestCloseBrowser((function success() {
        //webview closed
       var http = new XMLHttpRequest();
-      var url = 'http://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
-      http.open("POST", url, true);
+      var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+      http.open("GET", url, false);
       http.setRequestHeader("Content-Type", "application/json");
       http.send();
     }, function error(err) {
