@@ -188,16 +188,16 @@ document.getElementById("carticon").onclick=function(menuPicArray){
         }]
       }
     }};
-    $.ajax({
-      type: 'POST',
-      dataType: 'JSON',
-      url: 'https://studmenu.herokuapp.com/cart/',
-      data: 'userId='+"abc",
-      success: function (data) {
-          console.log(data);
-          MessengerExtensions.requestCloseBrowser();
-      }
-  })
+   // $.ajax({
+   //   type: 'POST',
+   //   dataType: 'JSON',
+   //   url: 'https://studmenu.herokuapp.com/cart/',
+   //   data: 'userId='+"abc",
+   //   success: function (data) {
+   //       console.log(data);
+   //       MessengerExtensions.requestCloseBrowser();
+   //   }
+ // })
     var http = new XMLHttpRequest();
     var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
     http.open("GET", url, false);
