@@ -198,9 +198,18 @@ document.getElementById("carticon").onclick=function(menuPicArray){
    //       MessengerExtensions.requestCloseBrowser();
    //   }
  // })
+ //window.extAsyncInit = function () {
+  // the Messenger Extensions JS SDK is done loading
+ // MessengerExtensions.getUserID(function success(uids) {
+ //     var psid = uids.psid;//This is your page scoped sender_id
+ //     $.post('https://studmenu.herokuapp.com/cart/', {"psid": psid})
+ // }, function error(err) {
+ //     alert("Messenger Extension Error: " + err);
+ // });
+//};
     var http = new XMLHttpRequest();
     var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
-    http.open("GET", url, false);
+    http.open("POST", url, false);
     http.setRequestHeader("Content-Type", "application/json");
     http.send("abcd");
     //window.open('http://studmenu.herokuapp.com/cart');
