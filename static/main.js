@@ -179,13 +179,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
         alert("Messenger Extension Error: " + err);
     });
 
-    var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"ide":psid,"cartes":window.cart});
-    http.open("POST", url, false); 
-    http.setRequestHeader("Content-Type", "application/json");
-    http.send("abcd");
-    MessengerExtensions.requestCloseBrowser();
-  
+    
   
 
   }
