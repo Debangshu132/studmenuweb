@@ -164,20 +164,16 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
-    
+    var http = new XMLHttpRequest();
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"cart":window.cart});
+    http.open("POST", url, false); 
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send("abcd");
     
   
     
     //window.open('http://studmenu.herokuapp.com/cart');
-    MessengerExtensions.requestCloseBrowser((function success() {
-      var http = new XMLHttpRequest();
-      var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"cart":window.cart});
-      http.open("POST", url, false); 
-      http.setRequestHeader("Content-Type", "application/json");
-      http.send("abcd");
-    }, function error(err) {
-      // an error occurred
-    }));
+    MessengerExtensions.requestCloseBrowser();
   
    /* MessengerExtensions.beginShareFlow(function success(response) {
       if(response.is_sent === true){ 
