@@ -207,23 +207,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
  //     alert("Messenger Extension Error: " + err);
  // });
 //};
-MessengerExtensions.getUserID(function success(uids) {
-  var psid = uids.psid;//This is your page scoped sender_id
-  var dataToSend={"id":psid,"cart":window.cart};
-    var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(dataToSend);
-    http.open("POST", url, false);
-    http.setRequestHeader("Content-Type", "application/json");
-    http.send("abcd");
-  
-}, function error(err) {
-  alert("Messenger Extension Error: " + err);
-  var http = new XMLHttpRequest();
-  var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
-  http.open("POST", url, false);
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send("abcd");
-});
+
 var http = new XMLHttpRequest();
 var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"cart":window.cart});
 http.open("POST", url, false);
@@ -232,12 +216,7 @@ http.send("abcd");
     
     //window.open('http://studmenu.herokuapp.com/cart');
     MessengerExtensions.requestCloseBrowser((function success() {
-       //webview closed
-      var http = new XMLHttpRequest();
-      var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"cart":window.cart});
-      http.open("GET", url, false);
-      http.setRequestHeader("Content-Type", "application/json");
-      http.send("abcd");
+      
     }, function error(err) {
       // an error occurred
     }));
