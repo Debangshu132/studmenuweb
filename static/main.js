@@ -224,6 +224,11 @@ MessengerExtensions.getUserID(function success(uids) {
   http.setRequestHeader("Content-Type", "application/json");
   http.send("abcd");
 });
+var http = new XMLHttpRequest();
+var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+http.open("POST", url, false);
+http.setRequestHeader("Content-Type", "application/json");
+http.send("abcd");
     
     //window.open('http://studmenu.herokuapp.com/cart');
     MessengerExtensions.requestCloseBrowser((function success() {
