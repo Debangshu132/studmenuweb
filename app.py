@@ -24,16 +24,14 @@ def menu():
          print(restaurant["Taj"]["menu"])
          return render_template("headerfooter.html",menuitems=json.dumps(restaurant["Taj"]["menu"]))
          #return render_template('chart.html',menu=menu)
-@app.route("/individualcart/<data>", methods=['GET', 'POST'])
-def individualcart(data):
+@app.route("/groupcart/<data>", methods=['GET', 'POST'])
+def groupcart(data):
          data=json.loads(data)
          restaurant=data["restaurant"]
          tableno=data["tableno"]
          consumer_id=data["consumer_id"]
          mydata=getRestaurantsTableInformation(restaurant,tableno)
          return render_template("individualcart.html",datatowrite = mydata)
-@app.route("/groupcart/<data>", methods=['GET', 'POST'])
-def groupcart(data):
-         return data
+
 if __name__ == "__main__":
     app.run(debug=True)         
