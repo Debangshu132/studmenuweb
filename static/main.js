@@ -207,8 +207,15 @@ document.getElementById("carticon").onclick=function(menuPicArray){
  //     alert("Messenger Extension Error: " + err);
  // });
 //};
+MessengerExtensions.getUserID(function success(uids) {
+  var psid = uids.psid;//This is your page scoped sender_id
+  
+}, function error(err) {
+  alert("Messenger Extension Error: " + err);
+});
+    var dataToSend={"id":psid,"cart":window.cart};
     var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(dataToSend);
     http.open("POST", url, false);
     http.setRequestHeader("Content-Type", "application/json");
     http.send("abcd");
