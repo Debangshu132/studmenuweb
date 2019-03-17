@@ -164,8 +164,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
-     
-    window.extAsyncInit = function () {
+
       // the Messenger Extensions JS SDK is done loading
        MessengerExtensions.getUserID(function success(uids) {
         var psid = uids.psid;//This is your page scoped sender_id
@@ -179,9 +178,9 @@ document.getElementById("carticon").onclick=function(menuPicArray){
     }, function error(err) {
         alert("Messenger Extension Error: " + err);
     });
-    };
+
     var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"ide":window.psid,"cartes":window.cart});
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"ide":psid,"cartes":window.cart});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send("abcd");
