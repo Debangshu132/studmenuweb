@@ -1,7 +1,11 @@
-window.cartjson=JSON.parse(data);
 window.onload = function() {
-   clearFooter("menuitbody");
-   populateBody(cartjson);};
-function populateBody(cartjson){
-alert(cartjson)
-}   
+   
+   //window.cartitemjson=JSON.parse(window.data);
+   populateBody();
+}
+
+function populateBody(){
+  
+   document.getElementById("cartbody").innerHTML= window.data;
+   }
+   
