@@ -22,6 +22,5 @@ def cart(data):
 @app.route("/groupcart/<data>", methods=['GET', 'POST'])
 def cart(data):
          return data
-
 if __name__ == "__main__":
     app.run()         
