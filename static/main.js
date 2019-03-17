@@ -165,58 +165,16 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
     
-    //http.setRequestHeader("Content-Type", "application/json");
-    //MessengerExtensions.requestCloseBrowser();
     
-    var messageToShare = {"attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements": [{
-          "title":"I took Peter's 'Which Hat Are You?' Quiz",
-          "image_url": "https://img.icons8.com/color/48/000000/beer-glass.png",
-          "subtitle": "My result: Fez",
-          "default_action":{
-            "type":"web_url",
-            "url": "https://www.google.com"
-          },
-          "buttons":[{
-            "type":"web_url",
-            "url":"https://www.google.com",
-            "title":"Take the Quiz"
-          }]
-        }]
-      }
-    }};
-   // $.ajax({
-   //   type: 'POST',
-   //   dataType: 'JSON',
-   //   url: 'https://studmenu.herokuapp.com/cart/',
-   //   data: 'userId='+"abc",
-   //   success: function (data) {
-   //       console.log(data);
-   //       MessengerExtensions.requestCloseBrowser();
-   //   }
- // })
- //window.extAsyncInit = function () {
-  // the Messenger Extensions JS SDK is done loading
- // MessengerExtensions.getUserID(function success(uids) {
- //     var psid = uids.psid;//This is your page scoped sender_id
- //     $.post('https://studmenu.herokuapp.com/cart/', {"psid": psid})
- // }, function error(err) {
- //     alert("Messenger Extension Error: " + err);
- // });
-//};
-
-var http = new XMLHttpRequest();
-var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"cart":window.cart});
-http.open("POST", url, false);
-http.setRequestHeader("Content-Type", "application/json");
-http.send("abcd");
+  
     
     //window.open('http://studmenu.herokuapp.com/cart');
     MessengerExtensions.requestCloseBrowser((function success() {
-      
+      var http = new XMLHttpRequest();
+      var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"cart":window.cart});
+      http.open("POST", url, false); 
+      http.setRequestHeader("Content-Type", "application/json");
+      http.send("abcd");
     }, function error(err) {
       // an error occurred
     }));
