@@ -168,14 +168,20 @@ document.getElementById("carticon").onclick=function(menuPicArray){
     window.extAsyncInit = function () {
       // the Messenger Extensions JS SDK is done loading
        MessengerExtensions.getUserID(function success(uids) {
-        window.psid = uids.psid;//This is your page scoped sender_id
+        var psid = uids.psid;//This is your page scoped sender_id
+        var http = new XMLHttpRequest();
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"ide":psid,"cartes":window.cart});
+    http.open("POST", url, false); 
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send("abcd");
+    MessengerExtensions.requestCloseBrowser();
         
     }, function error(err) {
         alert("Messenger Extension Error: " + err);
     });
     };
     var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"ide":window.psid,"cart":window.cart});
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"ide":window.psid,"cartes":window.cart});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send("abcd");
