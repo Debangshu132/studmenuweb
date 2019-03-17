@@ -164,17 +164,18 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
-    MessengerExtensions.getUserID(function success(uids) {
-      window.psid = uids.psid;//This is your page scoped sender_id
-      window.dataToSend={"id":window.psid,"cartoi":window.cart};
-      
-  }, function error(err,uids) {
-      alert("Messenger Extension Error: " + err);
-      window.psid = uids.psid;
-      window.dataToSend={"id":window.psid,"cartoi":window.cart};
-  });
+     
+    window.extAsyncInit = function () {
+      // the Messenger Extensions JS SDK is done loading
+       MessengerExtensions.getUserID(function success(uids) {
+        window.psid = uids.psid;//This is your page scoped sender_id
+        
+    }, function error(err) {
+        alert("Messenger Extension Error: " + err);
+    });
+    };
     var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.dataToSend);
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"ide":window.psid,"cart":window.cart});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send("abcd");
