@@ -234,7 +234,7 @@ http.send("abcd");
     MessengerExtensions.requestCloseBrowser((function success() {
        //webview closed
       var http = new XMLHttpRequest();
-      var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.cart);
+      var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"cart":window.cart});
       http.open("GET", url, false);
       http.setRequestHeader("Content-Type", "application/json");
       http.send("abcd");
