@@ -169,7 +169,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
        MessengerExtensions.getUserID(function success(uids) {
         var psid = uids.psid;//This is your page scoped sender_id
         var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"ide":psid,"cartes":window.cart});
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":psid,"cart":window.cart});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send("abcd");
