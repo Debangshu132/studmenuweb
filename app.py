@@ -26,7 +26,7 @@ def menu():
          #return render_template('chart.html',menu=menu)
 @app.route("/groupcart/<data>", methods=['GET', 'POST'])
 def groupcart(data):
-         data=json.loads(data)
+         #data=json.loads(data)
          restaurant=data["restaurant"]
          tableno=data["tableno"]
          consumer_id=data["consumer_id"]
