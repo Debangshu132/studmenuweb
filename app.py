@@ -26,6 +26,7 @@ def menu():
          #return render_template('chart.html',menu=menu)
 @app.route("/individualcart/<data>", methods=['GET', 'POST'])
 def individualcart(data):
+         data=json.loads(data)
          restaurant=data["restaurant"]
          tableno=data["tableno"]
          consumer_id=data["consumer_id"]
