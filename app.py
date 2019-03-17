@@ -18,7 +18,7 @@ def menu():
          #return render_template('chart.html',menu=menu)
 @app.route("/individualcart/<data>", methods=['GET', 'POST'])
 def individualcart(data):
-         return data
+         return render_template("individualcart.html",data=data)
 @app.route("/groupcart/<data>", methods=['GET', 'POST'])
 def groupcart(data):
          return data
