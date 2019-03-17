@@ -17,10 +17,10 @@ def menu():
          return render_template("headerfooter.html",menuitems=json.dumps(restaurant["Taj"]["menu"]))
          #return render_template('chart.html',menu=menu)
 @app.route("/individualcart/<data>", methods=['GET', 'POST'])
-def cart(data):
+def individualcart(data):
          return data
 @app.route("/groupcart/<data>", methods=['GET', 'POST'])
-def cart(data):
+def groupcart(data):
          return data
 if __name__ == "__main__":
     app.run()         
