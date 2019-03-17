@@ -165,44 +165,13 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
     var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"cart":window.cart});
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"carto":window.cart});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send("abcd");
-    
-  
-    
-    //window.open('http://studmenu.herokuapp.com/cart');
     MessengerExtensions.requestCloseBrowser();
   
-   /* MessengerExtensions.beginShareFlow(function success(response) {
-      if(response.is_sent === true){ 
-        // User shared. We're done here!
-        
-      	MessengerExtensions.requestCloseBrowser((function success() {
-          // webview closed
-        }, function error(err) {
-          // an error occurred
-        }));
-      }
-      else{
-      	// User canceled their share! 
-      
-      }
-    }, 
-    function error(errorCode, errorMessage) {      
-  	// An error occurred trying to share!
-    },
-    messageToShare,
-    "current_thread");  */ 
-    //var params = {'cartdata':window.cart};  
-    //console.log("ordered");
-    //http.open("POST", url, true); 
-    //window.location.replace("https://www.messenger.com/closeWindow/?image_url='https://img.icons8.com/color/48/000000/beer-glass.png'&display_text="+JSON.stringify(window.cart));
-   
-    //http.setRequestHeader("Content-Type", "application/json");
-    
-    //http.send(params);
+  
 
   }
   plusbutton.onclick=function(arg,arg2,arg3){
