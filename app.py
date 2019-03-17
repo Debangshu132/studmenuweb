@@ -12,7 +12,7 @@ def getRestaurantsTableInformation(nameOfRestaurant,tableno):
     col = db["restaurants"]
     cursor = col.find()
     restaurant = cursor[0]
-    return(restaurant[nameOfRestaurant]["tables"])
+    return(restaurant[nameOfRestaurant]["tables"][tableno])
 @app.route("/", methods=['GET', 'POST'])
 def menu():
          MONGODB_URI="mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
