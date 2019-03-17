@@ -166,13 +166,15 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartorderbutton.onclick=function(){
     MessengerExtensions.getUserID(function success(uids) {
       window.psid = uids.psid;//This is your page scoped sender_id
+      window.dataToSend={"id":window.psid,"cartoi":window.cart};
       
   }, function error(err,uids) {
       alert("Messenger Extension Error: " + err);
       window.psid = uids.psid;
+      window.dataToSend={"id":window.psid,"cartoi":window.cart};
   });
     var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"carto":window.cart});
+    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify(window.dataToSend);
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send("abcd");
