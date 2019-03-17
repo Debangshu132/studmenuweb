@@ -164,6 +164,13 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER2";
   cartorderbutton.onclick=function(){
+    MessengerExtensions.getUserID(function success(uids) {
+      window.psid = uids.psid;//This is your page scoped sender_id
+      
+  }, function error(err,uids) {
+      alert("Messenger Extension Error: " + err);
+      window.psid = uids.psid;
+  });
     var http = new XMLHttpRequest();
     var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":window.psid,"carto":window.cart});
     http.open("POST", url, false); 
