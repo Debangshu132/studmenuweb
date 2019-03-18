@@ -5,7 +5,7 @@ window.onload = function() {
 }
 
 function populateBody(){
-  // document.getElementById("cartbody").innerHTML= window.data;
+   document.getElementById("cartbody").innerHTML= window.data;
    
    for(bucketitem in window.data["cart"])
    {
