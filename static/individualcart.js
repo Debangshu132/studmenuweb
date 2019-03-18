@@ -27,7 +27,7 @@ function populateBody(){
      singleorder=singleorder.replace(/'/g, '"');
      document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
      singleorder=JSON.parse(singleorder);
-     singleorder-singleorder[0];
+     singleorder-singleorder[1];
      document.getElementById("cartbody").innerHTML+=JSON.stringify(singleorder)+"<br/>";
 
   
