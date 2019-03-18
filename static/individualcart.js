@@ -15,7 +15,7 @@ function populateBody(){
    var datajson=JSON.parse(window.data);
    var datajsoncart=datajson["cart"];
    var bucketlist=Object.keys(datajsoncart);
-  
+   document.getElementById("cartbody").innerHTML+= datajson;
    
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
@@ -27,7 +27,7 @@ function populateBody(){
        //cartitemlist=cartitemlist.replace('\"', '"');
        var processedcartitemlistjson=JSON.parse(cartitemlist);
         
-       document.getElementById("cartbody").innerHTML+= JSON.stringify(individualid);
+       
         
           for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
           {
