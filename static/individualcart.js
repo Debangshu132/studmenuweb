@@ -21,13 +21,16 @@ function populateBody(){
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
-     document.getElementById("cartbody").innerHTML+=JSON.stringify(individualid)+"<br/>";
      var singleorder=JSON.stringify(datajson[individualid]);
-     //document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
- 
-     //document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
+     
      singleorder=JSON.parse(singleorder);
      document.getElementById("cartbody").innerHTML+=JSON.stringify(singleorder)+"<br/>";
+     for(var orderindex=0;orderindex<singleorder.length;orderindex++){
+      document.getElementById("cartbody").innerHTML+=JSON.stringify(singleorder[orderindex])+"<br/>";
+
+
+     }
+
 
   
    }
