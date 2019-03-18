@@ -19,7 +19,7 @@ function populateBody(){
    
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
-     var cartdata=datajson[bucketitem];
+     var cartdata=bucketitem;
      document.getElementById("cartbody").innerHTML+=JSON.stringify(cartdata);
 
   
