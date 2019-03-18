@@ -26,14 +26,14 @@ function populateBody(){
        cartitemlist=cartitemlist.replace(/'/g, '"');
        //cartitemlist=cartitemlist.replace('\"', '"');
         
-       document.getElementById("cartbody").innerHTML+= JSON.stirngify(JSON.parse(cartitemlist));
+       document.getElementById("cartbody").innerHTML+= cartitemlist;
         
           for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
           {
                     var individualitemjson=cartitemlist[indexoforder];
                     var individualitem=document.createElement('individualitem');
                     individualitem.innerHTML=individualitemjson;
-                    individualitem.innerHTML+="its done individual level";
+                    //individualitem.innerHTML+="its done individual level";
                     bucket.appendChild(individualitem);
           }     
    
