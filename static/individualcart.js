@@ -50,6 +50,7 @@ function populateBody(){
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
    }
+   document.getElementById("cartbody").appendChild(bucket);
      
 
 
