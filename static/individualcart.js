@@ -47,13 +47,13 @@ function populateBody(){
       var quantity=document.createElement('div');
 
       atomicorder.className="atomicorder";
-      firstname.className="firstname";
+     
       item.className="item";
       customization.className="customization";
       price.classname="price";
       quantity.className="quantity";
 
-      firstname.innerHTML=firstnamejson;
+      
       item.innerHTML=itemjson;
       customization.innerHTML=JSON.stringify(customizationjson);
       price.innerHTML=pricejson;
