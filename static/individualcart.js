@@ -13,6 +13,7 @@ function populateBody(){
    //var bucketlist=datajson["cart"];
 
    var datajson=JSON.parse(window.data);
+   datajson=datajson["mycart"];
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
    
@@ -44,16 +45,12 @@ function populateBody(){
       quantity.className="quantity";
 
       item.innerHTML=itemjson;
-      customization.innerHTML=customizationjson;
+      customization.innerHTML=JSON.stringify(customizationjson);
       price.innerHTML=pricejson;
       quantity.innerHTML=quantityjson;
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
    }
    document.getElementById("cartbody").appendChild(bucket);
-     
-
-
-  
    }
 } 
