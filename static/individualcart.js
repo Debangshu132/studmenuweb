@@ -14,6 +14,7 @@ function populateBody(){
 
    var datajson=JSON.parse(window.data);
    var datajsoncart=datajson["cart"];
+   datajson=datajson["cart"];
    var bucketlist=Object.keys(datajsoncart);
    document.getElementById("cartbody").innerHTML+= JSON.stringify(datajson);
    
