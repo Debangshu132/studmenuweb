@@ -5,6 +5,7 @@
    overflow-y:scroll; 
    }
  .bucket{
+    margin-top:10px;
     background:#ccc;
     border-radius:10px;}
  .price{
