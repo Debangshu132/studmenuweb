@@ -13,36 +13,15 @@ function populateBody(){
    //var bucketlist=datajson["cart"];
 
    var datajson=JSON.parse(window.data);
-   var datajsoncart=datajson["cart"];
    datajson=datajson["cart"];
-   var bucketlist=Object.keys(datajsoncart);
+   var bucketlist=Object.keys(datajson);
    document.getElementById("cartbody").innerHTML+= JSON.stringify(datajson);
    
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
-       var individualid=bucketlist[bucketitem];
-       var cartitemlist=datajsoncart[individualid];
-       var bucket=document.createElement('bucket');
-       cartitemlist=JSON.stringify(cartitemlist);
-       cartitemlist=cartitemlist.replace(/'/g, '"');
-       //cartitemlist=cartitemlist.replace('\"', '"');
-       var processedcartitemlistjson=JSON.parse(cartitemlist);
-        
-       
-        
-          for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
-          {
-                    var individualitemjson=cartitemlist[indexoforder];
-                    var individualitem=document.createElement('individualitem');
-                    individualitem.innerHTML=individualitemjson;
-                    individualitem.innerHTML+="its done individual level";
-                    bucket.appendChild(individualitem);
-          }     
-   
-         document.getElementById("cartbody").appendChild(bucket);
+     var cartdata=datajson[bucketitem];
+     document.getElementById("cartbody").innerHTML+=JSON.stringify(cartdata);
 
-   }
-   
   
    }
-   
+} 
