@@ -13,7 +13,7 @@ function populateBody(){
    //var bucketlist=datajson["cart"];
 
    var datajson=JSON.parse(window.data);
-   //datajson=datajson["mycart"];
+   datajson=datajson["mycart"];
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
    
