@@ -5,7 +5,24 @@ window.onload = function() {
 }
 
 function populateBody(){
+  // document.getElementById("cartbody").innerHTML= window.data;
+   
+   for(bucketitem in window.data["cart"])
+   {
+          var bucket=document.createElement('bucket');
+          for(var indexoforder=0;indexoforder<bucketitem['cart'].length;indexoforder++)
+          {
+                    var individualitemjson=bucketitem["cart"][indexoforder];
+                    var individualitem=document.createElement('individualitem');
+                    individualitem.innerHTML=individualitemjson;
+                    individualitem.innerHTML+="its done";
+                    bucket.appendChild(individualitem);
+          }     
+   
+         document.getElementById("cartbody").appendChild(bucket);
+
+   }
+   
   
-   document.getElementById("cartbody").innerHTML= window.data;
    }
    
