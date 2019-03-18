@@ -12,9 +12,10 @@ function populateBody(){
    //document.getElementById("cartbody").innerHTML+="1324";
    //var bucketlist=datajson["cart"];
 
-   window.peace=JSON.parse(window.data);
-
-   document.getElementById("cartbody").innerHTML+=JSON.stringify(window.peace);
+   var datajson=JSON.parse(window.data);
+   var datajsoncart=datajson["cart"];
+   var bucketlist=Object.keys[datajsoncart];
+   
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
    {   
        var individualid=bucketlist[bucketitem];
