@@ -21,6 +21,7 @@ function populateBody(){
    {   
        var individualid=bucketlist[bucketitem];
        var cartitemlist=datajsoncart[individualid];
+       cartitemlist=JSON.parse(cartitemlist);
        var bucket=document.createElement('bucket');
        document.getElementById("cartbody").innerHTML+= JSON.stringify(cartitemlist['cart']);
         
