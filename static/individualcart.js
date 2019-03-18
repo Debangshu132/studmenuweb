@@ -22,7 +22,7 @@ function populateBody(){
      var individualid=bucketlist[bucketitem];
      var singlepersonorderlistjson=datajson[individualid];
      singlepersonorderlistjson=singlepersonorderlistjson["mycart"];
-     var firstnamejson=singlepersonorderlistjson["firstname"];
+     var firstnamejson=datajson[individualid]["firstname"];
      var firstname=document.createElement('div');
      firstname.className="firstname";
      firstname.innerHTML=JSON.stringify(firstnamejson);
