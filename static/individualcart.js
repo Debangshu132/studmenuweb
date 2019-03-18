@@ -22,28 +22,31 @@ function populateBody(){
      var individualid=bucketlist[bucketitem];
      var singlepersonorderlistjson=datajson[individualid];
      singlepersonorderlistjson=singlepersonorderlistjson["mycart"];
- 
+     var firstnamejson=singlepersonorderlistjson["firstname"];
+     var firstname=document.createElement('div');
+     firstname.className="firstname";
+     firstname.innerHTML=firstnamejson;
      var bucket=document.createElement('div');
      bucket.className="bucket";
      for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
      {
       //document.getElementById("cartbody").innerHTML+=JSON.stringify(singlepersonorderlistjson[orderindex])+"<br/>";
       var atomicorderjson=singlepersonorderlistjson[orderindex];
-      var firstnamejson=singlepersonorderlistjson["firstname"];
+      
       var itemjson=atomicorderjson["item"];
       var customizationjson=atomicorderjson["customization"];
       var pricejson=atomicorderjson["price"];
       var quantityjson=atomicorderjson["quantity"];
 
       var atomicorder=document.createElement('div');
-      var firstname=document.createElement('div');
+      
       var item=document.createElement('div');
       var customization=document.createElement('div');
       var price=document.createElement('div');
       var quantity=document.createElement('div');
 
       atomicorder.className="atomicorder";
-      firstname.className="firatname";
+      firstname.className="firstname";
       item.className="item";
       customization.className="customization";
       price.classname="price";
@@ -54,10 +57,11 @@ function populateBody(){
       customization.innerHTML=JSON.stringify(customizationjson);
       price.innerHTML=pricejson;
       quantity.innerHTML=quantityjson;
-      atomicorder.appendChild(firstname);
+      
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
    }
+   document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
 } 
