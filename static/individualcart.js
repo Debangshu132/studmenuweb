@@ -20,19 +20,20 @@ function populateBody(){
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
    {   
        var individualid=bucketlist[bucketitem];
-       document.getElementById("cartbody").innerHTML+=JSON.stringify(individualid);
-       document.getElementById("cartbody").innerHTML+= datajsoncart[individualid];
-     /*     var bucket=document.createElement('bucket');
-          for(var indexoforder=0;indexoforder<bucketitem['cart'].length;indexoforder++)
+       var cartitemlist=individualid['cart'];
+       var bucket=document.createElement('bucket');
+       //document.getElementById("cartbody").innerHTML+= datajsoncart[individualid];
+        
+          for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
           {
-                    var individualitemjson=bucketitem["cart"][indexoforder];
+                    var individualitemjson=cartitemlist[indexoforder];
                     var individualitem=document.createElement('individualitem');
                     individualitem.innerHTML=individualitemjson;
-                    individualitem.innerHTML+="its done";
+                    individualitem.innerHTML+="its doneindividual level";
                     bucket.appendChild(individualitem);
           }     
    
-         document.getElementById("cartbody").appendChild(bucket);*/
+         document.getElementById("cartbody").appendChild(bucket);
 
    }
    
