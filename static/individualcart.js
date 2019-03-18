@@ -25,8 +25,8 @@ function populateBody(){
      var singleorder=JSON.stringify(datajson[individualid]);
      //document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
      singleorder=singleorder.replace(/'/g, '"');
-     singleorder=singleorder.replace("[]", '""');
-
+     singleorder[0]="'";
+     singleorder[singleorder.length]="'";
      //document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
      singleorder=JSON.parse(singleorder);
      singleorder=singleorder[1];
