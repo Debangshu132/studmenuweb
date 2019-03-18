@@ -15,13 +15,13 @@ function populateBody(){
    var datajson=JSON.parse(window.data);
    var datajsoncart=datajson["cart"];
    var bucketlist=Object.keys(datajsoncart);
-   document.getElementById("cartbody").innerHTML+=JSON.stringify(bucketlist);
+  
    
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
    {   
        var individualid=bucketlist[bucketitem];
        document.getElementById("cartbody").innerHTML+=JSON.stringify(individualid);
-       //document.getElementById("cartbody").innerHTML+= window.data["cart"][individualid];
+       document.getElementById("cartbody").innerHTML+= datajsoncart[individualid];
      /*     var bucket=document.createElement('bucket');
           for(var indexoforder=0;indexoforder<bucketitem['cart'].length;indexoforder++)
           {
