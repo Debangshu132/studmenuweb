@@ -23,9 +23,9 @@ function populateBody(){
      var individualid=bucketlist[bucketitem];
      document.getElementById("cartbody").innerHTML+=JSON.stringify(individualid)+"<br/>";
      var singleorder=JSON.stringify(datajson[individualid]);
-     document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
-     singleorder=singleorder.replace(/'/g, '"');
      //document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
+     singleorder=singleorder.replace(/'/g, '"');
+     document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
      singleorder=JSON.parse(singleorder);
      singleorder=singleorder[1];
      document.getElementById("cartbody").innerHTML+=JSON.stringify(singleorder)+"<br/>";
