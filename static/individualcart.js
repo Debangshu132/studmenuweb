@@ -13,7 +13,7 @@ function populateBody(){
    //var bucketlist=datajson["cart"];
 
    var datajson=JSON.parse(window.data);
-   datajson=datajson["mycart"];
+   
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
    
@@ -21,6 +21,7 @@ function populateBody(){
    {   
      var individualid=bucketlist[bucketitem];
      var singlepersonorderlistjson=datajson[individualid];
+     singlepersonorderlistjson=singlepersonorderlistjson["mycart"];
      var bucket=document.createElement('div');
      bucket.className="bucket";
      for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
