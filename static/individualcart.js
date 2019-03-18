@@ -27,7 +27,7 @@ function populateBody(){
        //cartitemlist=cartitemlist.replace('\"', '"');
        var processedcartitemlistjson=JSON.parse(cartitemlist);
         
-       document.getElementById("cartbody").innerHTML+= JSON.stringify(processedcartitemlistjson.length);
+       document.getElementById("cartbody").innerHTML+= individualid;
         
           for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
           {
