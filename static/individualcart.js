@@ -28,7 +28,6 @@ function populateBody(){
      firstname.innerHTML=JSON.stringify(firstnamejson);
      var bucket=document.createElement('div');
      bucket.className="bucket";
-     bucket.appendChild(firstnme);
      for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
      {
       //document.getElementById("cartbody").innerHTML+=JSON.stringify(singlepersonorderlistjson[orderindex])+"<br/>";
@@ -47,13 +46,13 @@ function populateBody(){
       var quantity=document.createElement('div');
 
       atomicorder.className="atomicorder";
-     
+      firstname.className="firstname";
       item.className="item";
       customization.className="customization";
       price.classname="price";
       quantity.className="quantity";
 
-      
+      firstname.innerHTML=firstnamejson;
       item.innerHTML=itemjson;
       customization.innerHTML=JSON.stringify(customizationjson);
       price.innerHTML=pricejson;
@@ -62,7 +61,7 @@ function populateBody(){
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
    }
-   
+   document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
 } 
