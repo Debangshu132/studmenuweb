@@ -8,7 +8,7 @@ function populateBody(){
    document.getElementById("cartbody").innerHTML+= window.data;
    var datajson=JSON.parse(window.data);
    var bucketlist=Object.keys(datajson["cart"]);
-   //document.getElementById("cartbody").innerHTML+=JSON
+   document.getElementById("cartbody").innerHTML+=JSON.stringify(bucketlist);
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
    {   
        var individualid=bucketlist[bucketitem];
