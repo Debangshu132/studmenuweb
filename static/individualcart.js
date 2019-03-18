@@ -22,8 +22,8 @@ function populateBody(){
        var individualid=bucketlist[bucketitem];
        var cartitemlist=datajsoncart[individualid];
        var bucket=document.createElement('bucket');
-       cartitemlist=cartitemlist.replace("'", '"'); 
-       cartitemlist=cartitemlist.replace('"', "'"); 
+       cartitemlist=cartitemlist.replace(/\'/g, '"');
+        
        document.getElementById("cartbody").innerHTML+= JSON.stringify(cartitemlist);
         
           for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
