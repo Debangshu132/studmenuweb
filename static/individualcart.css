@@ -6,15 +6,16 @@
    }
  .bucket{
     margin-top:10px;
-    background:#ccc;
+    background:#999;
     border-radius:10px;}
 
  .atomicorder{
    display:inline-block; 
    border:2px solid;
-    background:white;
+    
  }
  .price{
+   display:inline-block;  
    position:relative;
    left:20;
    background: grey;
