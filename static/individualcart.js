@@ -9,7 +9,8 @@ function populateBody(){
    
    for(bucketitem in window.data["cart"])
    {
-          var bucket=document.createElement('bucket');
+       document.getElementById("cartbody").innerHTML+= bucketitem;
+     /*     var bucket=document.createElement('bucket');
           for(var indexoforder=0;indexoforder<bucketitem['cart'].length;indexoforder++)
           {
                     var individualitemjson=bucketitem["cart"][indexoforder];
@@ -19,7 +20,7 @@ function populateBody(){
                     bucket.appendChild(individualitem);
           }     
    
-         document.getElementById("cartbody").appendChild(bucket);
+         document.getElementById("cartbody").appendChild(bucket);*/
 
    }
    
