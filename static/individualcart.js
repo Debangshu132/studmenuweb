@@ -25,7 +25,7 @@ function populateBody(){
        cartitemlist=JSON.stringify(cartitemlist);
        cartitemlist=cartitemlist.replace(/'/g, '"');
        //cartitemlist=cartitemlist.replace('\"', '"');
-       var processedcartitemlistjson=JSON.parse(JSON.stringify(cartitemlist));
+       var processedcartitemlistjson=JSON.parse(cartitemlist);
         
        document.getElementById("cartbody").innerHTML+= JSON.stringify(processedcartitemlistjson.length);
         
@@ -33,8 +33,8 @@ function populateBody(){
           {
                     var individualitemjson=cartitemlist[indexoforder];
                     var individualitem=document.createElement('individualitem');
-                    individualitem.innerHTML=individualitemjson;
-                    individualitem.innerHTML+="its done individual level";
+                    //individualitem.innerHTML=individualitemjson;
+                    //individualitem.innerHTML+="its done individual level";
                     bucket.appendChild(individualitem);
           }     
    
