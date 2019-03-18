@@ -1,37 +1,39 @@
-from pymongo import MongoClient
-import json
-from flask import Flask, request,render_template
-app = Flask(__name__)
-#@app.route("/", methods=['GET', 'POST'])
-#def index():
-#    return "hello man"
-def getRestaurantsTableInformation(nameOfRestaurant,tableno):
-    MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
-    client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
-    db = client.get_database("brilu")
-    col = db["restaurants"]
-    cursor = col.find()
-    restaurant = cursor[0]
-    return(restaurant[nameOfRestaurant]["tables"][tableno])
-@app.route("/", methods=['GET', 'POST'])
-def menu():
-         MONGODB_URI="mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
-         client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
-         db = client.get_database("brilu")
-         col = db["restaurants"]
-         cursor = col.find()
-         restaurant = cursor[0]
-         print(restaurant["Taj"]["menu"])
-         return render_template("headerfooter.html",menuitems=json.dumps(restaurant["Taj"]["menu"]))
-         #return render_template('chart.html',menu=menu)
-@app.route("/groupcart/<data>", methods=['GET', 'POST'])
-def groupcart(data):
-         data=json.loads(data)
-         restaurant=data["restaurant"]
-         tableno=data["tableno"]
-         consumer_id=data["consumer_id"]
-         mydata=getRestaurantsTableInformation(restaurant,tableno)
-         return render_template("individualcart.html",datatowrite =json.dumps(mydata))
+window.onload = function() {
+   
+   //window.cartitemjson=JSON.parse(window.data);
+   populateBody();
+}
 
-if __name__ == "__main__":
-    app.run(debug=True)         
+function populateBody(){
+   //document.getElementById("cartbody").innerHTML+= window.data;
+   //var datajson=JSON.parse(window.data);
+   //document.getElementById("cartbody").innerHTML+= window.data;
+   //document.getElementById("cartbody").innerHTML+= window.data;
+   //document.getElementById("cartbody").innerHTML+="1324";
+   //var bucketlist=datajson["cart"];
+
+   window.peace=JSON.parse(window.data);
+
+   document.getElementById("cartbody").innerHTML+=JSON.stringify(window.peace);
+   for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
+   {   
+       var individualid=bucketlist[bucketitem];
+       document.getElementById("cartbody").innerHTML+=JSON.stringify(individualid);
+       //document.getElementById("cartbody").innerHTML+= window.data["cart"][individualid];
+     /*     var bucket=document.createElement('bucket');
+          for(var indexoforder=0;indexoforder<bucketitem['cart'].length;indexoforder++)
+          {
+                    var individualitemjson=bucketitem["cart"][indexoforder];
+                    var individualitem=document.createElement('individualitem');
+                    individualitem.innerHTML=individualitemjson;
+                    individualitem.innerHTML+="its done";
+                    bucket.appendChild(individualitem);
+          }     
+   
+         document.getElementById("cartbody").appendChild(bucket);*/
+
+   }
+   
+  
+   }
+   
