@@ -16,12 +16,13 @@ function populateBody(){
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
    //document.getElementById("cartbody").innerHTML+= JSON.stringify(datajson);
-   document.getElementById("cartbody").innerHTML+= JSON.stringify(bucketlist);
+   //document.getElementById("cartbody").innerHTML+= JSON.stringify(bucketlist);
    
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
-     var cartdata=bucketlist[bucketitem];
-     document.getElementById("cartbody").innerHTML+=JSON.stringify(cartdata);
+     var individualid=bucketlist[bucketitem];
+     document.getElementById("cartbody").innerHTML+=JSON.stringify(individualid)+"<br/>";
+     document.getElementById("cartbody").innerHTML+=JSON.stringify(datajson[individualid])+"<br/>";
 
   
    }
