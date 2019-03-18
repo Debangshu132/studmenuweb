@@ -8,12 +8,14 @@
     margin-top:10px;
     background:#ccc;
     border-radius:10px;}
- .price{
-    position:relative;
-    left:20;
- }   
+
  .atomicorder{
    display:inline-block; 
    border:2px solid;
     background:white;
  }
+ .price{
+   position:relative;
+   left:20;
+   background: grey;
+}   
