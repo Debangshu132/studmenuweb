@@ -22,7 +22,11 @@ function populateBody(){
    {   
      var individualid=bucketlist[bucketitem];
      document.getElementById("cartbody").innerHTML+=JSON.stringify(individualid)+"<br/>";
-     document.getElementById("cartbody").innerHTML+=JSON.stringify(datajson[individualid])+"<br/>";
+     var singleorder=JSON.stringify(datajson[individualid]);
+     document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
+     singleorder=singleorder.replace(/'/g, '"');
+     document.getElementById("cartbody").innerHTML+=singleorder+"<br/>";
+
 
   
    }
