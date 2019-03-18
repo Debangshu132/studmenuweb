@@ -6,10 +6,11 @@ window.onload = function() {
 
 function populateBody(){
    document.getElementById("cartbody").innerHTML= window.data;
-   
-   for(bucketitem in window.data["cart"])
-   {
-       document.getElementById("cartbody").innerHTML+= bucketitem;
+   var bucketlist=Object.keys(window.data["cart"])
+   for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
+   {   
+       var individualid=bucketlist[bucketitem]
+       document.getElementById("cartbody").innerHTML+= window.data["cart"][individualid];
      /*     var bucket=document.createElement('bucket');
           for(var indexoforder=0;indexoforder<bucketitem['cart'].length;indexoforder++)
           {
