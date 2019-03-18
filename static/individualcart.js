@@ -22,10 +22,11 @@ function populateBody(){
        var individualid=bucketlist[bucketitem];
        var cartitemlist=datajsoncart[individualid];
        var bucket=document.createElement('bucket');
+       cartitemlist=JSON.stringify(cartitemlist);
        cartitemlist=cartitemlist.replace(/'/g, '"');
-       cartitemlist=cartitemlist.replace('\"', '"');
+       //cartitemlist=cartitemlist.replace('\"', '"');
         
-       document.getElementById("cartbody").innerHTML+= JSON.stringify(cartitemlist);
+       document.getElementById("cartbody").innerHTML+= cartitemlist
         
           for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
           {
