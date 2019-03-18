@@ -12,7 +12,7 @@ function populateBody(){
    //document.getElementById("cartbody").innerHTML+="1324";
    //var bucketlist=datajson["cart"];
    document.getElementById("cartbody").innerHTML+=window.data;
-   document.getElementById("cartbody").innerHTML+=window.data["cart"];
+   document.getElementById("cartbody").innerHTML+=JSON.stringify(JSON.parse(window.data));
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
    {   
        var individualid=bucketlist[bucketitem];
