@@ -15,12 +15,12 @@ function populateBody(){
    var datajson=JSON.parse(window.data);
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
-   document.getElementById("cartbody").innerHTML+= JSON.stringify(datajson);
+   //document.getElementById("cartbody").innerHTML+= JSON.stringify(datajson);
    document.getElementById("cartbody").innerHTML+= JSON.stringify(bucketlist);
    
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
-     var cartdata=bucketitem;
+     var cartdata=bucketlist[bucketitem];
      document.getElementById("cartbody").innerHTML+=JSON.stringify(cartdata);
 
   
