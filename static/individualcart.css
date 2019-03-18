@@ -10,4 +10,7 @@
  .price{
     float:right;
  }   
- 
+ .atomicorder{
+   border:2px solid;
+    background:white;
+ }
