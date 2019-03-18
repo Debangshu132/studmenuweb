@@ -23,6 +23,7 @@ function populateBody(){
        var cartitemlist=datajsoncart[individualid];
        var bucket=document.createElement('bucket');
        cartitemlist=cartitemlist.replace(/'/g, '"');
+       cartitemlist=cartitemlist.replace('\"', '"');
         
        document.getElementById("cartbody").innerHTML+= JSON.stringify(cartitemlist);
         
