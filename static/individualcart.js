@@ -15,21 +15,42 @@ function populateBody(){
    var datajson=JSON.parse(window.data);
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
-   //document.getElementById("cartbody").innerHTML+= JSON.stringify(datajson);
-   //document.getElementById("cartbody").innerHTML+= JSON.stringify(bucketlist);
    
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
-     var singleorder=JSON.stringify(datajson[individualid]);
+     var singlepersonorderlistjson=datajson[individualid];
+     var bucket=document.createElement('div');
+     bucket.className="bucket";
+     for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
+     {
+      //document.getElementById("cartbody").innerHTML+=JSON.stringify(singlepersonorderlistjson[orderindex])+"<br/>";
+      var atomicorderjson=singlepersonorderlistjson[orderindex];
+      var itemjson=atomicorderjson["item"];
+      var customizationjson=atomicorderjson["customization"];
+      var pricejson=atomicorderjson["price"];
+      var quantityjson=atomicorderjson["quantity"];
+
+      var atomicorder=document.createElement('div');
+      var item=document.createElement('div');
+      var customization=document.createElement('div');
+      var price=document.createElement('div');
+      var quantity=document.createElement('div');
+
+      atomicorder.className="atomicorder";
+      item.className="item";
+      customization.className="customization";
+      price.classname="price";
+      quantity.className="quantity";
+
+      item.innerHTML=itemjson;
+      customization.innerHTML=customizationjson;
+      price.innerHTML=pricejson;
+      quantity.innerHTML=quantityjson;
+      atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
+      bucket.appendChild(atomicorder); 
+   }
      
-     singleorder=JSON.parse(singleorder);
-     document.getElementById("cartbody").innerHTML+=JSON.stringify(singleorder)+"<br/>";
-     for(var orderindex=0;orderindex<singleorder.length;orderindex++){
-      document.getElementById("cartbody").innerHTML+=JSON.stringify(singleorder[orderindex])+"<br/>";
-
-
-     }
 
 
   
