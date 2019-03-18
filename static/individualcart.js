@@ -6,12 +6,14 @@ window.onload = function() {
 
 function populateBody(){
    document.getElementById("cartbody").innerHTML+= window.data;
-   var bucketlist=Object.keys(jsoon.parse(window.data["cart"]));
+   var datajson=JSON.parse(window.data);
+   var bucketlist=Object.keys(datajson["cart"]);
+   //document.getElementById("cartbody").innerHTML+=JSON
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
    {   
        var individualid=bucketlist[bucketitem];
-       document.getElementById("cartbody").innerHTML+=json.stringify(individualid);
-       document.getElementById("cartbody").innerHTML+= window.data["cart"][individualid];
+       document.getElementById("cartbody").innerHTML+=JSON.stringify(individualid);
+       //document.getElementById("cartbody").innerHTML+= window.data["cart"][individualid];
      /*     var bucket=document.createElement('bucket');
           for(var indexoforder=0;indexoforder<bucketitem['cart'].length;indexoforder++)
           {
