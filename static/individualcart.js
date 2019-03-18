@@ -11,10 +11,9 @@ function populateBody(){
    //document.getElementById("cartbody").innerHTML+= window.data;
    //document.getElementById("cartbody").innerHTML+="1324";
    //var bucketlist=datajson["cart"];
-   document.getElementById("cartbody").innerHTML+=window.data;
-   document.getElementById("cartbody").innerHTML+=typeof window.data;
+
    window.peace=JSON.parse(window.data);
-   document.getElementById("cartbody").innerHTML+=typeof window.peace;
+
    document.getElementById("cartbody").innerHTML+=JSON.stringify(window.peace);
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
    {   
