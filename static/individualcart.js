@@ -25,7 +25,7 @@ function populateBody(){
      var firstnamejson=singlepersonorderlistjson["firstname"];
      var firstname=document.createElement('div');
      firstname.className="firstname";
-     firstname.innerHTML=firstnamejson;
+     firstname.innerHTML=JSON.stringify(firstnamejson);
      var bucket=document.createElement('div');
      bucket.className="bucket";
      for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
