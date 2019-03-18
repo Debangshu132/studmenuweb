@@ -17,12 +17,12 @@ function populateBody(){
    var bucketlist=Object.keys(datajsoncart);
   
    
-   for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
+   for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
        var individualid=bucketlist[bucketitem];
        var cartitemlist=datajsoncart[individualid];
        var bucket=document.createElement('bucket');
-       
+       cartitemlist=cartitemlist.replace(/'/g, '"');
         
        document.getElementById("cartbody").innerHTML+= JSON.stringify(cartitemlist);
         
