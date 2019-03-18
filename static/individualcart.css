@@ -9,7 +9,8 @@
     background:#ccc;
     border-radius:10px;}
  .price{
-    float:right;
+    position:relative;
+    left:20;
  }   
  .atomicorder{
    display:inline-block; 
