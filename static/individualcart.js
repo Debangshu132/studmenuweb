@@ -9,7 +9,7 @@ function populateBody(){
    var datajson=JSON.parse(window.data);
    //document.getElementById("cartbody").innerHTML+= window.data;
    //document.getElementById("cartbody").innerHTML+= window.data;
-   //document.getElementById("cartbody").innerHTML+=JSON.stringify(datajson);
+   document.getElementById("cartbody").innerHTML+=JSON.stringify(datajson["cart"]);
    //var bucketlist=datajson["cart"];
    //document.getElementById("cartbody").innerHTML+=JSON.stringify(bucketlist);
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
