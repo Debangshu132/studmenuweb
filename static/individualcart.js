@@ -7,7 +7,7 @@ window.onload = function() {
 function populateBody(){
    document.getElementById("cartbody").innerHTML+= window.data;
    var datajson=JSON.parse(window.data);
-   var bucketlist=Object.keys(datajson["cart"]);
+   var bucketlist=datajson["cart"];
    document.getElementById("cartbody").innerHTML+=JSON.stringify(bucketlist);
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
    {   
