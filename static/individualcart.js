@@ -6,10 +6,10 @@ window.onload = function() {
 
 function populateBody(){
    //document.getElementById("cartbody").innerHTML+= window.data;
-   var datajson=JSON.parse(window.data);
+   //var datajson=JSON.parse(window.data);
    //document.getElementById("cartbody").innerHTML+= window.data;
    //document.getElementById("cartbody").innerHTML+= window.data;
-   document.getElementById("cartbody").innerHTML+=JSON.stringify(datajson["cart"]);
+   document.getElementById("cartbody").innerHTML+="1324";
    //var bucketlist=datajson["cart"];
    //document.getElementById("cartbody").innerHTML+=JSON.stringify(bucketlist);
    for(var bucketitem=0;bucketitem<bucketlist.length;bucketitem++)
