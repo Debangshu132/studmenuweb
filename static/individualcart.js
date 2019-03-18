@@ -22,14 +22,14 @@ function populateBody(){
        var individualid=bucketlist[bucketitem];
        var cartitemlist=datajsoncart[individualid];
        var bucket=document.createElement('bucket');
-       document.getElementById("cartbody").innerHTML+= JSON.stringify(cartitemlist);
+       document.getElementById("cartbody").innerHTML+= JSON.stringify(cartitemlist['cart']);
         
           for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
           {
                     var individualitemjson=cartitemlist[indexoforder];
                     var individualitem=document.createElement('individualitem');
                     individualitem.innerHTML=individualitemjson;
-                    individualitem.innerHTML+="its doneindividual level";
+                    individualitem.innerHTML+="its done individual level";
                     bucket.appendChild(individualitem);
           }     
    
