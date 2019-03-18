@@ -22,7 +22,7 @@ function populateBody(){
        var individualid=bucketlist[bucketitem];
        var cartitemlist=datajsoncart[individualid];
        var bucket=document.createElement('bucket');
-       cartitemlist=cartitemlist.replace("'", '"'); 
+       
         
        document.getElementById("cartbody").innerHTML+= JSON.stringify(cartitemlist);
         
