@@ -33,8 +33,8 @@ function populateBody(){
           {
                     var individualitemjson=cartitemlist[indexoforder];
                     var individualitem=document.createElement('individualitem');
-                    //individualitem.innerHTML=individualitemjson;
-                    //individualitem.innerHTML+="its done individual level";
+                    individualitem.innerHTML=individualitemjson;
+                    individualitem.innerHTML+="its done individual level";
                     bucket.appendChild(individualitem);
           }     
    
