@@ -25,8 +25,9 @@ function populateBody(){
        cartitemlist=JSON.stringify(cartitemlist);
        cartitemlist=cartitemlist.replace(/'/g, '"');
        //cartitemlist=cartitemlist.replace('\"', '"');
+       var processedcartitemlistjson=JSON.parse(JSON.stringify(cartitemlist));
         
-       document.getElementById("cartbody").innerHTML+= JSON.stringify(JSON.parse(JSON.stringify(cartitemlist))[0]);
+       document.getElementById("cartbody").innerHTML+= JSON.stringify(processedcartitemlistjson[1]);
         
           for(var indexoforder=0;indexoforder<cartitemlist.length;indexoforder++)
           {
