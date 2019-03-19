@@ -73,7 +73,7 @@ function populateBody(){
    bucket.onclick=alert(JSON.stringify(individualid));
    if(window.identity==="waiter"){
       bucket.onclick=function(id){
-      alert(id);   
+      return function(){alert(id); }  
       //executeWaitersCode(id);
    }(individualid);
 
