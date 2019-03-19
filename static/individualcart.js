@@ -64,10 +64,10 @@ function populateBody(){
       atomicorder.appendChild(status);
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
-      if(window.identity==="waiter"){
+      
          bucket.onclick=function(){
-           alert("waiter");
-         }
+           alert(window.identity);
+         
       }
    }
    document.getElementById("cartbody").appendChild(firstname);
