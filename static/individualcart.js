@@ -83,7 +83,7 @@ function populateBody(){
    }
 }
 function executeWaitersCode(id){
-   alert("yeayS"); 
+    
     var acceptOrder=document.createElement('div');
     var acceptOrderContent=document.createElement('div');
 
@@ -91,7 +91,7 @@ function executeWaitersCode(id){
     acceptOrder.id="acceptOrder";
     acceptOrderContent.className="acceptOrderContent";
 
-
+    alert("yeayS");
     var accept=document.createElement('div');
     accept.innerHTML="accept order!";
     accept.onclick=function(argid){
