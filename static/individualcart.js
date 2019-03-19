@@ -94,8 +94,10 @@ function executeWaitersCode(id){
     var accept=document.createElement('div');
     
     accept.onclick=function(argid){
+       return function(){
+         alert("accepted!");   
        postAcceptOrder(argid);
-       alert("accepted!");
+       }
     }(id)
      
    
