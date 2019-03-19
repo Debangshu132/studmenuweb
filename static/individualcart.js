@@ -33,12 +33,16 @@ function populateBody(){
      firstname.innerHTML=JSON.stringify(firstnamejson);
      var bucket=document.createElement('div');
      bucket.className="bucket";
+     window.statusjson="pending";
+     status.className="status";
+     status.innerHTML=statusjson;
+     bucket.appendChild(status);
      for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
      {
       //document.getElementById("cartbody").innerHTML+=JSON.stringify(singlepersonorderlistjson[orderindex])+"<br/>";
       var atomicorderjson=singlepersonorderlistjson[orderindex];
       
-      window.statusjson=atomicorderjson["status"];;
+      
       var itemjson=atomicorderjson["item"];
       var customizationjson=atomicorderjson["customization"];
       var pricejson=atomicorderjson["price"];
@@ -52,20 +56,20 @@ function populateBody(){
       var quantity=document.createElement('div');
 
       atomicorder.className="atomicorder";
-      status.className="status";
+      
       firstname.className="firstname";
       item.className="item";
       customization.className="customization";
       price.classname="price";
       quantity.className="quantity";
 
-      status.innerHTML=statusjson;
+      
       firstname.innerHTML=firstnamejson;
       item.innerHTML=itemjson;
       customization.innerHTML=JSON.stringify(customizationjson);
       price.innerHTML=pricejson;
       quantity.innerHTML=quantityjson;
-      atomicorder.appendChild(status);
+      
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
      
@@ -104,7 +108,7 @@ function executeWaitersCode(tableno,restaurant,id){
 
         
        }
-    }(tableno,restaurant,id,"accept");
+    }(tableno,restaurant,id,"accepted");
     var cancel=document.createElement('div');
     cancel.className="accept";
     cancel.innerHTML="cancel";
