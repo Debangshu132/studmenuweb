@@ -24,7 +24,7 @@ function populateBody(){
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
-    
+     window.indiid=individualid;
      var singlepersonorderlistjson=datajson[individualid];
      singlepersonorderlistjson=singlepersonorderlistjson["mycart"];
      var firstnamejson=datajson[individualid]["firstname"];
@@ -70,12 +70,12 @@ function populateBody(){
       bucket.appendChild(atomicorder); 
      
    }
-   bucket.onclick=alert(JSON.stringify(individualid));
-  // if(window.identity==="waiter"){
-  //    bucket.onclick=function(id){
-  //    alert(id);   
+   //bucket.onclick=alert(JSON.stringify(individualid));
+   if(window.identity==="waiter"){
+      bucket.onclick=function(id){
+      alert(id);   
       //executeWaitersCode(id);
-  // }(indiid);
+   }(indiid);
 
 }
    document.getElementById("cartbody").appendChild(firstname);
