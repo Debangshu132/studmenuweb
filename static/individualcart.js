@@ -33,31 +33,34 @@ function populateBody(){
       //document.getElementById("cartbody").innerHTML+=JSON.stringify(singlepersonorderlistjson[orderindex])+"<br/>";
       var atomicorderjson=singlepersonorderlistjson[orderindex];
       
+      window.statusjson=atomicorderjson["status"];;
       var itemjson=atomicorderjson["item"];
       var customizationjson=atomicorderjson["customization"];
       var pricejson=atomicorderjson["price"];
       var quantityjson=atomicorderjson["quantity"];
 
       var atomicorder=document.createElement('div');
-      
+      var status=document.createElement('div');
       var item=document.createElement('div');
       var customization=document.createElement('div');
       var price=document.createElement('div');
       var quantity=document.createElement('div');
 
       atomicorder.className="atomicorder";
+      status.className="status";
       firstname.className="firstname";
       item.className="item";
       customization.className="customization";
       price.classname="price";
       quantity.className="quantity";
 
+      status.innerHTML=statusjson;
       firstname.innerHTML=firstnamejson;
       item.innerHTML=itemjson;
       customization.innerHTML=JSON.stringify(customizationjson);
       price.innerHTML=pricejson;
       quantity.innerHTML=quantityjson;
-      
+      atomicorder.appendChild(status);
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
    }
