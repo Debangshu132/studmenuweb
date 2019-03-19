@@ -97,8 +97,14 @@ function executeWaitersCode(tableno,restaurant,id){
     accept.innerHTML="accept order!";
     accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
        return function(){
+         alert(argtableno);
+         alert(rgrestaurant);
+         alert(argid);
+         alert(argacceptdeny); 
   
          postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
+         
+
         
        }
     }(tableno,restaurant,id,"accept");
