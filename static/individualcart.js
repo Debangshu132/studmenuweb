@@ -91,7 +91,7 @@ function executeWaitersCode(id){
     acceptOrder.id="acceptOrder";
     acceptOrderContent.className="acceptOrderContent";
 
-    alert("yeayS");
+    
     var accept=document.createElement('div');
     accept.innerHTML="accept order!";
     accept.onclick=function(argid){
@@ -101,7 +101,7 @@ function executeWaitersCode(id){
        }
     }(id);
      
-   
+    alert("yeay1");
 
     acceptOrderContent.innerHTML="Are you sure you want to accept the order?";
     acceptOrderContent.appendChild(accept);
