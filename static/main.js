@@ -619,7 +619,7 @@ function createCustomizationTab(item,text,baseprice){
 }
 function updatecart(item,customization,quantity){
   var priceofindividualitem=calculatepriceofindividualitem(customization)*parseInt(quantity);
-  var newitem={"item":item,"customization":customization,"quantity":parseInt(quantity),"price":priceofindividualitem};
+  var newitem={"item":item,"customization":customization,"quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
   if(window.cart.length>0){
   var ispresentalready=checkforsameitemandcustomizationincart(newitem);
 
