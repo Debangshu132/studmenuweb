@@ -34,9 +34,9 @@ function populateBody(){
      var bucket=document.createElement('div');
      bucket.className="bucket";
      var status=document.createElement('div');
-     window.statusjson="pending";
+     window.statusjson=datajson[individualid]["status"];
      status.className="status";
-     status.innerHTML="pending";
+     status.innerHTML=window.statusjson;
      bucket.appendChild(status);
      for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
      {
@@ -103,7 +103,8 @@ function executeWaitersCode(tableno,restaurant,id){
     accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
        return function(){
          
-  
+         window.statusjson="accepted";
+         status.innerHTML=window.statusjson;
          postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
          
 
