@@ -97,12 +97,9 @@ function executeWaitersCode(tableno,restaurant,id){
     accept.innerHTML="accept order!";
     accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
        return function(){
-         alert(argtableno);
-         alert(argrestaurant);
-         alert(argid);
-         alert(argacceptdeny); 
+         
   
-         //postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
+         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
          
 
         
@@ -132,6 +129,6 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":tableno,"restaurant":restaurant,"id":id,"acceptdeny":acceptdeny});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
-    http.send(window.cart);
+    http.send();
     document.getElementById('acceptOrder').remove();
 }
