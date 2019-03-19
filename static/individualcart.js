@@ -38,7 +38,7 @@ function populateBody(){
      status.className="status";
      status.innerHTML=window.statusjson;
      bucket.appendChild(status);
-     for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
+     for(var orderindex=singlepersonorderlistjson.length-1;orderindex>-1;orderindex--)
      {
       //document.getElementById("cartbody").innerHTML+=JSON.stringify(singlepersonorderlistjson[orderindex])+"<br/>";
       var atomicorderjson=singlepersonorderlistjson[orderindex];
