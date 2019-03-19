@@ -83,6 +83,7 @@ function populateBody(){
    }
 }
 function executeWaitersCode(id){
+   alert("yeayS"); 
     var acceptOrder=document.createElement('div');
     var acceptOrderContent=document.createElement('div');
 
