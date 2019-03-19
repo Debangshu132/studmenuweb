@@ -75,7 +75,7 @@ function populateBody(){
       bucket.onclick=function(id){
       alert(id);   
       //executeWaitersCode(id);
-   }(indiid);
+   }(individualid);
 
 }
    document.getElementById("cartbody").appendChild(firstname);
