@@ -1,140 +1,47 @@
-window.onload = function() {
-   
-   //window.cartitemjson=JSON.parse(window.data);
-   populateBody();
-}
+.cartbody {
 
-function populateBody(){
-   //document.getElementById("cartbody").innerHTML+= window.data;
-   //var datajson=JSON.parse(window.data);
-   //document.getElementById("cartbody").innerHTML+= window.data;
-   //document.getElementById("cartbody").innerHTML+= window.data;
-   //document.getElementById("cartbody").innerHTML+="1324";
-   //var bucketlist=datajson["cart"];
-
-   var datajson=JSON.parse(window.data);
-   window.identity=datajson["identity"];
-   var restaurant=datajson["restaurant"];
-   var tableno=datajson["tableno"];
-   datajson=datajson["tableinfo"];
-   
-   datajson=datajson["cart"];
-   var bucketlist=Object.keys(datajson);
-   
-   for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
-   {   
-     var individualid=bucketlist[bucketitem];
-     window.indiid=individualid;
-     var singlepersonorderlistjson=datajson[individualid];
-     singlepersonorderlistjson=singlepersonorderlistjson["mycart"];
-     var firstnamejson=datajson[individualid]["firstname"];
-     var firstname=document.createElement('div');
-     firstname.className="firstname";
-     firstname.innerHTML=JSON.stringify(firstnamejson);
-     var bucket=document.createElement('div');
-     bucket.className="bucket";
-     var status=document.createElement('div');
-     window.statusjson=datajson[individualid]["status"];
-     status.className="status";
-     status.innerHTML=window.statusjson;
-     bucket.appendChild(status);
-     for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
-     {
-      //document.getElementById("cartbody").innerHTML+=JSON.stringify(singlepersonorderlistjson[orderindex])+"<br/>";
-      var atomicorderjson=singlepersonorderlistjson[orderindex];
-      
-      
-      var itemjson=atomicorderjson["item"];
-      var customizationjson=atomicorderjson["customization"];
-      var pricejson=atomicorderjson["price"];
-      var quantityjson=atomicorderjson["quantity"];
-
-      var atomicorder=document.createElement('div');
-      
-      var item=document.createElement('div');
-      var customization=document.createElement('div');
-      var price=document.createElement('div');
-      var quantity=document.createElement('div');
-
-      atomicorder.className="atomicorder";
-      
-      firstname.className="firstname";
-      item.className="item";
-      customization.className="customization";
-      price.classname="price";
-      quantity.className="quantity";
-
-      
-      firstname.innerHTML=firstnamejson;
-      item.innerHTML=itemjson;
-      customization.innerHTML=JSON.stringify(customizationjson);
-      price.innerHTML=pricejson;
-      quantity.innerHTML=quantityjson;
-      
-      atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
-      bucket.appendChild(atomicorder); 
-     
+   width: 100%;
+   height:100%;
+   overflow-y:scroll; 
    }
-   
-   if(window.identity==="waiter"){
-      bucket.onclick=function(atableno,arestaurant,id){
-      return function(){executeWaitersCode(atableno,arestaurant,id); }  
-   
-   }(tableno,restaurant,individualid);
+ .bucket{
+    margin-top:10px;
+    background:#999;
+    border-radius:10px;}
 
-}
-   document.getElementById("cartbody").appendChild(firstname);
-   document.getElementById("cartbody").appendChild(bucket);
-   }
-}
-function executeWaitersCode(tableno,restaurant,id){
+ .atomicorder{
+   display:inline-block; 
+   border:2px solid;
     
-    var acceptOrder=document.createElement('div');
-    var acceptOrderContent=document.createElement('div');
-
-    acceptOrder.className="acceptOrder";
-    acceptOrder.id="acceptOrder";
-    acceptOrderContent.className="acceptOrderContent";
-
-    
-    var accept=document.createElement('div');
-    accept.className="accept";
-    accept.innerHTML="accept order!";
-    accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
-       return function(){
-         
-         window.statusjson="accepted";
-         status.innerHTML=window.statusjson;
-         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
-         
-
-        
-       }
-    }(tableno,restaurant,id,"accepted");
-    var cancel=document.createElement('div');
-    cancel.className="accept";
-    cancel.innerHTML="cancel";
-    cancel.onclick=function(){
-       return function(){
-  
-         document.getElementById('acceptOrder').remove();
-       }
-    }(id);
-     
-   
-
-    acceptOrderContent.innerHTML="Are you sure you want to accept the order?";
-    acceptOrderContent.appendChild(accept);
-    acceptOrderContent.appendChild(cancel);
-    acceptOrder.appendChild(acceptOrderContent);
-    document.getElementById("cartbody").appendChild(acceptOrder);
-
-} 
-function postAcceptOrder(tableno,restaurant,id,acceptdeny){
-    var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":tableno,"restaurant":restaurant,"id":id,"acceptdeny":acceptdeny});
-    http.open("POST", url, false); 
-    http.setRequestHeader("Content-Type", "application/json");
-    http.send();
-    document.getElementById('acceptOrder').remove();
+ }
+ .price{
+   display:inline-block;  
+   position:relative;
+   left:20;
+   background: grey;
+}   
+.acceptOrder{
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.acceptOrderContent{
+float:top;
+background-color: #fefefe;
+margin: 5% auto; /* 15% from the top and centered */
+padding: 10px;
+border: 1px solid #888;
+overflow-y: scroll; /* Enable scroll if needed */
+width: 80%; /* Could be more or less, depending on screen size */
+height:20%;
+border-radius: 15px;
+}
+.accept{
+  padding:10px;
+  text-align: center;
 }
