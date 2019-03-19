@@ -29,8 +29,9 @@ def groupcart(data):
          data=json.loads(data)
          restaurant=data["restaurant"]
          tableno=data["tableno"]
-         consumer_id=data["consumer_id"]
+         identity=data["identity"]
          mydata=getRestaurantsTableInformation(restaurant,tableno)
+         mydata={"identity":identity,"tableinfo":mydata}
          return render_template("individualcart.html",datatowrite =json.dumps(mydata))
 
 if __name__ == "__main__":
