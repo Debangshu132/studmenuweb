@@ -24,7 +24,7 @@ function populateBody(){
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
-     window.indiid=individualid;
+    
      var singlepersonorderlistjson=datajson[individualid];
      singlepersonorderlistjson=singlepersonorderlistjson["mycart"];
      var firstnamejson=datajson[individualid]["firstname"];
