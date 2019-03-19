@@ -93,6 +93,7 @@ function executeWaitersCode(id){
 
     
     var accept=document.createElement('div');
+    accept.className="accept";
     accept.innerHTML="accept order!";
     accept.onclick=function(argid){
        return function(){
