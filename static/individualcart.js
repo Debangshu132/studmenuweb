@@ -14,7 +14,7 @@ function populateBody(){
 
    var datajson=JSON.parse(window.data);
    datajson=datajson["tableinfo"];
-   var identity=datajson["identity"]
+   window.identity=datajson["identity"]
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
    
@@ -64,6 +64,11 @@ function populateBody(){
       atomicorder.appendChild(status);
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
+      if(window.identity==="waiter"){
+         bucket.onclick=function(){
+           alert("waiter");
+         }
+      }
    }
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
