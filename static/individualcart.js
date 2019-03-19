@@ -14,6 +14,8 @@ function populateBody(){
 
    var datajson=JSON.parse(window.data);
    window.identity=datajson["identity"];
+   window.restaurant=datajson["restaurant"];
+   window.tableno=datajson["tableno"];
    datajson=datajson["tableinfo"];
    
    datajson=datajson["cart"];
@@ -65,24 +67,46 @@ function populateBody(){
       atomicorder.appendChild(status);
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
-      if(window.identity==="waiter"){
-           bucket.onclick=function(){
-           executeWaitersCode();
-
-         
-      }}
+     
    }
+   bucket.onclick=alert(individualid);
+   if(window.identity==="waiter"){
+      bucket.onclick=function(id){
+      alert(id);   
+      //executeWaitersCode(id);
+   }}(individualid);
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
 }
-function executeWaitersCode(){
+function executeWaitersCode(id){
     var acceptOrder=document.createElement('div');
     var acceptOrderContent=document.createElement('div');
 
     acceptOrder.className="acceptOrder";
+    acceptOrder.id="acceptOrder";
     acceptOrderContent.className="acceptOrderContent";
 
-    acceptDenyOrderContent.innerHTML="Are you sure you want to accept the order?";
+
+    var accept=document.createElement('div');
+    
+    accept.onclick=function(argid){
+       postAcceptOrder(argid);
+    }(id)
+     
+   
+
+    acceptOrderContent.innerHTML="Are you sure you want to accept the order?";
+    acceptOrderContent.appendChild(accept);
+    acceptOrder.appendChild(acceptOrderContent);
+    document.getElementById("cartbody").appendChild(acceptOrder);
 
 } 
+function postAcceptOrder(id){
+    var http = new XMLHttpRequest();
+    var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":window.tableno,"restaurant":restaurant,"id":id});
+    http.open("POST", url, false); 
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send(window.cart);
+    document.getElementById('acceptOrder').remove();
+}
