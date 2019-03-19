@@ -65,13 +65,24 @@ function populateBody(){
       atomicorder.appendChild(status);
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
-      
-         bucket.onclick=function(){
-           alert(window.identity);
+      if(window.identity==="waiter"){
+           bucket.onclick=function(){
+           executeWaitersCode();
+
          
-      }
+      }}
    }
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
+}
+function executeWaitersCode(){
+    var acceptOrder=document.createElement('div');
+    var acceptOrderContent=document.createElement('div');
+
+    acceptOrder.className="acceptOrder";
+    acceptOrderContent.className="acceptOrderContent";
+
+    acceptDenyOrderContent.innerHTML="Are you sure you want to accept the order?";
+
 } 
