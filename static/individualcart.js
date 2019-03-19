@@ -95,7 +95,7 @@ function executeWaitersCode(tableno,restaurant,id){
     var accept=document.createElement('div');
     accept.className="accept";
     accept.innerHTML="accept order!";
-    accept.onclick=function(argid,argacceptdeny){
+    accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
        return function(){
   
          postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
@@ -112,7 +112,7 @@ function executeWaitersCode(tableno,restaurant,id){
        }
     }(id);
      
-    alert("yeay1");
+   
 
     acceptOrderContent.innerHTML="Are you sure you want to accept the order?";
     acceptOrderContent.appendChild(accept);
