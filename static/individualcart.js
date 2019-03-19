@@ -73,8 +73,8 @@ function populateBody(){
    
    if(window.identity==="waiter"){
       bucket.onclick=function(id){
-      return function(){alert(id); }  
-      //executeWaitersCode(id);
+      return function(){executeWaitersCode(id); }  
+   
    }(individualid);
 
 }
@@ -95,6 +95,7 @@ function executeWaitersCode(id){
     
     accept.onclick=function(argid){
        postAcceptOrder(argid);
+       alert("accepted!");
     }(id)
      
    
