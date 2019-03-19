@@ -71,7 +71,8 @@ function populateBody(){
    }
    if(window.identity==="waiter"){
       bucket.onclick=function(id){
-      executeWaitersCode(id);
+      alert(id);   
+      //executeWaitersCode(id);
    }}(individualid);
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
