@@ -14,8 +14,8 @@ function populateBody(){
 
    var datajson=JSON.parse(window.data);
    window.identity=datajson["identity"];
-   window.restaurant=datajson["restaurant"];
-   window.tableno=datajson["tableno"];
+   var restaurant=datajson["restaurant"];
+   var tableno=datajson["tableno"];
    datajson=datajson["tableinfo"];
    
    datajson=datajson["cart"];
@@ -72,17 +72,17 @@ function populateBody(){
    }
    
    if(window.identity==="waiter"){
-      bucket.onclick=function(id){
-      return function(){executeWaitersCode(id); }  
+      bucket.onclick=function(atableno,arestaurant,id){
+      return function(){executeWaitersCode(atableno,arestaurant,id); }  
    
-   }(individualid);
+   }(tableno,restaurant,individualid);
 
 }
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
 }
-function executeWaitersCode(id){
+function executeWaitersCode(tableno,restaurant,id){
     
     var acceptOrder=document.createElement('div');
     var acceptOrderContent=document.createElement('div');
@@ -95,10 +95,20 @@ function executeWaitersCode(id){
     var accept=document.createElement('div');
     accept.className="accept";
     accept.innerHTML="accept order!";
-    accept.onclick=function(argid){
+    accept.onclick=function(argid,argacceptdeny){
        return function(){
-         alert("accepted!");   
-      // postAcceptOrder(argid);
+  
+         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
+        
+       }
+    }(tableno,restaurant,id,"accept");
+    var cancel=document.createElement('div');
+    cancel.className="accept";
+    cancel.innerHTML="cancel";
+    cancel.onclick=function(){
+       return function(){
+  
+         document.getElementById('acceptOrder').remove();
        }
     }(id);
      
@@ -106,13 +116,14 @@ function executeWaitersCode(id){
 
     acceptOrderContent.innerHTML="Are you sure you want to accept the order?";
     acceptOrderContent.appendChild(accept);
+    acceptOrderContent.appendChild(cancel);
     acceptOrder.appendChild(acceptOrderContent);
     document.getElementById("cartbody").appendChild(acceptOrder);
 
 } 
-function postAcceptOrder(id){
+function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":window.tableno,"restaurant":restaurant,"id":id});
+    var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":tableno,"restaurant":restaurant,"id":id,"acceptdeny":acceptdeny});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send(window.cart);
