@@ -70,7 +70,7 @@ function populateBody(){
       bucket.appendChild(atomicorder); 
      
    }
-   bucket.onclick=alert(JSON.stringify(individualid));
+   
    if(window.identity==="waiter"){
       bucket.onclick=function(id){
       return function(){alert(id); }  
