@@ -98,11 +98,11 @@ function executeWaitersCode(tableno,restaurant,id){
     accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
        return function(){
          alert(argtableno);
-         alert(rgrestaurant);
+         alert(argrestaurant);
          alert(argid);
          alert(argacceptdeny); 
   
-         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
+         //postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
          
 
         
