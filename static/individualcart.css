@@ -41,3 +41,6 @@ width: 80%; /* Could be more or less, depending on screen size */
 height:70%;
 border-radius: 15px;
 }
+.accept{
+  text-align: center;
+}
