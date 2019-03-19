@@ -33,9 +33,10 @@ function populateBody(){
      firstname.innerHTML=JSON.stringify(firstnamejson);
      var bucket=document.createElement('div');
      bucket.className="bucket";
+     var status=document.createElement('div');
      window.statusjson="pending";
      status.className="status";
-     status.innerHTML=statusjson;
+     status.innerHTML="pending";
      bucket.appendChild(status);
      for(var orderindex=0;orderindex<singlepersonorderlistjson.length;orderindex++)
      {
@@ -49,7 +50,7 @@ function populateBody(){
       var quantityjson=atomicorderjson["quantity"];
 
       var atomicorder=document.createElement('div');
-      var status=document.createElement('div');
+      
       var item=document.createElement('div');
       var customization=document.createElement('div');
       var price=document.createElement('div');
