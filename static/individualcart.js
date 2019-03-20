@@ -45,6 +45,7 @@ function populateBody(){
       
       
       var itemjson=atomicorderjson["item"];
+      var statusindividual=atomicorderjson["status"];
       var customizationjson=atomicorderjson["customization"];
       var pricejson=atomicorderjson["price"];
       var quantityjson=atomicorderjson["quantity"];
@@ -70,6 +71,9 @@ function populateBody(){
       customization.innerHTML=JSON.stringify(customizationjson);
       price.innerHTML=pricejson;
       quantity.innerHTML=quantityjson;
+      if(statusindividual==="pending"){
+         atomicorder.style.background="#ff00ff";
+      }
       
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
