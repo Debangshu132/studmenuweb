@@ -4,6 +4,7 @@ window.onload = function() {
    populateBody();
    var socket = io.connect('https://' + document.domain+ ':' + location.port );
    socket.on('okrefreshpage', function(msg) {
+      alert(msg);
       location.reload(true);
 
   });
