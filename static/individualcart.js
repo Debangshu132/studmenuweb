@@ -6,6 +6,12 @@ window.onload = function() {
   
  
     window.socket = io.connect('/' );
+    window.socket.on('connect', function(msg) {
+      window.socket.emit('canirefresh',{data:"testsend"}); 
+      alert('yup refresh');
+      location.reload();
+  
+  });
     window.socket.on('okrefreshpage', function(msg) {
     alert('yup refresh');
     location.reload();
