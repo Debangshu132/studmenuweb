@@ -6,7 +6,7 @@ window.onload = function() {
   
     window.socket.on('connect', function(msg) {
     
-      location.reload();
+      alert('yu');
       
   
   });
