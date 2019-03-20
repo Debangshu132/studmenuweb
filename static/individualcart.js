@@ -1,5 +1,5 @@
 window.onload = function() {
-   var socket = io.connect('https://' + "studmenu.herokuapp.com"+ ':' + location.port + '/refresh');
+   var socket = io.connect('https://' + document.domain+ ':' + location.port + '/refresh');
    socket.on('okrefreshpage', function(msg) {
       location.reload(true);
   });
