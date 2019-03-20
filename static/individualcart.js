@@ -1,19 +1,16 @@
 window.onload = function() {
   
    //window.cartitemjson=JSON.parse(window.data);
-   populateBody();
+  
    //const io = require('socket.io-client');
-   window.socket = io.connect('/' );
-  
-  
-   window.socket.on('okrefreshpage', function(msg) {
+   var socket = io.connect('/' );
+   socket.on('okrefreshpage', function(msg) {
       alert('yup refresh');
-      location.reload();
-
-  });
+      location.reload();});
+  populateBody(socket);
 }
 
-function populateBody(){
+function populateBody(socket){
    
 
    var datajson=JSON.parse(window.data);
@@ -85,17 +82,17 @@ function populateBody(){
    }
    
    if(window.identity==="waiter"){
-      bucket.onclick=function(atableno,arestaurant,id){
-      return function(){executeWaitersCode(atableno,arestaurant,id); }  
+      bucket.onclick=function(atableno,arestaurant,id,asocket){
+      return function(){executeWaitersCode(atableno,arestaurant,id,asocket); }  
    
-   }(tableno,restaurant,individualid);
+   }(tableno,restaurant,individualid,socket);
 
 }
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
 }
-function executeWaitersCode(tableno,restaurant,id){
+function executeWaitersCode(tableno,restaurant,id,socket){
     
     var acceptOrder=document.createElement('div');
     var acceptOrderContent=document.createElement('div');
@@ -108,17 +105,17 @@ function executeWaitersCode(tableno,restaurant,id){
     var accept=document.createElement('div');
     accept.className="accept";
     accept.innerHTML="accept order!";
-    accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
+    accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny,asocket){
        return function(){
          
          window.statusjson="accepted";
          status.innerHTML=window.statusjson;
-         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
+         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny,asocket);
          
 
         
        }
-    }(tableno,restaurant,id,"accepted");
+    }(tableno,restaurant,id,"accepted",socket);
     var cancel=document.createElement('div');
     cancel.className="accept";
     cancel.innerHTML="cancel";
@@ -138,15 +135,15 @@ function executeWaitersCode(tableno,restaurant,id){
     document.getElementById("cartbody").appendChild(acceptOrder);
 
 } 
-function postAcceptOrder(tableno,restaurant,id,acceptdeny){
+function postAcceptOrder(tableno,restaurant,id,acceptdeny,socket){
     
     var http = new XMLHttpRequest();
     var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":tableno,"restaurant":restaurant,"id":id,"acceptdeny":acceptdeny});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
-    window.socket.emit('connected',{data:"testsend"});
-    window.socket.emit('canirefresh',{data:"testsend"});
+    socket.emit('connected',{data:"testsend"});
+    socket.emit('canirefresh',{data:"testsend"});
     document.getElementById('acceptOrder').remove();
      return false;
 }
