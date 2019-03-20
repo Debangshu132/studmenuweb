@@ -1,5 +1,8 @@
 window.onload = function() {
-   
+   var socket = io.connect('https://' + "studmenu.herokuapp.com"+ ':' + location.port + '/refresh');
+   socket.on('okrefreshpage', function(msg) {
+      location.reload(true);
+  });
    //window.cartitemjson=JSON.parse(window.data);
    populateBody();
 }
@@ -43,7 +46,6 @@ function populateBody(){
      {
       
       var atomicorderjson=singlepersonorderlistjson[orderindex];
-      
       
       var itemjson=atomicorderjson["item"];
       var statusindividual=atomicorderjson["status"];
@@ -141,7 +143,10 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
+    socket.emit('acceptdenyupdate', {data: acceptdeny});
+   
     document.getElementById('acceptOrder').remove();
+     return false;
 }
 
 
