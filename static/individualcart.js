@@ -3,10 +3,7 @@
 
 window.socket = io.connect('/' );
 window.socket.on('connect', function(msg) {
-    
-  
-   
-
+alert('connected');    
 });
  window.socket.on('okrefreshpage', function(msg) {
  alert('yup refresh');
@@ -14,13 +11,7 @@ window.socket.on('connect', function(msg) {
 
 }); 
 window.onload = function() {
-  
-    
- 
- 
-
-  
-  populateBody();
+populateBody();
 }
 
 function populateBody(){
