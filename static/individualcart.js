@@ -1,9 +1,3 @@
-var socket = io.connect('/' );
-socket.on('okrefreshpage', function(msg) {
-    alert('yup refresh');
-    location.reload();
-
-});
 
 
 
@@ -13,6 +7,13 @@ window.onload = function() {
    //window.cartitemjson=JSON.parse(window.data);
   
    //const io = require('socket.io-client');
+    window.socket = io.connect('/' );
+    window.on('okrefreshpage', function(msg) {
+    alert('yup refresh');
+    location.reload();
+
+});
+
   
   populateBody();
 }
@@ -150,7 +151,7 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
     
-    socket.emit('canirefresh',{data:"testsend"});
+    window.socket.emit('canirefresh',{data:"testsend"});
     document.getElementById('acceptOrder').remove();
      return false;
 }
