@@ -1,10 +1,11 @@
 window.onload = function() {
+  
+   //window.cartitemjson=JSON.parse(window.data);
+   populateBody();
    var socket = io.connect('https://' + document.domain+ ':' + location.port + '/refresh');
    socket.on('okrefreshpage', function(msg) {
       location.reload(true);
   });
-   //window.cartitemjson=JSON.parse(window.data);
-   populateBody();
 }
 
 function populateBody(){
