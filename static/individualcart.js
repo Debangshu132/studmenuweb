@@ -3,11 +3,11 @@
 
 window.socket = io.connect('/' );
 window.socket.on('connect', function(msg) {
-alert('connected');    
+console.log('connected');    
 });
  window.socket.on('okrefreshpage', function(msg) {
- alert('yup refresh');
- //location.reload();
+ //alert('yup refresh');
+ location.reload();
 
 }); 
 window.onload = function() {
