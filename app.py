@@ -11,7 +11,7 @@ socketio = SocketIO(app)
 def handle_my_custom_event(msg):
     print("yo refresh")     
     emit('okrefreshpage', msg)
-@socketio.on('connected')
+@socketio.on('connect')
 def handle_my_custom_event(msg):
     print("yo connected")     
     emit('okrefreshpage', msg)    
