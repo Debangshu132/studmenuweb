@@ -5,14 +5,14 @@
 window.onload = function() {
   
  
-    window.socket = io.connect('/' );
-    window.socket.on('connect', function(msg) {
-      window.socket.emit('canirefresh',{data:"testsend"}); 
+    var socket = io.connect('/' );
+    socket.on('connect', function(msg) {
+    socket.emit('canirefresh',{data:"testsend"}); 
       alert('yu');
       
   
   });
-    var socket.on('okrefreshpage', function(msg) {
+    socket.on('okrefreshpage', function(msg) {
     alert('yup refresh');
     location.reload();
 
@@ -155,12 +155,8 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
     
-    window.socket.emit('canirefresh',{data:"testsend"});
-    window.socket.on('okrefreshpage', function(msg) {
-      alert('yup refresh');
-      location.reload();
-  
-  });
+    //window.socket.emit('canirefresh',{data:"testsend"});
+   
     document.getElementById('acceptOrder').remove();
      return false;
 }
