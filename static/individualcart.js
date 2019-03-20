@@ -139,14 +139,14 @@ function executeWaitersCode(tableno,restaurant,id){
 
 } 
 function postAcceptOrder(tableno,restaurant,id,acceptdeny){
-    window.socket.emit('canirefresh',{data:"testsend"});
+    
     var http = new XMLHttpRequest();
     var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":tableno,"restaurant":restaurant,"id":id,"acceptdeny":acceptdeny});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
     window.socket.emit('connected',{data:"testsend"});
-   
+    window.socket.emit('canirefresh',{data:"testsend"});
     document.getElementById('acceptOrder').remove();
      return false;
 }
