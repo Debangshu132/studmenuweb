@@ -149,7 +149,7 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
-    socket.emit('connected',{data:"testsend"});
+    
     socket.emit('canirefresh',{data:"testsend"});
     document.getElementById('acceptOrder').remove();
      return false;
