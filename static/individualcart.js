@@ -20,7 +20,7 @@ function populateBody(){
    
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
-   bucketlist.sort(compare);
+   //bucketlist=bucketlist.sort(compare);
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
