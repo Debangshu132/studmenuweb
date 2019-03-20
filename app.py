@@ -9,11 +9,11 @@ socketio = SocketIO(app)
 #    return "hello man"
 @socketio.on('canirefresh')
 def handle_my_custom_event(msg):
-    print("yo refresh")     
+    print("yo refresh the page")     
     emit('okrefreshpage', msg)
 @socketio.on('connect')
 def handle_my_custom_event():
-    print("yo connected")     
+    print("yo connected man")     
     emit('okrefreshpage','yo')    
 
 def getRestaurantsTableInformation(nameOfRestaurant,tableno):
