@@ -1,10 +1,19 @@
 from pymongo import MongoClient
 import json
+from flask_socketio import SocketIO,send,emit
 from flask import Flask, request,render_template
 app = Flask(__name__)
+socketio = SocketIO(app)
 #@app.route("/", methods=['GET', 'POST'])
 #def index():
 #    return "hello man"
+@socketio.on('connected')
+def handle_my_custom_event(msg):
+    print("yo connected")     
+    emit('okrefreshpage', msg)
+@socketio.on('connect')
+def handleConnect():
+    print('yeay connected')
 def getRestaurantsTableInformation(nameOfRestaurant,tableno):
     MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
     client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
