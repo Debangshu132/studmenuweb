@@ -5,7 +5,8 @@ window.onload = function() {
    var socket = io.connect('http://' + document.domain+ ':' + location.port );
    socket.on('connect', function() {
       alert("yeay!");
-      socket.emit('connected','yeay connected at last');
+      socket.emit('connected',{data:"testsend"});
+
 	});
    socket.on('okrefreshpage', function(msg) {
       alert(msg);
