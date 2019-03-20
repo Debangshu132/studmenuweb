@@ -2,19 +2,20 @@
 
 
 window.socket = io.connect('/' );
-window.onload = function() {
-  
-    window.socket.on('connect', function(msg) {
+window.socket.on('connect', function(msg) {
     
-      alert('yu');
-      
   
-  });
-    window.socket.on('okrefreshpage', function(msg) {
-    alert('yup refresh');
-    //location.reload();
+   
+
+});
+ window.socket.on('okrefreshpage', function(msg) {
+ alert('yup refresh');
+ location.reload();
 
 }); 
+window.onload = function() {
+  
+    
  
  
 
