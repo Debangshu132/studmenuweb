@@ -4,6 +4,9 @@ window.onload = function() {
   
    //const io = require('socket.io-client');
    var socket = io.connect('/' );
+   socket.on('connect', function(msg) {
+      alert('yeay');
+      location.reload();});
    socket.on('okrefreshpage', function(msg) {
       alert('yup refresh');
       location.reload();});
