@@ -2,7 +2,7 @@ window.onload = function() {
   
    //window.cartitemjson=JSON.parse(window.data);
    populateBody();
-   var socket = io.connect('https://' + document.domain+ ':' + location.port );
+   var socket = io.connect('http://' + document.domain+ ':' + location.port );
    socket.on('connect', function() {
 		alert("yeay!");
 	});
