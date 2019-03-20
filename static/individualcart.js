@@ -5,13 +5,9 @@ window.onload = function() {
    //const io = require('socket.io-client');
    var socket = io.connect('/' );
   
-   socket.on('connect', function() {
-      alert("yeay!");
-      socket.emit('connected',{data:"testsend"});
-
-	});
+   
    socket.on('okrefreshpage', function(msg) {
-      alert('yup refresh');
+    
       location.reload(true);
 
   });
@@ -148,7 +144,7 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
-    
+    socket.emit('canirefresh',{data:"nothing"});
    
     document.getElementById('acceptOrder').remove();
      return false;
