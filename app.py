@@ -44,4 +44,4 @@ def groupcart(data):
          return render_template("individualcart.html",datatowrite =json.dumps(mydata))
 
 if __name__ == "__main__":
-    app.run(debug=True)         
+ socketio.run(app) 
