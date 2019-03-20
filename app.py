@@ -10,7 +10,7 @@ socketio = SocketIO(app)
 @socketio.on('canirefresh')
 def handle_my_custom_event(msg):
     print("yo refresh the page")     
-    emit('okrefreshpage', msg)
+    emit('okrefreshpage', msg, broadcast=True)
        
 
 def getRestaurantsTableInformation(nameOfRestaurant,tableno):
