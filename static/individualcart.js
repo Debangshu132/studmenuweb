@@ -1,19 +1,23 @@
+var socket = io.connect('/' );
+socket.on('okrefreshpage', function(msg) {
+    alert('yup refresh');
+    location.reload();
+
+});
+
+
+
+
 window.onload = function() {
   
    //window.cartitemjson=JSON.parse(window.data);
   
    //const io = require('socket.io-client');
-   var socket = io.connect('/' );
-   socket.on('connect', function(msg) {
-      alert('yeay');
-      location.reload();});
-   socket.on('okrefreshpage', function(msg) {
-      alert('yup refresh');
-      location.reload();});
-  populateBody(socket);
+  
+  populateBody();
 }
 
-function populateBody(socket){
+function populateBody(){
    
 
    var datajson=JSON.parse(window.data);
@@ -85,17 +89,17 @@ function populateBody(socket){
    }
    
    if(window.identity==="waiter"){
-      bucket.onclick=function(atableno,arestaurant,id,asocket){
-      return function(){executeWaitersCode(atableno,arestaurant,id,asocket); }  
+      bucket.onclick=function(atableno,arestaurant,id){
+      return function(){executeWaitersCode(atableno,arestaurant,id); }  
    
-   }(tableno,restaurant,individualid,socket);
+   }(tableno,restaurant,individualid);
 
 }
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
 }
-function executeWaitersCode(tableno,restaurant,id,socket){
+function executeWaitersCode(tableno,restaurant,id){
     
     var acceptOrder=document.createElement('div');
     var acceptOrderContent=document.createElement('div');
@@ -108,17 +112,17 @@ function executeWaitersCode(tableno,restaurant,id,socket){
     var accept=document.createElement('div');
     accept.className="accept";
     accept.innerHTML="accept order!";
-    accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny,asocket){
+    accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
        return function(){
          
          window.statusjson="accepted";
          status.innerHTML=window.statusjson;
-         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny,asocket);
+         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
          
 
         
        }
-    }(tableno,restaurant,id,"accepted",socket);
+    }(tableno,restaurant,id,"accepted");
     var cancel=document.createElement('div');
     cancel.className="accept";
     cancel.innerHTML="cancel";
@@ -138,7 +142,7 @@ function executeWaitersCode(tableno,restaurant,id,socket){
     document.getElementById("cartbody").appendChild(acceptOrder);
 
 } 
-function postAcceptOrder(tableno,restaurant,id,acceptdeny,socket){
+function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     
     var http = new XMLHttpRequest();
     var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":tableno,"restaurant":restaurant,"id":id,"acceptdeny":acceptdeny});
