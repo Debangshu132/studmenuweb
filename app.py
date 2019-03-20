@@ -11,10 +11,7 @@ socketio = SocketIO(app)
 def handle_my_custom_event(msg):
     print("yo refresh the page")     
     emit('okrefreshpage', msg)
-@socketio.on('connect')
-def handle_my_custom_event():
-    print("yo connected man")     
-    emit('okrefreshpage','yo')    
+       
 
 def getRestaurantsTableInformation(nameOfRestaurant,tableno):
     MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
