@@ -1,9 +1,9 @@
 
 
 
-window.socket = io.connect('http://studmenu.herokuapp.com/' );
+window.socket = io.connect('http://studmenu.herokuapp.com/test');
 window.socket.on('connect', function(msg) {
-alert('connected');    
+console.log('connected');    
 });
  window.socket.on('okrefreshpage', function(msg) {
  //alert('yup refresh');
