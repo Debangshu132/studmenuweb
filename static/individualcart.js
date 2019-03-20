@@ -20,7 +20,7 @@ function populateBody(){
    
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
-   
+   bucketlist.sort(compare);
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
@@ -38,9 +38,10 @@ function populateBody(){
      status.className="status";
      status.innerHTML=window.statusjson;
      bucket.appendChild(status);
+  
      for(var orderindex=singlepersonorderlistjson.length-1;orderindex>-1;orderindex--)
      {
-      //document.getElementById("cartbody").innerHTML+=JSON.stringify(singlepersonorderlistjson[orderindex])+"<br/>";
+      
       var atomicorderjson=singlepersonorderlistjson[orderindex];
       
       
@@ -142,3 +143,22 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     http.send();
     document.getElementById('acceptOrder').remove();
 }
+
+
+
+
+
+function compare(a, b) {
+   // Use toUpperCase() to ignore character casing
+   const genreA = a.status.toUpperCase();
+   const genreB = b.status.toUpperCase();
+ 
+   let comparison = 0;
+   if (genreA > genreB) {
+     comparison = -1;
+   } else if (genreA < genreB) {
+     comparison = 1;
+   }
+   return comparison;
+ }
+ 
