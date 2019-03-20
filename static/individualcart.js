@@ -3,7 +3,7 @@ window.onload = function() {
    //window.cartitemjson=JSON.parse(window.data);
    populateBody();
    const io = require('socket.io-client');
-   var socket = io.connect('http://studmenu.herokuapp.com' );
+   var socket = io.connect('http://' + document.domain+ ':' + location.port );
   
    socket.on('connect', function() {
       alert("yeay!");
