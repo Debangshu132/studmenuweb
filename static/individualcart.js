@@ -5,14 +5,14 @@
 window.onload = function() {
   
  
-    window.socket = io.connect('/' );
-    window.socket.on('connect', function(msg) {
-      window.socket.emit('canirefresh',{data:"testsend"}); 
+    var socket = io.connect('/' );
+    var socket.on('connect', function(msg) {
+      var socket.emit('canirefresh',{data:"testsend"}); 
       alert('yu');
       
   
   });
-    window.socket.on('okrefreshpage', function(msg) {
+    var socket.on('okrefreshpage', function(msg) {
     alert('yup refresh');
     location.reload();
 
