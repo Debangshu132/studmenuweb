@@ -3,6 +3,7 @@ window.onload = function() {
    //window.cartitemjson=JSON.parse(window.data);
    populateBody();
    var socket = io.connect('http://' + document.domain+ ':' + location.port );
+   alert("yeay! now");
    socket.on('connect', function() {
       alert("yeay!");
       socket.emit('connected',{data:"testsend"});
