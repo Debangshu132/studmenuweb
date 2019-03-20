@@ -3,6 +3,9 @@ window.onload = function() {
    //window.cartitemjson=JSON.parse(window.data);
    populateBody();
    var socket = io.connect('https://' + document.domain+ ':' + location.port );
+   socket.on('connect', function() {
+		alert("yeay!");
+	});
    socket.on('okrefreshpage', function(msg) {
       alert(msg);
       location.reload(true);
@@ -11,12 +14,7 @@ window.onload = function() {
 }
 
 function populateBody(){
-   //document.getElementById("cartbody").innerHTML+= window.data;
-   //var datajson=JSON.parse(window.data);
-   //document.getElementById("cartbody").innerHTML+= window.data;
-   //document.getElementById("cartbody").innerHTML+= window.data;
-   //document.getElementById("cartbody").innerHTML+="1324";
-   //var bucketlist=datajson["cart"];
+   
 
    var datajson=JSON.parse(window.data);
    window.identity=datajson["identity"];
