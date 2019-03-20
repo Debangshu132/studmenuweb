@@ -1,7 +1,7 @@
 
 
 
-window.socket = io.connect('http://studmenu.herokuapp.com:8888');
+window.socket = io.connect('/');
 window.socket.on('connect', function(msg) {
 alert('connected');    
 });
