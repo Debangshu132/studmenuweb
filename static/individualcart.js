@@ -12,7 +12,7 @@ window.onload = function() {
 	});
    socket.on('okrefreshpage', function(msg) {
       alert('yup refresh');
-      location.reload();
+      //location.reload();
 
   });
 }
