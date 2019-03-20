@@ -2,9 +2,10 @@ window.onload = function() {
   
    //window.cartitemjson=JSON.parse(window.data);
    populateBody();
-   var socket = io.connect('https://' + document.domain+ ':' + location.port + '/refresh');
+   var socket = io.connect('https://' + document.domain+ ':' + location.port );
    socket.on('okrefreshpage', function(msg) {
       location.reload(true);
+
   });
 }
 
@@ -144,7 +145,7 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
-    socket.emit('acceptdenyupdate', {data: acceptdeny});
+    
    
     document.getElementById('acceptOrder').remove();
      return false;
