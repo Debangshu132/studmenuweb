@@ -3,7 +3,7 @@
 
 window.socket = io.connect('http://studmenu.herokuapp.com/test');
 window.socket.on('connect', function(msg) {
-console.log('connected');    
+alert('connected');    
 });
  window.socket.on('okrefreshpage', function(msg) {
  //alert('yup refresh');
