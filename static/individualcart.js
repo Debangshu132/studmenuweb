@@ -14,7 +14,7 @@ window.onload = function() {
   });
     window.socket.on('okrefreshpage', function(msg) {
     alert('yup refresh');
-    location.reload();
+    //location.reload();
 
 });
 
