@@ -106,6 +106,15 @@ function populateBody(datatogive){
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
+   if(window.identity==="waiter"){
+      var checkout=document.createElement('div');
+      checkout.className="checkout";
+      checkout.innerHTML='CHECKOUT';
+      document.getElementById("cartbody").appendChild(checkout);
+
+   }
+
+
 }
 function executeWaitersCode(tableno,restaurant,id){
     
