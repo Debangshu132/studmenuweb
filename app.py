@@ -53,11 +53,15 @@ def groupcart(data):
          resp.set_cookie('tablenocookie', tableno)
          resp.set_cookie('identitycookie', identity)
          return resp
-@app.route("/ordered", methods=['GET', 'POST'])
-def ordered():
-     if request.method == 'POST':
-         socketio.emit('okrefreshpage', 'abc', broadcast=True) 
-         return 'success'     
-
+@app.route("/updatecart", methods=['GET', 'POST'])
+def updatecart():
+    print("yo refresh the page")
+    restaurant = request.cookies.get('restaurantcookie')
+    tableno = request.cookies.get('tablenocookie')
+    identity = request.cookies.get('identitycookie')
+    mydata=getRestaurantsTableInformation(restaurant,tableno)
+    mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
+    print('the restaurnt is yupyupy up',restaurant)
+    return mydata
 if __name__ == "__main__":
  socketio.run(app)
