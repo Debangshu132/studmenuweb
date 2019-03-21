@@ -2,7 +2,7 @@ window.socket = io.connect('/');
 
 
  window.socket.on('okrefreshpage', function(msg) {
- alert('yup refresh');
+ //alert('yup refresh');
  //location.reload();
 alert(msg);
 // clear(cartbody);
