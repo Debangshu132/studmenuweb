@@ -1,15 +1,26 @@
 window.socket = io.connect('/');
 
 
- window.socket.on('okrefreshpage', function(msg) {
+ //window.socket.on('okrefreshpage', function(msg) {
  //alert('yup refresh');
  //location.reload();
    //alert(msg);
-   window.data=msg;
- clear("cartbody");
- populateBody();
+ //  window.data=msg;
+// clear("cartbody");
+// populateBody();
 
-}); 
+//z}); 
+setInterval(function() {
+   fetch('http://studmenuweb.herokuapp.com/updatecart') // Call the fetch function passing the url of the API as a parameter
+.then(function(response) {
+    // Your code for handling the dasta you get from the API
+    alert(response.json());
+})
+.catch(function() {
+    // This is where you run code if the server returns any errors
+    alert('cant fetch data');
+});
+}, 10 * 1000); 
 window.onload = function() {
 populateBody();
 }
