@@ -7,7 +7,7 @@ window.socket = io.connect('/');
    //alert(msg);
    //window.data=msg;
  clear("cartbody");
- //populateBody();
+ populateBody();
 
 }); 
 window.onload = function() {
