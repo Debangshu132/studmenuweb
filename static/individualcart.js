@@ -33,6 +33,7 @@ function populateBody(datatogive){
    window.identity=datajson["identity"];
    var restaurant=datajson["restaurant"];
    var tableno=datajson["tableno"];
+   document.title = 'Table number'+tableno;
    datajson=datajson["tableinfo"];
    
    datajson=datajson["cart"];
