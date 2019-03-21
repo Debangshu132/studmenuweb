@@ -24,10 +24,10 @@
        window.extAsyncInit = function () {
   // the Messenger Extensions JS SDK is done loading
    MessengerExtensions.getUserID(function success(uids) {
-    var psid = uids.psid;//This is your page scoped sender_id
-    alert(psid);
+    window.psid = uids.psid;//This is your page scoped sender_id
+    
 }, function error(err) {
-    alert("Messenger Extension Error: " + err);
+   
 });
 };
       </script>
