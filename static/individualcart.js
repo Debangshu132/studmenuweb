@@ -11,7 +11,7 @@ window.socket = io.connect('/');
 
 //z}); 
 setInterval(function() {
-   fetch('http://studmenuweb.herokuapp.com/updatecart') // Call the fetch function passing the url of the API as a parameter
+   fetch('/updatecart') // Call the fetch function passing the url of the API as a parameter
 .then(function(response) {
     // Your code for handling the dasta you get from the API
     alert(response);
