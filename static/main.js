@@ -173,6 +173,19 @@ document.getElementById("carticon").onclick=function(menuPicArray){
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send(window.cart);
+
+
+
+    var http2 = new XMLHttpRequest();
+    var url2 = 'https://studmenuweb.herokuapp.com/ordered/';
+    http2.open("POST", url2, false); 
+    http2.setRequestHeader("Content-Type", "application/json");
+    http2.send();
+
+
+
+
+
     MessengerExtensions.requestCloseBrowser();
         
     }, function error(err) {
