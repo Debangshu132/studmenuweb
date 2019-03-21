@@ -4,9 +4,9 @@ window.socket = io.connect('/');
  window.socket.on('okrefreshpage', function(msg) {
  alert('yup refresh');
  //location.reload();
- window.data=msg;
- clear(cartbody);
- populateBody();
+alert(msg);
+// clear(cartbody);
+ //populateBody();
 
 }); 
 window.onload = function() {
