@@ -43,7 +43,9 @@ def groupcart(data):
          mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
          socketio.emit('okrefreshpage', 'abc', broadcast=True)  
          resp = make_response(render_template("individualcart.html",datatowrite =json.dumps(mydata)))
-         resp.set_cookie('userstate', cookiedata)
+         resp.set_cookie('restaurantcookie', restaurant)
+         resp.set_cookie('tablenocookie', tableno)
+         resp.set_cookie('identitycookie', identity)
          return resp
 @app.route("/ordered", methods=['GET', 'POST'])
 def ordered():
