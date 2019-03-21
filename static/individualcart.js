@@ -14,8 +14,7 @@ setInterval(function() {
    fetch('/updatecart') // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
-   .then(data =>  alert(JSONO.stringify(data)))s
-   
+   .then(data =>  alert(JSON.stringify(data)))
 
 .catch(function() {
     // This is where you run code if the server returns any errors
