@@ -14,7 +14,7 @@ setInterval(function() {
    fetch('/updatecart') // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
-   .then(data =>  alert(JSON.stringify(data)))
+   .then(data =>  populateBody(data))
 
 .catch(function() {
     // This is where you run code if the server returns any errors
@@ -22,13 +22,14 @@ setInterval(function() {
 });
 }, 10 * 1000); 
 window.onload = function() {
-populateBody();
+var datatogive=window.data;   
+populateBody(datatogive);
 }
 
-function populateBody(){
-   
+function populateBody(datatogive){
+   clear("cartbody")
 
-   var datajson=JSON.parse(window.data);
+   var datajson=JSON.parse(datatogive);
    window.identity=datajson["identity"];
    var restaurant=datajson["restaurant"];
    var tableno=datajson["tableno"];
