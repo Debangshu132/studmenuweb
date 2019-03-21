@@ -2,6 +2,11 @@
 
 
 window.socket = io.connect('/');
+window.socket.on('connect', function(msg) {
+   alert('yup connected');
+   
+  
+  }); 
 
  window.socket.on('okrefreshpage', function(msg) {
  //alert('yup refresh');
