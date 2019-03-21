@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import json
 from flask_socketio import SocketIO,send,emit
-from flask import Flask, request,render_template
+from flask import Flask, request,render_template,make_response
 app = Flask(__name__)
 socketio = SocketIO(app)
 #@app.route("/", methods=['GET', 'POST'])
