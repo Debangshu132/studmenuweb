@@ -5,7 +5,7 @@ window.socket = io.connect('/');
  //alert('yup refresh');
  //location.reload();
    //alert(msg);
-   //window.data=msg;
+   window.data=msg;
  clear("cartbody");
  populateBody();
 
