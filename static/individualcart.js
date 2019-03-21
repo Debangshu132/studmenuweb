@@ -6,7 +6,7 @@ window.socket = io.connect('/');
  //location.reload();
    alert(msg);
    window.data=msg;
- clear(cartbody);
+ clear("cartbody");
  populateBody();
 
 }); 
