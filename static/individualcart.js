@@ -14,7 +14,7 @@ setInterval(function() {
    fetch('/updatecart') // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
-   .then(data =>  alert(response.json()))
+   .then(data =>  alert(data))
    
 
 .catch(function() {
@@ -94,8 +94,7 @@ function populateBody(){
       
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
-     
-   }
+     }
    
    if(window.identity==="waiter"){
       bucket.onclick=function(atableno,arestaurant,id){
