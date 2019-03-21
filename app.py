@@ -13,8 +13,10 @@ def handle_my_custom_event(msg):
     restaurant = request.cookies.get('restaurantcookie')
     tableno = request.cookies.get('tablenocookie')
     identity = request.cookies.get('identitycookie')
+    mydata=getRestaurantsTableInformation(restaurant,tableno)
+    mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
     print('the restaurnt is yupyupy up',restaurant)
-    emit('okrefreshpage', msg, broadcast=True)
+    emit('okrefreshpage',json.dumps(mydata), broadcast=True)
        
 
 def getRestaurantsTableInformation(nameOfRestaurant,tableno):
