@@ -14,7 +14,7 @@ setInterval(function() {
    fetch('/updatecart') // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
-   .then(data =>  alert((data))
+   .then(data =>  alert((data.json())))
    
 
 .catch(function() {
