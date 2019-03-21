@@ -42,6 +42,10 @@ def groupcart(data):
          mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
          socketio.emit('okrefreshpage', 'abc', broadcast=True)    
          return render_template("individualcart.html",datatowrite =json.dumps(mydata))
+@app.route("/ordered", methods=['GET', 'POST'])
+def ordered():
+         socketio.emit('okrefreshpage', 'abc', broadcast=True) 
+         return 'success'     
 
 if __name__ == "__main__":
  socketio.run(app)
