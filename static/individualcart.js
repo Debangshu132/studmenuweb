@@ -112,6 +112,7 @@ function populateBody(datatogive){
       checkout.className="checkout";
       checkout.innerHTML='CHECKOUT';
       checkout.onclick=function(atableno,arestaurant,id){
+        return function(){ 
          var check=confirm('do you really want to check users out?')
          if(check===true){
          var http = new XMLHttpRequest();
@@ -119,7 +120,7 @@ function populateBody(datatogive){
          http.open("POST", url, false); 
          http.setRequestHeader("Content-Type", "application/json");
          http.send();
-         alert('checked out!');
+         alert('checked out!');}
       }}(tableno,restaurant,individualid);
 
       document.getElementById("cartbody").appendChild(checkout);
