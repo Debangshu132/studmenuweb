@@ -44,6 +44,7 @@ def groupcart(data):
          return render_template("individualcart.html",datatowrite =json.dumps(mydata))
 @app.route("/ordered", methods=['GET', 'POST'])
 def ordered():
+     if request.method == 'POST':
          socketio.emit('okrefreshpage', 'abc', broadcast=True) 
          return 'success'     
 
