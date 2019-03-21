@@ -5,7 +5,7 @@ window.socket = io.connect('/');
  alert('yup refresh');
  //location.reload();
  window.data=msg;
- clear(cartbody)
+ clear(cartbody);
  populateBody();
 
 }); 
