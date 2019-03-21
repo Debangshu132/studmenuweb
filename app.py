@@ -62,6 +62,6 @@ def updatecart():
     mydata=getRestaurantsTableInformation(restaurant,tableno)
     mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
     print('the restaurnt is yupyupy up',restaurant)
-    return str(mydata)
+    return json.dumps(mydata)
 if __name__ == "__main__":
  socketio.run(app)
