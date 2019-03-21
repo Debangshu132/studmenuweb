@@ -14,7 +14,7 @@ setInterval(function() {
    fetch('http://studmenuweb.herokuapp.com/updatecart') // Call the fetch function passing the url of the API as a parameter
 .then(function(response) {
     // Your code for handling the dasta you get from the API
-    alert(response.json());
+    alert(response);
 })
 .catch(function() {
     // This is where you run code if the server returns any errors
