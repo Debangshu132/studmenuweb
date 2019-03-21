@@ -35,10 +35,20 @@ function populateBody(datatogive){
    var tableno=datajson["tableno"];
    document.title = 'Table number'+tableno;
    datajson=datajson["tableinfo"];
-   
+   var whoLastOrdered=datajson["whoLastOrdered"];
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
-   //bucketlist=bucketlist.sort(compare);
+    
+
+   var index = bucketlist.indexOf(whoLastOrdered);
+    if (index !== -1){ bucketlist.splice(index, 1);}
+    bucketlist.unshift(whoLastOrdered);
+   
+
+
+
+
+
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
