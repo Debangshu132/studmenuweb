@@ -5,6 +5,7 @@ window.socket = io.connect('/');
  alert('yup refresh');
  //location.reload();
  window.data=msg;
+ clear(cartbody)
  populateBody();
 
 }); 
@@ -176,4 +177,12 @@ function compare(a, b) {
    }
    return comparison;
  }
+
+
+
+function clear(elementID)
+{document.getElementById(elementID).innerHTML = "";
+
+
+}
  
