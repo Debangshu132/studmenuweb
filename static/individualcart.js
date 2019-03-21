@@ -111,6 +111,17 @@ function populateBody(datatogive){
       var checkout=document.createElement('div');
       checkout.className="checkout";
       checkout.innerHTML='CHECKOUT';
+      checkout.onclick=function(atableno,arestaurant,id){
+         var check=confirm('do you really want to check users out?')
+         if(check===true){
+         var http = new XMLHttpRequest();
+         var url = 'https://studmenu.herokuapp.com/checkout/'+JSON.stringify({"tableno":atableno,"restaurant":arestaurant,"id":id});
+         http.open("POST", url, false); 
+         http.setRequestHeader("Content-Type", "application/json");
+         http.send();
+         alert('checked out!');
+      }}(tableno,restaurant,individualid);
+
       document.getElementById("cartbody").appendChild(checkout);
 
    }
