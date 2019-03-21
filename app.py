@@ -40,7 +40,7 @@ def groupcart(data):
          identity=data["identity"]
          mydata=getRestaurantsTableInformation(restaurant,tableno)
          mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
-         emit('okrefreshpage', 'abc', broadcast=True)    
+         socketio.emit('okrefreshpage', 'abc', broadcast=True)    
          return render_template("individualcart.html",datatowrite =json.dumps(mydata))
 
 if __name__ == "__main__":
