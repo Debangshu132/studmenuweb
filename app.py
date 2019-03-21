@@ -16,7 +16,7 @@ def handle_my_custom_event(msg):
     mydata=getRestaurantsTableInformation(restaurant,tableno)
     mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
     print('the restaurnt is yupyupy up',restaurant)
-    emit('okrefreshpage',json.dumps(mydata), broadcast=True)
+    emit('okrefreshpage',restaurant, broadcast=True)
        
 
 def getRestaurantsTableInformation(nameOfRestaurant,tableno):
