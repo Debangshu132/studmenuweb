@@ -1,12 +1,13 @@
-
-
-
 window.socket = io.connect('/');
-
+window.socket.on('connect', function(msg) {
+   alert('yupconnected');
+   
+  
+  }); 
 
  window.socket.on('okrefreshpage', function(msg) {
- //alert('yup refresh');
- location.reload();
+ alert('yup refresh');
+ //location.reload();
 
 }); 
 window.onload = function() {
@@ -145,9 +146,16 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
     http.send();
+    
+
+    
+
+
+
+
     window.socket.emit('canirefresh',{data:"testsend"}); 
     
-    //window.socket.emit('canirefresh',{data:"testsend"});
+    
    
     document.getElementById('acceptOrder').remove();
      return false;
