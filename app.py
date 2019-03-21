@@ -9,7 +9,11 @@ socketio = SocketIO(app)
 #    return "hello man"
 @socketio.on('canirefresh')
 def handle_my_custom_event(msg):
-    print("yo refresh the page")     
+    print("yo refresh the page")
+    restaurant = request.cookies.get('restaurantcookie')
+    tableno = request.cookies.get('tablenocookie')
+    identity = request.cookies.get('identitycookie')
+    print('the restaurnt is yupyupy up',restaurant)
     emit('okrefreshpage', msg, broadcast=True)
        
 
