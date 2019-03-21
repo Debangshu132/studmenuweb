@@ -14,7 +14,7 @@ setInterval(function() {
    fetch('/updatecart') // Call the fetch function passing the url of the API as a parameter
 .then(function(response) {
     // Your code for handling the dasta you get from the API
-    alert(response);
+    alert(response.text);
 })
 .catch(function() {
     // This is where you run code if the server returns any errors
