@@ -38,10 +38,13 @@ def groupcart(data):
          restaurant=data["restaurant"]
          tableno=data["tableno"]
          identity=data["identity"]
+         cookiedata={"identity":identity,"restaurant":restaurant,"tableno":tableno}
          mydata=getRestaurantsTableInformation(restaurant,tableno)
          mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
-         socketio.emit('okrefreshpage', 'abc', broadcast=True)    
-         return render_template("individualcart.html",datatowrite =json.dumps(mydata))
+         socketio.emit('okrefreshpage', 'abc', broadcast=True)  
+         resp = make_response(render_template("individualcart.html",datatowrite =json.dumps(mydata)))
+         resp.set_cookie('userstate', cookiedata)
+         return resp
 @app.route("/ordered", methods=['GET', 'POST'])
 def ordered():
      if request.method == 'POST':
