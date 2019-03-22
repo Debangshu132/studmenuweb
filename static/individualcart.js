@@ -51,7 +51,17 @@ function populateCheckin(arrayOfCustomers){
      
       document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";    
       window.time=window.time+10;
-      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
+      if(window.time<60){
+         document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
+      }
+      if(window.time<3600){
+         document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time/60+" mins"+(window.time%60) + " seconds";
+      }
+      if(window.time>3600){
+         document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time/3600+" hours"+(window.time%3600)/60+" mins";
+      }
+      
+      
       document.getElementById("cartbody").style.textAlign="center";       
    }
    
