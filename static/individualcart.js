@@ -15,7 +15,8 @@ setInterval(function() {
 
 .catch(function() {
     // This is where you run code if the server returns any errors
-    alert('cant fetch data');
+    document.getElementById("cartbody").innerHTML="This table is vacant";
+    document.getElementById("cartbody").style.textAlign="center";
 });
 }, 10 * 1000); 
 window.onload = function() {
@@ -25,7 +26,7 @@ populateBody(datatogive);
 
 function populateBody(datatogive){
    clear("cartbody")
-
+   
    var datajson=JSON.parse(datatogive);
    window.identity=datajson["identity"];
    var restaurant=datajson["restaurant"];
