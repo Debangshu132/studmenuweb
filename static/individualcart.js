@@ -117,6 +117,9 @@ function populateBody(datatogive){
    var whoLastOrdered=datajson["whoLastOrdered"];
    datajson=datajson["cart"];
    var bucketlist=Object.keys(datajson);
+
+   var total=document.createElement('div');
+   total.className="total";
     
 
    var index = bucketlist.indexOf(whoLastOrdered);
@@ -126,8 +129,9 @@ function populateBody(datatogive){
 
 
     var dummy= datajson[bucketlist[0]]["mycart"];
-
+   
     clear("cartbody");
+    var totalPrice=0;
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
@@ -155,6 +159,7 @@ function populateBody(datatogive){
       var statusindividual=atomicorderjson["status"];
       var customizationjson=atomicorderjson["customization"];
       var pricejson=atomicorderjson["price"];
+          totalPrice=totalPrice+pricejson;
       var quantityjson=atomicorderjson["quantity"];
 
       var atomicorder=document.createElement('div');
@@ -218,6 +223,8 @@ function populateBody(datatogive){
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
+   total.innerHTML= '&#8377'+totalPrice;
+   document.getElementById("cartbody").appendChild(total);
    if(window.identity==="waiter"){
       var checkout=document.createElement('div');
       checkout.className="checkout";
