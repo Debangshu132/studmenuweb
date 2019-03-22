@@ -66,7 +66,7 @@ function populateCheckin(arrayOfCustomers){
    if(window.time>3600){
       document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+Math.floor(window.time/3600)+" hours"+Math.floor((window.time%3600)/60)+" mins";
    }
-  }
+  
    
    
    
@@ -89,7 +89,7 @@ function populateCheckin(arrayOfCustomers){
 
       document.getElementById("cartbody").appendChild(checkout);
 
-   }
+   }}
   
 }
 
