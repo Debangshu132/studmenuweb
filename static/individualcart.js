@@ -11,15 +11,7 @@ setInterval(function() {
 
 
 
-   fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
-
-   .then(response => response.json())
-   .then(data =>  populateCheckin(JSON.stringify(data)))
-
-
-
    fetch('/updatecart/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
-
    .then(response => response.json())
    .then(data =>  populateBody(JSON.stringify(data)))
 
@@ -29,10 +21,11 @@ setInterval(function() {
 .catch(function() {
 
 
+fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
 
+   .then(response => response.json())
+   .then(data =>  populateCheckin(JSON.stringify(data)))
 
-
-alert('error');
 
 
 
@@ -68,7 +61,7 @@ populateBody(datatogive);
 }
 
 function populateBody(datatogive){
-   clear("cartbody");
+   
    
    var datajson=JSON.parse(datatogive);
    window.identity=datajson["identity"];
@@ -88,9 +81,9 @@ function populateBody(datatogive){
    
 
 
+    var dummy= datajson[bucketlist[0]]["mycart"];
 
-
-
+    clear("cartbody");
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
