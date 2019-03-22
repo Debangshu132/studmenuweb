@@ -5,7 +5,7 @@ window.identityinitial=datajsoninitial["identity"];
 window.restaurantinitial=datajsoninitial["restaurant"];
 window.tablenoinitial=datajsoninitial["tableno"];
 window.dataToUpdate={"restaurant":window.restaurantinitial,"tableno":window.tablenoinitial,"identity":window.identityinitial}
- 
+window.time=0; 
 
 setInterval(function() {
 
@@ -45,7 +45,7 @@ function populateCheckin(arrayOfCustomers){
    if(arrayOfCustomersJson.length===0){
       document.getElementById("cartbody").innerHTML="The table is vacant";    
       document.getElementById("cartbody").style.textAlign="center";  
-      window.time=0;
+      
    }
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
      
