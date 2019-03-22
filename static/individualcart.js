@@ -187,6 +187,7 @@ function populateBody(datatogive){
             customizationstring=customizationstring+" No Option Choosen! ";
          }
       }
+      customizationstring=customizationstring.replace(/\"/g, "");
 
       
 
