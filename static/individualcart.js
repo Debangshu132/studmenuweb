@@ -48,6 +48,7 @@ function populateCheckin(arrayOfCustomers){
       
    }
    else{
+   window.time=window.time+10;  
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
      
       document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";    
@@ -79,7 +80,7 @@ function populateCheckin(arrayOfCustomers){
       checkout.onclick=function(atableno,arestaurant,id){
         
         return function(){ 
-         window.time=0;   
+          
          var check=confirm('do you really want to check users out?')
          if(check===true){
          var http = new XMLHttpRequest();
