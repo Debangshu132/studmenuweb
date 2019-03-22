@@ -154,14 +154,14 @@ function populateBody(datatogive){
       var itemjson=atomicorderjson["item"];
       var statusindividual=atomicorderjson["status"];
       var customizationjson=atomicorderjson["customization"];
-      var pricejson=atomicorderjson["price"];
+      var priceabcjson=atomicorderjson["priceabc"];
       var quantityjson=atomicorderjson["quantity"];
 
       var atomicorder=document.createElement('div');
       
       var item=document.createElement('div');
       var customization=document.createElement('div');
-      var price=document.createElement('div');
+      var priceabc=document.createElement('div');
       var quantity=document.createElement('div');
 
       atomicorder.className="atomicorder";
@@ -169,20 +169,24 @@ function populateBody(datatogive){
       firstname.className="firstname";
       item.className="item";
       customization.className="customization";
-      price.classname="price";
+      priceabc.classname="priceabc";
       quantity.className="quantity";
+
+
+
+
 
       
       firstname.innerHTML=firstnamejson;
       item.innerHTML=itemjson;
       customization.innerHTML=JSON.stringify(customizationjson);
-      price.innerHTML=pricejson;
+      priceabc.innerHTML=JSON.stringify(priceabcjson);
       quantity.innerHTML=quantityjson;
       if(statusindividual==="pending"){
          atomicorder.style.background="#ff00ff";
       }
       
-      atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
+      atomicorder.appendChild(item);atomicorder.appendChild(priceabc);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
      }
    
