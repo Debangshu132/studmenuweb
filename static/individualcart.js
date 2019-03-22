@@ -213,7 +213,7 @@ function populateBody(datatogive){
 
    }
 
-   window.time=0; 
+ 
 }
 function executeWaitersCode(tableno,restaurant,id){
     
