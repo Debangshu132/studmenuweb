@@ -44,7 +44,7 @@ function populateCheckin(arrayOfCustomers){
    arrayOfCustomersJson=arrayOfCustomersJson["consumers"];
    if(arrayOfCustomersJson.length===0){
       document.getElementById("cartbody").innerHTML="The table is vacant";    
-      document.getElementById("cartbody").style.textAlign="center";  
+        
       
    }
    else{
@@ -55,7 +55,7 @@ function populateCheckin(arrayOfCustomers){
      
       
       
-      document.getElementById("cartbody").style.textAlign="center";       
+            
    }
    
    if(window.time<60){
