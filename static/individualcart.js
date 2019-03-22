@@ -19,12 +19,7 @@ setInterval(function() {
    .then(response => response.json())
    .then(data =>  populateCheckin(JSON.stringify(data)))
 
-.catch(function(err) {
-    // This is where you run code if the server returns any errors
-    alert(err);
-    document.getElementById("cartbody").innerHTML="This table is vacant";
-    document.getElementById("cartbody").style.textAlign="center";
-});
+
 });
 
 }, 10 * 1000); 
@@ -33,7 +28,7 @@ setInterval(function() {
 
 function populateCheckin(arrayOfCustomers){
    clear("cartbody");
-   alert(typeof arrayOfCustomersJson);
+   alert(typeof arrayOfCustomers);
    var arrayOfCustomersJson=arrayOfCustomers["consumers"];
    
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
