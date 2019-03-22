@@ -57,7 +57,7 @@ function populateCheckin(arrayOfCustomers){
       
       document.getElementById("cartbody").style.textAlign="center";       
    }
-   window.time=window.time+10;
+   
    if(window.time<60){
       document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
    }
