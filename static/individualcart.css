@@ -22,6 +22,8 @@ body{
   border-radius:6px;}
 
 .atomicorder{
+ padding-top:10px;
+ padding-bottom:5px; 
  display:inline-block; 
  width:100%;
  border-bottom: 1px solid #aaa;
@@ -31,17 +33,23 @@ body{
  color:grey;
  font-size: 12px;
  width:80%;
+ margin-top:-15px;
+ padding-left:10px
 }
 
 .quantity{
-
+;  
+position:relative;
+top:-15px;
+left:10px
 }  
 .item{
- 
-float:right;
-} 
-.priceabc{
 
+padding-left:35px;
+} 
+.price{
+ margin-top:-15px; 
+margin-right:15px;
 float:right;
 } 
 .acceptOrder{
