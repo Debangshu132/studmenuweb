@@ -56,15 +56,7 @@ function populateCheckin(arrayOfCustomers){
       
       document.getElementById("cartbody").style.textAlign="center";       
    }
-   if(window.time<60){
-      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
-   }
-   if(window.time<3600){
-      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+Math.floor(window.time/60)+" mins"+(window.time%60) + " seconds";
-   }
-   if(window.time>3600){
-      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+Math.floor(window.time/3600)+" hours"+Math.floor((window.time%3600)/60)+" mins";
-   }}
+  }
    
    
    
@@ -87,6 +79,16 @@ function populateCheckin(arrayOfCustomers){
 
       document.getElementById("cartbody").appendChild(checkout);
 
+   }
+   if(window.time<60){
+      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
+   }
+   if(window.time<3600 ){
+     if(window.time>60){ 
+      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+Math.floor(window.time/60)+" mins"+(window.time%60) + " seconds";
+   }}
+   if(window.time>3600){
+      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+Math.floor(window.time/3600)+" hours"+Math.floor((window.time%3600)/60)+" mins";
    }
 }
 
