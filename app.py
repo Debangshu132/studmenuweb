@@ -61,12 +61,13 @@ def groupcart(data):
          resp.set_cookie('tablenocookie', tableno)
          resp.set_cookie('identitycookie', identity)
          return resp
-@app.route("/updatecart", methods=['GET', 'POST'])
-def updatecart():
+@app.route("/updatecart/<dataToUpdate>", methods=['GET', 'POST'])
+def updatecart(dataToUpdate):
     print("yo refresh the page")
-    restaurant = request.cookies.get('restaurantcookie')
-    tableno = request.cookies.get('tablenocookie')
-    identity = request.cookies.get('identitycookie')
+    data=json.loads(dataToUpdate)
+    restaurant=data["restaurant"]
+    tableno=data["tableno"]
+    identity=data["identity"]    
     mydata=getRestaurantsTableInformation(restaurant,tableno)
     mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
     return json.dumps(mydata)
