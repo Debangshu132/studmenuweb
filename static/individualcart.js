@@ -176,13 +176,13 @@ function populateBody(datatogive){
       var queries=Object.keys(customizationjson);
       for(var querynumber=0;querynumber<queries.length;querynumber++){
          customizationstring=customizationstring+JSON.stringify(queries[querynumber]);
-         customizationstring=customizationstring+" : ";
+         customizationstring=customizationstring+":";
          var answer=(customizationjson[queries[querynumber]][0]);
          
          if(answer!==undefined){
          answer=JSON.stringify(answer).split(",")[0];   
          customizationstring=customizationstring+answer;
-         customizationstring=customizationstring+" , ";}
+         customizationstring=customizationstring+", ";}
          else{
             customizationstring=customizationstring+" No Option Choosen! ";
          }
