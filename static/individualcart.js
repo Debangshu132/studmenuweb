@@ -18,14 +18,40 @@ setInterval(function() {
     document.getElementById("cartbody").innerHTML="This table is vacant";
     document.getElementById("cartbody").style.textAlign="center";
 });
+
 }, 10 * 1000); 
+
+
+setInterval(function() {
+   fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
+
+   .then(response => response.json())
+   .then(data =>  populateCheckin(JSON.stringify(data)))
+
+.catch(function() {
+    // This is where you run code if the server returns any errors
+    document.getElementById("cartbody").innerHTML="This table is vacant";
+    document.getElementById("cartbody").style.textAlign="center";
+});
+
+}, 10 * 1000); 
+function populateCheckin(arrayOfCustomers){
+   clear("cartbody");
+   var arrayOfCustomersJson=JSON.parse(arrayOfCustomers);
+   for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
+      document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";             
+   }
+}
+
+
+
 window.onload = function() {
 var datatogive=window.data;   
 populateBody(datatogive);
 }
 
 function populateBody(datatogive){
-   clear("cartbody")
+   clear("cartbody");
    
    var datajson=JSON.parse(datatogive);
    window.identity=datajson["identity"];
