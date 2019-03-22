@@ -14,15 +14,6 @@ setInterval(function() {
    .then(data =>  populateBody(JSON.stringify(data)))
 
 .catch(function() {
-    // This is where you run code if the server returns any errors
-    document.getElementById("cartbody").innerHTML="This table is vacant";
-    document.getElementById("cartbody").style.textAlign="center";
-});
-
-}, 10 * 1000); 
-
-
-setInterval(function() {
    fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
@@ -33,8 +24,12 @@ setInterval(function() {
     document.getElementById("cartbody").innerHTML="This table is vacant";
     document.getElementById("cartbody").style.textAlign="center";
 });
+});
 
 }, 10 * 1000); 
+
+
+
 function populateCheckin(arrayOfCustomers){
    clear("cartbody");
    var arrayOfCustomersJson=JSON.parse(arrayOfCustomers);
