@@ -27,6 +27,15 @@ def getRestaurantsAllTableInfo(nameOfRestaurant):
     cursor = col.find()
     restaurant = cursor[0]
     return(restaurant[nameOfRestaurant]["tables"])
+def getRestaurantsTableConsumerInformation(nameOfRestaurant,tableno):
+    MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
+    client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
+    db = client.get_database("brilu")
+    col = db["restaurants"]
+    cursor = col.find()
+    restaurant = cursor[0]
+    consumerArray=restaurant[nameOfRestaurant]["tables"][tableno]["consumer"]
+    return(consumerArray)
 def getRestaurantsTableInformation(nameOfRestaurant,tableno):
     MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
     client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
@@ -75,6 +84,14 @@ def updatecart(dataUpdate):
 def dashboard(restoo):
      tableInfo=getRestaurantsAllTableInfo(restoo)
      return str(tableInfo) 
+@app.route("/checkforcheckins/<data>", methods=['GET', 'POST'])
+def checkforcheckins(data):
+    data=json.loads(data)
+    restaurant=data["restaurant"]
+    tableno=data["tableno"]
+    identity=data["identity"]
+    consumerArray=getRestaurantsTableConsumerInformation(restaurant,tableno)
+    return str(consumerArray)
     
     
     
