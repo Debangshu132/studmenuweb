@@ -172,14 +172,23 @@ function populateBody(datatogive){
       price.className="price";
       quantity.className="quantity";
 
+      var customizationstring="";
+      var queries=Object.keys(customizationjson);
+      for(var querynumber=0;querynumber<queries.length;querynumber++){
+         customizationstring=customizationstring+JSON.stringify(queries[querynumber]);
+         customizationstring=customizationstring+" : ";
+         customizationstring=customizationstring+JSON.stringify(customizationjson[querynumber]);
+         customizationstring=customizationstring+" , ";
+      }
 
+      
 
 
 
       
       firstname.innerHTML=firstnamejson;
       item.innerHTML=itemjson;
-      customization.innerHTML=JSON.stringify(customizationjson);
+      customization.innerHTML=customizationstring;
       price.innerHTML=JSON.stringify(pricejson);
       quantity.innerHTML=quantityjson;
       
