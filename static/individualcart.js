@@ -101,7 +101,7 @@ populateBody(datatogive);
 
 function populateBody(datatogive){
    
-   
+   window.time=0; 
    var datajson=JSON.parse(datatogive);
    window.identity=datajson["identity"];
    
