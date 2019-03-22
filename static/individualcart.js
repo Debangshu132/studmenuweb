@@ -80,7 +80,7 @@ function populateCheckin(arrayOfCustomers){
       checkout.onclick=function(atableno,arestaurant,id){
         
         return function(){ 
-          
+         window.time=0;
          var check=confirm('do you really want to check users out?')
          if(check===true){
          var http = new XMLHttpRequest();
