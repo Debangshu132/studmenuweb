@@ -181,7 +181,7 @@ function populateBody(datatogive){
          
          if(answer!==undefined){
          answer=JSON.stringify(answer).split(",")[0];   
-         customizationstring=customizationstring+JSON.stringify(answer);
+         customizationstring=customizationstring+answer;
          customizationstring=customizationstring+" , ";}
          else{
             customizationstring=customizationstring+" No Option Choosen! ";
