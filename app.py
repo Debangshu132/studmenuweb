@@ -72,8 +72,8 @@ def updatecart():
     return json.dumps(mydata)
 @app.route("/dashboard/<restoo>", methods=['GET', 'POST'])
 def dashboard(restoo):
-     tableInfo=getRestaurantsAllTableInfo(restoo)
-     return tableInfo 
+     #tableInfo=getRestaurantsAllTableInfo(restoo)
+     return 'hey' 
     
     
     
