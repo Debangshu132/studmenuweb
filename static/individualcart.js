@@ -19,8 +19,9 @@ setInterval(function() {
    .then(response => response.json())
    .then(data =>  populateCheckin(JSON.stringify(data)))
 
-.catch(function() {
+.catch(function(err) {
     // This is where you run code if the server returns any errors
+    alert(err);
     document.getElementById("cartbody").innerHTML="This table is vacant";
     document.getElementById("cartbody").style.textAlign="center";
 });
