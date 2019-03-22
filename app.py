@@ -91,7 +91,7 @@ def checkforcheckins(data):
     tableno=data["tableno"]
     identity=data["identity"]
     consumerArray=getRestaurantsTableConsumerInformation(restaurant,tableno)
-    return {"consumers":consumerArray}
+    return json.dumps({"consumers":consumerArray})
     
     
     
