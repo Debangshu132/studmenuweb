@@ -182,12 +182,13 @@ function populateBody(datatogive){
       customization.innerHTML=JSON.stringify(customizationjson);
       price.innerHTML=JSON.stringify(pricejson);
       quantity.innerHTML=quantityjson;
-      if(statusindividual==="pending"){
-         quantity.style.color="#ff00ff";
-      }
+      
       
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
+      if(statusindividual==="pending"){
+         quantity.style.color="#ff00ff";
+      }
      }
    
    if(window.identity==="waiter"){
