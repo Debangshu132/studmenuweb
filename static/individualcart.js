@@ -77,8 +77,9 @@ function populateCheckin(arrayOfCustomers){
       checkout.className="checkout";
       checkout.innerHTML='CHECKOUT';
       checkout.onclick=function(atableno,arestaurant,id){
-        window.time=0; 
+        
         return function(){ 
+         window.time=0;   
          var check=confirm('do you really want to check users out?')
          if(check===true){
          var http = new XMLHttpRequest();
