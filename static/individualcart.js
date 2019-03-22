@@ -154,7 +154,7 @@ function populateBody(datatogive){
       var itemjson=atomicorderjson["item"];
       var statusindividual=atomicorderjson["status"];
       var customizationjson=atomicorderjson["customization"];
-      var priceabcjson=atomicorderjson["priceabc"];
+      var priceabcjson=atomicorderjson["price"];
       var quantityjson=atomicorderjson["quantity"];
 
       var atomicorder=document.createElement('div');
