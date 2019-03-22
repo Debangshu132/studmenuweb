@@ -29,8 +29,9 @@ setInterval(function() {
 function populateCheckin(arrayOfCustomers){
    clear("cartbody");
    alert(typeof arrayOfCustomers);
-   var arrayOfCustomersJson=arrayOfCustomers["consumers"];
-   
+   var arrayOfCustomersJson=JSON.parse(arrayOfCustomers["consumers"]);
+   alert(typeof arrayOfCustomersJSon);
+   alert(arrayOfCustomersJson);
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
       alert(arrayOfCustomersJson[customerIndex]);
       document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";             
