@@ -103,7 +103,7 @@ populateBody(datatogive);
 
 function populateBody(datatogive){
    
-   window.time=0; 
+   
    var datajson=JSON.parse(datatogive);
    window.identity=datajson["identity"];
    
@@ -213,7 +213,7 @@ function populateBody(datatogive){
 
    }
 
-
+   window.time=0; 
 }
 function executeWaitersCode(tableno,restaurant,id){
     
