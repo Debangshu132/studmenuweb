@@ -2,9 +2,9 @@
 var datatogiveinitial=window.data;
 var datajsoninitial=JSON.parse(datatogiveinitial);
 window.identityinitial=datajsoninitial["identity"];
-var restaurantinitial=datajsoninitial["restaurant"];
-var tablenoinitial=datajsoninitial["tableno"];
-window.dataToUpdate={"restaurant":restaurantinitial,"tableno":tablenoinitial,"identity":window.identityinitial}
+window.restaurantinitial=datajsoninitial["restaurant"];
+window.tablenoinitial=datajsoninitial["tableno"];
+window.dataToUpdate={"restaurant":window.restaurantinitial,"tableno":window.tablenoinitial,"identity":window.identityinitial}
  
 
 setInterval(function() {
@@ -45,11 +45,35 @@ function populateCheckin(arrayOfCustomers){
    if(arrayOfCustomersJson.length===0){
       document.getElementById("cartbody").innerHTML="The table is vacant";    
       document.getElementById("cartbody").style.textAlign="center";  
+      window.time=0;
    }
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
      
       document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";    
       document.getElementById("cartbody").style.textAlign="center";         
+   }
+   window.time=window.time+10;
+   document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
+   
+
+   if(window.identity==="waiter"){
+      var checkout=document.createElement('div');
+      checkout.className="checkout";
+      checkout.innerHTML='CHECKOUT';
+      checkout.onclick=function(atableno,arestaurant,id){
+        return function(){ 
+         var check=confirm('do you really want to check users out?')
+         if(check===true){
+         var http = new XMLHttpRequest();
+         var url = 'https://studmenu.herokuapp.com/checkout/'+JSON.stringify({"tableno":atableno,"restaurant":arestaurant,"id":id});
+         http.open("POST", url, false); 
+         http.setRequestHeader("Content-Type", "application/json");
+         http.send();
+         alert('checked out!');}
+      }}(window.tablenoinitial,window.restaurantinitial,window.identityinitial);
+
+      document.getElementById("cartbody").appendChild(checkout);
+
    }
 }
 
