@@ -183,7 +183,7 @@ function populateBody(datatogive){
       priceabc.innerHTML=JSON.stringify(priceabcjson);
       quantity.innerHTML=quantityjson;
       if(statusindividual==="pending"){
-         atomicorder.style.background="#ff00ff";
+         quantity.style.color="#ff00ff";
       }
       
       atomicorder.appendChild(item);atomicorder.appendChild(priceabc);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
