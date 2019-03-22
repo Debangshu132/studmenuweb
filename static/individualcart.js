@@ -50,10 +50,11 @@ function populateCheckin(arrayOfCustomers){
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
      
       document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";    
-      document.getElementById("cartbody").style.textAlign="center";         
+      window.time=window.time+10;
+      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
+      document.getElementById("cartbody").style.textAlign="center";       
    }
-   window.time=window.time+10;
-   document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
+   
    
 
    if(window.identity==="waiter"){
