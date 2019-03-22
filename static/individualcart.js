@@ -8,16 +8,34 @@ window.dataToUpdate={"restaurant":restaurantinitial,"tableno":tablenoinitial,"id
  
 
 setInterval(function() {
+
+
+
+   fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
+
+   .then(response => response.json())
+   .then(data =>  populateCheckin(JSON.stringify(data)))
+
+
+
    fetch('/updatecart/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
    .then(data =>  populateBody(JSON.stringify(data)))
 
-.catch(function() {
-   fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
 
-   .then(response => response.json())
-   .then(data =>  populateCheckin(JSON.stringify(data)))
+
+   
+.catch(function() {
+
+
+
+
+
+alert('error');
+
+
+
 
 
 });
