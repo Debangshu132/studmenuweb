@@ -1,17 +1,14 @@
 window.socket = io.connect('/');
+var datatogiveinitial=window.data;
+var datajsoninitial=JSON.parse(datatogiveinitial);
+window.identityinitial=datajsoninitial["identity"];
+var restaurantinitial=datajsoninitial["restaurant"];
+var tablenoinitial=datajsoninitial["tableno"];
+var dataToUpdate={"restaurant":restaurantinitial,"tableno":tablenoinitial,"identity":window.identityinitial}
+ 
 
-
- //window.socket.on('okrefreshpage', function(msg) {
- //alert('yup refresh');
- //location.reload();
-   //alert(msg);
- //  window.data=msg;
-// clear("cartbody");
-// populateBody();
-
-//z}); 
 setInterval(function() {
-   fetch('/updatecart') // Call the fetch function passing the url of the API as a parameter
+   fetch('/updatecart/'+JSON.stringify(dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
    .then(data =>  populateBody(JSON.stringify(data)))
