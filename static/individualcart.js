@@ -1,4 +1,4 @@
-window.socket = io.connect('/');
+
 var datatogiveinitial=window.data;
 var datajsoninitial=JSON.parse(datatogiveinitial);
 window.identityinitial=datajsoninitial["identity"];
@@ -193,7 +193,7 @@ function postAcceptOrder(tableno,restaurant,id,acceptdeny){
 
 
 
-    window.socket.emit('canirefresh',{data:"testsend"}); 
+     
     
     
    
