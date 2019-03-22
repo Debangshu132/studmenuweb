@@ -202,7 +202,7 @@ function populateBody(datatogive){
       firstname.innerHTML=firstnamejson;
       item.innerHTML=itemjson;
       customization.innerHTML=customizationstring;
-      price.innerHTML=JSON.stringify(pricejson);
+      price.innerHTML="Rs"+JSON.stringify(pricejson);
       quantity.innerHTML=quantityjson;
       
       
@@ -223,7 +223,7 @@ function populateBody(datatogive){
    document.getElementById("cartbody").appendChild(firstname);
    document.getElementById("cartbody").appendChild(bucket);
    }
-   total.innerHTML= 'Rs'+totalPrice;
+   total.innerHTML='Rs'+totalPrice;
    document.getElementById("cartbody").appendChild(total);
    if(window.identity==="waiter"){
       var checkout=document.createElement('div');
