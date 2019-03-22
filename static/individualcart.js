@@ -32,8 +32,9 @@ function populateCheckin(arrayOfCustomers){
    var arrayOfCustomersJson=JSON.parse(arrayOfCustomers);
    arrayOfCustomersJson=arrayOfCustomersJson["consumers"];
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
-      alert(arrayOfCustomersJson[customerIndex]);
-      document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";             
+     
+      document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";    
+      document.getElementById("cartbody").style.textAlign="center";         
    }
 }
 
