@@ -19,6 +19,14 @@ def handle_my_custom_event(msg):
     emit('okrefreshpage',json.dumps(mydata), broadcast=True)
        
 
+def getRestaurantsAllTableInfo(nameOfRestaurant):
+   MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
+    client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
+    db = client.get_database("brilu")
+    col = db["restaurants"]
+    cursor = col.find()
+    restaurant = cursor[0]
+    return(restaurant[nameOfRestaurant]["tables"])
 def getRestaurantsTableInformation(nameOfRestaurant,tableno):
     MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
     client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
@@ -61,7 +69,20 @@ def updatecart():
     identity = request.cookies.get('identitycookie')
     mydata=getRestaurantsTableInformation(restaurant,tableno)
     mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
-    print('the restaurnt is yupyupy up',restaurant)
     return json.dumps(mydata)
+@app.route("/dashboard/<data>", methods=['GET', 'POST'])
+def dashboard(data):
+     data=json.loads(data)
+     restaurant=data["restaurant"]
+     username=data["username"]
+     password=data["password"]
+     tableInfo=getRestaurantsAllTableInfo(nameOfRestaurant)
+     return json.dumps(tableInfo)   
+    
+    
+    
+    
+    
+    
 if __name__ == "__main__":
  socketio.run(app)
