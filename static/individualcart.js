@@ -36,6 +36,7 @@ function populateCheckin(arrayOfCustomers){
    alert(arrayOfCustomers);
    var arrayOfCustomersJson=JSON.parse(arrayOfCustomers["consumers"]);
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
+      alert(arrayOfCustomersJson[customerIndex]);
       document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";             
    }
 }
