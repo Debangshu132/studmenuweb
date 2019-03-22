@@ -20,7 +20,7 @@ def handle_my_custom_event(msg):
        
 
 def getRestaurantsAllTableInfo(nameOfRestaurant):
-   MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
+    MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
     client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
     db = client.get_database("brilu")
     col = db["restaurants"]
