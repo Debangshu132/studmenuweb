@@ -178,7 +178,7 @@ function populateBody(datatogive){
          customizationstring=customizationstring+JSON.stringify(queries[querynumber]);
          customizationstring=customizationstring+" : ";
          var answer=(customizationjson[queries[querynumber]][0]);
-
+         answer=typeof answer;
          customizationstring=customizationstring+JSON.stringify(answer);
          customizationstring=customizationstring+" , ";
       }
