@@ -35,7 +35,7 @@ def getRestaurantsTableInformation(nameOfRestaurant,tableno):
     cursor = col.find()
     restaurant = cursor[0]
     return(restaurant[nameOfRestaurant]["tables"][tableno])
-@app.route("/<resto>", methods=['GET', 'POST'])
+@app.route("/menu/<resto>", methods=['GET', 'POST'])
 def menu(resto):
          MONGODB_URI="mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
          client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
@@ -61,10 +61,10 @@ def groupcart(data):
          resp.set_cookie('tablenocookie', tableno)
          resp.set_cookie('identitycookie', identity)
          return resp
-@app.route("/updatecart/<dataToUpdate>", methods=['GET', 'POST'])
-def updatecart(dataToUpdate):
+@app.route("/updatecart/<dataUpdate>", methods=['GET', 'POST'])
+def updatecart(dataUpdate):
     print("yo refresh the page")
-    data=json.loads(dataToUpdate)
+    data=json.loads(dataUpdate)
     restaurant=data["restaurant"]
     tableno=data["tableno"]
     identity=data["identity"]    
