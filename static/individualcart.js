@@ -178,8 +178,9 @@ function populateBody(datatogive){
          customizationstring=customizationstring+JSON.stringify(queries[querynumber]);
          customizationstring=customizationstring+" : ";
          var answer=(customizationjson[queries[querynumber]][0]);
-         answer=JSON.stringify(answer).split(",")[0];
+         
          if(answer!==undefined){
+         answer=JSON.stringify(answer).split(",")[0];   
          customizationstring=customizationstring+JSON.stringify(answer);
          customizationstring=customizationstring+" , ";}
          else{
