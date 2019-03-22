@@ -31,6 +31,10 @@ function populateCheckin(arrayOfCustomers){
    
    var arrayOfCustomersJson=JSON.parse(arrayOfCustomers);
    arrayOfCustomersJson=arrayOfCustomersJson["consumers"];
+   if(arrayOfCustomersJson.length===0){
+      document.getElementById("cartbody").innerHTML="The table is vacant";    
+      document.getElementById("cartbody").style.textAlign="center";  
+   }
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
      
       document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";    
@@ -50,6 +54,7 @@ function populateBody(datatogive){
    
    var datajson=JSON.parse(datatogive);
    window.identity=datajson["identity"];
+   
    var restaurant=datajson["restaurant"];
    var tableno=datajson["tableno"];
    document.title = 'Table number'+tableno;
