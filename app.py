@@ -70,9 +70,9 @@ def updatecart():
     mydata=getRestaurantsTableInformation(restaurant,tableno)
     mydata={"identity":identity,"tableinfo":mydata,"restaurant":restaurant,"tableno":tableno}
     return json.dumps(mydata)
-@app.route("/dashboard/<resto>", methods=['GET', 'POST'])
-def dashboard(resto):
-     tableInfo=getRestaurantsAllTableInfo(resto)
+@app.route("/dashboard/<restoo>", methods=['GET', 'POST'])
+def dashboard(restoo):
+     tableInfo=getRestaurantsAllTableInfo(restoo)
      return tableInfo 
     
     
