@@ -178,9 +178,13 @@ function populateBody(datatogive){
          customizationstring=customizationstring+JSON.stringify(queries[querynumber]);
          customizationstring=customizationstring+" : ";
          var answer=(customizationjson[queries[querynumber]][0]);
-         answer=typeof answer;
+         answer=JSON.stringify(answer).split(",")[0];
+         if(answer!==undefined){
          customizationstring=customizationstring+JSON.stringify(answer);
-         customizationstring=customizationstring+" , ";
+         customizationstring=customizationstring+" , ";}
+         else{
+            customizationstring=customizationstring+" No Option Choosen! ";
+         }
       }
 
       
