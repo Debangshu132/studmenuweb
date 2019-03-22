@@ -4,11 +4,11 @@ var datajsoninitial=JSON.parse(datatogiveinitial);
 window.identityinitial=datajsoninitial["identity"];
 var restaurantinitial=datajsoninitial["restaurant"];
 var tablenoinitial=datajsoninitial["tableno"];
-var dataToUpdate={"restaurant":restaurantinitial,"tableno":tablenoinitial,"identity":window.identityinitial}
+window.dataToUpdate={"restaurant":restaurantinitial,"tableno":tablenoinitial,"identity":window.identityinitial}
  
 
 setInterval(function() {
-   fetch('/updatecart/'+JSON.stringify(dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
+   fetch('/updatecart/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
    .then(data =>  populateBody(JSON.stringify(data)))
