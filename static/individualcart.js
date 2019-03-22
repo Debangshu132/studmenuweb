@@ -8,7 +8,7 @@ window.dataToUpdate={"restaurant":restaurantinitial,"tableno":tablenoinitial,"id
  
 
 setInterval(function() {
-   fetch('/updatecart/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
+   fetch('https://studmenuweb.herokuapp.com/updatecart/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
 
    .then(response => response.json())
    .then(data =>  populateBody(JSON.stringify(data)))
