@@ -84,6 +84,11 @@ def updatecart(dataUpdate):
 def dashboard(restoo):
      tableInfo=getRestaurantsAllTableInfo(restoo)
      return str(tableInfo) 
+@app.route("/dashboardwaiterpage/", methods=['GET', 'POST'])
+def dashboardwaiterpage():
+     
+     return render_template("dashboard.html")
+
 @app.route("/checkforcheckins/<data>", methods=['GET', 'POST'])
 def checkforcheckins(data):
     data=json.loads(data)
