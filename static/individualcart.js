@@ -176,7 +176,7 @@ function populateBody(datatogive){
         
      if(JSON.stringify(window.statusjson)==="pending"){
       document.getElementById("cartbody").innerHTML+=typeof window.statusjson; 
-       noOfPendingOrders=noOfPendingOrders+1; 
+       //noOfPendingOrders=noOfPendingOrders+1; 
       
      }
      bucket.appendChild(status);
