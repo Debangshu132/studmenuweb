@@ -37,13 +37,36 @@ fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetc
 
 
 
+
+
+
+
+var elem = document.getElementById("cartbody");
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+
+
 function populateCheckin(arrayOfCustomers){
    clear("cartbody");
    
    var arrayOfCustomersJson=JSON.parse(arrayOfCustomers);
    arrayOfCustomersJson=arrayOfCustomersJson["consumers"];
    if(arrayOfCustomersJson.length===0){
-      document.getElementById("cartbody").innerHTML="The table is vacant";    
+      if(window.identityinitial==="waiter"){
+      document.getElementById("cartbody").innerHTML="The table is vacant";}
+      else{
+         document.getElementById("cartbody").innerHTML="You have been checked out!";
+      }    
         
       
    }
@@ -276,7 +299,7 @@ function executeWaitersCode(tableno,restaurant,id){
     cancel.innerHTML="cancel";
     cancel.onclick=function(){
        return function(){
-  
+         openFullscreen();
          document.getElementById('acceptOrder').remove();
        }
     }(id);
