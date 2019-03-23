@@ -14,7 +14,7 @@ function populateBodyWaiter(datatogive){
        tablesInner.className="card border-3 border-top border-top-primary";
        var card=document.createElement('div');
        card.className="card";
-       card.innerHTML='<div class="card-header d-flex"><h4 class="mb-0" >Table number '+tableNo+'</h4><div class="dropdown ml-auto"><a class="toolbar" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-dots-vertical"></i>  </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" href="#">Checkout</a><a class="dropdown-item" href="#">Reserve</a><a class="dropdown-item" href="#">Logout Waiter</a></div></div></div>';
+       card.innerHTML='<div class="card-header d-flex"><h4 class="mb-0" >Table number '+tableNo+'</h4><div class="dropdown ml-auto"><a class="toolbar" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-dots-vertical"></i>  </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" href="#">Checkout</a><a class="dropdown-item" href="#">Reserve</a><a class="dropdown-item" href="#" onclick="return logoutWaiter('+tableNo+');">Logout Waiter</a></div></div></div>';
        card.innerHTML+='<iframe frameBorder="0" src="http://studmenuweb.herokuapp.com/groupcart/%7B%22restaurant%22:%22Taj%22,%22tableno%22:%22'+tableNo+'%22,%22identity%22:%22waiter%22%7D"></iframe>';
 
 
@@ -24,4 +24,19 @@ function populateBodyWaiter(datatogive){
 
 
      }
- }   
+ } 
+ 
+ 
+
+ function logoutWaiter(tableno){
+    var check=confirm('do you really want to logout the waiter?')
+    if(check===true){
+        var http = new XMLHttpRequest();
+        var url = 'https://studmenu.herokuapp.com/logoutWaiter/'+JSON.stringify({"tableno":tableno});
+        http.open("POST", url, false); 
+        http.setRequestHeader("Content-Type", "application/json");
+        http.send();
+        alert('logged out')
+
+    }
+ }
