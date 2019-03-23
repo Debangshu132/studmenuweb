@@ -172,10 +172,10 @@ function populateBody(datatogive){
      window.statusjson=datajson[individualid]["status"];
      status.className="status";
      status.innerHTML=window.statusjson;
-     document.getElementById("cartbody").innerHTML+=JSON.stringify(window.statusjson);
+    
         
      if(JSON.stringify(window.statusjson)===JSON.stringify("pending")){
-      document.getElementById("cartbody").innerHTML+=typeof window.statusjson; 
+      
        noOfPendingOrders=noOfPendingOrders+1; 
       
      }
@@ -276,10 +276,11 @@ function populateBody(datatogive){
       document.getElementById("cartbody").innerHTML+=noOfPendingOrders;
          
       if(noOfPendingOrders>0){
-
          document.getElementById("cartbody").style.borderTop="3px solid #669999";
-         
-      }
+         }
+      else{
+         document.getElementById("cartbody").style.borderTop="3px solid #41376b";
+      }   
 
    }
 
