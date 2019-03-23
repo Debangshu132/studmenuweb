@@ -34,6 +34,6 @@ function populateBodyMenu(){
     clear("wrapper");
     var menuwrapper=document.createElement('div');
     menuwrapper.className="menuwrapper";
-    menuwrapper.innerHTML='<iframe frameBorder="0" src="http://studmenuweb.herokuapp.com/Taj"></iframe>';
+    menuwrapper.innerHTML='<iframe frameBorder="0" src="http://studmenuweb.herokuapp.com/menu/Taj"></iframe>';
     document.getElementById('wrapper').appendChild(menuwrapper);   
 }
