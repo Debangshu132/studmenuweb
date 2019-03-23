@@ -93,7 +93,7 @@ def logoutwaiter(tablejson):
      restaurant = request.cookies.get('restaurantcookie')
      table=json.loads(tablejson)
      tableno=table['tableno']
-     updateRestaurantsTablesInformation(restaurant,tableno, waiter={})   
+     updateRestaurantsTablesInformation(restaurant,str(tableno), waiter={})   
      return (0)
 def updateRestaurantsTablesInformation(nameOfRestaurant,tableno, **kwargs):
     MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
