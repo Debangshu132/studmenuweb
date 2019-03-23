@@ -39,6 +39,7 @@
               <input id="textsearch" type="text" placeholder="   Search . . ." required   onchange="searchitem()">
             </div>
           </div>
+          <button onclick="openFullscreen();">Open in Fullscreen Mode</button>
          
           <img class="carticon" id="carticon"  src="https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Cart.png">  
           
@@ -72,6 +73,20 @@
     <script>
      var menuitem={{menuitems|tojson}};
     </script>
+    <script>
+      var elem = document.getElementById("menu");
+      function openFullscreen() {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+          elem.msRequestFullscreen();
+        }
+      }
+      </script>
     
     <script type="text/javascript" src="../static/swiper.min.js"></script>
         
