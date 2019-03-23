@@ -365,7 +365,8 @@ function executeWaitersCode(tableno,restaurant,id){
 
     acceptOrderContent.innerHTML="Are you sure you want to accept the order?";
     acceptOrderContent.appendChild(accept);
-    acceptOrderContent.appendChild(deny);
+    if(window.identity==="manager"){
+    acceptOrderContent.appendChild(deny);}
     acceptOrderContent.appendChild(cancel);
     acceptOrder.appendChild(acceptOrderContent);
     document.getElementById("cartbody").appendChild(acceptOrder);
