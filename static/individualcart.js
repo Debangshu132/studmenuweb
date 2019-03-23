@@ -276,7 +276,7 @@ function populateBody(datatogive){
       document.getElementById("cartbody").innerHTML+=noOfPendingOrders;
          
       if(noOfPendingOrders>0){
-         document.getElementById("cartbody").style.borderTop="3px solid #669999";
+         document.getElementById("cartbody").style.borderTop="3px solid #e5577a";
          }
       else{
          document.getElementById("cartbody").style.borderTop="3px solid #41376b";
