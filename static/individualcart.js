@@ -276,10 +276,10 @@ function populateBody(datatogive){
       document.getElementById("cartbody").innerHTML+=noOfPendingOrders;
          
       if(noOfPendingOrders>0){
-         document.body.style.borderTop="3px solid #e5577a";
+         document.getElementById("cartbody").style.borderTop="3px solid #e5577a";
          }
       else{
-         document.body.style.borderTop="3px solid #41376b";
+         document.getElementById("cartbody").style.borderTop="3px solid #41376b";
       }   
 
    }
