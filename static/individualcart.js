@@ -191,7 +191,7 @@ function populateBody(datatogive){
       var statusindividual=atomicorderjson["status"];
       var customizationjson=atomicorderjson["customization"];
       var pricejson=atomicorderjson["price"];
-      if(statusindividual!="denied"){
+      if(statusindividual!=="denied"){
           totalPrice=totalPrice+pricejson;}
       var quantityjson=atomicorderjson["quantity"];
 
