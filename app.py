@@ -116,6 +116,9 @@ def checkforcheckins(data):
     identity=data["identity"]
     consumerArray=getRestaurantsTableConsumerInformation(restaurant,tableno)
     return json.dumps({"consumers":consumerArray})
+@app.route("/dashboardmenu/", methods=['GET', 'POST'])
+def dashboardmenu():
+   return "menu"
     
     
     
