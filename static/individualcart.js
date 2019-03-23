@@ -172,7 +172,10 @@ function populateBody(datatogive){
      window.statusjson=datajson[individualid]["status"];
      status.className="status";
      status.innerHTML=window.statusjson;
+     document.getElementById("cartbody").innerHTML+=JSON.stringify(window.statusjson);
+     document.getElementById("cartbody").innerHTML+=typeof window.statusjson;    
      if(JSON.stringify(window.statusjson)==="pending"){
+        
        noOfPendingOrders=noOfPendingOrders+1; 
       
      }
