@@ -90,7 +90,7 @@ def dashboardwaiterpage():
      return render_template("dashboard.html")
 @app.route("/logoutwaiter/<tablejsondata>", methods=['GET', 'POST'])
 def logoutwaiter(tablejsondata):
-     restaurant = "Taj"
+     restaurant = request.cookies.get('restaurantcookie')
      table=json.loads(tablejsondata)
      tableno=table['tableno']
      updateRestaurantsTablesInformation(restaurant,str(tableno), waiter={})   
