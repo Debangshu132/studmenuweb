@@ -32,7 +32,7 @@ function populateBodyWaiter(datatogive){
     var check=confirm('do you really want to logout the waiter?')
     if(check===true){
         var http = new XMLHttpRequest();
-        var url = '/logoutWaiter/'+JSON.stringify({"tableno":tableno});
+        var url = '/logoutwaiter/'+JSON.stringify({"tableno":tableno});
         http.open("POST", url, false); 
         http.setRequestHeader("Content-Type", "application/json");
         http.send();
