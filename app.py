@@ -94,7 +94,7 @@ def logoutwaiter(tablejsondata):
      table=json.loads(tablejsondata)
      tableno=table['tableno']
      updateRestaurantsTablesInformation(restaurant,str(tableno), waiter={})   
-     return (0)
+     return "success"
 def updateRestaurantsTablesInformation(nameOfRestaurant,tableno, **kwargs):
     MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
     client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
