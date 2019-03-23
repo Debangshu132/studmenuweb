@@ -33,7 +33,7 @@ fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetc
 
 });
 
-}, 10 * 1000); 
+},  1000); 
 
 
 
