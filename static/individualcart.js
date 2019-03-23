@@ -276,8 +276,16 @@ function populateBody(datatogive){
       
          
       if(noOfPendingOrders>0){
-         document.getElementById("cartbody").style.borderTop="3px solid #e5577a";
-         }
+         var redness=200+noOfPendingOrders*10;
+         var greenness=100-noOfPendingOrders*10;
+         var blueness=100-noOfPendingOrders*10;
+         if((redness<255) && (blueness>0) && (greenness)>0){
+
+         document.getElementById("cartbody").style.borderTop="3px solid rgb("+redness.toString(10)+","+greenness.toString(10)+","+blueness.toString(10)+")";}
+       else{
+         document.getElementById("cartbody").style.borderTop="3px solid rgb(255,0,0)";
+       } 
+      }
       else{
          document.getElementById("cartbody").style.borderTop="3px solid #41376b";
       }   
