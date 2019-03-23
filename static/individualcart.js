@@ -283,6 +283,7 @@ function populateBody(datatogive){
 
          document.getElementById("cartbody").style.borderTop="3px solid rgb("+redness.toString(10)+","+greenness.toString(10)+","+blueness.toString(10)+")";}
        else{
+          alert("nope");
          document.getElementById("cartbody").style.borderTop="3px solid rgb(255,0,0)";
        } 
       }
