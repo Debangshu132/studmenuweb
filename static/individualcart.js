@@ -155,6 +155,7 @@ function populateBody(datatogive){
    
     clear("cartbody");
     var totalPrice=0;
+    var noOfPendingOrders=0;
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
@@ -171,6 +172,10 @@ function populateBody(datatogive){
      window.statusjson=datajson[individualid]["status"];
      status.className="status";
      status.innerHTML=window.statusjson;
+     if(window.statusjson==="pending"){
+       noOfPendingOrders=noOfPendingOrders+1; 
+      
+     }
      bucket.appendChild(status);
   
      for(var orderindex=singlepersonorderlistjson.length-1;orderindex>-1;orderindex--)
@@ -265,6 +270,9 @@ function populateBody(datatogive){
       }}(tableno,restaurant,individualid);
 
       document.getElementById("cartbody").appendChild(checkout);
+      if(noOfPendingOrders>0){
+         document.getElementById("cartbody").style.borderTopColor="red";
+      }
 
    }
 
@@ -299,7 +307,7 @@ function executeWaitersCode(tableno,restaurant,id){
     cancel.innerHTML="cancel";
     cancel.onclick=function(){
        return function(){
-         openFullscreen();
+         //openFullscreen();
          document.getElementById('acceptOrder').remove();
        }
     }(id);
