@@ -96,7 +96,7 @@ function populateCheckin(arrayOfCustomers){
    
    
 
-   if(window.identity==="waiter"){
+   if(window.identity==="waiter" || window.identity==="manager"){
       var checkout=document.createElement('div');
       checkout.className="checkout";
       checkout.innerHTML='CHECKOUT';
@@ -245,7 +245,7 @@ function populateBody(datatogive){
       }
      }
    
-   if(window.identity==="waiter"){
+   if(window.identity==="waiter" || window.identity==="manager"){
       bucket.onclick=function(atableno,arestaurant,id){
       return function(){executeWaitersCode(atableno,arestaurant,id); }  
    
@@ -257,7 +257,7 @@ function populateBody(datatogive){
    }
    total.innerHTML='Rs'+totalPrice;
    document.getElementById("cartbody").appendChild(total);
-   if(window.identity==="waiter"){
+   if(window.identity==="waiter" || window.identity==="manager"){
       var checkout=document.createElement('div');
       checkout.className="checkout";
       checkout.innerHTML='CHECKOUT';
@@ -320,6 +320,30 @@ function executeWaitersCode(tableno,restaurant,id){
         
        }
     }(tableno,restaurant,id,"accepted");
+
+    if(window.identity==="manager"){
+
+      var deny=document.createElement('div');
+      deny.className="accept";
+      deny.innerHTML="deny order!";
+      deny.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
+         return function(){
+           
+           window.statusjson="denied";
+           status.innerHTML=window.statusjson;
+           postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
+           
+  
+          
+         }
+      }(tableno,restaurant,id,"denied");
+
+
+    }
+
+
+
+
     var cancel=document.createElement('div');
     cancel.className="accept";
     cancel.innerHTML="cancel";
@@ -334,6 +358,7 @@ function executeWaitersCode(tableno,restaurant,id){
 
     acceptOrderContent.innerHTML="Are you sure you want to accept the order?";
     acceptOrderContent.appendChild(accept);
+    acceptOrderContent.appendChild(deny);
     acceptOrderContent.appendChild(cancel);
     acceptOrder.appendChild(acceptOrderContent);
     document.getElementById("cartbody").appendChild(acceptOrder);
