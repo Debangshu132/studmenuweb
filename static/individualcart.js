@@ -270,7 +270,7 @@ function populateBody(datatogive){
       }}(tableno,restaurant,individualid);
 
       document.getElementById("cartbody").appendChild(checkout);
-      document.getElementById("cartbody").style.borderTopWidth = "10px";
+      document.getElementById("cartbody").style.borderTopWidth = "100px";
       document.getElementById("cartbody").style.borderTopColor="red";
          
       if(noOfPendingOrders>0){
