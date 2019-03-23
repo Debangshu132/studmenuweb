@@ -99,20 +99,13 @@ def updateRestaurantsTablesInformation(nameOfRestaurant,tableno, **kwargs):
     MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
     client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
     db = client.get_database("brilu")
-    tables=getRestaurantsInformation(nameOfRestaurant,"tables")
+    tables=getRestaurantsAllTableInfo(nameOfRestaurant)
     table=tables[tableno]
     for key in kwargs:
-        table[key]=(kwargs[key])
+        table[key]=kwargs[key]
     db.restaurants.update({"_id" : "restaurant"}, {"$set":{str(nameOfRestaurant)+".tables."+str(tableno): table}},upsert=True);
     return(0)
-def getRestaurantsInformation(nameOfRestaurant,property):
-    MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
-    client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
-    db = client.get_database("brilu")
-    col = db["restaurants"]
-    cursor = col.find()
-    restaurant = cursor[0]
-    return(restaurant[nameOfRestaurant][property])
+
 
 
 @app.route("/checkforcheckins/<data>", methods=['GET', 'POST'])
