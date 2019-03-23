@@ -88,23 +88,7 @@ def dashboard(restoo):
 def dashboardwaiterpage():
      
      return render_template("dashboard.html")
-@app.route("/logoutwaiter/<tablejson>", methods=['GET', 'POST'])
-def dashboardwaiterpage(tablejson):
-     restaurant = request.cookies.get('restaurantcookie')
-     table=json.loads(tablejson)
-     table=table['tableno']
-     updateRestaurantsTablesInformation(restaurant,tableno, waiter={})   
-     return render_template("dashboard.html")
-def updateRestaurantsTablesInformation(nameOfRestaurant,tableno, **kwargs):
-    MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
-    client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
-    db = client.get_database("brilu")
-    tables=getRestaurantsInformation(nameOfRestaurant,"tables")
-    table=tables[tableno]
-    for key in kwargs:
-        table[key]=(kwargs[key])
-    db.restaurants.update({"_id" : "restaurant"}, {"$set":{str(nameOfRestaurant)+".tables."+str(tableno): table}},upsert=True);
-    return(0)
+
 
 @app.route("/checkforcheckins/<data>", methods=['GET', 'POST'])
 def checkforcheckins(data):
