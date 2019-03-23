@@ -31,6 +31,7 @@ function populateBodyTables(datatogive){
 function clear(element){document.getElementById(element).innerHTML="";}       
 
 function populateBodyMenu(){
+    alert("done bro");
     clear("wrapper");
     var menuwrapper=document.createElement('div');
     menuwrapper.className="menuwrapper";
