@@ -31,7 +31,7 @@ function populateBodyTables(datatogive){
 function clear(element){document.getElementById(element).innerHTML="";}       
 
 function populateBodyMenu(){
-    alert("done bro");
+   
     clear("wrapper");
-    document.getElementById('wrapper').innerHTML='<iframe style="padding:30px;float:right; height: 450px; border: none" frameBorder="0" src="http://studmenuweb.herokuapp.com/menu/Taj"></iframe>';  
+    document.getElementById('wrapper').innerHTML='<iframe style="padding:30px;float:right; height: 530px; border: none" frameBorder="0" src="http://studmenuweb.herokuapp.com/menu/Taj"></iframe>';  
 }
