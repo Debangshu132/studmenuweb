@@ -6,6 +6,12 @@ body{
   display:inline-block;
   margin:2px;
 }
+#statusBar{
+ height:2px;
+ width:100%;
+ position:fixed;
+ background:"yellow";
+}
 .cartbody {
  position:relative; 
  display:inline-block;
