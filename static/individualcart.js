@@ -111,6 +111,7 @@ function populateCheckin(arrayOfCustomers){
          http.open("POST", url, false); 
          http.setRequestHeader("Content-Type", "application/json");
          http.send();
+         document.getElementById("cartbody").style.borderTop="3px solid #fff";
          alert('checked out!');}
       }}(window.tablenoinitial,window.restaurantinitial,window.identityinitial);
 
