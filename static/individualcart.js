@@ -241,7 +241,13 @@ function populateBody(datatogive){
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
       if(statusindividual==="pending"){
-         quantity.style.color="#ff00ff";
+         quantity.style.color="	#FFFF00";
+      }
+      if(statusindividual==="accepted"){
+         quantity.style.color="#00FF00";
+      }
+      if(statusindividual==="denied"){
+         quantity.style.color="#FF0000";
       }
      }
    
