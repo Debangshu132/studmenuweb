@@ -12,6 +12,7 @@
    
   </head>
   <body>
+    <div id="wholeWebsite">
     <script>
       (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -74,7 +75,7 @@
      var menuitem={{menuitems|tojson}};
     </script>
     <script>
-      var elem = document.getElementById("menu");
+      var elem = document.getElementById("wholeWebsite");
       function openFullscreen() {
         if (elem.requestFullscreen) {
           elem.requestFullscreen();
@@ -91,6 +92,6 @@
     <script type="text/javascript" src="../static/swiper.min.js"></script>
         
     <script type="text/javascript" src="../static/main.js"></script>
-   
+   </div>
 </body>
 </html> 
