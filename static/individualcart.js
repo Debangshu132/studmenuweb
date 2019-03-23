@@ -155,7 +155,7 @@ function populateBody(datatogive){
    
     clear("cartbody");
     var totalPrice=0;
-    var noOfPendingOrders=0;
+    var noOfPendingOrders=2;
    for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
    {   
      var individualid=bucketlist[bucketitem];
