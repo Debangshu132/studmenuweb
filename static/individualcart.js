@@ -191,7 +191,8 @@ function populateBody(datatogive){
       var statusindividual=atomicorderjson["status"];
       var customizationjson=atomicorderjson["customization"];
       var pricejson=atomicorderjson["price"];
-          totalPrice=totalPrice+pricejson;
+      if(statusindividual!="denied"){
+          totalPrice=totalPrice+pricejson;}
       var quantityjson=atomicorderjson["quantity"];
 
       var atomicorder=document.createElement('div');
@@ -241,7 +242,7 @@ function populateBody(datatogive){
       atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
       bucket.appendChild(atomicorder); 
       if(statusindividual==="pending"){
-         quantity.style.color="	#FFFF00";
+         quantity.style.color="	#000000";
       }
       if(statusindividual==="accepted"){
          quantity.style.color="#00FF00";
