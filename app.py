@@ -92,7 +92,7 @@ def dashboardwaiterpage():
 def logoutwaiter(tablejson):
      restaurant = request.cookies.get('restaurantcookie')
      table=json.loads(tablejson)
-     table=table['tableno']
+     tableno=table['tableno']
      updateRestaurantsTablesInformation(restaurant,tableno, waiter={})   
      return (0)
 def updateRestaurantsTablesInformation(nameOfRestaurant,tableno, **kwargs):
