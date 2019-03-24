@@ -48,15 +48,15 @@ function populateBodyMenuForm(data){
     var datajson=JSON.parse(data);
     var category0list=Object.keys(datajson);
     formdiv.innerHTML+=' <div class="col-lg-7"><div class="section-block"><h3 class="section-title">Category 2</h3>\
-                          </div><div class="card"><div class="campaign-table table-responsive">\
-                          <table class="table"><thead>\
+    </div><div class="card"><div class="campaign-table table-responsive">\
+    <table class="table"><thead>\
                                <tr class="border-0">\
                                    <th class="border-0">Pic</th>\
                                    <th class="border-0">Name</th>\
                                    <th class="border-0">Price</th>\
                                    <th class="border-0">Veg/NonVeg</th>\
                                    <th class="border-0">Status</th>\
-                                   </tr></thead><tbody>\
+                                   <th class="border-0">Action</th></tr></thead><tbody>\
                                    ';
     for(var category0listindex=0;category0listindex<category0list.length;category0listindex++){
     formdiv.innerHTML+='   <tr>\
