@@ -104,7 +104,7 @@ def populatedashboardmenuitems(resto):
          cursor = col.find()
          restaurant = cursor[0]
          print(restaurant[resto]["menu"])
-         return json.dumps(menu) 
+         return json.dumps(restaurant[resto]["menu"]) 
 
 
 def updateRestaurantsTablesInformation(nameOfRestaurant,tableno, **kwargs):
