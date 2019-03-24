@@ -57,7 +57,7 @@ function populateBodyMenuForm(data){
                                    <th class="border-0">Status</th>\
                                    <th class="border-0">Action</th></tr></thead><tbody>';
   
-    formdiv.innerHTML+='  <tr>\
+    formdiv.innerHTML+='<tr>\
     <td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td>\
     <td>Chicken Biryani </td>\
     <td>Rs. 400</td>\
