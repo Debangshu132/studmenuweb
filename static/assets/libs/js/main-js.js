@@ -31,7 +31,7 @@ function populateBodyTables(datatogive){
 function clear(element){document.getElementById(element).innerHTML="";}       
 
 function populateBodyMenu(){
-    fetch('/populatedashboardmenuitems/'+JSON.stringify("Taj")) // Call the fetch function passing the url of the API as a parameter
+    fetch('/populatedashboardmenuitems/Taj') // Call the fetch function passing the url of the API as a parameter
     .then(response => response.json())
     .then(data =>  populateBodyMenuForm(JSON.stringify(data)))
     }
