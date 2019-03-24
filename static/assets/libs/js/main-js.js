@@ -44,7 +44,7 @@ function populateBodyMenuForm(data){
     
     var cateory0=document.createElement('div');
     cateory0.className='category0';
-    var datajson=JSON.loads(data);
+    var datajson=JSON.parse(data);
     var category0list=Object.keys(datajson);
     for(var category0listindex=0;category0listindex<category0list.length;category0listindex++){
           var checkbox0 = document.createElement("input"); 
