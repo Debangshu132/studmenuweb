@@ -53,6 +53,7 @@ function populateBodyMenuForm(data){
             checkbox0.setAttribute("name", "category0");
             checkbox0.setAttribute("value", category0list[category0listindex]);
             checkbox0.setAttribute("checked", true);
+            checkbox0.style.padding="50px";
             var label= document.createElement("label"); 
             label.setAttribute("for",  "category0");
             label.innerHTML=category0list[category0listindex];
