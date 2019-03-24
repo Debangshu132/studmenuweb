@@ -40,6 +40,25 @@ function populateBodyMenuForm(data){
     document.getElementById('wrapper').innerHTML='<iframe style="padding:30px;float:right; height: 530px; border: none" frameBorder="0" src="http://studmenuweb.herokuapp.com/menu/Taj"></iframe>';  
     var formdiv=document.createElement('div');
     formdiv.className='formdiv';
-    formdiv.innerHTML=data;
-    document.getElementById('wrapper').appendChild(formdiv);
+    //formdiv.innerHTML=data;
+    
+    var cateory0=document.createElement('div');
+    cateory0.className='category0';
+    var datajson=JSON.loads(data);
+    var category0list=Object.keys(datajson);
+    for(var category0listindex=0;category0listindex<category0list.length;category0listindex++){
+          var checkbox0 = document.createElement("input"); 
+            checkbox0.setAttribute("type", "radio");
+            checkbox0.setAttribute("name", "category0");
+            checkbox0.setAttribute("value", category0list[category0listindex]);
+            checkbox0.setAttribute("checked", true);
+            var label= document.createElement("label"); 
+            label.setAttribute("for",  "category0");
+            label.innerHTML=category0list[category0listindex];
+            formdiv.appendChild(checkbox); 
+            formdiv.appendChild(label);
+        
+        }
+        document.getElementById('wrapper').appendChild(formdiv);
+    
 }
