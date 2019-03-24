@@ -55,7 +55,7 @@ function populateBodyMenuForm(data){
                                    <th class="border-0">Price</th>\
                                    <th class="border-0">Veg/NonVeg</th>\
                                    <th class="border-0">Status</th>\
-                                   <th class="border-0">Action</th></tr></thead><tbody>';
+                                   <th class="border-0">Action</th></tr></thead><tbody><br>';
   
     formdiv.innerHTML+='<tr>\
     <td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td>\
@@ -70,7 +70,7 @@ function populateBodyMenuForm(data){
     <button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button>\
     <div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a>\
     <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div>\
-</div></td></tr>';
+</div></td></tr><br>';
 
 formdiv.innerHTML+='</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
