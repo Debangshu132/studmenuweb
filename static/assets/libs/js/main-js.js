@@ -55,7 +55,7 @@ function populateBodyMenuForm(data){
             var label= document.createElement("label"); 
             label.setAttribute("for",  "category0");
             label.innerHTML=category0list[category0listindex];
-            formdiv.appendChild(checkbox); 
+            formdiv.appendChild(checkbox0); 
             formdiv.appendChild(label);
         
         }
