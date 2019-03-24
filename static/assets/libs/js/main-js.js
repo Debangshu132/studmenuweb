@@ -48,19 +48,8 @@ function populateBodyMenuForm(data){
     var datajson=JSON.parse(data);
     var category0list=Object.keys(datajson);
     for(var category0listindex=0;category0listindex<category0list.length;category0listindex++){
-          var checkbox0 = document.createElement("input"); 
-            checkbox0.setAttribute("type", "radio");
-            checkbox0.setAttribute("name", "category0");
-            checkbox0.setAttribute("value", category0list[category0listindex]);
-            checkbox0.setAttribute("checked", true);
-            checkbox0.style.padding="50px";
-            var label= document.createElement("label"); 
-            label.setAttribute("for",  "category0");
-            label.innerHTML=category0list[category0listindex];
-            formdiv.appendChild(checkbox0); 
-            formdiv.appendChild(label);
-        
-        }
+formdiv.innerHTML=' <div class="col-lg-7"><div class="section-block"><h3 class="section-title">Category 2</h3></div><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Price</th><th class="border-0">Veg/NonVeg</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody><tr></tbody></table></div></div></div>';
+}
         document.getElementById('wrapper').appendChild(formdiv);
     
 }
