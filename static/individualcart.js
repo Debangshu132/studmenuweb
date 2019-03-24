@@ -57,7 +57,7 @@ function populateCheckin(arrayOfCustomers){
    arrayOfCustomersJson=arrayOfCustomersJson["consumers"];
    if(arrayOfCustomersJson.length===0){
       if(window.identityinitial==="consumer"){
-         document.getElementById("cartbody").innerHTML="You have been checked out!";}
+         document.getElementById("cartbody").innerHTML="The table is vacant";}
       else{
          document.getElementById("cartbody").innerHTML="The table is vacant";
          
