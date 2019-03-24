@@ -67,7 +67,7 @@ function populateBodyMenuForm(data){
         var category2item=category2list[ category2index];    
         var category2datajson=category1datajson[category2item];
         var price=category2datajson["price"];
-        if(category2datajson["vegnonveg"]===JSON.stringify("veg")){
+        if(JSONO.stringify(category2datajson["vegnonveg"])===JSON.stringify("veg")){
         var vegnonvegpic="badge badge-success";
         }
         else{
