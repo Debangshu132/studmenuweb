@@ -47,9 +47,10 @@ function populateBodyMenuForm(data){
 
     var datajson=JSON.parse(data);
     var category0list=Object.keys(datajson);
-    var htmlstring=' <div class="col-lg-8"><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Price</th<th class="border-0">Veg/NonVeg</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody><br>';
-  
-    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>Chicken Biryani </td><td>Rs. 400</td><td><span class="badge badge-danger">Non-Veg</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch18" id="switch18"><span><label for="switch18"></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr><br>';
+    var htmlstring='<div class="col-lg-8"><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Price</th<th class="border-0">Veg/NonVeg</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody><br>';
+    for(var category0index=0;category0index<category0list.length;category0index++){
+    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>Chicken Biryani </td><td>Rs. 400</td><td><span class="badge badge-danger">Non-Veg</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch18" id="switch18"><span><label for="switch18"></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+    }
     formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
     
