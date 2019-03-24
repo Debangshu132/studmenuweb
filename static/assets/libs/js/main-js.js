@@ -56,8 +56,7 @@ function populateBodyMenuForm(data){
                                    <th class="border-0">Price</th>\
                                    <th class="border-0">Veg/NonVeg</th>\
                                    <th class="border-0">Status</th>\
-                                   <th class="border-0">Action</th></tr></thead><tbody>\
-                                   ';
+                                   <th class="border-0">Action</th></tr></thead><tbody>';
     for(var category0listindex=0;category0listindex<category0list.length;category0listindex++){
     formdiv.innerHTML+='   <tr>\
     <td><div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35"></div></td>\
@@ -70,10 +69,9 @@ function populateBodyMenuForm(data){
         <label for="switch18"></label></span>\
         </div>\
        </td>\
-</tr>\
-    ';
+</tr></tbody></table></div></div></div>';
 }
-formdiv.innerHTML+='</tbody></table></div></div></div>';
+formdiv.innerHTML+='';
         document.getElementById('wrapper').appendChild(formdiv);
     
 }
