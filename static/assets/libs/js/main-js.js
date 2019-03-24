@@ -56,7 +56,7 @@ function populateBodyMenuForm(data){
                                    <th class="border-0">Price</th>\
                                    <th class="border-0">Veg/NonVeg</th>\
                                    <th class="border-0">Status</th>\
-                                   <th class="border-0">Action</th></tr></thead><tbody>\
+                                   </tr></thead><tbody>\
                                    ';
     for(var category0listindex=0;category0listindex<category0list.length;category0listindex++){
     formdiv.innerHTML+='   <tr>\
