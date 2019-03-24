@@ -37,7 +37,7 @@ function populateBodyMenu(){
     }
 function populateBodyMenuForm(data){
     clear("wrapper");
-    document.getElementById('wrapper').innerHTML='<iframe style="padding:30px;float:right; height: 530px; border: none" frameBorder="0" src="http://studmenuweb.herokuapp.com/menu/Taj"></iframe>';  
+    //document.getElementById('wrapper').innerHTML='<iframe style="padding:30px;float:right; height: 530px; border: none" frameBorder="0" src="http://studmenuweb.herokuapp.com/menu/Taj"></iframe>';  
     var formdiv=document.createElement('div');
     formdiv.className='formdiv';
     //formdiv.innerHTML=data;
@@ -48,7 +48,7 @@ function populateBodyMenuForm(data){
     var datajson=JSON.parse(data);
     var category0list=Object.keys(datajson);
 
-    var htmlstring='<div class="col-lg-8"><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Price</th><th class="border-0">Veg/NonVeg</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody><br>';
+    var htmlstring='<div class="col-lg-12"><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Price</th><th class="border-0">Veg/NonVeg</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody><br>';
     
     
     
@@ -73,7 +73,7 @@ function populateBodyMenuForm(data){
         else{
             var vegnonvegpic="badge badge-danger"
         }
-    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category2item)+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch12" id="switch18"><span><label for="switch18"></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category2item)+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch12" id="switch12"><span><label for="switch18"></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
     }}}
     formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
