@@ -25,12 +25,6 @@ fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetc
 
    .then(response => response.json())
    .then(data =>  populateCheckin(JSON.stringify(data)))
-
-
-
-
-
-
 });
 
 }, 3* 1000); 
@@ -62,7 +56,7 @@ function populateCheckin(arrayOfCustomers){
    var arrayOfCustomersJson=JSON.parse(arrayOfCustomers);
    arrayOfCustomersJson=arrayOfCustomersJson["consumers"];
    if(arrayOfCustomersJson.length===0){
-      if(window.identityinitial==="waiter"){
+      if(window.identityinitial==="waiter" || window.identityinitial==="manager"){
       document.getElementById("cartbody").innerHTML="The table is vacant";}
       else{
          document.getElementById("cartbody").innerHTML="You have been checked out!";
