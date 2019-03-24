@@ -41,9 +41,10 @@ function populateBodyMenuForm(data){
     var formdiv=document.createElement('div');
     formdiv.className='formdiv';
     //formdiv.innerHTML=data;
-    
+    formdiv.style.padding="30px";
     var cateory0=document.createElement('div');
     cateory0.className='category0';
+
     var datajson=JSON.parse(data);
     var category0list=Object.keys(datajson);
     for(var category0listindex=0;category0listindex<category0list.length;category0listindex++){
