@@ -31,7 +31,14 @@ function populateBodyTables(datatogive){
 function clear(element){document.getElementById(element).innerHTML="";}       
 
 function populateBodyMenu(){
-   
+    fetch('/populatedashboardmenuitems/'+JSON.stringify("Taj")) // Call the fetch function passing the url of the API as a parameter
+    .then(response => response.json())
+    .then(data =>  populateBodyMenuForm(JSON.stringify(data)))
+    }
+function populateBodyMenuForm(data){
     clear("wrapper");
     document.getElementById('wrapper').innerHTML='<iframe style="padding:30px;float:right; height: 530px; border: none" frameBorder="0" src="http://studmenuweb.herokuapp.com/menu/Taj"></iframe>';  
+    var formdiv=document.createElement('div');
+    formdiv.className='formdiv';
+    formdiv.innerHTML=data;
 }
