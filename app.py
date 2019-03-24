@@ -95,6 +95,18 @@ def logoutwaiter(tablejsondata):
      tableno=table['tableno']
      updateRestaurantsTablesInformation(restaurant,str(tableno), waiter={})   
      return "success"
+@app.route("/populatedashboardmenuitems/<resto>", methods=['GET', 'POST'])
+def populatedashboardmenuitems(resto):
+         MONGODB_URI="mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
+         client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
+         db = client.get_database("brilu")
+         col = db["restaurants"]
+         cursor = col.find()
+         restaurant = cursor[0]
+         print(restaurant[resto]["menu"])
+         return JSON.dumps(menu) 
+
+
 def updateRestaurantsTablesInformation(nameOfRestaurant,tableno, **kwargs):
     MONGODB_URI = "mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
     client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
