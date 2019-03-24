@@ -48,9 +48,7 @@ function populateBodyMenuForm(data){
     var datajson=JSON.parse(data);
     var category0list=Object.keys(datajson);
     for(var category0listindex=0;category0listindex<category0list.length;category0listindex++){
-formdiv.innerHTML=' <div class="col-lg-7"><div class="section-block"><h3 class="section-title">Category 2</h3></div><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Price</th><th class="border-0">Veg/NonVeg</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody>';
-formdiv.innerHTML+='<tr><td><div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35"></div></td><td>Veg Pulao </td><td>Rs.250</td><td><span class="badge badge-success">Veg</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch18" id="switch18"><span><label for="switch18"></label></span></div></td></tr>';
-formdiv.innerHTML+='</tbody></table></div></div></div>';
+formdiv.innerHTML='<div class="col-lg-7"><div class="section-block"><h3 class="section-title">Category 2</h3></div><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th> <th class="border-0">Price</th><th class="border-0">Veg/NonVeg</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody><tr><td><div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35"></div></td><td>Veg Pulao </td><td>Rs.250</td><td><span class="badge badge-success">Veg</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch18" id="switch18"><span><label for="switch18"></label></span></div></td></tr></tbody></table></div></div></div>';
 }
         document.getElementById('wrapper').appendChild(formdiv);
     
