@@ -67,9 +67,9 @@ function populateBodyMenuForm(data){
         <label for="switch18"></label></span>\
         </div>\
        </td>\
-</tr></tbody></table></div></div></div>';
+</tr>';
 
-formdiv.innerHTML+='';
+formdiv.innerHTML+='</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
     
 }
