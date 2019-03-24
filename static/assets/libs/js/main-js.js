@@ -41,4 +41,5 @@ function populateBodyMenuForm(data){
     var formdiv=document.createElement('div');
     formdiv.className='formdiv';
     formdiv.innerHTML=data;
+    document.getElementById('wrapper').appendChild(formdiv);
 }
