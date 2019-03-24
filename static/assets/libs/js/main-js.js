@@ -55,8 +55,11 @@ function populateBodyMenuForm(data){
      var category1list=Object.keys(category0datajson);
     for(var category1index=0;category1index<category1list.length;category1index++){ 
         var category1item=category1list[ category1index];
-    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category1item)+' </td><td>Rs. 400</td><td><span class="badge badge-danger">Non-Veg</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch18" id="switch18"><span><label for="switch18"></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
-    }}
+        var category1datajson=category0datajson[category1item];
+        var category2list=Object.keys(category1datajson);
+    for(var category2index=0;category2index<category2list.length;category2index++){       
+    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category2item)+' </td><td>Rs. 400</td><td><span class="badge badge-danger">Non-Veg</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch18" id="switch18"><span><label for="switch18"></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+    }}}
     formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
     
