@@ -140,7 +140,7 @@ def dashboardactivatedeactivatemenu(items):
          col = db["restaurants"]
          cursor = col.find()
          restaurant = cursor[0]
-         menujson=restaurant[resto]["menu"]
+         menujson=restaurant["Taj"]["menu"]
          itemjson=json.loads(items)
          for item in itemjson:
             print(str(item))
