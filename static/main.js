@@ -346,6 +346,7 @@ divChild.innerHTML += tempname;
 divChild.style.fontFamily = "Times New Roman, Times, serif";
 
 var divChildPic = document.createElement("div");
+var divChildBasePrice = document.createElement("div");
 var divChildPicVegNonveg=document.createElement("IMG");
 var divChildPlusMinus = document.createElement("div");  
 var divChildDescriptionOfFood = document.createElement("div");
@@ -355,7 +356,8 @@ divChildDescriptionOfFood.className="bodyfoodprice";
 divChildPic.className="menuitemsbodypic";
 divChildPicVegNonveg.className="divChildPicVegNonveg";
 divChildPlusMinus.className="menuitemsbodyplusminus";
-
+divChildBasePrice.className="menuitemsbodybaseprice";
+divChildBasePrice.innerHTML=jsonofitems[itemnamearray[i]]["price"];
 
 
 
@@ -413,6 +415,7 @@ divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random()
  
 //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
 divChildPic.appendChild(divChildPicVegNonveg);
+div.appendChild(divChildBasePrice);
 div.appendChild(divChildPic);
 div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
