@@ -280,11 +280,10 @@ box-shadow: 5px 10px;
 }
 .cartminusbutton{
   padding-top:5px;
-  width:60%;  
+ 
 }
 .cartplusbutton{
 
-  width:60%; 
 }
 .cartorderbutton{
   text-align: center;
@@ -373,7 +372,17 @@ border-radius: 10%;
     max-height:55%;
    
 
- }  
+ }
+
+
+
+
+
+
+
+ 
+ 
+ 
  .menuitemsbodyminus{
     padding-top:12px; 
     max-width:50%;
