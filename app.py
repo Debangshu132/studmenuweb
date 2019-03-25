@@ -142,9 +142,9 @@ def dashboardactivatedeactivatemenu(items):
          restaurant = cursor[0]
          menujson=restaurant["Taj"]["menu"]
          itemjson=json.loads(items)
-         category0=str(item[0])
-         category1=str(item[1])
-         category2=str(item[2])
+         category0=str(itemjson[0])
+         category1=str(itemjson[1])
+         category2=str(itemjson[2])
          category2=category.replace("_"," ")
          item=menujson[category0][category1][category2]   
         
