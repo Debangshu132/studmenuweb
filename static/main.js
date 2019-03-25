@@ -381,7 +381,7 @@ menuitemsbodyminus.setAttribute("src","data:image/png;base64,iVBORw0KGgoAAAANSUh
 
 menuitemsbodyplus.onclick=function(arg,arg2){
   return function() {
-    createCustomizationTab(arg,arg2,100);
+    createCustomizationTab(arg,arg2,jsonofitems[itemnamearray[i]]["price"]);
   }}(tempname,jsonofitems[tempname]);
 menuitemsbodyminus.onclick=function(arg,arg2){
     return function() {
@@ -625,7 +625,7 @@ function createCustomizationTab(item,text,baseprice){
             for(var i=0;i < multiplechoicearr.length;i++){
               customization[multiplechoicearr[i]]=updatecustomization(multiplechoicearr[i]);}
               var quantityofitems=quantity.value;
-            updatecart(item,customization,quantityofitems);
+            updatecart(item,customization,quantityofitems,true);
           }
           customizationtabcontent.appendChild(quantity);
             
@@ -634,7 +634,7 @@ function createCustomizationTab(item,text,baseprice){
             document.getElementById("menu").appendChild(customizationtab);}
         else{
           //alert("updating");
-          updatecart(item,"No customization",1);
+          updatecart(item,baseprice,1,false);
           
           
         }   
@@ -642,9 +642,16 @@ function createCustomizationTab(item,text,baseprice){
 
     
 }
-function updatecart(item,customization,quantity){
+function updatecart(item,customization,quantity,customizationOrNot){
+  if(customizationOrNot==true){
   var priceofindividualitem=calculatepriceofindividualitem(customization)*parseInt(quantity);
   var newitem={"item":item,"customization":customization,"quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
+  }
+  if(customizationOrNot==false){
+    var priceofindividualitem=customization;
+    var newitem={"item":item,"customization":"","quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
+    }
+  
   if(window.cart.length>0){
   var ispresentalready=checkforsameitemandcustomizationincart(newitem);
 
