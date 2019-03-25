@@ -332,7 +332,7 @@ div.className="slidebody";
 var divChild = document.createElement("div");
 divChild.className="menuitemsdescriptionbody";
 var tempname=JSON.stringify(itemnamearray[i]);
-
+alert(jsonofitems[itemnamearray[i]]["active"]);
 if(JSON.stringify(jsonofitems[itemnamearray[i]]["active"])===JSON.stringify("True")){
 
 tempname = tempname.substring(1, tempname.length-1);
