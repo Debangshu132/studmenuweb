@@ -35,9 +35,12 @@ window.swiper = new Swiper('.swiper-container', {
     }
 
 });
-
+var foodlist=Object.keys(window.menuitemjson["Foods"]);
 food=['Cad Classic','Attributes','Bread Drive','Bytes','Floppy','Hardware','Programmer','Software'];
+food=foodlist;
 drink=['Cad Classic','beer','water','whiskey','water'];
+var drinklist=Object.keys(window.menuitemjson["Drinks"]);
+drink=drinklist;
 generalIcons={
 "veg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Veg.png",
 "nonveg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Non+Veg.png"
@@ -260,7 +263,7 @@ document.getElementById("drink").onclick=function()
 {//document.getElementById("menuit").style.background="#46cc3d";
 clearFooter("menuite");
 
-populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink);
+populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrink);
 }  
 
 
