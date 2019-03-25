@@ -130,7 +130,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   var cartcustomizationname=document.createElement('div');
   var cartitempricename=document.createElement('div');
   var cartitemquantityname=document.createElement('div');
-  var minusbutton=document.createElement('img');
+  var minusbutton=document.createElement('div');
   var plusbutton=document.createElement('div');
   var changecartitem=document.createElement('div');
   var cartitempic=document.createElement('IMG');
@@ -147,7 +147,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartitempic.className="cartitempic";
 
   plusbutton.innerHTML="+";
-  minusbutton.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC";
+  minusbutton.innerHTML="-";
   cartitempic.src='../static/'+[Math.floor(1+Math.random() * 10)]+'.jpg' ;
 
 
@@ -368,13 +368,12 @@ divChildPlusMinus.addEventListener('click', function(pEvent) {
   pEvent.stopPropagation();
 })
 
-var menuitemsbodyplus=document.createElement("IMG");
+var menuitemsbodyplus=document.createElement("div");
 menuitemsbodyplus.className="menuitemsbodyplus";
-menuitemsbodyplus.setAttribute("src","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg")
-var menuitemsbodyminus=document.createElement("IMG");
+menuitemsbodyplus.setAttribute("innerHTML","+");
+var menuitemsbodyminus=document.createElement("div");
 menuitemsbodyminus.className="menuitemsbodyminus";
-menuitemsbodyminus.setAttribute("src","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC")
-
+menuitemsbodyminus.setAttribute("innerHTML","-");
 
 
 //divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
