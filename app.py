@@ -156,7 +156,7 @@ def dashboardactivatedeactivatemenu(items):
                             db.restaurants.update({"_id" : "restaurant"}, {"$set":{str(nameOfRestaurant)+".menu."+str(category0item)+"."+str(category1item)+"."+str(category2item): myitemjson}},upsert=True);
          
         
-         print(restaurant[resto]["menu"])
+         print("made active")
          return "success"
     
     
