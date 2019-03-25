@@ -368,9 +368,7 @@ border-radius: 10%;
   }  
  .menuitemsbodyplus{
     padding-top:8px; 
-    max-width: 55%;
-    max-height:55%;
-   
+    
 
  }
 
@@ -385,8 +383,7 @@ border-radius: 10%;
  
  .menuitemsbodyminus{
     padding-top:12px; 
-    max-width:50%;
-    max-height:50%;
+ 
     
  }  
 .bodyfoodprice{
