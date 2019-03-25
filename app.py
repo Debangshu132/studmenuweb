@@ -120,6 +120,7 @@ def updateRestaurantsTablesInformation(nameOfRestaurant,tableno, **kwargs):
 
 
 
+
 @app.route("/checkforcheckins/<data>", methods=['GET', 'POST'])
 def checkforcheckins(data):
     data=json.loads(data)
@@ -131,6 +132,27 @@ def checkforcheckins(data):
 @app.route("/dashboardmenu/", methods=['GET', 'POST'])
 def dashboardmenu():
    return "menu"
+@app.route("/dashboardactivatedeactivatemenu/<items>", methods=['GET', 'POST'])
+def dashboardactivatedeactivatemenu(items):
+         MONGODB_URI="mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
+         client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
+         db = client.get_database("brilu")
+         col = db["restaurants"]
+         cursor = col.find()
+         restaurant = cursor[0]
+         menujson=restaurant[resto]["menu"]
+         for category0 in menujson:
+             for category1 in category0;
+                 for category2 in category1:
+                     categry2json=[category0][category] 
+                     category2json['activate']==False
+                     if category2 in items:
+                        category2json['activate']==True
+                     db.restaurants.update({"_id" : "restaurant"}, {"$set":{str(nameOfRestaurant)+".menu."+str(category0)+'.'+str(category1)+'.'+str(category2):  category2json}},upsert=True);
+   
+        
+         print(restaurant[resto]["menu"])
+         return "success"
     
     
     
