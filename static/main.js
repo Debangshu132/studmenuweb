@@ -357,7 +357,7 @@ divChildPic.className="menuitemsbodypic";
 divChildPicVegNonveg.className="divChildPicVegNonveg";
 divChildPlusMinus.className="menuitemsbodyplusminus";
 divChildBasePrice.className="menuitemsbodybaseprice";
-divChildBasePrice.innerHTML=jsonofitems[itemnamearray[i]]["price"];
+divChildBasePrice.innerHTML=JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
 
 
 
@@ -410,7 +410,7 @@ div.onclick=  function(arg) {
   }
 }(div);
 
-divChildDescriptionOfFood.innerHTML= jsonofitems[itemnamearray[i]];
+divChildDescriptionOfFood.innerHTML= JSON.stringify(jsonofitems[itemnamearray[i]]);
 divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
  
 //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
