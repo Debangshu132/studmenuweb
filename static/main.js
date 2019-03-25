@@ -379,10 +379,10 @@ menuitemsbodyminus.setAttribute("src","data:image/png;base64,iVBORw0KGgoAAAANSUh
 
 //divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
 
-menuitemsbodyplus.onclick=function(arg,arg2){
+menuitemsbodyplus.onclick=function(arg,arg2,arg3){
   return function() {
-    createCustomizationTab(arg,arg2,jsonofitems[itemnamearray[i]]["price"]);
-  }}(tempname,jsonofitems[tempname]);
+    createCustomizationTab(arg,arg2,arg3);
+  }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
 menuitemsbodyminus.onclick=function(arg,arg2){
     return function() {
       checkandminus(arg,arg2);
