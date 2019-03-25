@@ -100,7 +100,7 @@ function populateBodyMenuForm(data){
 } 
 function updateCheckboxesMenu(checkboxElem) {
     if (checkboxElem.checked) {
-        alert ("hi");
+        alert (checkboxElem.value);
       } else {
         alert ("bye");
       }
