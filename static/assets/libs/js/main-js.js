@@ -106,7 +106,7 @@ function updateCheckboxesMenu(checkboxElem) {
         http.setRequestHeader("Content-Type", "application/json");
         http.send();
 
-        alert (JSON.stringify(checkboxElem.value));
+        alert (checkboxElem.value);
       } 
     
   
