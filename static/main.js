@@ -36,7 +36,7 @@ window.swiper = new Swiper('.swiper-container', {
 
 });
 
-food=['Attributes','Bread Drive','Bytes','Floppy','Hardware','Programmer','Software'];
+food=['Cad Classic','Attributes','Bread Drive','Bytes','Floppy','Hardware','Programmer','Software'];
 drink=['Cad Classic','beer','water','whiskey','water'];
 generalIcons={
 "veg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Veg.png",
