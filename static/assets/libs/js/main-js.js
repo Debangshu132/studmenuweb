@@ -74,12 +74,12 @@ function populateBodyMenuForm(data){
             var vegnonvegpic="badge badge-danger"
         }
     category1item=JSON.stringify(category1item);
-        category1item=category1item.replace(" ","_");
-        category1item=category1item.replace(" ","_");
+        category1item=category1item.replace(/ /g, '_');
+       
         category1item=JSON.parse(category1item);   
      category2item=JSON.stringify(category2item);
-     category2item=category2item.replace(" ","_");
-     category2item=category2item.replace(" ","_");
+     category2item=category2item.replace(/ /g, '_');
+     
      category2item=JSON.parse(category2item); 
      valuetosend=JSON.stringify([category0item,category1item,category2item]) ;   
     htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category2item)+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-success"><input type="checkbox" checked="" name="switch12" onclick="updateCheckboxesMenu(this)" value='+valuetosend+' id='+JSON.stringify(category2item)+'><span><label for='+JSON.stringify(category2item)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
