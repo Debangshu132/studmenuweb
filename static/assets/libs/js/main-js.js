@@ -75,8 +75,10 @@ function populateBodyMenuForm(data){
         }
     category1item=JSON.stringify(category1item);
         category1item=category1item.replace(" ","_");
+        category1item=category1item.replace(" ","_");
         category1item=JSON.parse(category1item);   
      category2item=JSON.stringify(category2item);
+     category2item=category2item.replace(" ","_");
      category2item=category2item.replace(" ","_");
      category2item=JSON.parse(category2item); 
      valuetosend=JSON.stringify([category0item,category1item,category2item]) ;   
@@ -86,7 +88,7 @@ function populateBodyMenuForm(data){
         document.getElementById('wrapper').appendChild(formdiv);
 
        
-}s 
+}
 function updateCheckboxesMenu(checkboxElem) {
     if (checkboxElem.checked) {
        
