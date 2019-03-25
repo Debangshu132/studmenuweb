@@ -104,14 +104,24 @@ function populateBodyMenuForm(data){
 } 
 function updateCheckboxesMenu(checkboxElem) {
     if (checkboxElem.checked) {
+        var datatosend=[checkboxElem.value,"True"]
         var http = new XMLHttpRequest();
-        var url = '/dashboardactivatedeactivatemenu/'+checkboxElem.value;
+        var url = '/dashboardactivatedeactivatemenu/'+JSON.stringify(datatosend);
         http.open("POST", url, false); 
         http.setRequestHeader("Content-Type", "application/json");
         http.send();
-
-        alert (checkboxElem.value);
+        alert (datatosend);
       } 
+      else{
+        var datatosend=[checkboxElem.value,"False"]
+        var http = new XMLHttpRequest();
+        var url = '/dashboardactivatedeactivatemenu/'+JSON.stringify(datatosend);
+        http.open("POST", url, false); 
+        http.setRequestHeader("Content-Type", "application/json");
+        http.send();
+        alert (datatosend);
+
+      }
     
   
   }
