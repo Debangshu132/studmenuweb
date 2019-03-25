@@ -73,7 +73,7 @@ function populateBodyMenuForm(data){
         else{
             var vegnonvegpic="badge badge-danger"
         }
-    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category2item)+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch12" onclick="function(){return function(){updateCheckboxesMenu(arg)}}('+JSON.stringify(category2item)+')" value='+JSON.stringify(category2item)+' id='+JSON.stringify(category2item)+'><span><label for='+JSON.stringify(category2item)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category2item)+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch12" onclick="updateCheckboxesMenu(this)" value='+JSON.stringify(category2item)+' id='+JSON.stringify(category2item)+'><span><label for='+JSON.stringify(category2item)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
     }}}
     formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
@@ -98,10 +98,12 @@ function populateBodyMenuForm(data){
         updateCheckboxesMenu('switch12');
     
 } 
-function updateCheckboxesMenu(checkboxName) {
-    alert(checkboxName);
-    var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
-    Array.prototype.forEach.call(checkboxes, function(el) {
-        values.push(el.value);});
-   return values;
+function updateCheckboxesMenu(checkboxElem) {
+    if (checkboxElem.checked) {
+        alert ("hi");
+      } else {
+        alert ("bye");
+      }
+    
+  
   }
