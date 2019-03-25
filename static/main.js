@@ -416,7 +416,7 @@ divChildPic.appendChild(divChildPicVegNonveg);
 div.appendChild(divChildPic);
 div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
-//div.appendChild(divChildDescriptionOfFood);    
+div.appendChild(divChildDescriptionOfFood);    
 document.getElementById("menuitbody").appendChild(div);}}
 }
 
@@ -631,7 +631,7 @@ function createCustomizationTab(item,text,baseprice){
             document.getElementById("menu").appendChild(customizationtab);}
         else{
           //alert("updating");
-          updatecart(item,"none",1);
+          updatecart(item,"No customization",1);
           
           
         }   
