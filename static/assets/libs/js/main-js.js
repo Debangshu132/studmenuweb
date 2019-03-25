@@ -73,7 +73,11 @@ function populateBodyMenuForm(data){
         else{
             var vegnonvegpic="badge badge-danger"
         }
-    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category2item)+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch12" onclick="updateCheckboxesMenu(this)" value='+JSON.stringify([category0item,category1item,category2item])+' id='+JSON.stringify(category2item)+'><span><label for='+JSON.stringify(category2item)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+     category2item=JSON.stringify(category2item);
+     category2item=category2item.replace(" ","_");
+     category2item=JSON.parse(category2item); 
+     valuetosend=JSON.stringify([category0item,category1item,category2item]) ;   
+    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(category2item)+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-danger"><input type="checkbox" checked="" name="switch12" onclick="updateCheckboxesMenu(this)" value='+valuetosend+' id='+JSON.stringify(category2item)+'><span><label for='+JSON.stringify(category2item)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
     }}}
     formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
@@ -85,7 +89,7 @@ function populateBodyMenuForm(data){
         submitbutton.onclick=function(){
          return function(data){
             var http = new XMLHttpRequest();
-            var url = 'https://studmenuweb.herokuapp.com/dashboardactivatedeactivatemenu/'+JSON.stringify(data);
+            var url = 'https://studmenuweb.herokuapp.com/dashboardactivatedeactivatemenu/'+data;
             http.open("POST", url, false); 
             http.setRequestHeader("Content-Type", "application/json");
             http.send();
