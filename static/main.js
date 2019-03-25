@@ -332,7 +332,7 @@ div.className="slidebody";
 var divChild = document.createElement("div");
 divChild.className="menuitemsdescriptionbody";
 var tempname=JSON.stringify(itemnamearray[i]);
-if(jsonofitems[tempname]["active"]==="True"){
+if(JSON.stringify(jsonofitems[tempname]["active"])===JSON.stringify("True")){
 tempname = tempname.substring(1, tempname.length-1);
 divChild.innerHTML += tempname; 
 divChild.style.fontFamily = "Times New Roman, Times, serif";
