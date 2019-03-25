@@ -343,7 +343,7 @@ if(JSON.stringify(jsonofitems[itemnamearray[i]]["active"])===JSON.stringify("Tru
 
 tempname = tempname.substring(1, tempname.length-1);
 divChild.innerHTML += tempname; 
-divChild.style.fontFamily = "Times New Roman, Times, serif";
+
 
 var divChildPic = document.createElement("div");
 var divChildBasePrice = document.createElement("div");
