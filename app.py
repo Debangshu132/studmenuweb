@@ -148,7 +148,7 @@ def dashboardactivatedeactivatemenu(items):
              for category1item in category1itemlist:
                     category2json=menujson[category0item][category1item]
                     category2itemlist=category2json.keys()
-                     for category2item in category2itemlist:
+                    for category2item in category2itemlist:
                             myitemjson=category2json[category2item]
                             myitemjson['active']=False
                             if category2item in items:
