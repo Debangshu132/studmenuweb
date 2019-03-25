@@ -332,6 +332,7 @@ div.className="slidebody";
 var divChild = document.createElement("div");
 divChild.className="menuitemsdescriptionbody";
 var tempname=JSON.stringify(itemnamearray[i]);
+if(jsonofitems[tempname]["active"]==="True"){
 tempname = tempname.substring(1, tempname.length-1);
 divChild.innerHTML += tempname; 
 divChild.style.fontFamily = "Times New Roman, Times, serif";
@@ -408,7 +409,7 @@ div.appendChild(divChildPic);
 div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
 //div.appendChild(divChildDescriptionOfFood);    
-document.getElementById("menuitbody").appendChild(div);}
+document.getElementById("menuitbody").appendChild(div);}}
 }
 
 
