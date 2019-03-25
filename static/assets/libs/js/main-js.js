@@ -77,7 +77,25 @@ function populateBodyMenuForm(data){
     }}}
     formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
-        alert(updateCheckboxesMenu('switch12'));
+
+        var submitbutton=document.createElement('div');
+        submitbutton.className='submitbutton';
+        submitbutton.innerHTML='SUBMIT';
+        document.getElementById('wrapper').appendChild(submitbutton); 
+        submitbutton.onclick=function(){
+         return function(data){
+            var http = new XMLHttpRequest();
+            var url = 'https://studmenuweb.herokuapp.com/dashboardactivatedeactivatemenu/'+JSON.stringify(data);
+            http.open("POST", url, false); 
+            http.setRequestHeader("Content-Type", "application/json");
+            http.send();
+
+
+         }
+
+        }( updateCheckboxesMenu('switch12'));
+
+        updateCheckboxesMenu('switch12');
     
 } 
 function updateCheckboxesMenu(checkboxName) {
