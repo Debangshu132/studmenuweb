@@ -145,7 +145,7 @@ def dashboardactivatedeactivatemenu(items):
          category0=str(itemjson[0])
          category1=str(itemjson[1])
          category2=str(itemjson[2])
-         category2=category.replace("_"," ")
+         category2=category2.replace("_"," ")
          item=menujson[category0][category1][category2]   
         
          print(item)
