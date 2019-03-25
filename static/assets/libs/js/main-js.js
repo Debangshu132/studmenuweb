@@ -73,6 +73,9 @@ function populateBodyMenuForm(data){
         else{
             var vegnonvegpic="badge badge-danger"
         }
+    category1item=JSON.stringify(category1item);
+        category1item=category1item.replace(" ","_");
+        category1item=JSON.parse(category1item);   
      category2item=JSON.stringify(category2item);
      category2item=category2item.replace(" ","_");
      category2item=JSON.parse(category2item); 
