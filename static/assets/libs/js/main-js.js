@@ -104,7 +104,7 @@ function populateBodyMenuForm(data){
 } 
 function updateCheckboxesMenu(checkboxElem) {
     if (checkboxElem.checked) {
-        var datatosend=[JSON.parse(checkboxElem.value),"True"]
+        var datatosend=[JSON.parse(checkboxElem.value),"True"];
         var http = new XMLHttpRequest();
         var url = '/dashboardactivatedeactivatemenu/'+JSON.stringify(datatosend);
         http.open("POST", url, false); 
@@ -113,7 +113,7 @@ function updateCheckboxesMenu(checkboxElem) {
         alert (datatosend);
       } 
       else{
-        var datatosend=[JSON.parse(checkboxElem.value),"False"]
+        var datatosend=[JSON.parse(checkboxElem.value),"False"];
         var http = new XMLHttpRequest();
         var url = '/dashboardactivatedeactivatemenu/'+JSON.stringify(datatosend);
         http.open("POST", url, false); 
