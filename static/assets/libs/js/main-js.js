@@ -77,5 +77,12 @@ function populateBodyMenuForm(data){
     }}}
     formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
+        alert(updateCheckboxesMenu('switch12'));
     
-}
+} 
+function updateCheckboxesMenu(checkboxName) {
+    var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
+    Array.prototype.forEach.call(checkboxes, function(el) {
+        values.push(el.value);});
+   return values;
+  }
