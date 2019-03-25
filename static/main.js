@@ -37,9 +37,9 @@ window.swiper = new Swiper('.swiper-container', {
 });
 window.menuitemjson=JSON.parse(menuitem);
 var foodlist=Object.keys(window.menuitemjson["Foods"]);
-food=['Cad Classic','Attributes','Bread Drive','Bytes','Floppy','Hardware','Programmer','Software'];
+
 food=foodlist;
-drink=['Cad Classic','beer','water','whiskey','water'];
+
 var drinklist=Object.keys(window.menuitemjson["Drinks"]);
 drink=drinklist;
 generalIcons={
