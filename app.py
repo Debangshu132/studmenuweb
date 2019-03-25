@@ -141,19 +141,9 @@ def dashboardactivatedeactivatemenu(items):
          cursor = col.find()
          restaurant = cursor[0]
          menujson=restaurant[resto]["menu"]
-         category0itemlist=menujson.keys()
-         for category0item in category0itemlist:
-             category1json=menujson[category0item]
-             category1itemlist=category1json.keys()
-             for category1item in category1itemlist:
-                    category2json=menujson[category0item][category1item]
-                    category2itemlist=category2json.keys()
-                    for category2item in category2itemlist:
-                            myitemjson=category2json[category2item]
-                            myitemjson['active']=False
-                            if category2item in items:
-                                myitemjson['active']=True
-                            db.restaurants.update({"_id" : "restaurant"}, {"$set":{str(nameOfRestaurant)+".menu."+str(category0item)+"."+str(category1item)+"."+str(category2item): myitemjson}},upsert=True);
+         itemjson=json.loads(items)
+         for item in itemjson:
+            print(str(item))
          
         
          print("made active")
