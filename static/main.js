@@ -257,7 +257,7 @@ document.getElementById("food").onclick=function()
 {
   //document.getElementById("menuit").style.background="#1a8cff";
   clearFooter("menuite");
-  populateFooter("Taj",food,"Foods",picCategoryArrayFood);
+  populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
 } 
 
 
