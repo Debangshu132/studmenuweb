@@ -105,7 +105,7 @@ function populateBodyMenuForm(data){
 function updateCheckboxesMenu(checkboxElem) {
     if (checkboxElem.checked) {
         var http = new XMLHttpRequest();
-        var url = '/dashboardactivatedeactivatemenu/'+JSON.stringify(checkboxElem.value);
+        var url = '/dashboardactivatedeactivatemenu/'+checkboxElem.value;
         http.open("POST", url, false); 
         http.setRequestHeader("Content-Type", "application/json");
         http.send();
