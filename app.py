@@ -153,7 +153,7 @@ def dashboardactivatedeactivatemenu(items):
                             myitemjson['active']=False
                             if category2item in items:
                                 myitemjson['active']=True
-                            db.restaurants.update({"_id" : "restaurant"}, {"$set":{str(nameOfRestaurant)+".menu."+category0item+"."+category1item+"."+category2item: myitemjson}},upsert=True);
+                            db.restaurants.update({"_id" : "restaurant"}, {"$set":{str(nameOfRestaurant)+".menu."+str(category0item)+"."+str(category1item)+"."+str(category2item): myitemjson}},upsert=True);
          
         
          print(restaurant[resto]["menu"])
