@@ -79,7 +79,7 @@ function populateBodyMenuForm(data){
     var category2itemtemp= JSON.stringify(category2item);  
     category2itemtemp = category2itemtemp.substring(1, category2itemtemp.length-1);
     var category0itemtemp= JSON.stringify(category0item);
-    category0itemtemp = category0item.substring(1, category0item.length-1);
+    category0itemtemp = category0item.substring(0, category0item.length-1);
     category1item=JSON.stringify(category1item);
         category1item=category1item.replace(/ /g, '_');
        
