@@ -1,760 +1,417 @@
-window.cart=[];
 
-window.swiper = new Swiper('.swiper-container', {
-  slidesPerView:5,
-  simulateTouch:true,
-  initialSlide:0,
-  lazy: {loadPrevNext: true,loadPrevNextAmount: 2,},
-  spaceBetween: 30,
+var datatogiveinitial=window.data;
+var datajsoninitial=JSON.parse(datatogiveinitial);
+window.identityinitial=datajsoninitial["identity"];
+window.restaurantinitial=datajsoninitial["restaurant"];
+window.tablenoinitial=datajsoninitial["tableno"];
+window.dataToUpdate={"restaurant":window.restaurantinitial,"tableno":window.tablenoinitial,"identity":window.identityinitial}
+window.time=0; 
 
-  breakpoints: {
-      1300: {
-          slidesPerView: 11,
-          spaceBetween: 40,
-        },
-      900: {
-          slidesPerView: 9,
-          spaceBetween: 40,
-        },
-      710: {
-        slidesPerView: 8,
-        spaceBetween: 40,
-      },
-      560: {
-        slidesPerView: 7,
-        spaceBetween: 15,
-      },
-      450: {
-        slidesPerView: 6,
-        spaceBetween: 10,
-      },
-      370: {
-        slidesPerView: 5,
-        spaceBetween: 10,
-      }
-    }
+setInterval(function() {
 
+
+
+   fetch('/updatecart/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
+   .then(response => response.json())
+   .then(data =>  populateBody(JSON.stringify(data)))
+
+
+
+   
+.catch(function() {
+
+
+fetch('/checkforcheckins/'+JSON.stringify(window.dataToUpdate)) // Call the fetch function passing the url of the API as a parameter
+
+   .then(response => response.json())
+   .then(data =>  populateCheckin(JSON.stringify(data)))
 });
-window.menuitemjson=JSON.parse(menuitem);
-var foodlist=Object.keys(window.menuitemjson["Foods"]);
 
-food=foodlist;
+}, 3* 1000); 
 
-var drinklist=Object.keys(window.menuitemjson["Drinks"]);
-drink=drinklist;
-generalIcons={
-"veg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Veg.png",
-"nonveg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Non+Veg.png"
 
+
+
+
+
+
+var elem = document.getElementById("cartbody");
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
 }
 
-picCategoryArrayFood=[
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Attributes.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bread+Drive.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bytes.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Floppy.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Hardware.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Programmer.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png"
-]
-picCategoryArrayFoodColored=[
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Attributes.png",  
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bread+Drive.png",
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bytes.png",  
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Floppy.png",
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Hardware.png",  
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Programmer.png",
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png",
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png"
-  ]
-
-picCategoryArrayDrink=[
-  "https://img.icons8.com/color/48/000000/beer-glass.png",
-  "https://img.icons8.com/cotton/64/000000/water-glass.png",
-  "https://img.icons8.com/dusk/64/000000/wine-glass.png",
-  "https://img.icons8.com/cotton/64/000000/water-glass.png"
-]
-window.menuPicArray=[
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
-  "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')"
- 
- 
-
-  ] 
-  function deletecartquantityzeroitems(){
-    for(var i=window.cart.length-1;i>-1;i--){
-      if(window.cart[i]["quantity"]===0){
-        window.cart.splice(i,1);
-        console.log(i);
-      }
-    }
-  }
-
-document.getElementById("carticon").onclick=function(menuPicArray){
- deletecartquantityzeroitems(); 
- var cart=document.createElement('div');
- cart.className="cart";
- cart.id="cart";
- //cart.innerHTML=JSON.stringify(window.cart);
- var cartheader=document.createElement('div');
- var cartorderbutton=document.createElement('div');
- var cartheaderback=document.createElement('IMG'); 
- var cartheadername=document.createElement('div');
- cartheader.className="cartheader";
- cartheaderback.className="cartheaderback";
- cartheadername.className="cartheadername";
- cartorderbutton.className="cartorderbutton";
- cartheaderback.setAttribute("src","https://img.icons8.com/windows/32/000000/left.png");
- cartheadername.innerHTML="cart"
- cartheader.appendChild(cartheaderback);
- cartheader.appendChild(cartheadername);
- cartheaderback.onclick=function(){
-  document.getElementById("cart").remove();
- }
- //cartheader.innerHTML="cart";
- //document.getElementById("customizationtab").remove();
- cart.appendChild(cartheader);
- for(var i=0;i<window.cart.length;i++){
-  var cartitem=document.createElement('div');
-  var cartitemname=document.createElement('div');
-  var cartcustomizationname=document.createElement('div');
-  var cartitempricename=document.createElement('div');
-  var cartitemquantityname=document.createElement('div');
-  var minusbutton=document.createElement('div');
-  var plusbutton=document.createElement('div');
-  var changecartitem=document.createElement('div');
-  var cartitempic=document.createElement('IMG');
-
-  
-  cartitemname.className="cartitemname";
-  cartcustomizationname.className="cartcustomizationname";
-  cartitempricename.className="cartitempricename";
-  cartitemquantityname.className="cartitemquantityname";
-  cartitem.className="cartitem";
-  changecartitem.className="changecartitem";
-  minusbutton.className="cartminusbutton";
-  plusbutton.className="cartplusbutton";
-  cartitempic.className="cartitempic";
-
-  plusbutton.innerHTML="+";
-  minusbutton.innerHTML="-";
-  cartitempic.src='../static/'+[Math.floor(1+Math.random() * 10)]+'.jpg' ;
 
 
-
-
-  var cartitemnamestring=JSON.stringify(window.cart[i]["item"]).substring(1,JSON.stringify(window.cart[i]["item"]).length-1);
-  var cartcustomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace(']}','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('[','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":[','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":],"',' ; ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace(',',' ,Rs');
-  cartitemname.innerHTML=cartitemnamestring;
-  cartcustomizationname.innerHTML=cartcustomizationnamestring;
-  cartitempricename.innerHTML="Price:Rs"+JSON.stringify(window.cart[i]["price"]);
-  cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
-  cartorderbutton.innerHTML="ORDER2";
-  cartorderbutton.onclick=function(){
-
-      // the Messenger Extensions JS SDK is done loading
-       MessengerExtensions.getUserID(function success(uids) {
-        var psid = uids.psid;//This is your page scoped sender_id
-        var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":psid,"cart":(window.cart)});
-    http.open("POST", url, false); 
-    http.setRequestHeader("Content-Type", "application/json");
-    http.send(window.cart);
-
-
-
-    var http2 = new XMLHttpRequest();
-    var url2 = 'https://studmenuweb.herokuapp.com/ordered/';
-    http2.open("POST", url2, false); 
-    http2.setRequestHeader("Content-Type", "application/json");
-    http2.send();
-
-
-
-
-
-    MessengerExtensions.requestCloseBrowser();
+function populateCheckin(arrayOfCustomers){
+   clear("cartbody");
+   
+   var arrayOfCustomersJson=JSON.parse(arrayOfCustomers);
+   arrayOfCustomersJson=arrayOfCustomersJson["consumers"];
+   if(arrayOfCustomersJson.length===0){
+      if(window.identityinitial==="consumer"){
+         document.getElementById("cartbody").innerHTML="You have been checked out";}
+      else{
+         document.getElementById("cartbody").innerHTML="The table is vacant";
+         
+      }    
         
-    }, function error(err) {
-        alert("Messenger Extension Error: " + err);
-    });
-
-    
-  
-
-  }
-  plusbutton.onclick=function(arg,arg2,arg3){
-    return function(){
-     var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];
-    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]+1; 
-    window.cart[arg]["price"]=window.cart[arg]["price"]+priceperitem;   
-    arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
-    arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
-  }
-
-  }(i,cartitemquantityname,cartitempricename);
-  minusbutton.onclick=function(arg,arg2,arg3,arg4){
-    return function(){
-    console.log(window.cart);
-    //console.log(arg);
-    if(window.cart[arg]["quantity"]>0){
-      var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];   
-    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1;
-    window.cart[arg]["price"]=window.cart[arg]["price"]-priceperitem;   
-    arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
-    arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
-  } 
-    if(window.cart[arg]["quantity"]===0){
+      
+   }
+   else{
+   window.time=window.time+10;  
+   for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
      
-      arg4.remove();
-      //window.cart.splice(arg,1);
-      // 
-    
-    }}
-}(i,cartitemquantityname,cartitempricename,cartitem);
+      document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";    
+     
+      
+      
+            
+   }
+   
+   if(window.time<60){
+      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+window.time+" seconds";
+   }
+   if(window.time<3600 ){
+     if(window.time>60){ 
+      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+Math.floor(window.time/60)+" mins"+(window.time%60) + " seconds";
+   }}
+   if(window.time>3600){
+      document.getElementById("cartbody").innerHTML+="The Customers are sitting for "+Math.floor(window.time/3600)+" hours"+Math.floor((window.time%3600)/60)+" mins";
+   }
+  
+   
+   
+   
 
+   if(window.identity==="waiter" || window.identity==="manager"){
+      var checkout=document.createElement('div');
+      checkout.className="checkout";
+      checkout.innerHTML='CHECKOUT';
+      checkout.onclick=function(atableno,arestaurant,id){
+        
+        return function(){ 
+         window.time=0;
+         var check=confirm('do you really want to check users out?')
+         if(check===true){
+         var http = new XMLHttpRequest();
+         var url = 'https://studmenu.herokuapp.com/checkout/'+JSON.stringify({"tableno":atableno,"restaurant":arestaurant,"id":id});
+         http.open("POST", url, false); 
+         http.setRequestHeader("Content-Type", "application/json");
+         http.send();
+         document.getElementById("cartbody").style.borderTop="3px solid #fff";
+         alert('checked out!');}
+      }}(window.tablenoinitial,window.restaurantinitial,window.identityinitial);
 
+      document.getElementById("cartbody").appendChild(checkout);
 
-  changecartitem.appendChild(plusbutton);
-  changecartitem.appendChild(cartitemquantityname);
-  changecartitem.appendChild(minusbutton);
-  cartitem.appendChild(cartitemname);
-  cartitem.appendChild(cartcustomizationname);
-  cartitem.appendChild(cartitempricename);
-  cartitem.appendChild(changecartitem);
-  cartitem.appendChild(cartitempic);
-  cart.appendChild(cartitem);
- 
- }
-
-
- cart.appendChild( cartorderbutton);
- document.getElementById("menuitbody").appendChild(cart);
+   }}
+  
 }
-
-
-
-document.getElementById("food").onclick=function()
-{
-  //document.getElementById("menuit").style.background="#1a8cff";
-  clearFooter("menuite");
-  populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
-} 
-
-
-
-document.getElementById("drink").onclick=function()
-{//document.getElementById("menuit").style.background="#46cc3d";
-clearFooter("menuite");
-
-populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrink);
-}  
-
 
 
 
 window.onload = function() {
-  populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
-  window.menuitemjson=JSON.parse(menuitem);
-  clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray);
-  };
- 
+var datatogive=window.data;   
+populateBody(datatogive);
+}
 
+function populateBody(datatogive){
+   
+   
+   var datajson=JSON.parse(datatogive);
+   window.identity=datajson["identity"];
+   
+   var restaurant=datajson["restaurant"];
+   var tableno=datajson["tableno"];
+   document.title = 'Table number'+tableno;
+   datajson=datajson["tableinfo"];
+   var whoLastOrdered=datajson["whoLastOrdered"];
+   datajson=datajson["cart"];
+   var bucketlist=Object.keys(datajson);
+
+   var total=document.createElement('div');
+   total.className="total";
+    
+
+   var index = bucketlist.indexOf(whoLastOrdered);
+    if (index !== -1){ bucketlist.splice(index, 1);}
+    bucketlist.unshift(whoLastOrdered);
+   
+
+
+    var dummy= datajson[bucketlist[0]]["mycart"];
+   
+    clear("cartbody");
+    var totalPrice=0;
+    var noOfPendingOrders=0;
+   for(var bucketitem=0;bucketitem < bucketlist.length;bucketitem++)
+   {   
+     var individualid=bucketlist[bucketitem];
+     window.indiid=individualid;
+     var singlepersonorderlistjson=datajson[individualid];
+     singlepersonorderlistjson=singlepersonorderlistjson["mycart"];
+     var firstnamejson=datajson[individualid]["firstname"];
+     var firstname=document.createElement('div');
+     firstname.className="firstname";
+     firstname.innerHTML=JSON.stringify(firstnamejson);
+     var bucket=document.createElement('div');
+     bucket.className="bucket";
+     var status=document.createElement('div');
+     window.statusjson=datajson[individualid]["status"];
+     status.className="status";
+     status.innerHTML=window.statusjson;
+    
+        
+     if(JSON.stringify(window.statusjson)===JSON.stringify("pending")){
+      
+       noOfPendingOrders=noOfPendingOrders+1; 
+      
+     }
+     bucket.appendChild(status);
   
+     for(var orderindex=singlepersonorderlistjson.length-1;orderindex>-1;orderindex--)
+     {
+      
+      var atomicorderjson=singlepersonorderlistjson[orderindex];
+      
+      var itemjson=atomicorderjson["item"];
+      var statusindividual=atomicorderjson["status"];
+      var customizationjson=atomicorderjson["customization"];
+      var pricejson=atomicorderjson["price"];
+      if(statusindividual!=="denied"){
+          totalPrice=totalPrice+pricejson;}
+      var quantityjson=atomicorderjson["quantity"];
+
+      var atomicorder=document.createElement('div');
+      
+      var item=document.createElement('div');
+      var customization=document.createElement('div');
+      var price=document.createElement('div');
+      var quantity=document.createElement('div');
+
+      atomicorder.className="atomicorder";
+      
+      firstname.className="firstname";
+      item.className="item";
+      customization.className="customization";
+      price.className="price";
+      quantity.className="quantity";
+
+      var customizationstring="";
+      var queries=Object.keys(customizationjson);
+      for(var querynumber=0;querynumber<queries.length;querynumber++){
+         customizationstring=customizationstring+JSON.stringify(queries[querynumber]);
+         customizationstring=customizationstring+":";
+         var answer=(customizationjson[queries[querynumber]][0]);
+         
+         if(answer!==undefined){
+         answer=JSON.stringify(answer).split(",")[0];   
+         customizationstring=customizationstring+answer;
+         customizationstring=customizationstring+", ";}
+         else{
+            customizationstring=customizationstring+" No Option Choosen! ";
+         }
+      }
+      customizationstring=customizationstring.replace(/\"/g, "");
+
+      
 
 
-function clearFooter(elementID)
+
+      
+      firstname.innerHTML=firstnamejson;
+      item.innerHTML=itemjson;
+      customization.innerHTML=customizationstring;
+      price.innerHTML="Rs"+JSON.stringify(pricejson);
+      quantity.innerHTML=quantityjson;
+      
+      
+      atomicorder.appendChild(item);atomicorder.appendChild(price);atomicorder.appendChild(quantity);atomicorder.appendChild(customization);
+      bucket.appendChild(atomicorder); 
+      if(statusindividual==="pending"){
+         quantity.style.color="	#000000";
+      }
+      if(statusindividual==="accepted"){
+         quantity.style.color="#00FF00";
+      }
+      if(statusindividual==="denied"){
+         quantity.style.color="#FF0000";
+      }
+     }
+   
+   if(window.identity==="waiter" || window.identity==="manager"){
+      bucket.onclick=function(atableno,arestaurant,id){
+      return function(){executeWaitersCode(atableno,arestaurant,id); }  
+   
+   }(tableno,restaurant,individualid);
+
+}
+   document.getElementById("cartbody").appendChild(firstname);
+   document.getElementById("cartbody").appendChild(bucket);
+   }
+   total.innerHTML='Rs'+totalPrice;
+   document.getElementById("cartbody").appendChild(total);
+   if(window.identity==="waiter" || window.identity==="manager"){
+      var checkout=document.createElement('div');
+      checkout.className="checkout";
+      checkout.innerHTML='CHECKOUT';
+      checkout.onclick=function(atableno,arestaurant,id){
+        return function(){ 
+         var check=confirm('do you really want to check users out?')
+         if(check===true){
+         var http = new XMLHttpRequest();
+         var url = 'https://studmenu.herokuapp.com/checkout/'+JSON.stringify({"tableno":atableno,"restaurant":arestaurant,"id":id});
+         http.open("POST", url, false); 
+         http.setRequestHeader("Content-Type", "application/json");
+         http.send();
+         alert('checked out!');}
+      }}(tableno,restaurant,individualid);
+
+      document.getElementById("cartbody").appendChild(checkout);
+      
+         
+      if(noOfPendingOrders>0){
+         var redness=200+noOfPendingOrders*10;
+         var greenness=100-noOfPendingOrders*10;
+         var blueness=100-noOfPendingOrders*10;
+         if((redness<255) && (blueness>0) && (greenness)>0){
+
+         document.getElementById("cartbody").style.borderTop="3px solid rgb("+redness.toString(10)+","+greenness.toString(10)+","+blueness.toString(10)+")";}
+       else{
+         
+         document.getElementById("cartbody").style.borderTop="3px solid rgb(255,0,0)";
+       } 
+      }
+      else{
+         document.getElementById("cartbody").style.borderTop="3px solid #41376b";
+      }   
+
+   }
+
+ 
+}
+function executeWaitersCode(tableno,restaurant,id){
+    
+    var acceptOrder=document.createElement('div');
+    var acceptOrderContent=document.createElement('div');
+
+    acceptOrder.className="acceptOrder";
+    acceptOrder.id="acceptOrder";
+    acceptOrderContent.className="acceptOrderContent";
+
+    
+    var accept=document.createElement('div');
+    accept.className="accept";
+    accept.innerHTML="accept order!";
+    accept.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
+       return function(){
+         
+         window.statusjson="accepted";
+         status.innerHTML=window.statusjson;
+         postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
+         
+
+        
+       }
+    }(tableno,restaurant,id,"accepted");
+
+    if(window.identity==="manager"){
+
+      var deny=document.createElement('div');
+      deny.className="accept";
+      deny.innerHTML="deny order!";
+      deny.onclick=function(argtableno,argrestaurant,argid,argacceptdeny){
+         return function(){
+           
+           window.statusjson="denied";
+           status.innerHTML=window.statusjson;
+           postAcceptOrder(argtableno,argrestaurant,argid,argacceptdeny);
+           
+  
+          
+         }
+      }(tableno,restaurant,id,"denied");
+
+
+    }
+
+
+
+
+    var cancel=document.createElement('div');
+    cancel.className="accept";
+    cancel.innerHTML="cancel";
+    cancel.onclick=function(){
+       return function(){
+         //openFullscreen();
+         document.getElementById('acceptOrder').remove();
+       }
+    }(id);
+     
+   
+
+    acceptOrderContent.innerHTML="Are you sure you want to accept the order?";
+    acceptOrderContent.appendChild(accept);
+    if(window.identity==="manager"){
+    acceptOrderContent.appendChild(deny);}
+    acceptOrderContent.appendChild(cancel);
+    acceptOrder.appendChild(acceptOrderContent);
+    document.getElementById("cartbody").appendChild(acceptOrder);
+
+} 
+function postAcceptOrder(tableno,restaurant,id,acceptdeny){
+    
+    var http = new XMLHttpRequest();
+    var url = 'https://studmenu.herokuapp.com/acceptdeny/'+JSON.stringify({"tableno":tableno,"restaurant":restaurant,"id":id,"acceptdeny":acceptdeny});
+    http.open("POST", url, false); 
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send();
+    
+
+    
+
+
+
+
+     
+    
+    
+   
+    document.getElementById('acceptOrder').remove();
+     return false;
+}
+
+
+
+
+
+function compare(a, b) {
+   // Use toUpperCase() to ignore character casing
+   const genreA = a.status.toUpperCase();
+   const genreB = b.status.toUpperCase();
+ 
+   let comparison = 0;
+   if (genreA > genreB) {
+     comparison = -1;
+   } else if (genreA < genreB) {
+     comparison = 1;
+   }
+   return comparison;
+ }
+
+
+
+function clear(elementID)
 {document.getElementById(elementID).innerHTML = "";
 
 
 }
-function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypiccolored){
-  
-  for(i=0;i<foodOrDrink.length;i++){
-  var div = document.createElement("div");
  
-  div.className="swiper-slide";
-  var img = document.createElement("img");
-  img.src = arraypic[i];
-  img.className="menuitemspic"
-  var divChild = document.createElement("div");
-  divChild.className="menuitemsdescription";
-  divChild.innerHTML+=foodOrDrink[i];
-  var menuitemjson=JSON.parse(menuitem);
-  var item=menuitemjson[foodDrink][foodOrDrink[i]];
-  if(item==='undefined'){
-  item="Its not available";}
-  img.onclick= function(arg,arg2,arg3,index) {
-      return function() {
-          
-          clearFooter("menuitbody");
-          clearAllBorders();
-          arg2.src=arg3[index];
-          populateBody("restaurantName",arg,menuPicArray);
-         
-          
-         
-         
-          
-      }
-  }(item,img,arraypiccolored,i);
-  div.appendChild(img);
-  div.appendChild(divChild);
-  var currentDiv = document.getElementById("div1"); 
-  document.getElementById("menuite").insertBefore(div,currentDiv);}
-  window.swiper.updateSize(); 
-  window.swiper.updateSlides();
- 
-}
-
-
-function populateBody(restaurantName,jsonofitems,menuPicArray){
-  
-var itemnamearray=Object.keys(jsonofitems); 
-for(i=0;i<itemnamearray.length;i++){
-var div = document.createElement("div");
-div.className="slidebody";
-
-var divChild = document.createElement("div");
-divChild.className="menuitemsdescriptionbody";
-var tempname=JSON.stringify(itemnamearray[i]);
-
-if(JSON.stringify(jsonofitems[itemnamearray[i]]["active"])===JSON.stringify("True")){
-
-tempname = tempname.substring(1, tempname.length-1);
-divChild.innerHTML += tempname; 
-
-
-var divChildPic = document.createElement("div");
-var divChildBasePrice = document.createElement("div");
-var divChildPicVegNonveg=document.createElement("IMG");
-var divChildPlusMinus = document.createElement("div");  
-var divChildDescriptionOfFood = document.createElement("div");
-divChildDescriptionOfFood.className="bodyfoodprice";
-
-  
-divChildPic.className="menuitemsbodypic";
-divChildPicVegNonveg.className="divChildPicVegNonveg";
-divChildPlusMinus.className="menuitemsbodyplusminus";
-divChildBasePrice.className="menuitemsbodybaseprice";
-divChildBasePrice.innerHTML=JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
-
-
-
-divChildPicVegNonveg.src=generalIcons[jsonofitems[tempname]["vegnonveg"]];
-
-
-divChildPlusMinus.addEventListener('click', function(pEvent) {
-  pEvent.stopPropagation();
-})
-
-var menuitemsbodyplus=document.createElement("div");
-menuitemsbodyplus.className="menuitemsbodyplus";
-menuitemsbodyplus.setAttribute("innerHTML","+");
-var menuitemsbodyminus=document.createElement("div");
-menuitemsbodyminus.className="menuitemsbodyminus";
-menuitemsbodyminus.setAttribute("innerHTML","-");
-
-
-//divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
-
-menuitemsbodyplus.onclick=function(arg,arg2,arg3){
-  return function() {
-    createCustomizationTab(arg,arg2,arg3);
-  }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
-menuitemsbodyminus.onclick=function(arg,arg2){
-    return function() {
-      checkandminus(arg,arg2);
-    }}(tempname,jsonofitems[tempname]);  
-
-
-
-
-
-  divChildPlusMinus.appendChild(menuitemsbodyplus);
-  divChildPlusMinus.appendChild(menuitemsbodyminus);
-
-  
-var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
-div.onclick=  function(arg) {
-  return function() {
-      
-      if( arg.style.height==='90px'){
-
-        resetAllHeights();
-        arg.style.height='240px';}
-        else{
-        arg.style.height='90px';
-      } 
-  }
-}(div);
-
-divChildDescriptionOfFood.innerHTML= JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
-divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
- 
-//divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
-divChildPic.appendChild(divChildPicVegNonveg);
-div.appendChild(divChildBasePrice);
-div.appendChild(divChildPic);
-div.appendChild(divChild);
-div.appendChild(divChildPlusMinus);  
-div.appendChild(divChildDescriptionOfFood);    
-document.getElementById("menuitbody").appendChild(div);}}
-}
-
-
-
-
-
-
-function resetAllHeights(){
-  var items=document.getElementsByClassName("slidebody");
-  for (var i=0; i < items.length; i++) {
-    items[i].style.height='90px' ;
-  }
-
-}
-
-
-
-
-
-document.onreadystatechange = function () {
-  var state = document.readyState
-  if (state == 'interactive') {
-       document.getElementById('menu').style.visibility="hidden";
-  } else if (state == 'complete') {
-      setTimeout(function(){
-         document.getElementById('interactive');
-         fadeOutEffect();
-          document.getElementById('load').style.visibility="hidden";
-          document.getElementById('menu').style.visibility="visible";
-      },1000);
-  }
-}
-
-
-function fadeOutEffect() {
-  var fadeTarget = document.getElementById('load');
-  var fadeEffect = setInterval(function () {
-      if (!fadeTarget.style.opacity) {
-          fadeTarget.style.opacity = 1;
-      }
-     
-      if (fadeTarget.style.opacity > 0) {
-          fadeTarget.style.opacity -= 0.1;
-      } else {
-          clearInterval(fadeEffect);
-      }
-  }, 50);
-}
-
-
-function  checkandminus(item,text){
-   var countfitemareadypresentincart=0;
-   for(var i=0;i<window.cart.length;i++){
-     if(JSON.stringify(window.cart[i]["item"]) === JSON.stringify(item) ){
-       countfitemareadypresentincart= countfitemareadypresentincart+1;}}
-      // alert(countfitemareadypresentincart);
-     if(countfitemareadypresentincart>1){
-       alert("you have multiple vriations.please go to cart to remove");
-     }
-     if(countfitemareadypresentincart===0){
-       alert("you dont have this item in cart yet");
-     }  
-     if(countfitemareadypresentincart===1){
-         for(var j=0;j<window.cart.length;j++){
-           if(JSON.stringify(window.cart[j]["item"])===JSON.stringify(item)){
-            if(parseInt(window.cart[j]["quantity"])===1){
-              window.cart.splice(j,1);
-              console.log(window.cart);
-             }
-                  if(parseInt(window.cart[j]["quantity"])>1){
-                    var priceofsingleitem=parseInt(window.cart[j]["price"])/parseInt(window.cart[j]["quantity"]);
-                    window.cart[j]["quantity"]=window.cart[j]["quantity"]-1;
-                    window.cart[j]["price"]=window.cart[j]["price"]-priceofsingleitem;
-                    console.log(window.cart);
-                  }
-                  
-           }
-         }
-
-
-
-
-
-     } 
-}
-
-
-function createCustomizationTab(item,text,baseprice){
-    
-    if(text["customization"]===true){
-          var addtocart=document.createElement('div'); 
-          var totalcart=0;
-          var customization={};
-          var singlechoicejson=text["customizationdata"]['singlechoice'];
-          var singlechoicearr=Object.keys(singlechoicejson);
-          
-          var multiplechoicejson=text["customizationdata"]['multiplechoice'];
-          var multiplechoicearr=Object.keys(multiplechoicejson);
-          var customizationtab=document.createElement('div');
-          customizationtab.id="customizationtab";
-          var customizationtabcontent=document.createElement('div');
-          customizationtab.className='customizationtab';
-          customizationtabcontent.className='customizationtabcontent';
-          var singlechoice=Object.keys(singlechoicejson);
-          var multiplechoice=Object.keys(multiplechoicejson);
-          for(section in singlechoice){
-            var singlesectionquery=JSON.stringify(singlechoice[section]);
-            var singlesectionoptions=singlechoicejson[singlechoice[section]];
-            singlesectionquery = JSON.stringify(singlesectionquery).substring(3, singlesectionquery.length+1); 
-            customizationtabcontent.innerHTML+=singlesectionquery + '<br></br>';
-            for(option in singlesectionoptions){
-            option = JSON.stringify(option).substring(1, option.length+1);  
-            var nameofoption=document.createElement('div');
-            nameofoption.className='customizationnameofoption';
-
-            var priceofoption=document.createElement('div');  
-            priceofoption.className='customizationpriceofoption';
-                  
-
-
-
-            var checkbox = document.createElement("input"); 
-            checkbox.setAttribute("type", "radio");
-            checkbox.setAttribute("name", singlesectionquery);
-            checkbox.setAttribute("value", [option,singlesectionoptions[option]]);
-            checkbox.setAttribute("checked", true);
-            //checkbox.setAttribute("onclick", "function(){customization='hey'}");
-           
-       
-
-
-
-
-            var label= document.createElement("label"); 
-            label.setAttribute("for", singlesectionquery);
-            label.innerHTML=option;
-            nameofoption.appendChild(checkbox); 
-            nameofoption.appendChild(label);
-            //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
-            priceofoption.innerHTML= JSON.stringify(singlesectionoptions[option]) + '<br></br>';
-            customizationtabcontent.appendChild(nameofoption);
-            customizationtabcontent.appendChild(priceofoption);
-          }}
-
-         for(section in multiplechoice){
-          var multiplesectionquery=JSON.stringify(multiplechoice[section]);
-          var multiplesectionoptions=multiplechoicejson[multiplechoice[section]];
-          multiplesectionquery = JSON.stringify(multiplesectionquery).substring(3, multiplesectionquery.length+1); 
-          customizationtabcontent.innerHTML+=multiplesectionquery + '<br></br>';
-          for(option in multiplesectionoptions){
-          option = JSON.stringify(option).substring(1, option.length+1);  
-          var nameofoption=document.createElement('div');
-          nameofoption.className='customizationnameofoption';
-
-          var priceofoption=document.createElement('div');  
-          priceofoption.className='customizationpriceofoption';
-                
-
-
-
-          var checkbox = document.createElement("input"); 
-          checkbox.setAttribute("type", "checkbox");
-          checkbox.setAttribute("name", multiplesectionquery);
-          checkbox.setAttribute("value", [option,multiplesectionoptions[option]]);
-
-
-
-          var label= document.createElement("label"); 
-          label.setAttribute("for", multiplesectionquery);
-          label.innerHTML=option;
-          nameofoption.appendChild(checkbox); 
-          nameofoption.appendChild(label);
-         
-          //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
-          priceofoption.innerHTML= JSON.stringify(multiplesectionoptions[option]) + '<br></br>';
-          customizationtabcontent.appendChild(nameofoption);
-          customizationtabcontent.appendChild(priceofoption);
-        }}
-          
-            
-                  
-            var quantity = document.createElement("INPUT");
-            quantity.className="quantitycustomizationinput";
-            quantity.setAttribute("type", "number");
-            quantity.setAttribute("name", "number of items");
-            quantity.setAttribute("value", "1");
-           
-
-            addtocart.className='customizetabaddtocart';
-            addtocart.id="customizetabaddtocart";
-            addtocart.innerHTML='ADD TO CART';
-           
-
-
-
-            addtocart.onclick=function(){
-               
-
-
-              for(var i=0;i < singlechoicearr.length;i++){
-            customization[singlechoicearr[i]]=updatecustomization(singlechoicearr[i]);}
-            for(var i=0;i < multiplechoicearr.length;i++){
-              customization[multiplechoicearr[i]]=updatecustomization(multiplechoicearr[i]);}
-              var quantityofitems=quantity.value;
-            updatecart(item,customization,quantityofitems,true);
-          }
-          customizationtabcontent.appendChild(quantity);
-            
-            customizationtab.appendChild(customizationtabcontent);
-            customizationtab.appendChild(addtocart);
-            document.getElementById("menu").appendChild(customizationtab);}
-        else{
-          //alert("updating");
-          updatecart(item,baseprice,1,false);
-          
-          
-        }   
-           
-
-    
-}
-function updatecart(item,customization,quantity,customizationOrNot){
-  if(customizationOrNot==true){
-  var priceofindividualitem=calculatepriceofindividualitem(customization)*parseInt(quantity);
-  var newitem={"item":item,"customization":customization,"quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
-  }
-  if(customizationOrNot==false){
-    var priceofindividualitem=customization;
-    var newitem={"item":item,"customization":"","quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
-    }
-  
-  if(window.cart.length>0){
-  var ispresentalready=checkforsameitemandcustomizationincart(newitem);
-
-  if(ispresentalready===false){
-    window.cart.push(newitem);}}
-  else{
-  window.cart.push(newitem);}
-  try{
-  document.getElementById("customizationtab").remove();}
-  catch{
-    //alert("updated!");
-  }
-  console.log(JSON.stringify(window.cart));
-}
-function checkforsameitemandcustomizationincart(newitem){
-   for(var i=0;i<window.cart.length;i++){
-        //alert(JSON.stringify(window.cart[i]));
-        if(newitem["item"]===window.cart[i]["item"] && JSON.stringify(newitem["customization"])===JSON.stringify(window.cart[i]["customization"])){
-          window.cart[i]["quantity"]=window.cart[i]["quantity"]+newitem["quantity"];
-          window.cart[i]["price"]=window.cart[i]["price"]+newitem["price"];
-          return true;
-        }}
-      return false;
-}
-function calculatepriceofindividualitem(customization){
-   var price=0;
-   var sections=Object.keys(customization);
-   for(var i=0;i<sections.length;i++){
-    var arrayofitemsselected=customization[sections[i]];
-    //price=price+arrayofitemsselected ;
-   for(var j=0;j<arrayofitemsselected.length;j++){
-      var itempricearray=arrayofitemsselected[j].split(',');
-      price=price+parseInt(itempricearray[1]);
-   }}
-   return price; 
-}
-function updatecustomization(checkboxName) {
-  var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
-  Array.prototype.forEach.call(checkboxes, function(el) {
-      values.push(el.value);});
- return values;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-function clearAllBorders(){
-  var a=document.getElementsByClassName("menuitemspic");
-  for (var i=0; i < a.length; i++) {
-    a[i].src=picCategoryArrayFood[i] ;
-    
-  }
-}
-
-
-
-
-
-
-function searchitem(){
-var text= document.getElementById("textsearch");  
-//var men=document.getElementById('menu');
-var textvalue=text.value;
-var jsonofitems={};
-clearFooter("menuitbody");
-//men.innerHTML="";
-//var data=JSON.stringify(menuitemjson);
-var fooddrink;
-for (fooddrink in menuitemjson) { 
-  
-  var category;
-  for(category in menuitemjson[fooddrink]){
-    var fooditem;
-    for(fooditem in menuitemjson[fooddrink][category]){
-      var stringfooditem=JSON.stringify(fooditem);
-      if( stringfooditem.includes(textvalue.toLowerCase())){
-
-         var price=menuitemjson[fooddrink][category][fooditem];
-         jsonofitems[stringfooditem]=price;
-        
-         
-      }
-    }
-  }
-}
-var stringresult=JSON.stringify(jsonofitems);
-var finalData = stringresult.replace(/\\/g, "");
-var finallymadedata=finalData.replace('""','"');
-var thisoneisfinal = finallymadedata.replace(/""/g, '"');
-var nopethisone=JSON.parse(thisoneisfinal);
-var a=JSON.stringify(nopethisone);
-//men.innerHTML+=a;
-
-populateBody("restaurantName",nopethisone,menuPicArray);  
-document.getElementById("textsearch").value = "";
-document.getElementById("textsearch").blur();
-
-}
