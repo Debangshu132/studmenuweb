@@ -309,10 +309,10 @@ box-shadow: 5px 10px;
 .menuitemsbodypic{
   position:relative;
   top:-8px;
-  left:-25px;
+  left:-8px;
   width:80px;
   height:80px;
-  border-radius: 6px;
+  border-radius: 7px;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 3;
