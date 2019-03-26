@@ -699,7 +699,7 @@ function updatecart(item,customization,quantity,customizationOrNot){
   else{
   window.cart.push(newitem);}
   try{
-  document.getElementById("customizationtab").remove();}
+  document.getElementById("customizationtabcontent").remove();}
   catch{
     //alert("updated!");
   }
