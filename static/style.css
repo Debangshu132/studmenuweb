@@ -368,21 +368,14 @@ border-radius: 10%;
   }  
  .menuitemsbodyplus{
     padding-top:8px; 
+    width:100%;
+
     
 
  }
-
-
-
-
-
-
-
- 
- 
- 
- .menuitemsbodyminus{
-    padding-top:12px; 
+.menuitemsbodyminus{
+    padding-top:5px; 
+    width:100%;
  
     
  }  
