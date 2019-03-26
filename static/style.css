@@ -130,7 +130,7 @@ html, body {
   background-color: #fefefe;
   margin: 0% auto; /* 15% from the top and centered */
   padding: 10px;
- 
+  mergin:0%;
   overflow-y: scroll; /* Enable scroll if needed */
   width: 100%; /* Could be more or less, depending on screen size */
   height:90%;
@@ -339,7 +339,7 @@ box-shadow: 5px 10px;
    padding-left:2.4cm;
    margin-top:-2cm;
    font-size: 15px;
-  font-weight:lighter;
+  font-weight:bold;
 }
 .menuitemsbodyactualpic{
   margin-top: 10px;
