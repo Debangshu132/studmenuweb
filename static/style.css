@@ -320,8 +320,6 @@ box-shadow: 5px 10px;
   -webkit-box-shadow: 0 0 20px rgb(200,200,200);
   -moz-box-shadow: 0 0 20px rgb(200,200,200);
 
-
-
 }
 .menuitemsbodybaseprice{
   position:relative;
@@ -368,22 +366,27 @@ border-radius: 10%;
     
     
   }  
- .menuitemsbodyplus{
-    padding-top:20%; 
+  .menuitemsbodyplus{
+    text-align:center; 
+    padding:0px;
+    margin:0px;
+    height:50%;
     width:100%;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     color:green;
     
 
  }
 .menuitemsbodyminus{
-    padding-top:25%; 
+  text-align:center; 
+    height:50%;
+    padding:0px;
+    margin:0px;
     width:100%;
     font-weight: bold;
     font-size: 20px;
-    
- }  
+   
 .bodyfoodprice{
    color:grey;
    position: relative;
