@@ -776,7 +776,7 @@ for (fooddrink in menuitemjson) {
     var fooditem;
     for(fooditem in menuitemjson[fooddrink][category]){
       var stringfooditem=JSON.stringify(fooditem);
-      if( stringfooditem.includes(textvalue.toLowerCase())){
+      if( (stringfooditem.toLowerCase()).includes(textvalue.toLowerCase())){
 
          var price=menuitemjson[fooddrink][category][fooditem];
          jsonofitems[stringfooditem]=price;
