@@ -324,8 +324,9 @@ box-shadow: 5px 10px;
 
 }
 .menuitemsbodybaseprice{
-  float:right;
-
+  position:relative;
+   top:-140px;
+   left:200px
 }
 .divChildPicVegNonveg{
   max-width: 12%;
