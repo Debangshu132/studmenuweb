@@ -68,13 +68,28 @@ picCategoryArrayFoodColored=[
   "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png",
   "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png"
   ]
+  picCategoryArrayDrink=[
+    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Attributes.png",  
+    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bread+Drive.png",
+    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bytes.png",  
+    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Floppy.png",
+    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Hardware.png",  
+    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Programmer.png",
+    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png",
+    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png"
+    ]
+    picCategoryArrayDrinkColored=[
+      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Attributes.png",  
+      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bread+Drive.png",
+      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bytes.png",  
+      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Floppy.png",
+      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Hardware.png",  
+      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Programmer.png",
+      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png",
+      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png"
+      ]
 
-picCategoryArrayDrink=[
-  "https://img.icons8.com/color/48/000000/beer-glass.png",
-  "https://img.icons8.com/cotton/64/000000/water-glass.png",
-  "https://img.icons8.com/dusk/64/000000/wine-glass.png",
-  "https://img.icons8.com/cotton/64/000000/water-glass.png"
-]
+
 window.menuPicArray=[
   "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
   "url('https://s3.ap-south-1.amazonaws.com/studmenu/Test/Pics/DUO+OF+FLOREST+TIKKA+(1)-min.jpg')",
@@ -267,7 +282,7 @@ document.getElementById("drink").onclick=function()
 {//document.getElementById("menuit").style.background="#46cc3d";
 clearFooter("menuite");
 
-populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrink);
+populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkColored);
 }  
 
 
