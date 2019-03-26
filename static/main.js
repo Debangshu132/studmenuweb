@@ -373,7 +373,7 @@ menuitemsbodyplus.className="menuitemsbodyplus";
 menuitemsbodyplus.innerHTML="+";
 var menuitemsbodyminus=document.createElement("div");
 menuitemsbodyminus.className="menuitemsbodyminus";
-menuitemsbodyminus.innerHTML="_";
+menuitemsbodyminus.innerHTML="__";
 
 
 //divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
@@ -414,10 +414,11 @@ divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random()
  
 //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
 divChildPic.appendChild(divChildPicVegNonveg);
-div.appendChild(divChildBasePrice);
+
 div.appendChild(divChildPic);
 div.appendChild(divChild);
 div.appendChild(divChildPlusMinus);  
+div.appendChild(divChildBasePrice);
 div.appendChild(divChildDescriptionOfFood);    
 document.getElementById("menuitbody").appendChild(div);}}
 }
