@@ -647,7 +647,7 @@ function createCustomizationTab(item,text,baseprice){
             customization[singlechoicearr[i]]=updatecustomization(singlechoicearr[i]);}
             for(var i=0;i < multiplechoicearr.length;i++){
               customization[multiplechoicearr[i]]=updatecustomization(multiplechoicearr[i]);}
-              var quantityofitems=quantity.value;
+              var quantityofitems=quantityvalue;
             updatecart(item,customization,quantityofitems,true);
           }
           
