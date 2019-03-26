@@ -166,9 +166,9 @@ document.getElementById("carticon").onclick=function(menuPicArray){
   cartcustomizationnamestring=cartcustomizationnamestring.replace(',',' ,Rs');
   cartitemname.innerHTML=cartitemnamestring;
   cartcustomizationname.innerHTML=cartcustomizationnamestring;
-  cartitempricename.innerHTML="Price:Rs"+JSON.stringify(window.cart[i]["price"]);
+  cartitempricename.innerHTML="Price:Rs "+JSON.stringify(window.cart[i]["price"]);
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
-  cartorderbutton.innerHTML="ORDER2";
+  cartorderbutton.innerHTML="ORDER";
   cartorderbutton.onclick=function(){
 
       // the Messenger Extensions JS SDK is done loading
@@ -614,6 +614,7 @@ function createCustomizationTab(item,text,baseprice){
             window.quantityvalue=1;      
             var quantity = document.createElement("div");
             quantity.className="quantitycustomizationinput";
+            quantity.id="quantityid";
             quantity.innerHTML=JSON.stringify(window.quantityvalue);
             var quantityplus=document.createElement("div");
             var quantityminus=document.createElement("div");
@@ -621,20 +622,8 @@ function createCustomizationTab(item,text,baseprice){
             quantityminus.className="customizationquantityminus";
             quantityplus.innerHTML="+";
             quantityminus.innerHTML="-";
-            quantityplus.onclick=function(arg,arg2){
-              return function(){
-                arg=arg+1;
-                arg2.innerHTML=JSON.stringify(arg);
-              }
-            }(window.quantityvalue,quantity);
-            quantityminus.onclick=function(arg,arg2){
-              return function(){
-                if(arg>0){
-                arg=arg-1;}
-                arg2.innerHTML=JSON.stringify(arg);
-              
-              }
-            }(window.quantityvalue,quantity);
+            quantityplus.onclick=plusminus(1);
+            quantityminus.onclick=plusminus(-1);
             addtocart.className='customizetabaddtocart';
             addtocart.id="customizetabaddtocart";
             addtocart.innerHTML='ADD TO CART';
@@ -676,6 +665,11 @@ function createCustomizationTab(item,text,baseprice){
            
 
     
+}
+function plusminus(arg){
+  var q=document.getElementById("quantityid");
+  window.quantityvalue=window.quantityvalue+arg;
+  q.innerHTML(window.quantityvalue);
 }
 function updatecart(item,customization,quantity,customizationOrNot){
   if(customizationOrNot==true){
