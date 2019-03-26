@@ -142,11 +142,12 @@ html, body {
 .customizationpriceofoption{
   position:relative;
   top:-15px;
-  color:#aaa;
+  color:#9d9d9d;
   left:90%;}
 .customizationnameofoption{
   position:relative;
   color:#9d9d9d;
+  padding-left:0.5cm;
 } 
 .quantitycustomizationwrapper{
   display:inline-block;
@@ -161,7 +162,7 @@ html, body {
   width:1cm;
   height:1cm;
   border-radius:0.5cm;
-  
+  color:#9d9d9d;
   font-size:25px;
   text-align:center;
 
@@ -172,7 +173,7 @@ html, body {
   width:1cm;
   height:1cm;
   border-radius:0.5cm;
-  
+  color:#9d9d9d;
   font-size:25px;
   text-align:center;
 
