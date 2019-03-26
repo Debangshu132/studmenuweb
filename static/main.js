@@ -621,14 +621,14 @@ function createCustomizationTab(item,text,baseprice){
             quantityminus.className="customizationquantityminus";
             quantityplus.innerHTML="+";
             quantityminus.innerHTML="-";
-            quantityplus.onclick=function(){
-              return function(arg,arg2){
+            quantityplus.onclick=function(arg,arg2){
+              return function(){
                 arg=arg+1;
                 arg2.innerHTML=JSON.stringify(arg);
               }
             }(quantityvalue,quantity);
-            quantityminus.onclick=function(){
-              return function(arg,arg2){
+            quantityminus.onclick=function(arg,arg2){
+              return function(){
                 if(arg>0){
                 arg=arg-1;
                 arg2.innerHTML=JSON.stringify(arg);
