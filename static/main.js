@@ -614,11 +614,26 @@ function createCustomizationTab(item,text,baseprice){
                   
             var quantity = document.createElement("INPUT");
             quantity.className="quantitycustomizationinput";
-            quantity.setAttribute("type", "range");
+            quantity.setAttribute("type", "input");
             quantity.setAttribute("name", "number of items");
             quantity.setAttribute("value", "1");
-           
-
+            var quantityplus=document.createElement("div");
+            var quantityminus=document.createElement("div");
+            quantityplus.className="customizationquantityplus";
+            quantityminus.className="customizationquantityminus";
+            quantityplus.innerHTML="+";
+            quantityminus.innerHTML="-";
+            quantityplus.onclick=function(){
+              return function(arg){
+                arg=arg+1;
+              }
+            }(quantity.value);
+            quantityminus.onclick=function(){
+              return function(arg){
+                if(arg>0){
+                arg=arg-1;}
+              }
+            }(quantity.value);
             addtocart.className='customizetabaddtocart';
             addtocart.id="customizetabaddtocart";
             addtocart.innerHTML='ADD TO CART';
@@ -638,6 +653,8 @@ function createCustomizationTab(item,text,baseprice){
             updatecart(item,customization,quantityofitems,true);
           }
           customizationtabcontent.appendChild(quantity);
+          customizationtabcontent.appendChild(quantityplus);
+          customizationtabcontent.appendChild(quantityminus);
             
             customizationtab.appendChild(customizationtabcontent);
             customizationtab.appendChild(addtocart);
