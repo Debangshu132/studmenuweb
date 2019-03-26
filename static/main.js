@@ -669,6 +669,7 @@ function createCustomizationTab(item,text,baseprice){
             
             
             customizationtabcontent.appendChild(addtocart);
+            customizationtabcontent.appendChild(addtocart);
             document.getElementById("menu").appendChild(customizationtabcontent);}
         else{
           //alert("updating");
@@ -752,6 +753,7 @@ function clearAllBorders(){
     
   }
 }
+
 
 
 
