@@ -408,8 +408,9 @@ div.onclick=  function(arg) {
       } 
   }
 }(div);
-
-divChildDescriptionOfFood.innerHTML= JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
+var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
+descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
+divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
 divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
  
 //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
