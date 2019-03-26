@@ -667,9 +667,9 @@ function createCustomizationTab(item,text,baseprice){
           
           customizationtabcontent.appendChild(quantitywrapper);
             
-            customizationtab.appendChild(customizationtabcontent);
-            customizationtab.appendChild(addtocart);
-            document.getElementById("menu").appendChild(customizationtab);}
+            
+            customizationtabcontent.appendChild(addtocart);
+            document.getElementById("menu").appendChild(customizationtabcontent);}
         else{
           //alert("updating");
           updatecart(item,baseprice,1,false);
