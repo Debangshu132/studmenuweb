@@ -622,8 +622,22 @@ function createCustomizationTab(item,text,baseprice){
             quantityminus.className="customizationquantityminus";
             quantityplus.innerHTML="+";
             quantityminus.innerHTML="-";
-            quantityplus.onclick=plusminus(1);
-            quantityminus.onclick=plusminus(-1);
+            quantityplus.onclick=function(arg,arg2){
+              return function(){
+            window.quantityvalue=window.quantityvalue+1;
+                arg=arg+1;
+                arg2.innerHTML=JSON.stringify(window.quantityvalue);
+              }
+            }(window.quantityvalue,quantity);
+            quantityminus.onclick=function(arg,arg2){
+              return function(){
+                if( window.quantityvalue>0){
+                  window.quantityvalue=window.quantityvalue-1;
+              }
+                arg2.innerHTML=JSON.stringify(window.quantityvalue);
+              
+              }
+            }(window.quantityvalue,quantity);
             addtocart.className='customizetabaddtocart';
             addtocart.id="customizetabaddtocart";
             addtocart.innerHTML='ADD TO CART';
@@ -665,11 +679,6 @@ function createCustomizationTab(item,text,baseprice){
            
 
     
-}
-function plusminus(arg){
-  var q=document.getElementById("quantityid");
-  window.quantityvalue=window.quantityvalue+arg;
-  q.innerHTML(window.quantityvalue);
 }
 function updatecart(item,customization,quantity,customizationOrNot){
   if(customizationOrNot==true){
