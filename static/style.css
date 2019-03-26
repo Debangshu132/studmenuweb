@@ -347,9 +347,9 @@ box-shadow: 5px 10px;
   margin-top: 10px;
 max-width: 80%;
 max-height: 80%;
--webkit-box-shadow: 10px 10px 40px 4px rgba(209,201,224,1);
--moz-box-shadow: 10px 10px 40px 4px rgba(209,201,224,1);
-box-shadow: 10px 10px 40px 4px rgba(209,201,224,1);
+-webkit-box-shadow: 10px 10px 40px 4px rgb(94, 91, 99);
+-moz-box-shadow: 10px 10px 40px 4px rgb(94, 91, 99);
+box-shadow: 10px 10px 40px 4px rgb(94, 91, 99);
 }
 .menuitemsbodyplusminus{
   width:30px;
