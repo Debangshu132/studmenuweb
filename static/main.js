@@ -437,6 +437,10 @@ function resetAllHeights(){
   for (var i=0; i < items.length; i++) {
     items[i].style.height='2.2cm' ;
   }
+  var description=document.getElementsByClassName("menuitemsbodydescription");
+  for (var i=0; i < description.length; i++) {
+    description[i].style.displlay="none" ;
+  }
 
 
 
