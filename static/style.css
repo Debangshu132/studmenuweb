@@ -163,8 +163,9 @@ html, body {
   height:1cm;
   border-radius:0.5cm;
   color:#9d9d9d;
-  font-size:25px;
+  font-size:30px;
   text-align:center;
+   line-height: 34px;
 
 } 
 .customizationquantityminus{
@@ -174,8 +175,9 @@ html, body {
   height:1cm;
   border-radius:0.5cm;
   color:#9d9d9d;
-  font-size:25px;
+  font-size:30px;
   text-align:center;
+    line-height: 34px;
 
 } 
 .customizetabaddtocart{
@@ -201,9 +203,10 @@ html, body {
   display:inline-block;
   margin-left:auto;
   margin-right:auto;
-  width:4%;
+  width:20px;
   padding:10px;
   text-align:center;
+
   
   
   
