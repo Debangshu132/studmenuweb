@@ -336,7 +336,7 @@ var div = document.createElement("div");
 div.className="slidebody";
 
 var divChild = document.createElement("div");
-divChild.className="menuitemsdescriptionbody";
+divChild.className="menuitemsnamebody";
 var tempname=JSON.stringify(itemnamearray[i]);
 
 if(JSON.stringify(jsonofitems[itemnamearray[i]]["active"])===JSON.stringify("True")){
