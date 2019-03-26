@@ -439,7 +439,7 @@ function resetAllHeights(){
   }
   var description=document.getElementsByClassName("menuitemsbodydescription");
   for (var i=0; i < description.length; i++) {
-    description[i].style.displlay="none" ;
+    description[i].style.display="none" ;
   }
 
 
