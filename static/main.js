@@ -351,7 +351,7 @@ var divChildPicVegNonveg=document.createElement("IMG");
 var divChildPlusMinus = document.createElement("div");  
 var divChildDescriptionOfFood = document.createElement("div");
 divChildDescriptionOfFood.className="menuitemsbodydescription";
-divChildDescriptionOfFood.style.visibility="hidden";
+//divChildDescriptionOfFood.style.visibility="hidden";
   
 divChildPic.className="menuitemsbodypic";
 divChildPicVegNonveg.className="divChildPicVegNonveg";
