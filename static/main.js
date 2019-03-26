@@ -405,7 +405,7 @@ div.onclick=  function(arg,arg2) {
         arg2.style.visibility="visible";
         arg.style.height='5cm';}
         else{
-         arg2.style.display="hidden";  
+          arg2.style.visibility="hidden"; 
         arg.style.height='2.2cm';
       } 
   }
