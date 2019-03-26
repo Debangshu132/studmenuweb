@@ -757,7 +757,6 @@ function clearAllBorders(){
 
 
 
-
 function searchitem(){
 var text= document.getElementById("textsearch");  
 //var men=document.getElementById('menu');
