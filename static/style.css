@@ -345,11 +345,11 @@ max-height: 80%;
 
 }
 .menuitemsbodyplusminus{
-  width:30px;
-  height:60px;
+  width:0.7cm;
+  height:1.6cm;
   float:right;
   position:relative;
-  top:-80px;
+  top:0.3cm;
   
   background:white;
   margin-right:-15px;
