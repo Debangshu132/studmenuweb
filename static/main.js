@@ -534,6 +534,7 @@ function createCustomizationTab(item,text,baseprice){
           var customizationtabcontent=document.createElement('div');
           customizationtab.className='customizationtab';
           customizationtabcontent.className='customizationtabcontent';
+          customizationtabcontent.id='customizationtabcontent';
           var singlechoice=Object.keys(singlechoicejson);
           var multiplechoice=Object.keys(multiplechoicejson);
           for(section in singlechoice){
