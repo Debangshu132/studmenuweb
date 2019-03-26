@@ -614,7 +614,7 @@ function createCustomizationTab(item,text,baseprice){
                   
             var quantity = document.createElement("INPUT");
             quantity.className="quantitycustomizationinput";
-            quantity.setAttribute("type", "number");
+            quantity.setAttribute("type", "range");
             quantity.setAttribute("name", "number of items");
             quantity.setAttribute("value", "1");
            
