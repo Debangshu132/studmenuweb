@@ -630,9 +630,9 @@ function createCustomizationTab(item,text,baseprice){
             quantityminus.onclick=function(arg,arg2){
               return function(){
                 if(arg>0){
-                arg=arg-1;
+                arg=arg-1;}
                 arg2.innerHTML=JSON.stringify(arg);
-              }
+              
               }
             }(quantityvalue,quantity);
             addtocart.className='customizetabaddtocart';
