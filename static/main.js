@@ -42,6 +42,7 @@ food=foodlist;
 
 var drinklist=Object.keys(window.menuitemjson["Drinks"]);
 drink=drinklist;
+alert(drinklist);
 generalIcons={
 "veg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Veg.png",
 "nonveg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Non+Veg.png"
@@ -307,7 +308,6 @@ function clearFooter(elementID)
 function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypiccolored){
   
   for(i=0;i<foodOrDrink.length;i++){
-   alert(foodOrDrink[i]); 
   var div = document.createElement("div");
  
   div.className="swiper-slide";
