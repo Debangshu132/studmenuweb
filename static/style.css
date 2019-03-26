@@ -389,15 +389,15 @@ border-radius: 7%;
     font-weight: bold;
     font-size: 20px;}
    
-.bodyfoodprice{
+.menuitemsbodydescription{
    color:grey;
    position: relative;
    width:40%;
    height:100px;
-   top:-70px;
+   top:-1cm;
    left:130px;
    text-align: right;
-   overflow: hidden;
+   overflow: scroll;
    overflow-wrap: break-word;
 
  }
