@@ -10,7 +10,7 @@ html, body {
   padding-left:0%;
   margin-left:0%;
   font-family: 'Quicksand', sans-serif;
-  background:#eaeaea;
+  background:#efefef;
 }
 
 #load{
@@ -110,8 +110,8 @@ html, body {
     border-radius:15px;
     background:white;
     box-shadow: 2px 4px;
-    -webkit-box-shadow: 0 0 10px rgb(200,200,200);
-    -moz-box-shadow: 0 0 10px rgb(200,200,200);
+    -webkit-box-shadow: 0 0 6px rgb(43, 44, 49);
+    -moz-box-shadow: 0 0 6px rgb(54, 48, 48);
 }
 .customizationtab{
  
