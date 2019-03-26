@@ -614,7 +614,7 @@ function createCustomizationTab(item,text,baseprice){
             window.quantityvalue=1;      
             var quantity = document.createElement("div");
             quantity.className="quantitycustomizationinput";
-            quantity.innerHTML=JSON.stringify(quantityvalue);
+            quantity.innerHTML=JSON.stringify(window.quantityvalue);
             var quantityplus=document.createElement("div");
             var quantityminus=document.createElement("div");
             quantityplus.className="customizationquantityplus";
