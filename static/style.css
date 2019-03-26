@@ -126,15 +126,14 @@ html, body {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 .customizationtabcontent {
-  float:top;
-  background-color: #fefefe;
-  margin: 0% auto; /* 15% from the top and centered */
-  padding: 10px;
-  mergin:0%;
-  overflow-y: scroll; /* Enable scroll if needed */
-  overflow-x:hidden;
-  width: 100%; /* Could be more or less, depending on screen size */
-  height:90%;
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: #fefefe; /* Fallback color */
+  
 
 
   
