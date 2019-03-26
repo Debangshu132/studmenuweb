@@ -272,7 +272,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
 
 document.getElementById("food").onclick=function()
 {
-  document.getElementById("drink").style.background="#ccc";
+  document.getElementById("drink").style.background="#ddd";
   document.getElementById("food").style.background="#fff";
   clearFooter("menuite");
   populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
@@ -281,7 +281,7 @@ document.getElementById("food").onclick=function()
 
 
 document.getElementById("drink").onclick=function()
-{document.getElementById("food").style.background="#ccc";
+{document.getElementById("food").style.background="#ddd";
 document.getElementById("drink").style.background="#fff";
 clearFooter("menuite");
 
@@ -292,6 +292,7 @@ populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkC
 
 
 window.onload = function() {
+  document.getElementById("drink").style.background="#ddd";
   populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
