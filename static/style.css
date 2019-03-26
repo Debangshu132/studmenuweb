@@ -322,8 +322,10 @@ box-shadow: 5px 10px;
   box-shadow: 2px 2px 14px 0px rgba(170,170,170,1);
 }
 .menuitemsbodybaseprice{
-  position:relative;
-   top:-140px;
+  
+   margin-top:-3.5cm;
+   float:right;
+   padding-right:0.6cm;   
   
 }
 .divChildPicVegNonveg{
