@@ -101,6 +101,7 @@ html, body {
 .slidebody {
   margin-top:15px;
     height:2.2cm;
+    position:relative;
     text-align: bottom;
     color:black;
     text-align: center;
@@ -334,7 +335,9 @@ box-shadow: 5px 10px;
 
 }
 .menuitemsnamebody{
-   padding-left:85px;
+  float:left;
+   padding-left:2.5cm;
+   margin-top:-2cm;
    font-size: 15px;
   font-weight:bold;
 }
@@ -349,10 +352,10 @@ max-height: 80%;
   height:1.6cm;
   float:right;
   position:relative;
-  top:0.3cm;
-  
+  top:-1.9cm;
+  z-index:4;
   background:white;
-  margin-right:-15px;
+  margin-right:-0.4cm;
   box-shadow: 5px 10px;
   
   -webkit-box-shadow: 0 0 7px #aaa;
