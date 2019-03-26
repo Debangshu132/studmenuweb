@@ -108,7 +108,7 @@ html, body {
     margin-left:auto;
     margin-right:auto;
     margin-bottom:20px;
-    border-radius:9px;
+    border-radius:7px;
     background:white;
     -webkit-box-shadow: 4px 4px 8px 0px #bbb;
     -moz-box-shadow: 4px 4px 8px 0px #bbb;
@@ -338,7 +338,7 @@ box-shadow: 5px 10px;
 }
 .menuitemsnamebody{
   float:left;
-   padding-left:2.5cm;
+   padding-left:2.4cm;
    margin-top:-2cm;
    font-size: 15px;
   font-weight:bold;
@@ -362,7 +362,7 @@ max-height: 80%;
   
   -webkit-box-shadow: 0 0 7px #aaa;
 -moz-box-shadow: 0 0 7px #aaa;
-border-radius: 7%;
+border-radius: 5px;
 
   
   
@@ -395,8 +395,8 @@ border-radius: 7%;
    padding-right:1cm;
    width:40%;
    height:100px;
-   top:-1.5cm;
-   left:2.5cm;
+   
+   left:1cm;
    text-align: left;
    overflow: scroll;
    overflow-wrap: break-word;
