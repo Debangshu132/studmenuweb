@@ -392,11 +392,12 @@ border-radius: 7%;
 .menuitemsbodydescription{
    color:grey;
    position: relative;
+   padding-right:1cm;
    width:40%;
    height:100px;
-   top:-1cm;
-   left:130px;
-   text-align: right;
+   top:-1.5cm;
+   left:2.5cm;
+   text-align: left;
    overflow: scroll;
    overflow-wrap: break-word;
 
