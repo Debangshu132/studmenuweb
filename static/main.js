@@ -351,7 +351,7 @@ var divChildPicVegNonveg=document.createElement("IMG");
 var divChildPlusMinus = document.createElement("div");  
 var divChildDescriptionOfFood = document.createElement("div");
 divChildDescriptionOfFood.className="menuitemsbodydescription";
-divChildDescriptionOfFood.style.display="none";
+divChildDescriptionOfFood.style.visibility="hidden";
   
 divChildPic.className="menuitemsbodypic";
 divChildPicVegNonveg.className="divChildPicVegNonveg";
@@ -402,10 +402,10 @@ div.onclick=  function(arg) {
       if( arg.style.height==='2.2cm'){
        
         resetAllHeights();
-        divChildDescriptionOfFood.style.display="block";
+        divChildDescriptionOfFood.style.visibility="visible";
         arg.style.height='5cm';}
         else{
-          divChildDescriptionOfFood.style.display="none";  
+          divChildDescriptionOfFood.style.display="hidden";  
         arg.style.height='2.2cm';
       } 
   }
@@ -437,7 +437,7 @@ function resetAllHeights(){
   for (var i=0; i < items.length; i++) {
     items[i].style.height='2.2cm' ;
   }
-  
+
 
 
 }
