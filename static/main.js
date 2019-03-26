@@ -351,7 +351,7 @@ var divChildPicVegNonveg=document.createElement("IMG");
 var divChildPlusMinus = document.createElement("div");  
 var divChildDescriptionOfFood = document.createElement("div");
 divChildDescriptionOfFood.className="menuitemsbodydescription";
-//divChildDescriptionOfFood.style.visibility="hidden";
+divChildDescriptionOfFood.style.visibility="hidden";
   
 divChildPic.className="menuitemsbodypic";
 divChildPicVegNonveg.className="divChildPicVegNonveg";
@@ -396,20 +396,20 @@ menuitemsbodyminus.onclick=function(arg,arg2){
 
   
 var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
-div.onclick=  function(arg) {
+div.onclick=  function(arg,arg2) {
   return function() {
       
       if( arg.style.height==='2.2cm'){
        
         resetAllHeights();
-        divChildDescriptionOfFood.style.visibility="visible";
+        arg2.style.visibility="visible";
         arg.style.height='5cm';}
         else{
-          divChildDescriptionOfFood.style.display="hidden";  
+         arg2.style.display="hidden";  
         arg.style.height='2.2cm';
       } 
   }
-}(div);
+}(div,divChildDescriptionOfFood);
 var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
 descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
 divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
