@@ -317,10 +317,7 @@ box-shadow: 5px 10px;
   background-repeat: no-repeat;
   z-index: 3;
   box-shadow: 5px 10px; 
-  -webkit-box-shadow: 16px 15px 38px -11px rgba(170,170,170,1);
--moz-box-shadow: 16px 15px 38px -11px rgba(170,170,170,1);
-box-shadow: 16px 15px 38px -11px rgba(170,170,170,1)
-}
+  
 .menuitemsbodybaseprice{
   position:relative;
    top:-140px;
