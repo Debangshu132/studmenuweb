@@ -350,7 +350,7 @@ var divChildBasePrice = document.createElement("div");
 var divChildPicVegNonveg=document.createElement("IMG");
 var divChildPlusMinus = document.createElement("div");  
 var divChildDescriptionOfFood = document.createElement("div");
-divChildDescriptionOfFood.className="bodyfoodprice";
+divChildDescriptionOfFood.className="menuitemsbodydescription";
 
   
 divChildPic.className="menuitemsbodypic";
