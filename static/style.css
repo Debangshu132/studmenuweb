@@ -316,8 +316,11 @@ box-shadow: 5px 10px;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 3;
-  box-shadow: 5px 10px; }
-  
+ 
+  -webkit-box-shadow: 16px 15px 28px 3px rgba(187,187,187,1);
+  -moz-box-shadow: 16px 15px 28px 3px rgba(187,187,187,1);
+  box-shadow: 16px 15px 28px 3px rgba(187,187,187,1);
+}
 .menuitemsbodybaseprice{
   position:relative;
    top:-140px;
