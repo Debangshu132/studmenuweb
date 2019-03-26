@@ -132,6 +132,7 @@ html, body {
   padding: 10px;
   mergin:0%;
   overflow-y: scroll; /* Enable scroll if needed */
+  overflow-x:hidden;
   width: 100%; /* Could be more or less, depending on screen size */
   height:90%;
 
@@ -198,7 +199,7 @@ html, body {
   margin-right:auto;
   width:4%;
   padding:10px;
-
+  text-align:center;
   
   
   
