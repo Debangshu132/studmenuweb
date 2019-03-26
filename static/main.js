@@ -622,16 +622,19 @@ function createCustomizationTab(item,text,baseprice){
             quantityplus.innerHTML="+";
             quantityminus.innerHTML="-";
             quantityplus.onclick=function(){
-              return function(arg){
+              return function(arg,arg2){
                 arg=arg+1;
+                arg2.innerHTML=JSON.stringify(arg);
               }
-            }(quantityvalue);
+            }(quantityvalue,quantity);
             quantityminus.onclick=function(){
-              return function(arg){
+              return function(arg,arg2){
                 if(arg>0){
-                arg=arg-1;}
+                arg=arg-1;
+                arg2.innerHTML=JSON.stringify(arg);
               }
-            }(quantityvalue);
+              }
+            }(quantityvalue,quantity);
             addtocart.className='customizetabaddtocart';
             addtocart.id="customizetabaddtocart";
             addtocart.innerHTML='ADD TO CART';
