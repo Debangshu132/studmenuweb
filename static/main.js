@@ -611,7 +611,7 @@ function createCustomizationTab(item,text,baseprice){
         }}
           
             
-            var quantityvalue=1;      
+            window.quantityvalue=1;      
             var quantity = document.createElement("div");
             quantity.className="quantitycustomizationinput";
             quantity.innerHTML=JSON.stringify(quantityvalue);
@@ -626,7 +626,7 @@ function createCustomizationTab(item,text,baseprice){
                 arg=arg+1;
                 arg2.innerHTML=JSON.stringify(arg);
               }
-            }(quantityvalue,quantity);
+            }(window.quantityvalue,quantity);
             quantityminus.onclick=function(arg,arg2){
               return function(){
                 if(arg>0){
@@ -634,7 +634,7 @@ function createCustomizationTab(item,text,baseprice){
                 arg2.innerHTML=JSON.stringify(arg);
               
               }
-            }(quantityvalue,quantity);
+            }(window.quantityvalue,quantity);
             addtocart.className='customizetabaddtocart';
             addtocart.id="customizetabaddtocart";
             addtocart.innerHTML='ADD TO CART';
