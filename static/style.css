@@ -451,32 +451,11 @@ border-top-left-radius:30px;
 
 
 }
-#food {
-font-size: 12px; 
 
-background-color: Transparent;
-color:#555;
-background-repeat:no-repeat;
-border: none;
-cursor:pointer;
-overflow: hidden;
-outline:none;
-
-}
 #food:focus{
 outline: none;
 }
-#drink {
-font-size: 12px; 
 
-background-color: Transparent;
-background-repeat:no-repeat;
-color:#555;
-border: none;
-cursor:pointer;
-overflow: hidden;
-outline:none;
-}
 
 #drink:focus{
 outline: none;
