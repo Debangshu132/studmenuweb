@@ -429,7 +429,7 @@ border-radius: 5px;
    color:grey;
    position: relative;
    padding-right:1cm;
-   width:85%;
+   width:40%;
    height:100px;
    
    left:1cm;
@@ -703,3 +703,4 @@ body {
 .search > div > input:valid {
   width: 80%;
 }
+s
