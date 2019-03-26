@@ -307,6 +307,7 @@ function clearFooter(elementID)
 function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypiccolored){
   
   for(i=0;i<foodOrDrink.length;i++){
+   alert(foodOrDrink[i]); 
   var div = document.createElement("div");
  
   div.className="swiper-slide";
