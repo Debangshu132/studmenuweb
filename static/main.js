@@ -650,10 +650,16 @@ function createCustomizationTab(item,text,baseprice){
               var quantityofitems=quantityvalue;
             updatecart(item,customization,quantityofitems,true);
           }
+
+          var quantitywrapper = document.createElement("div");
+          quantitywrapper.className="quantitycustomizationwrapper";
+
           
-          customizationtabcontent.appendChild(quantityplus);
-          customizationtabcontent.appendChild(quantity);
-          customizationtabcontent.appendChild(quantityminus);
+          quantitywrapper.appendChild(quantityplus);
+          quantitywrapper.appendChild(quantity);
+          quantitywrapper.appendChild(quantityminus);
+          
+          customizationtabcontent.appendChild(quantitywrapper);
             
             customizationtab.appendChild(customizationtabcontent);
             customizationtab.appendChild(addtocart);
