@@ -42,7 +42,7 @@ food=foodlist;
 
 var drinklist=Object.keys(window.menuitemjson["Drinks"]);
 drink=drinklist;
-alert(drinklist);
+
 generalIcons={
 "veg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Veg.png",
 "nonveg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Non+Veg.png"
