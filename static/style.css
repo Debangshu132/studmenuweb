@@ -369,14 +369,17 @@ border-radius: 10%;
  .menuitemsbodyplus{
     padding-top:8px; 
     width:100%;
+    font-weight: bold;
+    font-size: 15px;
 
     
 
  }
 .menuitemsbodyminus{
-    padding-top:5px; 
+    padding-top:15px; 
     width:100%;
- 
+    font-weight: bold;
+    font-size: 15px;
     
  }  
 .bodyfoodprice{
