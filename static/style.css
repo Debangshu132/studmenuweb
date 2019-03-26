@@ -109,9 +109,9 @@ html, body {
     margin-bottom:20px;
     border-radius:15px;
     background:white;
-    box-shadow: 2px 4px;
-    -webkit-box-shadow: 0 0 6px rgb(43, 44, 49);
-    -moz-box-shadow: 0 0 6px rgb(54, 48, 48);
+    -webkit-box-shadow: 7px 9px 5px 0px rgba(92,91,99,1);
+-moz-box-shadow: 7px 9px 5px 0px rgba(92,91,99,1);
+box-shadow: 7px 9px 5px 0px rgba(92,91,99,1);
 }
 .customizationtab{
  
