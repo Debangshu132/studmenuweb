@@ -141,7 +141,8 @@ html, body {
 .customizationpriceofoption{
   position:relative;
   top:-15px;
-  left:95%;}
+  color:#aaa;
+  left:90%;}
 .customizationnameofoption{
   position:relative;
   color:#9d9d9d;
@@ -176,16 +177,18 @@ html, body {
 
 } 
 .customizetabaddtocart{
- position:relative;
+ position:absolute;
+ bottom:0;
+ padding-top:0.3cm;
  margin: 0% auto;
  width:100%;
  height:1cm;
  text-align:center;
  font-weight:bold;
- 
+ margin-bottom:0px;
  background:#01b460;
  color:white;
- 
+ float:bottom;
  text-align: center;
  
  
