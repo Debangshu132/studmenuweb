@@ -357,7 +357,7 @@ divChildPic.className="menuitemsbodypic";
 divChildPicVegNonveg.className="divChildPicVegNonveg";
 divChildPlusMinus.className="menuitemsbodyplusminus";
 divChildBasePrice.className="menuitemsbodybaseprice";
-divChildBasePrice.innerHTML="&#x20b9; 9500 = &#x20b9;"+JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
+divChildBasePrice.innerHTML="&#x20b9; "+JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
 
 
 
