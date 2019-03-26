@@ -317,8 +317,9 @@ box-shadow: 5px 10px;
   background-repeat: no-repeat;
   z-index: 3;
   box-shadow: 5px 10px; 
-  -webkit-box-shadow: 0 0 20px rgb(200,200,200);
-  -moz-box-shadow: 0 0 20px rgb(200,200,200);
+  -webkit-box-shadow: 10px 10px 40px 4px rgba(209,201,224,1);
+  -moz-box-shadow: 10px 10px 40px 4px rgba(209,201,224,1);
+  box-shadow: 10px 10px 40px 4px rgba(209,201,224,1);
 
 }
 .menuitemsbodybaseprice{
@@ -347,9 +348,7 @@ box-shadow: 5px 10px;
   margin-top: 10px;
 max-width: 80%;
 max-height: 80%;
--webkit-box-shadow: 10px 10px 40px 4px rgb(94, 91, 99);
--moz-box-shadow: 10px 10px 40px 4px rgb(94, 91, 99);
-box-shadow: 10px 10px 40px 4px rgb(94, 91, 99);
+
 }
 .menuitemsbodyplusminus{
   width:30px;
