@@ -272,7 +272,7 @@ document.getElementById("carticon").onclick=function(menuPicArray){
 
 document.getElementById("food").onclick=function()
 {
-  //document.getElementById("menuit").style.background="#1a8cff";
+  document.getElementById("drink").style.background="#aaa";
   clearFooter("menuite");
   populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
 } 
@@ -280,7 +280,7 @@ document.getElementById("food").onclick=function()
 
 
 document.getElementById("drink").onclick=function()
-{//document.getElementById("menuit").style.background="#46cc3d";
+{document.getElementById("food").style.background="#aaa";
 clearFooter("menuite");
 
 populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkColored);
