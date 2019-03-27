@@ -443,11 +443,15 @@ divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random()
 divChildPic.appendChild(divChildPicVegNonveg);
 
 div.appendChild(divChildPic);
-div.appendChild(divChild);
-div.appendChild(divChildPlusMinus);  
+div.appendChild(divChildPlusMinus); 
 
-div.appendChild(divChildDescriptionOfFood);   
-div.appendChild(divChildBasePrice); 
+
+var initialInfoBody=document.createElement('div');
+initialInfoBody.className='initialinfobody';
+initialInfoBody.appendChild(divChild);
+initialInfoBody.appendChild(divChildDescriptionOfFood);   
+initialInfoBody.appendChild(divChildBasePrice); 
+div.appendChild(initialInfoBody);
 document.getElementById("menuitbody").appendChild(div);}}
 }
 
