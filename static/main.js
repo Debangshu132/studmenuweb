@@ -584,7 +584,7 @@ function createCustomizationTab(item,text,baseprice){
             label.setAttribute("for", singlesectionquery);
             label.appendChild(checkbox);
             label.innerHTML=option;
-            nameofoption.appendChild(checkbox); 
+            //nameofoption.appendChild(checkbox); 
             nameofoption.appendChild(label);
             //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
             priceofoption.innerHTML= JSON.stringify(singlesectionoptions[option]) + '<br></br>';
