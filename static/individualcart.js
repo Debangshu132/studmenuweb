@@ -66,7 +66,7 @@ function populateCheckin(arrayOfCustomers){
       
    }
    else{
-   window.time=window.time+10;  
+   window.time=window.time+3;  
    for(var customerIndex=0;customerIndex<arrayOfCustomersJson.length;customerIndex++){
      
       document.getElementById("cartbody").innerHTML+=arrayOfCustomersJson[customerIndex]+" Has joined the Table!</br>";    
