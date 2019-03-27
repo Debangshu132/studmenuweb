@@ -583,7 +583,7 @@ function createCustomizationTab(item,text,baseprice){
             var label= document.createElement("label"); 
             label.setAttribute("for", singlesectionquery);
             label.appendChild(checkbox);
-            label.innerHTML+=option;
+            label.appendChild(document.createTextNode(option));
             //nameofoption.appendChild(checkbox); 
             nameofoption.appendChild(label);
             //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
