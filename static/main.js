@@ -106,7 +106,8 @@ window.menuPicArray=[
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')"
+  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
+
  
  
 
@@ -443,14 +444,11 @@ divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random()
 divChildPic.appendChild(divChildPicVegNonveg);
 
 div.appendChild(divChildPic);
-div.appendChild(divChildPlusMinus); 
-
-
-
 div.appendChild(divChild);
+div.appendChild(divChildPlusMinus);  
+
 div.appendChild(divChildDescriptionOfFood);   
 div.appendChild(divChildBasePrice); 
-
 document.getElementById("menuitbody").appendChild(div);}}
 }
 
