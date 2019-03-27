@@ -3,7 +3,7 @@
 }
 body{
  font-family: 'Roboto ';font-size: 14px;
-  display:inline-block;
+\
   margin:2px;
 }
 .statusBar{
@@ -38,6 +38,7 @@ body{
 
 }
 .bucket{
+  width:100%;
   display:inline-block;
   margin-top:0px;
   background:#F2F3F4;
