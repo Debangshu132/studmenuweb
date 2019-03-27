@@ -438,16 +438,18 @@ var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["descrip
 descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
 divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
 divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
+ 
+//divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
 divChildPic.appendChild(divChildPicVegNonveg);
+
 div.appendChild(divChildPic);
 div.appendChild(divChildPlusMinus); 
 
 
 
 div.appendChild(divChild);
-div.appendChild(divChildBasePrice); 
 div.appendChild(divChildDescriptionOfFood);   
-
+div.appendChild(divChildBasePrice); 
 
 document.getElementById("menuitbody").appendChild(div);}}
 }
