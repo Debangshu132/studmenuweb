@@ -446,8 +446,9 @@ div.appendChild(divChildPlusMinus);
 var initialInfoBody=document.createElement('div');
 initialInfoBody.className='initialinfobody';
 initialInfoBody.appendChild(divChild);
-initialInfoBody.appendChild(divChildDescriptionOfFood);   
 initialInfoBody.appendChild(divChildBasePrice); 
+initialInfoBody.appendChild(divChildDescriptionOfFood);   
+
 div.appendChild(initialInfoBody);
 document.getElementById("menuitbody").appendChild(div);}}
 }
