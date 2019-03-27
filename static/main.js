@@ -581,7 +581,7 @@ function createCustomizationTab(item,text,baseprice){
            
            
             var label= document.createElement("label"); 
-            label.setAttribute("for", singlesectionquery);
+            //label.setAttribute("for", singlesectionquery);
             label.appendChild(checkbox);
             label.appendChild(document.createTextNode(option));
             //nameofoption.appendChild(checkbox); 
