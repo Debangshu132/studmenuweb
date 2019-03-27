@@ -578,12 +578,12 @@ function createCustomizationTab(item,text,baseprice){
             checkbox.setAttribute("name", singlesectionquery);
             checkbox.setAttribute("value", [option,singlesectionoptions[option]]);
             checkbox.setAttribute("checked", true);
-            //checkbox.setAttribute("onclick", "function(){customization='hey'}");
+           
            
             var label= document.createElement("label"); 
             label.setAttribute("for", singlesectionquery);
             label.appendChild(checkbox);
-            label.innerHTML=option;
+            label.innerHTML+=option;
             //nameofoption.appendChild(checkbox); 
             nameofoption.appendChild(label);
             //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
