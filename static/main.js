@@ -1,825 +1,1369 @@
-window.cart=[];
-
-window.swiper = new Swiper('.swiper-container', {
-  slidesPerView:5,
-  simulateTouch:true,
-  initialSlide:0,
-  lazy: {loadPrevNext: true,loadPrevNextAmount: 2,},
-  spaceBetween: 30,
-
-  breakpoints: {
-      1300: {
-          slidesPerView: 11,
-          spaceBetween: 40,
-        },
-      900: {
-          slidesPerView: 9,
-          spaceBetween: 40,
-        },
-      710: {
-        slidesPerView: 8,
-        spaceBetween: 40,
-      },
-      560: {
-        slidesPerView: 7,
-        spaceBetween: 15,
-      },
-      450: {
-        slidesPerView: 6,
-        spaceBetween: 10,
-      },
-      370: {
-        slidesPerView: 5,
-        spaceBetween: 10,
-      }
-    }
-
-});
-window.menuitemjson=JSON.parse(menuitem);
-var foodlist=Object.keys(window.menuitemjson["Foods"]);
-
-food=foodlist;
-
-var drinklist=Object.keys(window.menuitemjson["Drinks"]);
-drink=drinklist;
-
-generalIcons={
-"veg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Veg.png",
-"nonveg":"https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Non+Veg.png"
-
-}
-
-picCategoryArrayFood=[
-"https://storage.googleapis.com/meallionpics/download.jpeg",
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg",   
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bread+Drive.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bytes.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Floppy.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Hardware.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Programmer.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png"
-]
-picCategoryArrayFoodColored=[
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Attributes.png",  
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bread+Drive.png",
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bytes.png",  
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Floppy.png",
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Hardware.png",  
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Programmer.png",
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png",
-  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png"
-  ]
-  picCategoryArrayDrink=[
-    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Attributes.png",  
-    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bread+Drive.png",
-    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bytes.png",  
-    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Floppy.png",
-    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Hardware.png",  
-    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Programmer.png",
-    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png",
-    "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png"
-    ]
-    picCategoryArrayDrinkColored=[
-      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Attributes.png",  
-      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bread+Drive.png",
-      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Bytes.png",  
-      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Floppy.png",
-      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Hardware.png",  
-      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Programmer.png",
-      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png",
-      "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Software.png"
-      ]
-
-
-window.menuPicArray=[
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')"
- 
- 
-
-  ] 
-  function deletecartquantityzeroitems(){
-    for(var i=window.cart.length-1;i>-1;i--){
-      if(window.cart[i]["quantity"]===0){
-        window.cart.splice(i,1);
-        console.log(i);
-      }
-    }
-  }
-
-document.getElementById("carticon").onclick=function(menuPicArray){
- deletecartquantityzeroitems(); 
- var cart=document.createElement('div');
- cart.className="cart";
- cart.id="cart";
- //cart.innerHTML=JSON.stringify(window.cart);
- var cartheader=document.createElement('div');
- var cartorderbutton=document.createElement('div');
- var cartheaderback=document.createElement('IMG'); 
- var cartheadername=document.createElement('div');
- cartheader.className="cartheader";
- cartheaderback.className="cartheaderback";
- cartheadername.className="cartheadername";
- cartorderbutton.className="cartorderbutton";
- cartheaderback.setAttribute("src","https://img.icons8.com/windows/32/000000/left.png");
- cartheadername.innerHTML="cart"
- cartheader.appendChild(cartheaderback);
- cartheader.appendChild(cartheadername);
- cartheaderback.onclick=function(){
-  document.getElementById("cart").remove();
- }
- //cartheader.innerHTML="cart";
- //document.getElementById("customizationtab").remove();
- cart.appendChild(cartheader);
- for(var i=0;i<window.cart.length;i++){
-  var cartitem=document.createElement('div');
-  var cartitemname=document.createElement('div');
-  var cartcustomizationname=document.createElement('div');
-  var cartitempricename=document.createElement('div');
-  var cartitemquantityname=document.createElement('div');
-  var minusbutton=document.createElement('div');
-  var plusbutton=document.createElement('div');
-  var changecartitem=document.createElement('div');
-  var cartitempic=document.createElement('IMG');
-
-  
-  cartitemname.className="cartitemname";
-  cartcustomizationname.className="cartcustomizationname";
-  cartitempricename.className="cartitempricename";
-  cartitemquantityname.className="cartitemquantityname";
-  cartitem.className="cartitem";
-  changecartitem.className="changecartitem";
-  minusbutton.className="cartminusbutton";
-  plusbutton.className="cartplusbutton";
-  cartitempic.className="cartitempic";
-
-  plusbutton.innerHTML="+";
-  minusbutton.innerHTML="-";
-  cartitempic.src='../static/'+[Math.floor(1+Math.random() * 10)]+'.jpg' ;
 
 
 
-
-  var cartitemnamestring=JSON.stringify(window.cart[i]["item"]).substring(1,JSON.stringify(window.cart[i]["item"]).length-1);
-  var cartcustomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('"',' ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace(']}','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('[','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":[','');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace('":],"',' ; ');
-  cartcustomizationnamestring=cartcustomizationnamestring.replace(',',' , &#x20b9; ');
-  cartitemname.innerHTML=cartitemnamestring;
-  cartcustomizationname.innerHTML=cartcustomizationnamestring;
-  cartitempricename.innerHTML="Price:Rs "+JSON.stringify(window.cart[i]["price"]);
-  cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
-  cartorderbutton.innerHTML="ORDER";
-  cartorderbutton.onclick=function(){
-
-      // the Messenger Extensions JS SDK is done loading
-       MessengerExtensions.getUserID(function success(uids) {
-        var psid = uids.psid;//This is your page scoped sender_id
-        var http = new XMLHttpRequest();
-    var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":psid,"cart":(window.cart)});
-    http.open("POST", url, false); 
-    http.setRequestHeader("Content-Type", "application/json");
-    http.send(window.cart);
-
-
-
-    var http2 = new XMLHttpRequest();
-    var url2 = 'https://studmenuweb.herokuapp.com/ordered/';
-    http2.open("POST", url2, false); 
-    http2.setRequestHeader("Content-Type", "application/json");
-    http2.send();
-
-
-
-
-
-    MessengerExtensions.requestCloseBrowser();
-        
-    }, function error(err) {
-        alert("Messenger Extension Error: " + err);
-    });
-
-    
-  
-
-  }
-  plusbutton.onclick=function(arg,arg2,arg3){
-    return function(){
-     var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];
-    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]+1; 
-    window.cart[arg]["price"]=window.cart[arg]["price"]+priceperitem;   
-    arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
-    arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
-  }
-
-  }(i,cartitemquantityname,cartitempricename);
-  minusbutton.onclick=function(arg,arg2,arg3,arg4){
-    return function(){
-    console.log(window.cart);
-    //console.log(arg);
-    if(window.cart[arg]["quantity"]>0){
-      var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];   
-    window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1;
-    window.cart[arg]["price"]=window.cart[arg]["price"]-priceperitem;   
-    arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
-    arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
-  } 
-    if(window.cart[arg]["quantity"]===0){
+html, body {
      
-      arg4.remove();
-      //window.cart.splice(arg,1);
-      // 
-    
-    }}
-}(i,cartitemquantityname,cartitempricename,cartitem);
+  height: 100%;
+  width:100%;
+  font-size: 10px;
+  position:fixed;
+  padding-left:0%;
+  margin-left:0%;
+  font-family: 'Quicksand', sans-serif;
+  background:#efefef;
+}
 
-
-
-  changecartitem.appendChild(plusbutton);
-  changecartitem.appendChild(cartitemquantityname);
-  changecartitem.appendChild(minusbutton);
-  cartitem.appendChild(cartitemname);
-  cartitem.appendChild(cartcustomizationname);
-  cartitem.appendChild(cartitempricename);
-  cartitem.appendChild(changecartitem);
-  cartitem.appendChild(cartitempic);
-  cart.appendChild(cartitem);
- 
- }
-
-
- cart.appendChild( cartorderbutton);
- document.getElementById("menuitbody").appendChild(cart);
+#load{
+  width:100%;
+  height:110%;
+  margin-top:-15px;
+  position:fixed;
+  z-index:9999;
+  background:url("https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Pizza+Loader.gif") no-repeat center center #e34b4b
 }
 
 
+.swiper-container {
+  background: #ffffff;
+  height:100%;
+  bottom:0;
+ 
 
-document.getElementById("food").onclick=function()
-{
-  document.getElementById("drink").style.background="#ddd";
-  document.getElementById("food").style.background="#fff";
-  clearFooter("menuite");
-  populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
+ }
+ .carticon{
+   float:right;
+   padding-right:30px;
+   margin-top:5px;
+   height:70%;
+  
+
+ }
+
+.containerbody {
+  margin-left:auto;
+  margin-right:auto;
+  overflow-x:visible;
+  margin-bottom:10px;
+  width:80%;
+ }
+.swiper-slide {
+  text-align: bottom;
+  
+  }
+.menuitemspic{
+    border-radius:0%;
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+    max-width:53%;
+    max-height:53%;
+    margin-top:1.0vh;
+    
+  }
+ 
+.menuitemsdescription{
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+    color: #555;
+    font-family: 'Dosis', sans-serif;
+    
+    
+}
+
+.footer{
+   
+    height:80px;
+    bottom:0;
+    width:100%;
+    margin-left:0%;
+    padding-block-start: 0%;
+    margin-block-start: 0%;
+    margin-inline-start: 0%;
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+    position: fixed;
+    z-index:4; 
+    box-shadow: 5px 10px;
+    -webkit-box-shadow: 0 0 20px rgb(200,200,200);
+    -moz-box-shadow: 0 0 20px rgb(200,200,200);
+    
+}
+.menu{
+  margin-top:40px;
+  overflow:scroll;
+  height:90%;
+  margin-bottom:170px;
+  width:100%;
+}
+
+.supermenu{
+   }
+.slidebody {
+  margin-top:15px;
+    height:2.2cm;
+    position:relative;
+    text-align: bottom;
+    color:black;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:20px;
+    border-radius:7px;
+    background:white;
+    -webkit-box-shadow: 2px 2px 8px 0px #bbb;
+    -moz-box-shadow: 2px 2px 8px 0px #bbb;
+    box-shadow: 2px 4px 8px 0px #bbb;
+}
+.customizationtab{
+ 
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.customizationtabcontent {
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: #fefefe; /* Fallback color */
+  
+
+
+  
+}
+.customizationpriceofoption{
+  position:relative;
+  top:-15px;
+  color:#9d9d9d;
+  left:90%;}
+.customizationnameofoption{
+  position:relative;
+  color:#9d9d9d;
+  padding-left:0.5cm;
 } 
+.quantitycustomizationwrapper{
+  display:inline-block;
+ 
+  width:100%;
+  text-align:center;
+}
 
+.customizationquantityplus{
+ display:inline-block;
+ border: 1px solid #aaa;
+  width:1cm;
+  height:1cm;
+  border-radius:0.5cm;
+  color:#9d9d9d;
+  font-size:30px;
+  text-align:center;
+   line-height: 34px;
 
+} 
+.customizationquantityminus{
+ display:inline-block;
+ border: 1px solid #aaa;
+  width:1cm;
+  height:1cm;
+  border-radius:0.5cm;
+  color:#9d9d9d;
+  font-size:30px;
+  text-align:center;
+    line-height: 34px;
 
-document.getElementById("drink").onclick=function()
-{document.getElementById("food").style.background="#ddd";
-document.getElementById("drink").style.background="#fff";
-clearFooter("menuite");
-
-populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkColored);
-}  
-
-
-
-
-window.onload = function() {
-  document.getElementById("drink").style.background="#ddd";
-  populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
-  window.menuitemjson=JSON.parse(menuitem);
-  clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray);
-  };
+} 
+.customizetabaddtocart{
+ position:absolute;
+ bottom:0;
+ padding-top:0.3cm;
+ margin: 0% auto;
+ width:100%;
+ height:1cm;
+ text-align:center;
+ font-weight:bold;
+ margin-bottom:0px;
+ background:#01b460;
+ color:white;
+ float:bottom;
+ text-align: center;
+ 
  
 
-  
-
-
-function clearFooter(elementID)
-{document.getElementById(elementID).innerHTML = "";
-
 
 }
-function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypiccolored){
+.quantitycustomizationinput{
+  display:inline-block;
+  margin-left:auto;
+  margin-right:auto;
+  width:20px;
+  padding:10px;
+  text-align:center;
+
   
-  for(i=0;i<foodOrDrink.length;i++){
-  var div = document.createElement("div");
+  
+  
+  }
+.cart{
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: #fff; /* Fallback color */
+  color:#000; /* Black w/ opacity */
+  margin:5px;
+  overflow-y: scroll;
+  
+}
+.cartitem{
+  margin-top:40px;
+  width:80%;
+  margin-top:15px;
+  height:70px;
+  text-align: bottom;
+  color:black;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:20px;
+  border-radius:15px;
+  background:white;
+  box-shadow: 2px 4px;
+  -webkit-box-shadow: 0 0 10px rgb(200,200,200);
+  -moz-box-shadow: 0 0 10px rgb(200,200,200);
+}
+.cartheader{
+  width:100%;
+  
+
+  display:inline-block;
+}
+.cartheaderback{
+  widows: 20px;
+  
+}
+.cartheadername{
+  
+  height:100%;
+  position:relative;
+  top:-12px; 
+  display:inline-block;
+  font-size: 13px;
+}
+.cartitemname{
+  
+  font-weight:bold;
+  font-size: 13px;
+  padding-left:5%;
+}
+.cartitempic{ position:relative;
+top:-60px;
+left:-100px;
+width:60px;
+height:60px;
+border-radius: 10px;
+background-size: cover;
+background-repeat: no-repeat;
+z-index: 3;
+box-shadow: 5px 10px; 
+-webkit-box-shadow: 0 0 20px rgb(200,200,200);
+-moz-box-shadow: 0 0 20px rgb(200,200,200);}
+.cartcustomizationname{
+  margin-right:40px;
+  margin-left:auto;
+  
+  color:grey;
+  width:50%;
+  font-size: 10px;
+}
+
+.cartitemquantityname{
+  
+  
+  height:10px;
+  color:grey;
+  text-align: center;
+}
+.cartitempricename{
+  
+  color:grey;
+  padding-left:10px;
+  padding-top:5px;
+  font-weight:bold;
+}
+.changecartitem{
+  position:relative;
+  top:-53px;
+  left:15px;
+  height:60px;
+  width:30px;
+  background:white;
+  float:right;
+  border-radius: 1px;
+  box-shadow: 5px 10px; 
+-webkit-box-shadow: 0 0 20px rgb(200,200,200);
+-moz-box-shadow: 0 0 20px rgb(200,200,200);
+
+}
+.cartminusbutton{
+  padding-top:5px;
  
-  div.className="swiper-slide";
-  var img = document.createElement("img");
-  img.src = arraypic[i];
-  img.className="menuitemspic"
-  var divChild = document.createElement("div");
-  divChild.className="menuitemsdescription";
-  divChild.innerHTML+=foodOrDrink[i];
-  var menuitemjson=JSON.parse(menuitem);
-  var item=menuitemjson[foodDrink][foodOrDrink[i]];
-  if(item==='undefined'){
-  item="Its not available";}
-  img.onclick= function(arg,arg2,arg3,index) {
-      return function() {
-          
-          clearFooter("menuitbody");
-          clearAllBorders();
-          arg2.src=arg3[index];
-          populateBody("restaurantName",arg,menuPicArray);
-         
-          
-         
-         
-          
-      }
-  }(item,img,arraypiccolored,i);
-  div.appendChild(img);
-  div.appendChild(divChild);
-  var currentDiv = document.getElementById("div1"); 
-  document.getElementById("menuite").insertBefore(div,currentDiv);}
-  window.swiper.updateSize(); 
-  window.swiper.updateSlides();
- 
 }
-
-
-function populateBody(restaurantName,jsonofitems,menuPicArray){
-  
-var itemnamearray=Object.keys(jsonofitems); 
-for(i=0;i<itemnamearray.length;i++){
-var div = document.createElement("div");
-div.className="slidebody";
-
-var divChild = document.createElement("div");
-divChild.className="menuitemsnamebody";
-var tempname=JSON.stringify(itemnamearray[i]);
-
-if(JSON.stringify(jsonofitems[itemnamearray[i]]["active"])===JSON.stringify("True")){
-
-tempname = tempname.substring(1, tempname.length-1);
-divChild.innerHTML += tempname; 
-
-
-var divChildPic = document.createElement("div");
-var divChildBasePrice = document.createElement("div");
-var divChildPicVegNonveg=document.createElement("IMG");
-var divChildPlusMinus = document.createElement("div");  
-var divChildDescriptionOfFood = document.createElement("div");
-divChildDescriptionOfFood.className="menuitemsbodydescription";
-divChildDescriptionOfFood.style.visibility="hidden";
-  
-divChildPic.className="menuitemsbodypic";
-divChildPicVegNonveg.className="divChildPicVegNonveg";
-divChildPlusMinus.className="menuitemsbodyplusminus";
-divChildBasePrice.className="menuitemsbodybaseprice";
-divChildBasePrice.innerHTML="&#x20b9; "+JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
-
-
-
-divChildPicVegNonveg.src=generalIcons[jsonofitems[tempname]["vegnonveg"]];
-
-
-divChildPlusMinus.addEventListener('click', function(pEvent) {
-  pEvent.stopPropagation();
-})
-
-var menuitemsbodyplus=document.createElement("div");
-menuitemsbodyplus.className="menuitemsbodyplus";
-menuitemsbodyplus.innerHTML="+";
-var menuitemsbodyminus=document.createElement("div");
-menuitemsbodyminus.className="menuitemsbodyminus";
-menuitemsbodyminus.innerHTML="_";
-
-
-//divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
-
-menuitemsbodyplus.onclick=function(arg,arg2,arg3){
-  return function() {
-    createCustomizationTab(arg,arg2,arg3);
-  }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
-menuitemsbodyminus.onclick=function(arg,arg2){
-    return function() {
-      checkandminus(arg,arg2);
-    }}(tempname,jsonofitems[tempname]);  
-
-
-
-
-
-  divChildPlusMinus.appendChild(menuitemsbodyplus);
-  divChildPlusMinus.appendChild(menuitemsbodyminus);
-
-  
-var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
-div.onclick=  function(arg,arg2) {
-  return function() {
-      
-      if( arg.style.height==='2.2cm'){
-       
-        resetAllHeights();
-        arg2.style.visibility="visible";
-        arg.style.height='5cm';}
-        else{
-          arg2.style.visibility="hidden"; 
-        arg.style.height='2.2cm';
-      } 
-  }
-}(div,divChildDescriptionOfFood);
-var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
-descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
-divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
-divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
- 
-//divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
-divChildPic.appendChild(divChildPicVegNonveg);
-
-div.appendChild(divChildPic);
-div.appendChild(divChildPlusMinus); 
-
-
-var initialInfoBody=document.createElement('div');
-initialInfoBody.className='initialinfobody';
-initialInfoBody.appendChild(divChild);
-initialInfoBody.appendChild(divChildDescriptionOfFood);   
-initialInfoBody.appendChild(divChildBasePrice); 
-div.appendChild(initialInfoBody);
-document.getElementById("menuitbody").appendChild(div);}}
-}
-
-
-
-
-
-
-function resetAllHeights(){
-  var items=document.getElementsByClassName("slidebody");
-  for (var i=0; i < items.length; i++) {
-    items[i].style.height='2.2cm' ;
-  }
-  var description=document.getElementsByClassName("menuitemsbodydescription");
-  for (var i=0; i < description.length; i++) {
-    description[i].style.visibility="hidden" ;
-  }
-
-
+.cartplusbutton{
 
 }
-
-
-
-
-
-document.onreadystatechange = function () {
-  var state = document.readyState
-  if (state == 'interactive') {
-       document.getElementById('menu').style.visibility="hidden";
-  } else if (state == 'complete') {
-      setTimeout(function(){
-         document.getElementById('interactive');
-         fadeOutEffect();
-          document.getElementById('load').style.visibility="hidden";
-          document.getElementById('menu').style.visibility="visible";
-      },1000);
-  }
-}
-
-
-function fadeOutEffect() {
-  var fadeTarget = document.getElementById('load');
-  var fadeEffect = setInterval(function () {
-      if (!fadeTarget.style.opacity) {
-          fadeTarget.style.opacity = 1;
-      }
-     
-      if (fadeTarget.style.opacity > 0) {
-          fadeTarget.style.opacity -= 0.1;
-      } else {
-          clearInterval(fadeEffect);
-      }
-  }, 50);
-}
-
-
-function  checkandminus(item,text){
-   var countfitemareadypresentincart=0;
-   for(var i=0;i<window.cart.length;i++){
-     if(JSON.stringify(window.cart[i]["item"]) === JSON.stringify(item) ){
-       countfitemareadypresentincart= countfitemareadypresentincart+1;}}
-      // alert(countfitemareadypresentincart);
-     if(countfitemareadypresentincart>1){
-       alert("you have multiple vriations.please go to cart to remove");
-     }
-     if(countfitemareadypresentincart===0){
-       alert("you dont have this item in cart yet");
-     }  
-     if(countfitemareadypresentincart===1){
-         for(var j=0;j<window.cart.length;j++){
-           if(JSON.stringify(window.cart[j]["item"])===JSON.stringify(item)){
-            if(parseInt(window.cart[j]["quantity"])===1){
-              window.cart.splice(j,1);
-              console.log(window.cart);
-             }
-                  if(parseInt(window.cart[j]["quantity"])>1){
-                    var priceofsingleitem=parseInt(window.cart[j]["price"])/parseInt(window.cart[j]["quantity"]);
-                    window.cart[j]["quantity"]=window.cart[j]["quantity"]-1;
-                    window.cart[j]["price"]=window.cart[j]["price"]-priceofsingleitem;
-                    console.log(window.cart);
-                  }
-                  
-           }
-         }
-
-
-
-
-
-     } 
-}
-
-
-function createCustomizationTab(item,text,baseprice){
+.cartorderbutton{
+  text-align: center;
+  height:30px;
+  width:100%;
+  position:fixed;
+  background: green;
+  bottom: 0;
+    left: 0;
     
-    if(text["customization"]===true){
-          var addtocart=document.createElement('div'); 
-          var totalcart=0;
-          var customization={};
-          var singlechoicejson=text["customizationdata"]['singlechoice'];
-          var singlechoicearr=Object.keys(singlechoicejson);
+    color:white;
+}
+
+
+
+
+
+
+::-webkit-scrollbar {
+   /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+.initialinfobody{
+  
+}
+.menuitemsbodypic{
+  position:relative;
+  top:-8px;
+  left:-8px;
+  width:2.2cm;
+  height:2.2cm;
+  border-radius: 7px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 3;
+ 
+}
+.menuitemsbodybaseprice{
+  
+   margin-top:-3.5cm;
+   float:right;
+   padding-right:0.6cm;
+   font-family: 'Dosis', sans-serif;   
+  
+}
+.divChildPicVegNonveg{
+  max-width: 12%;
+  max-height: 12%;
+  position:relative;
+  top:1.7cm;
+  left:0.9cm;
+
+}
+.menuitemsnamebody{
+  float:left;
+   padding-left:2.4cm;
+   margin-top:-2cm;
+   font-size: 15px;
+  font-weight:bold;
+}
+.menuitemsbodyactualpic{
+  margin-top: 10px;
+max-width: 80%;
+max-height: 80%;
+
+}
+.menuitemsbodyplusminus{
+  width:0.7cm;
+  height:1.6cm;
+  float:right;
+  position:relative;
+  top:-1.9cm;
+  z-index:4;
+  background:white;
+  margin-right:-0.4cm;
+  box-shadow: 5px 10px;
+  
+  -webkit-box-shadow: 0 0 7px #aaa;
+-moz-box-shadow: 0 0 7px #aaa;
+border-radius: 5px;
+
+  
+  
+} 
+  .menuitemsbodyplus{
+    text-align:center; 
+    padding:0px;
+    margin:0px;
+    height:50%;
+    width:100%;
+    font-weight: bold;
+    font-size: 25px;
+    color:#01b460;
+    
+
+ }
+.menuitemsbodyminus{
+  text-align:center; 
+    height:50%;
+    padding:0px;
+    margin:0px;
+    width:100%;
+    color:#9d9d9d;
+    font-weight: bold;
+    font-size: 20px;}
+   
+.menuitemsbodydescription{
+   color:grey;
+   position: relative;
+   padding-right:1cm;
+   width:80%;
+   height:100px;
+   
+   left:1cm;
+   text-align: left;
+   overflow: scroll;
+   overflow-wrap: break-word;
+
+ }
+.foods{
+color:#555;
+text-align: center;
+ background: #fff;
+ width:50%;  
+ height: 10%;
+ padding-top:5px;
+ padding-bottom: 5px;
+display: inline-block;
+border-top-left-radius:30px;
+
+
+}
+
+#food:focus{
+outline: none;
+}
+
+
+#drink:focus{
+outline: none;
+}
+.drinks{
+
+color:#555;
+text-align: center;
+padding-top:5px;
+padding-bottom: 5px;
+background:#ffffff;
+width:50%;
+height: 10%; 
+display: inline-block;
+border-top-right-radius:30px;
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 370px) {
+body {
+  font-size: 14px;
+}
+.footer{
+  height:90px;
+}
+.menuitemspic{
+  max-width:65%;
+  max-height:65%;
+}
+
+}
+@media screen and (min-width: 450px) {
+  .menuitemspic{
+    max-width:78%;
+    max-height:78%;
+  }
+  
+  .footer{
+    height:100px;
+  }
+  
+  }
+  @media screen and (min-width: 560px) {
+    body {
+      font-size: 14px;
+    }
+    .footer{
+      height:105px;
+    }
+    .menuitemspic{
+      max-width:110%;
+      max-height:110%;
+    }
+    
+    }
+   
+        @media screen and (min-width: 710px) {
+          body {
+            font-size: 12px;
+          }
+          .footer{
+            height:115px;
+          }
           
-          var multiplechoicejson=text["customizationdata"]['multiplechoice'];
-          var multiplechoicearr=Object.keys(multiplechoicejson);
-          var customizationtab=document.createElement('div');
-          customizationtab.id="customizationtab";
-          var customizationtabcontent=document.createElement('div');
-          customizationtab.className='customizationtab';
-          customizationtabcontent.className='customizationtabcontent';
-          customizationtabcontent.id='customizationtabcontent';
-          var singlechoice=Object.keys(singlechoicejson);
-          var multiplechoice=Object.keys(multiplechoicejson);
-          for(section in singlechoice){
-            var singlesectionquery=JSON.stringify(singlechoice[section]);
-            var singlesectionoptions=singlechoicejson[singlechoice[section]];
-            singlesectionquery = JSON.stringify(singlesectionquery).substring(3, singlesectionquery.length+1); 
-            customizationtabcontent.innerHTML+=singlesectionquery + '<br></br>';
-            for(option in singlesectionoptions){
-            option = JSON.stringify(option).substring(1, option.length+1);  
-            var nameofoption=document.createElement('div');
-            nameofoption.className='customizationnameofoption';
-
-            var priceofoption=document.createElement('div');  
-            priceofoption.className='customizationpriceofoption';
-                  
-
-
-
-            var checkbox = document.createElement("input"); 
-            checkbox.setAttribute("type", "radio");
-            checkbox.setAttribute("name", singlesectionquery);
-            checkbox.setAttribute("value", [option,singlesectionoptions[option]]);
-            checkbox.setAttribute("checked", true);
-           
-           
-            var label= document.createElement("label"); 
-            //label.setAttribute("for", singlesectionquery);
-            label.appendChild(checkbox);
-            label.appendChild(document.createTextNode(option));
-            //nameofoption.appendChild(checkbox); 
-            nameofoption.appendChild(label);
-            //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
-            priceofoption.innerHTML= JSON.stringify(singlesectionoptions[option]) + '<br></br>';
-            customizationtabcontent.appendChild(nameofoption);
-            customizationtabcontent.appendChild(priceofoption);
-          }}
-
-         for(section in multiplechoice){
-          var multiplesectionquery=JSON.stringify(multiplechoice[section]);
-          var multiplesectionoptions=multiplechoicejson[multiplechoice[section]];
-          multiplesectionquery = JSON.stringify(multiplesectionquery).substring(3, multiplesectionquery.length+1); 
-          customizationtabcontent.innerHTML+=multiplesectionquery + '<br></br>';
-          for(option in multiplesectionoptions){
-          option = JSON.stringify(option).substring(1, option.length+1);  
-          var nameofoption=document.createElement('div');
-          nameofoption.className='customizationnameofoption';
-
-          var priceofoption=document.createElement('div');  
-          priceofoption.className='customizationpriceofoption';
-                
-
-
-
-          var checkbox = document.createElement("input"); 
-          checkbox.setAttribute("type", "checkbox");
-          checkbox.setAttribute("name", multiplesectionquery);
-          checkbox.setAttribute("value", [option,multiplesectionoptions[option]]);
-
-
-
-          var label= document.createElement("label"); 
-          label.setAttribute("for", multiplesectionquery);
-          label.innerHTML=option;
-          nameofoption.appendChild(checkbox); 
-          nameofoption.appendChild(label);
-         
-          //nameofoption.innerHTML='<input type="radio"  name="'+singlesectionquery+'" value="Bike"> ' + option ;
-          priceofoption.innerHTML= JSON.stringify(multiplesectionoptions[option]) + '<br></br>';
-          customizationtabcontent.appendChild(nameofoption);
-          customizationtabcontent.appendChild(priceofoption);
-        }}
-          
+          }
+          @media screen and (min-width: 1000px) {
+            body {
+              font-size: 12px;
+            }
+            .footer{
+              height:130px;
+            }
             
-            window.quantityvalue=1;      
-            var quantity = document.createElement("div");
-            quantity.className="quantitycustomizationinput";
-            quantity.id="quantityid";
-            quantity.innerHTML=JSON.stringify(window.quantityvalue);
-            var quantityplus=document.createElement("div");
-            var quantityminus=document.createElement("div");
-            quantityplus.className="customizationquantityplus";
-            quantityminus.className="customizationquantityminus";
-            quantityplus.innerHTML="+";
-            quantityminus.innerHTML="-";
-            quantityplus.onclick=function(arg,arg2){
-              return function(){
-            window.quantityvalue=window.quantityvalue+1;
-                arg=arg+1;
-                arg2.innerHTML=JSON.stringify(window.quantityvalue);
+            }
+            @media screen and (min-width: 1300px) {
+              body {
+                font-size: 12px;
               }
-            }(window.quantityvalue,quantity);
-            quantityminus.onclick=function(arg,arg2){
-              return function(){
-                if( window.quantityvalue>0){
-                  window.quantityvalue=window.quantityvalue-1;
+              .footer{
+                height:145px;
               }
-                arg2.innerHTML=JSON.stringify(window.quantityvalue);
               
               }
-            }(window.quantityvalue,quantity);
-            addtocart.className='customizetabaddtocart';
-            addtocart.id="customizetabaddtocart";
-            addtocart.innerHTML='ADD TO CART';
-           
-
-
-
-            addtocart.onclick=function(){
-               
-
-
-              for(var i=0;i < singlechoicearr.length;i++){
-            customization[singlechoicearr[i]]=updatecustomization(singlechoicearr[i]);}
-            for(var i=0;i < multiplechoicearr.length;i++){
-              customization[multiplechoicearr[i]]=updatecustomization(multiplechoicearr[i]);}
-              var quantityofitems=quantityvalue;
-            updatecart(item,customization,quantityofitems,true);
-          }
-
-          var quantitywrapper = document.createElement("div");
-          quantitywrapper.className="quantitycustomizationwrapper";
-
-          
-          quantitywrapper.appendChild(quantityminus);
-          quantitywrapper.appendChild(quantity);
-          quantitywrapper.appendChild(quantityplus);
-          
-          customizationtabcontent.appendChild(quantitywrapper);
+                       
             
-            
-            customizationtabcontent.appendChild(addtocart);
-            customizationtabcontent.appendChild(addtocart);
-            document.getElementById("menu").appendChild(customizationtabcontent);}
-        else{
-          //alert("updating");
-          updatecart(item,baseprice,1,false);
-          
-          
-        }   
-           
-
-    
-}
-function updatecart(item,customization,quantity,customizationOrNot){
-  if(customizationOrNot==true){
-  var priceofindividualitem=calculatepriceofindividualitem(customization)*parseInt(quantity);
-  var newitem={"item":item,"customization":customization,"quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
-  }
-  if(customizationOrNot==false){
-    var priceofindividualitem=customization;
-    var newitem={"item":item,"customization":"","quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
-    }
-  
-  if(window.cart.length>0){
-  var ispresentalready=checkforsameitemandcustomizationincart(newitem);
-
-  if(ispresentalready===false){
-    window.cart.push(newitem);}}
-  else{
-  window.cart.push(newitem);}
-  try{
-  document.getElementById("customizationtabcontent").remove();}
-  catch{
-    //alert("updated!");
-  }
-  console.log(JSON.stringify(window.cart));
-}
-function checkforsameitemandcustomizationincart(newitem){
-   for(var i=0;i<window.cart.length;i++){
-        //alert(JSON.stringify(window.cart[i]));
-        if(newitem["item"]===window.cart[i]["item"] && JSON.stringify(newitem["customization"])===JSON.stringify(window.cart[i]["customization"])){
-          window.cart[i]["quantity"]=window.cart[i]["quantity"]+newitem["quantity"];
-          window.cart[i]["price"]=window.cart[i]["price"]+newitem["price"];
-          return true;
-        }}
-      return false;
-}
-function calculatepriceofindividualitem(customization){
-   var price=0;
-   var sections=Object.keys(customization);
-   for(var i=0;i<sections.length;i++){
-    var arrayofitemsselected=customization[sections[i]];
-    //price=price+arrayofitemsselected ;
-   for(var j=0;j<arrayofitemsselected.length;j++){
-      var itempricearray=arrayofitemsselected[j].split(',');
-      price=price+parseInt(itempricearray[1]);
-   }}
-   return price; 
-}
-function updatecustomization(checkboxName) {
-  var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
-  Array.prototype.forEach.call(checkboxes, function(el) {
-      values.push(el.value);});
- return values;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-function clearAllBorders(){
-  var a=document.getElementsByClassName("menuitemspic");
-  for (var i=0; i < a.length; i++) {
-    a[i].src=picCategoryArrayFood[i] ;
-    
-  }
-}
-
-
-
-
-
-
-function searchitem(){
-var text= document.getElementById("textsearch");  
-//var men=document.getElementById('menu');
-var textvalue=text.value;
-var jsonofitems={};
-clearFooter("menuitbody");
-//men.innerHTML="";
-//var data=JSON.stringify(menuitemjson);
-var fooddrink;
-for (fooddrink in menuitemjson) { 
-  
-  var category;
-  for(category in menuitemjson[fooddrink]){
-    var fooditem;
-    for(fooditem in menuitemjson[fooddrink][category]){
-      var stringfooditem=JSON.stringify(fooditem);
-      if( (stringfooditem.toLowerCase()).includes(textvalue.toLowerCase())){
-
-         var price=menuitemjson[fooddrink][category][fooditem];
-         jsonofitems[stringfooditem]=price;
         
-         
-      }
-    }
+          
+  
+
+
+
+
+
+@keyframes expand {
+  0% {
+    height:120px;
+      
+  }
+  100% {
+    height:240px;
+      
   }
 }
-var stringresult=JSON.stringify(jsonofitems);
-var finalData = stringresult.replace(/\\/g, "");
-var finallymadedata=finalData.replace('""','"');
-var thisoneisfinal = finallymadedata.replace(/""/g, '"');
-var nopethisone=JSON.parse(thisoneisfinal);
-var a=JSON.stringify(nopethisone);
-//men.innerHTML+=a;
 
-populateBody("restaurantName",nopethisone,menuPicArray);  
-document.getElementById("textsearch").value = "";
-document.getElementById("textsearch").blur();
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+
+
+.flexbox {
+  background: #fff;
+  width: 100%;
+  height:50px;
+  margin-top:-15px;
+  position:fixed;
+  z-index:5;
+  box-shadow: 0px 0px 1px 1px #ddd;
+  
+  
+}
+
+.search {
+  margin: 5px;
+}
+
+
+
+
+.search > div {
+  display: inline-block;
+  position: fixed;
+}
+
+.search > div:after {
+  content: "";
+  background: #aaa;
+  width: 2px;
+  height: 9px;
+  position: fixed;
+  top: 20px;
+  margin-top:6px;
+  margin-left:-2px;
+  transform: rotate(135deg);
 
 }
+
+.search > div > input {
+  color: #666;
+  font-size: 13px;
+  background: transparent;
+  width: 20px;
+  height: 18px;
+  margin-top:9px;
+  text-indent:10px;
+  float:left;
+  margin-left:15px ;
+  border: solid 2px #aaa;
+  outline: none;
+  border-radius: 20px;
+  
+  transition: width 0.2s;
+}
+
+.search > div > input::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+.search > div > input::-ms-placeholder {
+  color: #aaa;
+}
+
+.search > div > input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+.search > div > input:focus,
+.search > div > input:valid {
+  width: 80%;
+}
+s
+
+
+
+html, body {
+     
+  height: 100%;
+  width:100%;
+  font-size: 10px;
+  position:fixed;
+  padding-left:0%;
+  margin-left:0%;
+  font-family: 'Quicksand', sans-serif;
+  background:#efefef;
+}
+
+#load{
+  width:100%;
+  height:110%;
+  margin-top:-15px;
+  position:fixed;
+  z-index:9999;
+  background:url("https://s3.ap-south-1.amazonaws.com/studmenu/General+Icons/Pizza+Loader.gif") no-repeat center center #e34b4b
+}
+
+
+.swiper-container {
+  background: #ffffff;
+  height:100%;
+  bottom:0;
+ 
+
+ }
+ .carticon{
+   float:right;
+   padding-right:30px;
+   margin-top:5px;
+   height:70%;
+  
+
+ }
+
+.containerbody {
+  margin-left:auto;
+  margin-right:auto;
+  overflow-x:visible;
+  margin-bottom:10px;
+  width:80%;
+ }
+.swiper-slide {
+  text-align: bottom;
+  
+  }
+.menuitemspic{
+    border-radius:0%;
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+    max-width:53%;
+    max-height:53%;
+    margin-top:1.0vh;
+    
+  }
+ 
+.menuitemsdescription{
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+    color: #555;
+    font-family: 'Dosis', sans-serif;
+    
+    
+}
+
+.footer{
+   
+    height:80px;
+    bottom:0;
+    width:100%;
+    margin-left:0%;
+    padding-block-start: 0%;
+    margin-block-start: 0%;
+    margin-inline-start: 0%;
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+    position: fixed;
+    z-index:4; 
+    box-shadow: 5px 10px;
+    -webkit-box-shadow: 0 0 20px rgb(200,200,200);
+    -moz-box-shadow: 0 0 20px rgb(200,200,200);
+    
+}
+.menu{
+  margin-top:40px;
+  overflow:scroll;
+  height:90%;
+  margin-bottom:170px;
+  width:100%;
+}
+
+.supermenu{
+   }
+.slidebody {
+  margin-top:15px;
+    height:2.2cm;
+    position:relative;
+    text-align: bottom;
+    color:black;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:20px;
+    border-radius:7px;
+    background:white;
+    -webkit-box-shadow: 2px 2px 8px 0px #bbb;
+    -moz-box-shadow: 2px 2px 8px 0px #bbb;
+    box-shadow: 2px 4px 8px 0px #bbb;
+}
+.customizationtab{
+ 
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.customizationtabcontent {
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: #fefefe; /* Fallback color */
+  
+
+
+  
+}
+.customizationpriceofoption{
+  position:relative;
+  top:-15px;
+  color:#9d9d9d;
+  left:90%;}
+.customizationnameofoption{
+  position:relative;
+  color:#9d9d9d;
+  padding-left:0.5cm;
+} 
+.quantitycustomizationwrapper{
+  display:inline-block;
+ 
+  width:100%;
+  text-align:center;
+}
+
+.customizationquantityplus{
+ display:inline-block;
+ border: 1px solid #aaa;
+  width:1cm;
+  height:1cm;
+  border-radius:0.5cm;
+  color:#9d9d9d;
+  font-size:30px;
+  text-align:center;
+   line-height: 34px;
+
+} 
+.customizationquantityminus{
+ display:inline-block;
+ border: 1px solid #aaa;
+  width:1cm;
+  height:1cm;
+  border-radius:0.5cm;
+  color:#9d9d9d;
+  font-size:30px;
+  text-align:center;
+    line-height: 34px;
+
+} 
+.customizetabaddtocart{
+ position:absolute;
+ bottom:0;
+ padding-top:0.3cm;
+ margin: 0% auto;
+ width:100%;
+ height:1cm;
+ text-align:center;
+ font-weight:bold;
+ margin-bottom:0px;
+ background:#01b460;
+ color:white;
+ float:bottom;
+ text-align: center;
+ 
+ 
+
+
+}
+.quantitycustomizationinput{
+  display:inline-block;
+  margin-left:auto;
+  margin-right:auto;
+  width:20px;
+  padding:10px;
+  text-align:center;
+
+  
+  
+  
+  }
+.cart{
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: #fff; /* Fallback color */
+  color:#000; /* Black w/ opacity */
+  margin:5px;
+  overflow-y: scroll;
+  
+}
+.cartitem{
+  margin-top:40px;
+  width:80%;
+  margin-top:15px;
+  height:70px;
+  text-align: bottom;
+  color:black;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:20px;
+  border-radius:15px;
+  background:white;
+  box-shadow: 2px 4px;
+  -webkit-box-shadow: 0 0 10px rgb(200,200,200);
+  -moz-box-shadow: 0 0 10px rgb(200,200,200);
+}
+.cartheader{
+  width:100%;
+  
+
+  display:inline-block;
+}
+.cartheaderback{
+  widows: 20px;
+  
+}
+.cartheadername{
+  
+  height:100%;
+  position:relative;
+  top:-12px; 
+  display:inline-block;
+  font-size: 13px;
+}
+.cartitemname{
+  
+  font-weight:bold;
+  font-size: 13px;
+  padding-left:5%;
+}
+.cartitempic{ position:relative;
+top:-60px;
+left:-100px;
+width:60px;
+height:60px;
+border-radius: 10px;
+background-size: cover;
+background-repeat: no-repeat;
+z-index: 3;
+box-shadow: 5px 10px; 
+-webkit-box-shadow: 0 0 20px rgb(200,200,200);
+-moz-box-shadow: 0 0 20px rgb(200,200,200);}
+.cartcustomizationname{
+  margin-right:40px;
+  margin-left:auto;
+  
+  color:grey;
+  width:50%;
+  font-size: 10px;
+}
+
+.cartitemquantityname{
+  
+  
+  height:10px;
+  color:grey;
+  text-align: center;
+}
+.cartitempricename{
+  
+  color:grey;
+  padding-left:10px;
+  padding-top:5px;
+  font-weight:bold;
+}
+.changecartitem{
+  position:relative;
+  top:-53px;
+  left:15px;
+  height:60px;
+  width:30px;
+  background:white;
+  float:right;
+  border-radius: 1px;
+  box-shadow: 5px 10px; 
+-webkit-box-shadow: 0 0 20px rgb(200,200,200);
+-moz-box-shadow: 0 0 20px rgb(200,200,200);
+
+}
+.cartminusbutton{
+  padding-top:5px;
+ 
+}
+.cartplusbutton{
+
+}
+.cartorderbutton{
+  text-align: center;
+  height:30px;
+  width:100%;
+  position:fixed;
+  background: green;
+  bottom: 0;
+    left: 0;
+    
+    color:white;
+}
+
+
+
+
+
+
+::-webkit-scrollbar {
+   /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+.menuitemsbodypic{
+  position:relative;
+  top:-8px;
+  left:-8px;
+  width:2.2cm;
+  height:2.2cm;
+  border-radius: 7px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 3;
+ 
+}
+.menuitemsbodybaseprice{
+  
+   margin-top:-3.5cm;
+   float:right;
+   padding-right:0.6cm;
+   font-family: 'Dosis', sans-serif;   
+  
+}
+.divChildPicVegNonveg{
+  max-width: 12%;
+  max-height: 12%;
+  position:relative;
+  top:1.7cm;
+  left:0.9cm;
+
+}
+.menuitemsnamebody{
+  float:left;
+   padding-left:2.4cm;
+   margin-top:-2cm;
+   font-size: 15px;
+  font-weight:bold;
+}
+.menuitemsbodyactualpic{
+  margin-top: 10px;
+max-width: 80%;
+max-height: 80%;
+
+}
+.menuitemsbodyplusminus{
+  width:0.7cm;
+  height:1.6cm;
+  float:right;
+  position:relative;
+  top:-1.9cm;
+  z-index:4;
+  background:white;
+  margin-right:-0.4cm;
+  box-shadow: 5px 10px;
+  
+  -webkit-box-shadow: 0 0 7px #aaa;
+-moz-box-shadow: 0 0 7px #aaa;
+border-radius: 5px;
+
+  
+  
+} 
+  .menuitemsbodyplus{
+    text-align:center; 
+    padding:0px;
+    margin:0px;
+    height:50%;
+    width:100%;
+    font-weight: bold;
+    font-size: 25px;
+    color:#01b460;
+    
+
+ }
+.menuitemsbodyminus{
+  text-align:center; 
+    height:50%;
+    padding:0px;
+    margin:0px;
+    width:100%;
+    color:#9d9d9d;
+    font-weight: bold;
+    font-size: 20px;}
+   
+.menuitemsbodydescription{
+   color:grey;
+   position: relative;
+   padding-right:1cm;
+   width:80%;
+   height:100px;
+   
+   left:1cm;
+   text-align: left;
+   overflow: scroll;
+   overflow-wrap: break-word;
+
+ }
+.foods{
+color:#555;
+text-align: center;
+ background: #fff;
+ width:50%;  
+ height: 10%;
+ padding-top:5px;
+ padding-bottom: 5px;
+display: inline-block;
+border-top-left-radius:30px;
+
+
+}
+
+#food:focus{
+outline: none;
+}
+
+
+#drink:focus{
+outline: none;
+}
+.drinks{
+
+color:#555;
+text-align: center;
+padding-top:5px;
+padding-bottom: 5px;
+background:#ffffff;
+width:50%;
+height: 10%; 
+display: inline-block;
+border-top-right-radius:30px;
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 370px) {
+body {
+  font-size: 14px;
+}
+.footer{
+  height:90px;
+}
+.menuitemspic{
+  max-width:65%;
+  max-height:65%;
+}
+
+}
+@media screen and (min-width: 450px) {
+  .menuitemspic{
+    max-width:78%;
+    max-height:78%;
+  }
+  
+  .footer{
+    height:100px;
+  }
+  
+  }
+  @media screen and (min-width: 560px) {
+    body {
+      font-size: 14px;
+    }
+    .footer{
+      height:105px;
+    }
+    .menuitemspic{
+      max-width:110%;
+      max-height:110%;
+    }
+    
+    }
+   
+        @media screen and (min-width: 710px) {
+          body {
+            font-size: 12px;
+          }
+          .footer{
+            height:115px;
+          }
+          
+          }
+          @media screen and (min-width: 1000px) {
+            body {
+              font-size: 12px;
+            }
+            .footer{
+              height:130px;
+            }
+            
+            }
+            @media screen and (min-width: 1300px) {
+              body {
+                font-size: 12px;
+              }
+              .footer{
+                height:145px;
+              }
+              
+              }
+                       
+            
+        
+          
+  
+
+
+
+
+
+@keyframes expand {
+  0% {
+    height:120px;
+      
+  }
+  100% {
+    height:240px;
+      
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+
+
+.flexbox {
+  background: #fff;
+  width: 100%;
+  height:50px;
+  margin-top:-15px;
+  position:fixed;
+  z-index:5;
+  box-shadow: 0px 0px 1px 1px #ddd;
+  
+  
+}
+
+.search {
+  margin: 5px;
+}
+
+
+
+
+.search > div {
+  display: inline-block;
+  position: fixed;
+}
+
+.search > div:after {
+  content: "";
+  background: #aaa;
+  width: 2px;
+  height: 9px;
+  position: fixed;
+  top: 20px;
+  margin-top:6px;
+  margin-left:-2px;
+  transform: rotate(135deg);
+
+}
+
+.search > div > input {
+  color: #666;
+  font-size: 13px;
+  background: transparent;
+  width: 20px;
+  height: 18px;
+  margin-top:9px;
+  text-indent:10px;
+  float:left;
+  margin-left:15px ;
+  border: solid 2px #aaa;
+  outline: none;
+  border-radius: 20px;
+  
+  transition: width 0.2s;
+}
+
+.search > div > input::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+.search > div > input::-ms-placeholder {
+  color: #aaa;
+}
+
+.search > div > input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+.search > div > input:focus,
+.search > div > input:valid {
+  width: 80%;
+}
+s
