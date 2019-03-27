@@ -443,13 +443,12 @@ div.appendChild(divChildPic);
 div.appendChild(divChildPlusMinus); 
 
 
-var initialInfoBody=document.createElement('div');
-initialInfoBody.className='initialinfobody';
-initialInfoBody.appendChild(divChild);
-initialInfoBody.appendChild(divChildBasePrice); 
-initialInfoBody.appendChild(divChildDescriptionOfFood);   
 
-div.appendChild(initialInfoBody);
+div.appendChild(divChild);
+div.appendChild(divChildBasePrice); 
+div.appendChild(divChildDescriptionOfFood);   
+
+
 document.getElementById("menuitbody").appendChild(div);}}
 }
 
