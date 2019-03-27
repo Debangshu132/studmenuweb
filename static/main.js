@@ -682,9 +682,9 @@ function createCustomizationTab(item,text,baseprice){
           quantitywrapper.className="quantitycustomizationwrapper";
 
           
-          quantitywrapper.appendChild(quantityplus);
-          quantitywrapper.appendChild(quantity);
           quantitywrapper.appendChild(quantityminus);
+          quantitywrapper.appendChild(quantity);
+          quantitywrapper.appendChild(quantityplus);
           
           customizationtabcontent.appendChild(quantitywrapper);
             
