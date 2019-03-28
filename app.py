@@ -106,6 +106,31 @@ def populatedashboardmenuitems(resto):
          print(restaurant[resto]["menu"])
          return json.dumps(restaurant[resto]["menu"]) 
         
+        
+        
+@app.route("/logoutwaiterfromalltables/<waiterid>", methods=['GET', 'POST'])
+def populatedashboardwaiterprofiles(waiterid):
+         MONGODB_URI="mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
+         client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
+         db = client.get_database("brilu")
+         col = db["restaurants"]
+         cursor = col.find()
+         restaurant = cursor[0]
+         
+        
+         restaurantWaiter=restaurant[resto]["waiters"][waiterid] 
+         activeTables=restaurantWaiter["activetables"]
+         for tableno in activetables:
+            restaurant[resto]["tables"][str(tableno)]
+            db.restaurants.update({"_id" : "restaurant"}, {"$set":{"Taj"+".tables."+str(tableno)+".waiter":""}},upsert=True);
+         
+         db.restaurants.update({"_id" : "restaurant"}, {"$set":{"Taj"+".waiters."+waiterid+"."+"activetables": []}},upsert=True);
+          
+         print(restaurant[resto]["waiters"])
+         return json.dumps(restaurant[resto]["waiters"])      
+    
+    
+    
 @app.route("/populatedashboardwaiterprofiles/<resto>", methods=['GET', 'POST'])
 def populatedashboardwaiterprofiles(resto):
          MONGODB_URI="mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
@@ -116,7 +141,7 @@ def populatedashboardwaiterprofiles(resto):
          restaurant = cursor[0]
          print('WAITERS!!!!')   
          print(restaurant[resto]["waiters"])
-         return json.dumps(restaurant[resto]["waiters"])           
+         return json.dumps(restaurant[resto]["waiters"])        
       
 
 
