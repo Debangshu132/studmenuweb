@@ -1,8 +1,9 @@
  window.onload = function() {
-    var datatogive={"restaurant":"Taj","noOfTables":8};   
-    populateBodyTables(datatogive);
+    
+    populateBodyTables();
     }
-function populateBodyTables(datatogive){
+function populateBodyTables(){
+    var datatogive={"restaurant":"Taj","noOfTables":8};   
      clear("tableContainer");
      var noOfTables=datatogive["noOfTables"];
      for(var tableNo=0;tableNo<noOfTables;tableNo++){
