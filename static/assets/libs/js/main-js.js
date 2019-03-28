@@ -157,7 +157,7 @@ function populateBodyWaiter(){
              htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+waitername+' </td><td>'+waiterid+'</td><td><div class="pagination pagination-sm">';    
             
             for(var tableindex=0;tableindex<waiteractivetables.length;tableindex++){
-           htmlstring=htmlstring+'<li class="page-item"><a class="page-link" href="#">'+JSON.stringify(tableindex)+'</a></li>';
+           htmlstring=htmlstring+'<li class="page-item"><a class="page-link" href="#">'+JSON.stringify(waiteractivetables[tableindex])+'</a></li>';
             }
             htmlstring=htmlstring+'</div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
         }
