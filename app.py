@@ -118,7 +118,7 @@ def logoutwaiterfromalltables(waiterid):
          restaurant = cursor[0]
          restaurantWaiter=restaurant["Taj"]["waiters"][waiterid] 
          activeTables=restaurantWaiter["activetables"]
-         for tableno in activetables:
+         for tableno in activeTables:
             db.restaurants.update({"_id" : "restaurant"}, {"$set":{"Taj"+".tables."+str(tableno)+".waiter":""}},upsert=True);
          
          db.restaurants.update({"_id" : "restaurant"}, {"$set":{"Taj"+".waiters."+waiterid+"."+"activetables": []}},upsert=True);
