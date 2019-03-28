@@ -113,6 +113,7 @@ def populatedashboardwaiterprofiles(resto):
          col = db["restaurants"]
          cursor = col.find()
          restaurant = cursor[0]
+         print('WAITERS!!!!')   
          print(restaurant[resto]["waiters"])
          return json.dumps(restaurant[resto]["waiters"])         
 
