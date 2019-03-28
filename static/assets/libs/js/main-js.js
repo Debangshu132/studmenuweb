@@ -134,7 +134,8 @@ function populateBodyWaiter(){
             .then(data =>  populateBodyWaiterForm(JSON.stringify(data)))
             }
         function populateBodyWaiterForm(data){
-            alert(data);
+           
+
             clear("wrapper");
              var formdiv=document.createElement('div');
             formdiv.className='formdiv';
@@ -157,9 +158,9 @@ function populateBodyWaiter(){
              htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+waitername+' </td><td>'+waiterid+'</td><td><div class="pagination pagination-sm">';    
             
             for(var tableindex=0;tableindex<waiteractivetables.length;tableindex++){
-           htmlstring=htmlstring+'<li class="page-item"><a class="page-link" href="#">'+JSON.stringify(waiteractivetables[tableindex])+'</a></li>';
+           htmlstring=htmlstring+'<li class="page-item"><a onClick= "populateBodyTables()" class="page-link" href="#">'+JSON.stringify(waiteractivetables[tableindex])+'</a></li>';
             }
-            htmlstring=htmlstring+'</div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+            htmlstring=htmlstring+'</div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a onclick="logoutWaiterFromAllTables('+waiterid+')" href="#" class="dropdown-item">Logout Waiter</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
         }
 
             formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
@@ -190,4 +191,18 @@ function populateBodyWaiter(){
               }
             
           
+          }
+
+
+
+
+          function logoutWaiterFromAllTables(waiterID){
+
+            var datatosend=waiterID;
+            var http = new XMLHttpRequest();
+            var url = '/logoutwaiterfromalltables/'+JSON.stringify(datatosend);
+            http.open("POST", url, false); 
+            http.setRequestHeader("Content-Type", "application/json");
+            http.send();
+
           }
