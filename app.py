@@ -109,7 +109,7 @@ def populatedashboardmenuitems(resto):
         
         
 @app.route("/logoutwaiterfromalltables/<waiterid>", methods=['GET', 'POST'])
-def populatedashboardwaiterprofiles(waiterid):
+def logoutwaiterfromalltables(waiterid):
          MONGODB_URI="mongodb://Debangshu:Starrynight.1@ds163694.mlab.com:63694/brilu"
          client = MongoClient(MONGODB_URI, connectTimeoutMS=30000)
          db = client.get_database("brilu")
