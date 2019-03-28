@@ -143,15 +143,19 @@ function populateBodyWaiter(){
         
             var datajson=JSON.parse(data);
             var waiteridarray=Object.keys(datajson);
-            ;
+            
             
             var htmlstring='<div class="col-lg-12"><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Facebook ID</th><th class="border-0">Active Tables</th><th class="border-0">Action</th></tr></thead><tbody><br>';
            
             for(var waiteridindex=0;waiteridindex<waiteridarray.length;waiteridindex++){
              var waiterid=waiteridarray[waiteridindex];   
              var waitername=datajson[waiterid]['name'];
+             waitername=JSON.stringify(waitername);
+             waitername = waitername.substring(1, waitername.length-1);
              var waiteractivetables=datajson[waiterid]['activetables'];
-            htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+JSON.stringify(waitername)+' </td><td>'+waiterid+'</td><td>'+JSON.stringify(waiteractivetables)+'</td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+             waiteractivatbles=JSON.stringify(waiteractivetables);
+             waiteractivetables = waiteractivetables.substring(1, waiteractivetables.length-1);
+            htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+waitername+' </td><td>'+waiterid+'</td><td>'+waiteractivetables+'</td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
             }
 
             formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
