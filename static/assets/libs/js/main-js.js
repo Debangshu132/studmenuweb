@@ -197,12 +197,13 @@ function populateBodyWaiter(){
 
 
           function logoutWaiterFromAllTables(waiterID){
-
+            var check=confirm('do you really want to logout the waiter?')
+            if(check===true){
             var datatosend=waiterID;
             var http = new XMLHttpRequest();
             var url = '/logoutwaiterfromalltables/'+JSON.stringify(datatosend);
             http.open("POST", url, false); 
             http.setRequestHeader("Content-Type", "application/json");
             http.send();
-
+            alert("logged out!");}
           }
