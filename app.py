@@ -116,18 +116,14 @@ def populatedashboardwaiterprofiles(waiterid):
          col = db["restaurants"]
          cursor = col.find()
          restaurant = cursor[0]
-         
-        
          restaurantWaiter=restaurant[resto]["waiters"][waiterid] 
          activeTables=restaurantWaiter["activetables"]
          for tableno in activetables:
-            restaurant[resto]["tables"][str(tableno)]
             db.restaurants.update({"_id" : "restaurant"}, {"$set":{"Taj"+".tables."+str(tableno)+".waiter":""}},upsert=True);
          
          db.restaurants.update({"_id" : "restaurant"}, {"$set":{"Taj"+".waiters."+waiterid+"."+"activetables": []}},upsert=True);
           
-         print(restaurant[resto]["waiters"])
-         return json.dumps(restaurant[resto]["waiters"])      
+         return "success"   
     
     
     
