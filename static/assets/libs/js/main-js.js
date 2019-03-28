@@ -153,7 +153,7 @@ function populateBodyWaiter(){
              waitername=JSON.stringify(waitername);
              waitername = waitername.substring(1, waitername.length-1);
              var waiteractivetables=datajson[waiterid]['activetables'];
-             waiteractivtables=JSON.stringify(waiteractivetables);
+             waiteractivetables=JSON.stringify(waiteractivetables);
              waiteractivetables = waiteractivetables.substring(1, waiteractivetables.length-1);
             htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+waitername+' </td><td>'+waiterid+'</td><td>'+waiteractivetables+'</td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
             }
