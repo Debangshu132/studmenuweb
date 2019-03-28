@@ -142,13 +142,15 @@ function populateBodyWaiter(){
             cateory0.className='category0';
         
             var datajson=JSON.parse(data);
-           
-        
-            var htmlstring='<div class="col-lg-12"><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Price</th><th class="border-0">Veg/NonVeg</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody><br>';
-           
-         
-            htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>name </td><td>Rs. 100</td><td></td><td><div class="switch-button switch-button-success"><input type="checkbox"  name="switch12" onclick="updateCheckboxesMenu(this)" checked value=1 id=2><span><label for=2></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+            var waiteridarray=Object.keys(datajson);
+            ;
             
+            var htmlstring='<div class="col-lg-12"><div class="card"><div class="campaign-table table-responsive"><table class="table"><thead><tr class="border-0"><th class="border-0">Pic</th><th class="border-0">Name</th><th class="border-0">Facebook ID</th><th class="border-0">Active Tables</th><th class="border-0">Status</th><th class="border-0">Action</th></tr></thead><tbody><br>';
+           
+            for(var waiteridindex=0;waiteridindex<waiteridarray.length;waiteridindex++){
+             var waiterid=waiteridarray[waiteridindex];   
+            htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>name </td><td>Rs. 100</td><td>'+waiterid+'</td><td><div class="switch-button switch-button-success"><input type="checkbox"  name="switch12" onclick="updateCheckboxesMenu(this)" checked value=1 id=2><span><label for=2></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+            }
 
             formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
                 document.getElementById('wrapper').appendChild(formdiv);
