@@ -309,7 +309,7 @@ function refreshPopulateBody(){
   //alert(JSON.stringify(window.footerItemClicked));
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
+  populateBody("restaurantName",menuitemjson["Foods"][window.footerItemClicked],menuPicArray,document.getElementById("vegnonveg").checked);
   
 }  
  
