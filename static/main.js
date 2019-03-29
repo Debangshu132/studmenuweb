@@ -371,7 +371,7 @@ if(itemActiveOrNot==undefined){
   var categoryNameArray=Object.keys(jsonofitems);
   for (var categoryIndex=0;categoryIndex<categoryNameArray.length;categoryIndex++){
     var categoryName=categoryNameArray[categoryIndex];
-    var categoryJson=jsonofitems(categoryName);
+    var categoryJson=jsonofitems[categoryName];
     populateBodyItems(categoryJson,vegtrue);
   }
 }
