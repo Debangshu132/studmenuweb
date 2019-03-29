@@ -803,6 +803,11 @@ html, body {
 
 .supermenu{
    }
+.category2header{
+  width:100%;
+  font-size:18px;
+  font-weight:bold;
+}   
 .slidebody {
   margin-top:15px;
     height:2.2cm;
