@@ -361,7 +361,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
 
 
 function populateBody(restaurantName,jsonofitems,menuPicArray,vegtrue){
- //alert("populating body"); 
+  
 var itemnamearray=Object.keys(jsonofitems); 
 for(i=0;i<itemnamearray.length;i++){
 var div = document.createElement("div");
@@ -464,6 +464,7 @@ div.appendChild(divChildPlusMinus);
 div.appendChild(divChildDescriptionOfFood);   
 div.appendChild(divChildBasePrice); 
 document.getElementById("menuitbody").appendChild(div);}}
+alert("populating body");
 }
 
 
