@@ -367,9 +367,16 @@ function populateBody(restaurantName,jsonofitems,menuPicArray,vegtrue){
 var itemnamearray=Object.keys(jsonofitems); 
 var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[0]]["active"]);
 alert(itemActiveOrNot);
-populateBodyItems(jsonofitems,vegtrue);
-
-
+if(itemActiveOrNot==undefined){
+  var categoryNameArray=Object.keys(jsonofitems);
+  for (var categoryIndex=0;categoryIndex<categoryNameArray.length;categoryIndex++){
+    var categoryName=categoryNameArray[categoryIndex];
+    var categoryJson=jsonofitems(categoryName);
+    populateBodyItems(categoryJson,vegtrue);
+  }
+}
+else{
+populateBodyItems(jsonofitems,vegtrue);}
 }
 
 
