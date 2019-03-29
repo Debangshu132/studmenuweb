@@ -297,11 +297,13 @@ populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkC
 
 
 window.onload = function() {
+
+  window.vegtrue=document.getElementById("vegnonveg").checked;
   document.getElementById("drink").style.background="#ddd";
   populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray);
+  populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
   };
  
 
@@ -335,7 +337,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
           clearFooter("menuitbody");
           clearAllBorders();
           arg2.src=arg3[index];
-          populateBody("restaurantName",arg,menuPicArray);
+          populateBody("restaurantName",arg,menuPicArray,document.getElementById("vegnonveg").checked);
          
           
          
@@ -353,7 +355,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
 }
 
 
-function populateBody(restaurantName,jsonofitems,menuPicArray){
+function populateBody(restaurantName,jsonofitems,menuPicArray,vegtrue){
   
 var itemnamearray=Object.keys(jsonofitems); 
 for(i=0;i<itemnamearray.length;i++){
@@ -363,8 +365,14 @@ div.className="slidebody";
 var divChild = document.createElement("div");
 divChild.className="menuitemsnamebody";
 var tempname=JSON.stringify(itemnamearray[i]);
+var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[i]]["active"]);
+if(vegtrue===true){
+  if(JSON.stringify(jsonofitems[itemnamearray[i]]["vegnonveg"])!=="veg"){
+    itemActiveOrNot="False";
+  }
+}
 
-if(JSON.stringify(jsonofitems[itemnamearray[i]]["active"])===JSON.stringify("True")){
+if(itemActiveOrNot===JSON.stringify("True")){
 
 tempname = tempname.substring(1, tempname.length-1);
 divChild.innerHTML += tempname; 
@@ -377,7 +385,6 @@ var divChildPlusMinus = document.createElement("div");
 var divChildDescriptionOfFood = document.createElement("div");
 divChildDescriptionOfFood.className="menuitemsbodydescription";
 divChildDescriptionOfFood.style.visibility="hidden";
-  
 divChildPic.className="menuitemsbodypic";
 divChildPicVegNonveg.className="divChildPicVegNonveg";
 divChildPlusMinus.className="menuitemsbodyplusminus";
@@ -815,7 +822,7 @@ var nopethisone=JSON.parse(thisoneisfinal);
 var a=JSON.stringify(nopethisone);
 //men.innerHTML+=a;
 
-populateBody("restaurantName",nopethisone,menuPicArray);  
+populateBody("restaurantName",nopethisone,menuPicArray,document.getElementById("vegnonveg").checked);  
 document.getElementById("textsearch").value = "";
 document.getElementById("textsearch").blur();
 
