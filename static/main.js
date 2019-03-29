@@ -306,6 +306,8 @@ window.onload = function() {
   populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
   };
 function refreshPopulateBody(){
+  //alert(JSON.stringify(window.footerItemClicked));
+  window.menuitemjson=JSON.parse(menuitem);
   populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
   
 }  
