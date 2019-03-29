@@ -380,9 +380,9 @@ if(vegtrue===true){
     itemActiveOrNot="False";
   }
 }
-
+alert("initil");
 if(itemActiveOrNot===JSON.stringify("True")){
-
+  alert("final");
 tempname = tempname.substring(1, tempname.length-1);
 divChild.innerHTML += tempname; 
 
