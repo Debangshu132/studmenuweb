@@ -365,110 +365,122 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
 function populateBody(restaurantName,jsonofitems,menuPicArray,vegtrue){
  
 var itemnamearray=Object.keys(jsonofitems); 
+var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[0]]["active"]);
+alert(itemActiveOrNot);
+populateBodyItems(jsonofitems,vegtrue);
 
 
-for(i=0;i<itemnamearray.length;i++){
-var div = document.createElement("div");
-div.className="slidebody";
-
-var divChild = document.createElement("div");
-divChild.className="menuitemsnamebody";
-var tempname=JSON.stringify(itemnamearray[i]);
-var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[i]]["active"]);
-if(vegtrue===true){
-
-  if(jsonofitems[itemnamearray[i]]["vegnonveg"]!=="veg"){
-  
-    itemActiveOrNot="False";
-  }
 }
 
-if(itemActiveOrNot===JSON.stringify("True")){
-
-tempname = tempname.substring(1, tempname.length-1);
-divChild.innerHTML += tempname; 
-
-
-var divChildPic = document.createElement("div");
-var divChildBasePrice = document.createElement("div");
-var divChildPicVegNonveg=document.createElement("IMG");
-var divChildPlusMinus = document.createElement("div");  
-var divChildDescriptionOfFood = document.createElement("div");
-divChildDescriptionOfFood.className="menuitemsbodydescription";
-divChildDescriptionOfFood.style.visibility="hidden";
-divChildPic.className="menuitemsbodypic";
-divChildPicVegNonveg.className="divChildPicVegNonveg";
-divChildPlusMinus.className="menuitemsbodyplusminus";
-divChildBasePrice.className="menuitemsbodybaseprice";
-divChildBasePrice.innerHTML="&#x20b9; "+JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
-
-
-
-divChildPicVegNonveg.src=generalIcons[jsonofitems[tempname]["vegnonveg"]];
-
-
-divChildPlusMinus.addEventListener('click', function(pEvent) {
-  pEvent.stopPropagation();
-})
-
-var menuitemsbodyplus=document.createElement("div");
-menuitemsbodyplus.className="menuitemsbodyplus";
-menuitemsbodyplus.innerHTML="+";
-var menuitemsbodyminus=document.createElement("div");
-menuitemsbodyminus.className="menuitemsbodyminus";
-menuitemsbodyminus.innerHTML="_";
-
-
-//divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
-
-menuitemsbodyplus.onclick=function(arg,arg2,arg3){
-  return function() {
-    createCustomizationTab(arg,arg2,arg3);
-  }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
-menuitemsbodyminus.onclick=function(arg,arg2){
-    return function() {
-      checkandminus(arg,arg2);
-    }}(tempname,jsonofitems[tempname]);  
 
 
 
 
 
-  divChildPlusMinus.appendChild(menuitemsbodyplus);
-  divChildPlusMinus.appendChild(menuitemsbodyminus);
 
-  
-var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
-div.onclick=  function(arg,arg2) {
-  return function() {
+function populateBodyItems(jsonofitems,vegtrue){
+  var itemnamearray=Object.keys(jsonofitems); 
+  for(i=0;i<itemnamearray.length;i++){
+    var div = document.createElement("div");
+    div.className="slidebody";
+    
+    var divChild = document.createElement("div");
+    divChild.className="menuitemsnamebody";
+    var tempname=JSON.stringify(itemnamearray[i]);
+    var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[i]]["active"]);
+    if(vegtrue===true){
+    
+      if(jsonofitems[itemnamearray[i]]["vegnonveg"]!=="veg"){
       
-      if( arg.style.height==='2.2cm'){
-       
-        resetAllHeights();
-        arg2.style.visibility="visible";
-        arg.style.height='5cm';}
-        else{
-          arg2.style.visibility="hidden"; 
-        arg.style.height='2.2cm';
-      } 
-  }
-}(div,divChildDescriptionOfFood);
-var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
-descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
-divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
-divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
- 
-//divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
-divChildPic.appendChild(divChildPicVegNonveg);
-
-div.appendChild(divChildPic);
-div.appendChild(divChild);
-div.appendChild(divChildPlusMinus);  
-
-div.appendChild(divChildDescriptionOfFood);   
-div.appendChild(divChildBasePrice); 
-document.getElementById("menuitbody").appendChild(div);}}
-
+        itemActiveOrNot="False";
+      }
+    }
+    
+    if(itemActiveOrNot===JSON.stringify("True")){
+    
+    tempname = tempname.substring(1, tempname.length-1);
+    divChild.innerHTML += tempname; 
+    
+    
+    var divChildPic = document.createElement("div");
+    var divChildBasePrice = document.createElement("div");
+    var divChildPicVegNonveg=document.createElement("IMG");
+    var divChildPlusMinus = document.createElement("div");  
+    var divChildDescriptionOfFood = document.createElement("div");
+    divChildDescriptionOfFood.className="menuitemsbodydescription";
+    divChildDescriptionOfFood.style.visibility="hidden";
+    divChildPic.className="menuitemsbodypic";
+    divChildPicVegNonveg.className="divChildPicVegNonveg";
+    divChildPlusMinus.className="menuitemsbodyplusminus";
+    divChildBasePrice.className="menuitemsbodybaseprice";
+    divChildBasePrice.innerHTML="&#x20b9; "+JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
+    
+    
+    
+    divChildPicVegNonveg.src=generalIcons[jsonofitems[tempname]["vegnonveg"]];
+    
+    
+    divChildPlusMinus.addEventListener('click', function(pEvent) {
+      pEvent.stopPropagation();
+    })
+    
+    var menuitemsbodyplus=document.createElement("div");
+    menuitemsbodyplus.className="menuitemsbodyplus";
+    menuitemsbodyplus.innerHTML="+";
+    var menuitemsbodyminus=document.createElement("div");
+    menuitemsbodyminus.className="menuitemsbodyminus";
+    menuitemsbodyminus.innerHTML="_";
+    
+    
+    //divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
+    
+    menuitemsbodyplus.onclick=function(arg,arg2,arg3){
+      return function() {
+        createCustomizationTab(arg,arg2,arg3);
+      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
+    menuitemsbodyminus.onclick=function(arg,arg2){
+        return function() {
+          checkandminus(arg,arg2);
+        }}(tempname,jsonofitems[tempname]);  
+    
+    
+    
+    
+    
+      divChildPlusMinus.appendChild(menuitemsbodyplus);
+      divChildPlusMinus.appendChild(menuitemsbodyminus);
+    
+      
+    var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
+    div.onclick=  function(arg,arg2) {
+      return function() {
+          
+          if( arg.style.height==='2.2cm'){
+           
+            resetAllHeights();
+            arg2.style.visibility="visible";
+            arg.style.height='5cm';}
+            else{
+              arg2.style.visibility="hidden"; 
+            arg.style.height='2.2cm';
+          } 
+      }
+    }(div,divChildDescriptionOfFood);
+    var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
+    descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
+    divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
+    divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
+     
+    //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
+    divChildPic.appendChild(divChildPicVegNonveg);
+    
+    div.appendChild(divChildPic);
+    div.appendChild(divChild);
+    div.appendChild(divChildPlusMinus);  
+    
+    div.appendChild(divChildDescriptionOfFood);   
+    div.appendChild(divChildBasePrice); 
+    document.getElementById("menuitbody").appendChild(div);}}
 }
 
 
