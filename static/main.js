@@ -306,7 +306,7 @@ window.onload = function() {
   populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
   };
 function refreshPopulateBody(){
-  alert(JSON.stringify(window.footerItemClicked));
+  //alert(JSON.stringify(window.footerItemClicked));
   populateBody("restaurantName",menuitemjson["Foods"][window.footerItemClicked],menuPicArray,document.getElementById("vegnonveg").checked);
   
 }  
@@ -361,7 +361,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
 
 
 function populateBody(restaurantName,jsonofitems,menuPicArray,vegtrue){
- alert("populating body"); 
+ //alert("populating body"); 
 var itemnamearray=Object.keys(jsonofitems); 
 for(i=0;i<itemnamearray.length;i++){
 var div = document.createElement("div");
