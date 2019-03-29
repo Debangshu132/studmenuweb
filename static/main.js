@@ -298,13 +298,18 @@ populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkC
 
 window.onload = function() {
 
-  window.vegtrue=document.getElementById("vegnonveg").checked;
+  window.footerItemClicked="";
   document.getElementById("drink").style.background="#ddd";
   populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
   populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
   };
+function refreshPopulateBody(){
+  alert(window.footerItemClicked);
+  populateBody("restaurantName",menuitemjson["Foods"][window.footerItemClicked],menuPicArray,document.getElementById("vegnonveg").checked);
+  
+}  
  
 
   
@@ -333,7 +338,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
   item="Its not available";}
   img.onclick= function(arg,arg2,arg3,index) {
       return function() {
-          
+          window.footerItemClicked=arg;
           clearFooter("menuitbody");
           clearAllBorders();
           arg2.src=arg3[index];
@@ -367,9 +372,9 @@ divChild.className="menuitemsnamebody";
 var tempname=JSON.stringify(itemnamearray[i]);
 var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[i]]["active"]);
 if(vegtrue===true){
-  alert("veg yeah");
+
   if(jsonofitems[itemnamearray[i]]["vegnonveg"]!=="veg"){
-    alert("veg yeah not veg"+jsonofitems[itemnamearray[i]]["vegnonveg"]);
+    
     itemActiveOrNot="False";
   }
 }
