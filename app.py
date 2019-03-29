@@ -190,6 +190,10 @@ def dashboardactivatedeactivatemenu(items):
               item['active']=truefalse
               db.restaurants.update({"_id" : "restaurant"}, {"$set":{"Taj"+".menu."+category0+"."+category1+"."+itemlevel: item}},upsert=True);
          except:
+             category2=str(itemjson[2])
+             itemlevel=str(itemjson[3])
+             itemlevel=itemlevel.replace("_"," ")
+             category2=category2.replace("_"," ")
              item=menujson[category0][category1][category2][itemlevel]  
              item['active']=truefalse
              db.restaurants.update({"_id" : "restaurant"}, {"$set":{"Taj"+".menu."+category0+"."+category1+"."+category2+"."+itemlevel: item}},upsert=True);
