@@ -374,7 +374,9 @@ if(itemActiveOrNot==undefined){
     var categoryJson=jsonofitems[categoryName];
     var category2header=document.createElement('div');
     category2header.className="category2header";
-    category2header.innerHTML=JSON.stringify(categoryName);
+    var category2name=JSON.stringify(categoryName);
+    category2name = category2name.substring(1, category2name.length-1);
+    category2header.innerHTML=category2name;
     document.getElementById("menuitbody").appendChild(category2header);
     populateBodyItems(categoryJson,vegtrue);
   }
