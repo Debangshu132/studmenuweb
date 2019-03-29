@@ -336,9 +336,9 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
   var item=menuitemjson[foodDrink][foodOrDrink[i]];
   if(item==='undefined'){
   item="Its not available";}
-  img.onclick= function(arg,arg2,arg3,index) {
+  img.onclick= function(arg,arg2,arg3,index,itemname) {
       return function() {
-          window.footerItemClicked=arg;
+          window.footerItemClicked=itemname;
           clearFooter("menuitbody");
           clearAllBorders();
           arg2.src=arg3[index];
@@ -349,7 +349,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
          
           
       }
-  }(item,img,arraypiccolored,i);
+  }(item,img,arraypiccolored,i,foodOrDrink[i]);
   div.appendChild(img);
   div.appendChild(divChild);
   var currentDiv = document.getElementById("div1"); 
