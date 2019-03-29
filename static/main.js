@@ -367,6 +367,7 @@ divChild.className="menuitemsnamebody";
 var tempname=JSON.stringify(itemnamearray[i]);
 var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[i]]["active"]);
 if(vegtrue===true){
+  alert("veg yeah");
   if(JSON.stringify(jsonofitems[itemnamearray[i]]["vegnonveg"])!=="veg"){
     itemActiveOrNot="False";
   }
