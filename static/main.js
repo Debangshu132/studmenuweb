@@ -369,7 +369,7 @@ var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[i]]["active"]);
 if(vegtrue===true){
   alert("veg yeah");
   if(JSON.stringify(jsonofitems[itemnamearray[i]]["vegnonveg"])!=="veg"){
-    alert("veg yeah not veg");
+    alert("veg yeah not veg"+JSON.stringify(jsonofitems[itemnamearray[i]]["vegnonveg"]));
     itemActiveOrNot="False";
   }
 }
