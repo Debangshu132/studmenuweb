@@ -58,7 +58,7 @@ function populateBodyMenuForm(data){
         var category1item=category1list[ category1index];
         var category1datajson=category0datajson[category1item];
         var category2list=Object.keys(category1datajson);
-        handleFromCategory2(category0item,category0datajson,category1list,category1item,category1datajson,category2list);
+        handleFromCategory2(category0item,category0datajson,category1list,category1item,category1datajson,category2list,htmlstring);
    }}
     formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
         document.getElementById('wrapper').appendChild(formdiv);
@@ -71,7 +71,7 @@ function populateBodyMenuForm(data){
 
 
 
-function handleFromCategory2(category0item,category0datajson,category1list,category1item,category1datajson,category2list){
+function handleFromCategory2(category0item,category0datajson,category1list,category1item,category1datajson,category2list,htmlstring){
     for(var category2index=0;category2index<category2list.length;category2index++){   
         var category2item=category2list[ category2index];    
         var category2datajson=category1datajson[category2item];
