@@ -79,7 +79,7 @@ function handleFromCategory2(category0item,category0datajson,category1list,categ
         if(price===undefined){
             var itemNameList=Object.keys(category2datajson);
             for(var itemindex=0;itemindex<itemNameList.length;itemindex++){   
-                var itemitem=itemNamelist[ itemindex];    
+                var itemitem=itemNameList[itemindex];    
                 var itemdatajson=category2datajson[itemName];
                 var price=itemdatajson["price"];
                 var active=itemdatajson["active"];
