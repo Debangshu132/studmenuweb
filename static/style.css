@@ -96,6 +96,7 @@ html, body {
   margin-bottom:170px;
   width:100%;
 }
+
 .supermenu{
    }
 .slidebody {
@@ -486,6 +487,7 @@ border-top-right-radius:30px;
   height: 34px;
 }
 
+
 .switch input { 
   opacity: 0;
   width: 0;
@@ -493,12 +495,7 @@ border-top-right-radius:30px;
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+ display:inline-block;
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
