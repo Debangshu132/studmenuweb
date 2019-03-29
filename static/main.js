@@ -372,6 +372,10 @@ if(itemActiveOrNot==undefined){
   for (var categoryIndex=0;categoryIndex<categoryNameArray.length;categoryIndex++){
     var categoryName=categoryNameArray[categoryIndex];
     var categoryJson=jsonofitems[categoryName];
+    var category2header=document.createElement('div');
+    category2header.className="category2header";
+    category2header.innerHTML=JSON.stringify(categoryName);
+    document.getElementById("menuitbody").appendChild(category2header);
     populateBodyItems(categoryJson,vegtrue);
   }
 }
