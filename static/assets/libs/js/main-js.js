@@ -58,17 +58,68 @@ function populateBodyMenuForm(data){
         var category1item=category1list[ category1index];
         var category1datajson=category0datajson[category1item];
         var category2list=Object.keys(category1datajson);
+        handleFromCategory2(category0item,category0datajson,category1list,category1item,category1datajson,category2list);
+   }}
+    formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
+        document.getElementById('wrapper').appendChild(formdiv);
+
+       
+}
+
+
+
+
+
+
+function handleFromCategory2(category0item,category0datajson,category1list,category1item,category1datajson,category2list){
     for(var category2index=0;category2index<category2list.length;category2index++){   
         var category2item=category2list[ category2index];    
         var category2datajson=category1datajson[category2item];
         var price=category2datajson["price"];
-        var active=category2datajson["active"];
-        if(JSON.stringify(category2datajson["vegnonveg"])===JSON.stringify("veg")){
-        var vegnonvegpic="badge badge-success";
+        if(price===undefined){
+            var itemNameList=Object.keys(category2datajson);
+            for(var itemindex=0;itemindex<itemNameList.length;itemindex++){   
+                var itemitem=itemNamelist[ itemindex];    
+                var itemdatajson=category2datajson[itemName];
+                var price=itemdatajson["price"];
+                var active=itemdatajson["active"];
+                
+
+
+                
+        if(JSON.stringify(itemdatajson["vegnonveg"])===JSON.stringify("veg")){
+        var vegnonvegpic="badge badge-success";}
+        else{var vegnonvegpic="badge badge-danger"}
+    var category1itemtemp= JSON.stringify(category1item);   
+    category1itemtemp = category1itemtemp.substring(1, category1itemtemp.length-1);
+    var itemitemtemp= JSON.stringify(itemitem);  
+    itemitemtemp = itemitemtemp.substring(1, itemitemtemp.length-1);
+    var category0itemtemp= JSON.stringify(category0item);
+    category0itemtemp = category0item.substring(0, category0item.length-1);
+    category1item=JSON.stringify(category1item);
+    category1item=category1item.replace(/ /g, '_');
+    category1item=JSON.parse(category1item);   
+    itemitem=JSON.stringify(itemitem);
+    itemitem=itemitem.replace(/ /g, '_');
+    itemitem=JSON.parse(itemitem); 
+    valuetosend=JSON.stringify([category0item,category1item,category2item,itemitem]) ;   
+    if(active==="True"){
+    htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+category0itemtemp+' </td><td>'+category1itemtemp+' </td><td>'+itemitemtemp+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+itemdatajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-success"><input type="checkbox"  name="switch12" onclick="updateCheckboxesMenu(this)" checked value='+valuetosend+' id='+JSON.stringify(itemitem)+'><span><label for='+JSON.stringify(itemitem)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+     }
+     else{htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+category0itemtemp+' </td><td>'+category1itemtemp+' </td><td>'+itemitemtemp+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+itemdatajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-success"><input type="checkbox" name="switch12" onclick="updateCheckboxesMenu(this)" value='+valuetosend+' id='+JSON.stringify(itemitem)+'><span><label for='+JSON.stringify(itemitem)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+    }
+
+
+
+               
+            }
+         
         }
         else{
-            var vegnonvegpic="badge badge-danger"
-        }
+        var active=category2datajson["active"];
+        if(JSON.stringify(category2datajson["vegnonveg"])===JSON.stringify("veg")){
+        var vegnonvegpic="badge badge-success";}
+        else{var vegnonvegpic="badge badge-danger"}
     var category1itemtemp= JSON.stringify(category1item);   
     category1itemtemp = category1itemtemp.substring(1, category1itemtemp.length-1);
     var category2itemtemp= JSON.stringify(category2item);  
@@ -77,26 +128,17 @@ function populateBodyMenuForm(data){
     category0itemtemp = category0item.substring(0, category0item.length-1);
     category1item=JSON.stringify(category1item);
     category1item=category1item.replace(/ /g, '_');
-       
     category1item=JSON.parse(category1item);   
     category2item=JSON.stringify(category2item);
     category2item=category2item.replace(/ /g, '_');
-     
     category2item=JSON.parse(category2item); 
     valuetosend=JSON.stringify([category0item,category1item,category2item]) ;   
     if(active==="True"){
     htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+category0itemtemp+' </td><td>'+category1itemtemp+' </td><td>'+category2itemtemp+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-success"><input type="checkbox"  name="switch12" onclick="updateCheckboxesMenu(this)" checked value='+valuetosend+' id='+JSON.stringify(category2item)+'><span><label for='+JSON.stringify(category2item)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
      }
-     else{
-        htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+category0itemtemp+' </td><td>'+category1itemtemp+' </td><td>'+category2itemtemp+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-success"><input type="checkbox" name="switch12" onclick="updateCheckboxesMenu(this)" value='+valuetosend+' id='+JSON.stringify(category2item)+'><span><label for='+JSON.stringify(category2item)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
-    
-
-     }
-}}}
-    formdiv.innerHTML=htmlstring+'</tbody></table></div></div></div>';
-        document.getElementById('wrapper').appendChild(formdiv);
-
-       
+     else{htmlstring=htmlstring+'<tr><td><div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div></td><td>'+category0itemtemp+' </td><td>'+category1itemtemp+' </td><td>'+category2itemtemp+' </td><td>Rs. '+JSON.stringify(price)+'</td><td><span class="'+vegnonvegpic+'">'+category2datajson["vegnonveg"]+'</span></td><td><div class="switch-button switch-button-success"><input type="checkbox" name="switch12" onclick="updateCheckboxesMenu(this)" value='+valuetosend+' id='+JSON.stringify(category2item)+'><span><label for='+JSON.stringify(category2item)+'></label></span></div></td><td><div class="input-group-append be-addon"><button type="button" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Edit</button><div class="dropdown-menu"><a href="#" class="dropdown-item">Edit</a><a href="#" class="dropdown-item">Another action</a><a href="#" class="dropdown-item">Something else here</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a></div></div></div></td></tr>';
+    }
+}}
 }
 function updateCheckboxesMenu(checkboxElem) {
     if (checkboxElem.checked) {
