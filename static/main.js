@@ -365,6 +365,8 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
 function populateBody(restaurantName,jsonofitems,menuPicArray,vegtrue){
  
 var itemnamearray=Object.keys(jsonofitems); 
+
+
 for(i=0;i<itemnamearray.length;i++){
 var div = document.createElement("div");
 div.className="slidebody";
@@ -380,9 +382,9 @@ if(vegtrue===true){
     itemActiveOrNot="False";
   }
 }
-alert("initil");
+
 if(itemActiveOrNot===JSON.stringify("True")){
-  alert("final");
+
 tempname = tempname.substring(1, tempname.length-1);
 divChild.innerHTML += tempname; 
 
