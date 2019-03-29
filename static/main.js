@@ -308,6 +308,7 @@ window.onload = function() {
 function refreshPopulateBody(){
   //alert(JSON.stringify(window.footerItemClicked));
   window.menuitemjson=JSON.parse(menuitem);
+  clearFooter("menuitbody");
   populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
   
 }  
@@ -362,7 +363,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
 
 
 function populateBody(restaurantName,jsonofitems,menuPicArray,vegtrue){
-  alert("populating body");
+ 
 var itemnamearray=Object.keys(jsonofitems); 
 for(i=0;i<itemnamearray.length;i++){
 var div = document.createElement("div");
@@ -375,7 +376,7 @@ var itemActiveOrNot=JSON.stringify(jsonofitems[itemnamearray[i]]["active"]);
 if(vegtrue===true){
 
   if(jsonofitems[itemnamearray[i]]["vegnonveg"]!=="veg"){
-    alert("excluding something");
+  
     itemActiveOrNot="False";
   }
 }
