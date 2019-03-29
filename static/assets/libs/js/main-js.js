@@ -80,7 +80,7 @@ function handleFromCategory2(category0item,category0datajson,category1list,categ
             var itemNameList=Object.keys(category2datajson);
             for(var itemindex=0;itemindex<itemNameList.length;itemindex++){   
                 var itemitem=itemNameList[itemindex];    
-                var itemdatajson=category2datajson[itemName];
+                var itemdatajson=category2datajson[itemitem];
                 var price=itemdatajson["price"];
                 var active=itemdatajson["active"];
                 
