@@ -5,6 +5,9 @@
 function populateBodyTables(){
     var restaurant={{restaurant|tojson}};
     var noOfTables={{noOfTables|tojson}};
+    alert(restaurant);
+    alert(noOfTables);
+
     var datatogive={"restaurant":restaurant,"noOfTables":noOfTables};   
      clear("tableContainer");
      var noOfTables=datatogive["noOfTables"];
