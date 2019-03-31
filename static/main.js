@@ -467,7 +467,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     var temp=JSON.stringify(jsonofitems[itemnamearray[i]]);
     div.onclick=  function(arg,arg2) {
       return function() {
-          alert(arg.style.height);
+         
           if( arg.style.height==='2.2cm'){
            
             resetAllHeights();
