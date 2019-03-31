@@ -3,7 +3,9 @@
     populateBodyTables();
     }
 function populateBodyTables(){
-    var datatogive={"restaurant":"Taj","noOfTables":8};   
+    var restaurant={{restaurant|tojson}};
+    var noOfTables={{noOfTables|tojson}};
+    var datatogive={"restaurant":restaurant,"noOfTables":noOfTables};   
      clear("tableContainer");
      var noOfTables=datatogive["noOfTables"];
      for(var tableNo=0;tableNo<noOfTables;tableNo++){
