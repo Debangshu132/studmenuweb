@@ -36,7 +36,7 @@ window.swiper = new Swiper('.swiper-container', {
 
 });
 window.menuitemjson=JSON.parse(menuitem);
-var foodlist=Object.keys(window.menuitemjson["Food"]);
+var foodlist=Object.keys(window.menuitemjson["Foods"]);
 
 food=foodlist;
 
@@ -98,7 +98,11 @@ window.menuPicArray=[
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-] 
+
+ 
+ 
+
+  ] 
   function deletecartquantityzeroitems(){
     for(var i=window.cart.length-1;i>-1;i--){
       if(window.cart[i]["quantity"]===0){
@@ -267,7 +271,7 @@ document.getElementById("food").onclick=function()
   document.getElementById("drink").style.background="#ddd";
   document.getElementById("food").style.background="#fff";
   clearFooter("menuite");
-  populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
+  populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
 } 
 
 
@@ -287,16 +291,16 @@ window.onload = function() {
 
   window.footerItemClicked="Bytes";
   document.getElementById("drink").style.background="#ddd";
-  populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
+  populateFooter("Taj",food,"Foods",picCategoryArrayFood,picCategoryArrayFoodColored);
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Food"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
+  populateBody("restaurantName",menuitemjson["Foods"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
   };
 function refreshPopulateBody(){
   //alert(JSON.stringify(window.footerItemClicked));
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Food"][window.footerItemClicked],menuPicArray,document.getElementById("vegnonveg").checked);
+  populateBody("restaurantName",menuitemjson["Foods"][window.footerItemClicked],menuPicArray,document.getElementById("vegnonveg").checked);
   
 }  
  
@@ -469,7 +473,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
     descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
     divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
-    divChildPic.style.backgroundImage= "url('https://storage.googleapis.com/meallionpics/download.jpeg')";  
+    divChildPic.style.backgroundImage=window.menuPicArray[Math.floor(1+Math.random() * 10)];  
      
     //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
     divChildPic.appendChild(divChildPicVegNonveg);
