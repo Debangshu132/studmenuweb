@@ -476,7 +476,8 @@ function populateBodyItems(jsonofitems,vegtrue){
     var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
     descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
     divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
-    divChildPic.style.backgroundImage="url("+jsonofitems[itemnamearray[i]]['image']+")";  
+    alert(JSON.stringify(jsonofitems[itemnamearray[i]]['image']));
+    divChildPic.style.backgroundImage="url("+JSON.stringify(jsonofitems[itemnamearray[i]]['image'])+")";  
      
     //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
     divChildPic.appendChild(divChildPicVegNonveg);
