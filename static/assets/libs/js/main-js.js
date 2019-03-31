@@ -199,7 +199,7 @@ function updateCheckboxesMenu(checkboxElem) {
 
 
 function populateBodyWaiter(){
-            fetch('/populatedashboardwaiterprofiles/Taj') // Call the fetch function passing the url of the API as a parameter
+            fetch('/populatedashboardwaiterprofiles/CAD') // Call the fetch function passing the url of the API as a parameter
             .then(response => response.json())
             .then(data =>  populateBodyWaiterForm(JSON.stringify(data)))
             }
