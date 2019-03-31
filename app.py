@@ -89,7 +89,7 @@ def dashboardwaiterpage(resto):
      tableinfo=getRestaurantsAllTableInfo(resto)
      tablenames=tableinfo.keys()
      noOfTables=len(tablenames)
-     return render_template("dashboard.html",restaurant=resto,noOfTables=noOfTables)
+     return render_template("dashboard.html",restaurant=json.dumps(resto),noOfTables=json.dumps(noOfTables))
 @app.route("/logoutwaiter/<tablejsondata>", methods=['GET', 'POST'])
 def logoutwaiter(tablejsondata):
      restaurant = request.cookies.get('restaurantcookie')
