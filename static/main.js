@@ -396,7 +396,7 @@ function populateBodyItems(jsonofitems,vegtrue){
   for(i=0;i<itemnamearray.length;i++){
     var div = document.createElement("div");
     div.className="slidebody";
-    
+    div.style.height='2.2cm';
     var divChild = document.createElement("div");
     divChild.className="menuitemsnamebody";
     var tempname=JSON.stringify(itemnamearray[i]);
