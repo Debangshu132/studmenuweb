@@ -264,7 +264,6 @@ document.getElementById("carticon").onclick=function(menuPicArray){
 
 document.getElementById("food").onclick=function()
 {
-  window.foodDrinksClicked="Food";
   document.getElementById("drink").style.background="#ddd";
   document.getElementById("food").style.background="#fff";
   clearFooter("menuite");
@@ -274,8 +273,7 @@ document.getElementById("food").onclick=function()
 
 
 document.getElementById("drink").onclick=function()
-{window.foodDrinksClicked="Drinks";
-  document.getElementById("food").style.background="#ddd";
+{document.getElementById("food").style.background="#ddd";
 document.getElementById("drink").style.background="#fff";
 clearFooter("menuite");
 
@@ -286,7 +284,7 @@ populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkC
 
 
 window.onload = function() {
-  window.foodDrinksClicked="Food";
+
   window.footerItemClicked="Bytes";
   document.getElementById("drink").style.background="#ddd";
   populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
@@ -471,9 +469,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
     descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
     divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
-    //window.imageUrl=url('https://storage.googleapis.com/meallionpics/Restaurants/CAD/'+window.foodDrinksClicked+'/'+ window.footerItemClicked+'/CCP.jpg')
-    //alert(window.imageUrl);
-    divChildPic.style.backgroundImage= "url('https://storage.googleapis.com/meallionpics/Restaurants/CAD/Food/Bytes/CCP.jpg')";  
+    divChildPic.style.backgroundImage= "url('https://storage.googleapis.com/meallionpics/download.jpeg')";  
      
     //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
     divChildPic.appendChild(divChildPicVegNonveg);
