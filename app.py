@@ -84,10 +84,12 @@ def updatecart(dataUpdate):
 def dashboard(restoo):
      tableInfo=getRestaurantsAllTableInfo(restoo)
      return str(tableInfo) 
-@app.route("/dashboardwaiterpage/", methods=['GET', 'POST'])
-def dashboardwaiterpage():
-     
-     return render_template("dashboard.html")
+@app.route("/dashboardwaiterpage/<resto>", methods=['GET', 'POST'])
+def dashboardwaiterpage(resto):
+     tableinfo=getRestaurantsAllTableInfo(resto)
+     tablenames=tableinfo.keys()
+     noOfTables=len(tablenames)
+     return render_template("dashboard.html",restaurant=resto,noOfTables=noOfTables)
 @app.route("/logoutwaiter/<tablejsondata>", methods=['GET', 'POST'])
 def logoutwaiter(tablejsondata):
      restaurant = request.cookies.get('restaurantcookie')
