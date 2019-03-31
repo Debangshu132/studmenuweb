@@ -831,14 +831,26 @@ for (fooddrink in menuitemjson) {
   for(category in menuitemjson[fooddrink]){
     var fooditem;
     for(fooditem in menuitemjson[fooddrink][category]){
-      var stringfooditem=JSON.stringify(fooditem);
-      if( (stringfooditem.toLowerCase()).includes(textvalue.toLowerCase())){
+      if( menuitemjson[fooddrink][category][fooditem]["price"]===undefined){
+          var realfooditem;
+          for(realfooditem in menuitemjson[fooddrink][category][fooditem]){
+            var stringrealfooditem=JSON.stringify(realfooditem);
+            if( (stringrealfooditem.toLowerCase()).includes(textvalue.toLowerCase())){
 
-         var price=menuitemjson[fooddrink][category][fooditem];
-         jsonofitems[stringfooditem]=price;
-        
-         
-      }
+           var price=menuitemjson[fooddrink][category][fooditem][realfooditem];
+           jsonofitems[stringrealfooditem]=price;
+            }
+          
+          
+          
+          }}
+          else{
+                    var stringfooditem=JSON.stringify(fooditem);
+                    if( (stringfooditem.toLowerCase()).includes(textvalue.toLowerCase())){
+
+                   var price=menuitemjson[fooddrink][category][fooditem];
+                   jsonofitems[stringfooditem]=price;
+                    }}
     }
   }
 }
