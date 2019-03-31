@@ -4,9 +4,8 @@
     }
 function populateBodyTables(){
    
-    alert(restaurant);
-    alert(noOfTables);
-    alert('<iframe frameBorder="0" src="http://studmenuweb.herokuapp.com/groupcart/%7B%22restaurant%22:%22'+restaurant+'%22,%22tableno%22:%22'+tableNo+'%22,%22identity%22:%22manager%22%7D"></iframe>');
+    
+    //alert('<iframe frameBorder="0" src="http://studmenuweb.herokuapp.com/groupcart/%7B%22restaurant%22:%22'+restaurant+'%22,%22tableno%22:%22'+tableNo+'%22,%22identity%22:%22manager%22%7D"></iframe>');
        
     var datatogive={"restaurant":restaurant,"noOfTables":noOfTables};   
      clear("tableContainer");
