@@ -3,13 +3,14 @@
     populateBodyTables();
     }
 function populateBodyTables(){
-   
+    var restaurant={{restaurant|tojson}};
+    var noOfTables={{noOfTables|tojson}};
     alert(restaurant);
     alert(noOfTables);
 
     var datatogive={"restaurant":restaurant,"noOfTables":noOfTables};   
      clear("tableContainer");
-     var noOfTables=datatogive["noOfTables"];
+     noOfTables=datatogive["noOfTables"];
      for(var tableNo=0;tableNo<noOfTables;tableNo++){
         var tablesOuter=document.createElement('div');
         tablesOuter.className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12";
