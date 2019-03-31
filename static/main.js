@@ -473,7 +473,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     var descriptionOfFoodItems=JSON.stringify(jsonofitems[itemnamearray[i]]["description"]);
     descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
     divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
-    divChildPic.style.backgroundImage="url('https://storage.googleapis.com/meallionpics/Restaurants/CAD/Food/Bytes/"+itemnamearray[i]+"".jpg')";  
+    divChildPic.style.backgroundImage="url('https://storage.googleapis.com/meallionpics/Restaurants/CAD/Food/Bytes/"+tempname+"".jpg')";  
      
     //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
     divChildPic.appendChild(divChildPicVegNonveg);
