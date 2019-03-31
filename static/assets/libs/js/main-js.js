@@ -3,8 +3,7 @@
     populateBodyTables();
     }
 function populateBodyTables(){
-    var restaurant={{restaurant|tojson}};
-    var noOfTables={{noOfTables|tojson}};
+   
     alert(restaurant);
     alert(noOfTables);
 
