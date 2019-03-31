@@ -50,23 +50,14 @@ generalIcons={
 }
 
 picCategoryArrayFood=[
-"https://storage.googleapis.com/meallionpics/download.jpeg",
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg", 
-"https://storage.googleapis.com/meallionpics/download.jpeg",   
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bread+Drive.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bytes.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Floppy.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Hardware.png",  
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Programmer.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png",
-"https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png"
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Attributes.png",  
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bread+Drive.png",
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Bytes.png",  
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Floppy.png",
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Hardware.png",  
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Programmer.png",
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png",
+  "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Uncolored/Software.png"
 ]
 picCategoryArrayFoodColored=[
   "https://s3.ap-south-1.amazonaws.com/studmenu/Restaurants/CAD+Tech+Bar/Food/Category+1+icons/Colored/Attributes.png",  
@@ -107,11 +98,7 @@ window.menuPicArray=[
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
   "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-
- 
- 
-
-  ] 
+] 
   function deletecartquantityzeroitems(){
     for(var i=window.cart.length-1;i>-1;i--){
       if(window.cart[i]["quantity"]===0){
