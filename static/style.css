@@ -1091,6 +1091,13 @@ box-shadow: 5px 10px;
    font-family: 'Dosis', sans-serif;   
   
 }
+.menuitemsserves{
+   float:left;
+   margin-left:2.4cm;
+   margin-top:-0.8cm;
+   color:#555
+
+}
 .divChildPicVegNonveg{
   max-width: 12%;
   max-height: 12%;
