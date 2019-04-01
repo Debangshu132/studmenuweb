@@ -450,6 +450,10 @@ function populateBodyItems(jsonofitems,vegtrue){
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
     menuitemsbodyminus.onclick=function(arg,arg2){
         return function() {
+          if(window.itemsOrdered===1){
+          document.getElementById("carticonnumber").style.visibility="hidden";}
+          window.itemsOrdered=window.itemsOrdered-1;
+          document.getElementById("carticonnumber").innerHTML=window.itemsOrdered;
           checkandminus(arg,arg2);
         }}(tempname,jsonofitems[tempname]);  
     
