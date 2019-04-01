@@ -443,17 +443,19 @@ function populateBodyItems(jsonofitems,vegtrue){
     
     menuitemsbodyplus.onclick=function(arg,arg2,arg3){
       return function() {
+        
+        createCustomizationTab(arg,arg2,arg3);
         document.getElementById("carticonnumber").style.visibility="visible";
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
-        createCustomizationTab(arg,arg2,arg3);
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
     menuitemsbodyminus.onclick=function(arg,arg2){
         return function() {
           if(window.cart.length===1){
           document.getElementById("carticonnumber").style.visibility="hidden";}
 
-          document.getElementById("carticonnumber").innerHTML=window.cart.length;
+          
           checkandminus(arg,arg2);
+          document.getElementById("carticonnumber").innerHTML=window.cart.length;
         }}(tempname,jsonofitems[tempname]);  
     
     
