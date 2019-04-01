@@ -319,7 +319,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
  
   div.className="swiper-slide";
   var img = document.createElement("img");
-  //img.src = arraypic[i];
+  img.src = arraypic[i];
   img.className="menuitemspic"
   var divChild = document.createElement("div");
   divChild.className="menuitemsdescription";
@@ -473,7 +473,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
     divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
   
-    //divChildPic.style.backgroundImage="url("+JSON.stringify(jsonofitems[itemnamearray[i]]['image'])+")";  
+    divChildPic.style.backgroundImage="url("+JSON.stringify(jsonofitems[itemnamearray[i]]['image'])+")";  
      
     //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
     divChildPic.appendChild(divChildPicVegNonveg);
