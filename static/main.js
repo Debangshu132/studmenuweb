@@ -92,12 +92,7 @@ picCategoryArrayFoodColored=[
 
 
 window.menuPicArray=[
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
-  "url('https://storage.googleapis.com/meallionpics/download.jpeg')",
+  "url('https://storage.googleapis.com/meallionpics/download.jpeg')"
 
  
  
@@ -294,10 +289,11 @@ window.onload = function() {
   window.foodDrinksChecked="Food";
   window.footerItemClicked="Bytes";
   document.getElementById("drink").style.background="#ddd";
-  populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
+  
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
   populateBody("restaurantName",menuitemjson["Food"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
+  populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
   };
 function refreshPopulateBody(){
   //alert(JSON.stringify(window.footerItemClicked));
