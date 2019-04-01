@@ -335,7 +335,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
           clearFooter("menuitbody");
           clearAllBorders(fd,itemname);
           arg2.src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+fd+"/Category%201/Colored/"+itemname+".png";
-           arg2.src=arg3[index];
+           
 
           populateBody("restaurantName",arg,menuPicArray,document.getElementById("vegnonveg").checked);
          
@@ -805,8 +805,8 @@ function updatecustomization(checkboxName) {
 function clearAllBorders(fd,itemname){
   var a=document.getElementsByClassName("menuitemspic");
   for (var i=0; i < a.length; i++) {
-    a[i].src=picCategoryArrayFood[i] ;
-    a[i].src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+fd+"/Category%201/Colored/"+itemname+".png";
+    
+    a[i].src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+fd+"/Category%201/Uncolored/"+itemname+".png";
            
   }
 }
