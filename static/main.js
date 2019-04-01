@@ -329,12 +329,13 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
   var item=menuitemjson[foodDrink][foodOrDrink[i]];
   if(item==='undefined'){
   item="Its not available";}
-  img.onclick= function(arg,arg2,arg3,index,itemname) {
+  img.onclick= function(arg,arg2,arg3,index,itemname,fd) {
       return function() {
           window.footerItemClicked=itemname;
           clearFooter("menuitbody");
-          //clearAllBorders();
-          //arg2.src=arg3[index];
+          clearAllBorders(fd,itemname);
+          arg2.src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+fd+"/Category%201/Colored/"+itemname+".png";
+           arg2.src=arg3[index];
 
           populateBody("restaurantName",arg,menuPicArray,document.getElementById("vegnonveg").checked);
          
@@ -343,7 +344,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
          
           
       }
-  }(item,img,arraypiccolored,i,foodOrDrink[i]);
+  }(item,img,arraypiccolored,i,foodOrDrink[i],foodDrink);
   div.appendChild(img);
   div.appendChild(divChild);
 
@@ -805,7 +806,8 @@ function clearAllBorders(){
   var a=document.getElementsByClassName("menuitemspic");
   for (var i=0; i < a.length; i++) {
     a[i].src=picCategoryArrayFood[i] ;
-    
+    a[i].src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+fd+"/Category%201/Colored/"+itemname+".png";
+           
   }
 }
 
