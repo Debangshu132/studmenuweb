@@ -332,8 +332,8 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
       return function() {
           window.footerItemClicked=itemname;
           clearFooter("menuitbody");
-          clearAllBorders();
-          arg2.src=arg3[index];
+          //clearAllBorders();
+          //arg2.src=arg3[index];
 
           populateBody("restaurantName",arg,menuPicArray,document.getElementById("vegnonveg").checked);
          
