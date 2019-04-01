@@ -495,7 +495,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     descriptionOfFoodItems = descriptionOfFoodItems.substring(1, descriptionOfFoodItems.length-1);
 
     divChildDescriptionOfFood.innerHTML= descriptionOfFoodItems;
-    divChildDescriptionOfFood.innerHTML+='</br>'+'&#8987;  '+JSON.stringify(jsonofitems[itemnamearray[i]]['preptime']+' mins')
+    divChildDescriptionOfFood.innerHTML+='</br>'+'</br>'+'</br>'+'&#8987;  '+jsonofitems[itemnamearray[i]]['preptime']+' mins';
     divChildPic.style.backgroundImage="url("+JSON.stringify(jsonofitems[itemnamearray[i]]['image'])+")";  
      
     //divChildPic.innerHTML = '<img class="menuitemsbodyactualpic" src="../static/1.jpg">'; 
