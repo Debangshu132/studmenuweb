@@ -319,7 +319,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
  
   div.className="swiper-slide";
   var img = document.createElement("img");
-  img.src = url("https://storage.googleapis.com/meallionpics/Restaurants/CAD/Food/Category%201/Colored/"+foodOrDrink[i]+".png");
+  img.src = 'url("https://storage.googleapis.com/meallionpics/Restaurants/CAD/Food/Category%201/Colored/"+foodOrDrink[i]+".png")';
   img.className="menuitemspic"
   var divChild = document.createElement("div");
   divChild.className="menuitemsdescription";
