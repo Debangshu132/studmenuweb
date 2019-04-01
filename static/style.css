@@ -1091,11 +1091,12 @@ box-shadow: 5px 10px;
    font-family: 'Dosis', sans-serif;   
   
 }
-.menuitemsserves{
+.menuitemsbodyserves{
    float:left;
    margin-left:2.4cm;
    margin-top:-0.8cm;
-   color:#555
+   color:#555;
+   height:5px;  
 
 }
 .divChildPicVegNonveg{
