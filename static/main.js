@@ -810,9 +810,12 @@ function updatecustomization(checkboxName) {
 function clearAllBorders(fd,itemname){
   var a=document.getElementsByClassName("menuitemspic");
   for (var i=0; i < a.length; i++) {
-    
+    if(window.foodDrinksChecked==="Food"){
     a[i].src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+window.foodDrinksChecked+"/Category%201/Uncolored/"+food[i]+".png";
-           
+    } 
+    else{
+      a[i].src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+window.foodDrinksChecked+"/Category%201/Uncolored/"+drink[i]+".png";
+      }  
   }
 }
 
