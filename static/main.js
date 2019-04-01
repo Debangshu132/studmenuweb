@@ -505,9 +505,10 @@ function populateBodyItems(jsonofitems,vegtrue){
     div.appendChild(divChild);
     div.appendChild(divChildPlusMinus);  
     div.appendChild(divChildServes);
-    div.appendChild(divChildRating);
+   
     div.appendChild(divChildDescriptionOfFood);   
     div.appendChild(divChildBasePrice); 
+    div.appendChild(divChildRating);
     document.getElementById("menuitbody").appendChild(div);}}
 }
 
@@ -897,3 +898,4 @@ document.onreadystatechange = function () {
       },1000);
   }
 }
+
