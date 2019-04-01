@@ -319,7 +319,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
  
   div.className="swiper-slide";
   var img = document.createElement("img");
-  img.src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+foodDrink+"/Category%201/Uncolored/"+foodOrDrink[i]+".png";
+  img.src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+foodDrink+"/Category%201/Colored/"+foodOrDrink[i]+".png";
   img.className="menuitemspic"
   var divChild = document.createElement("div");
   divChild.className="menuitemsdescription";
@@ -334,6 +334,7 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
           clearFooter("menuitbody");
           clearAllBorders();
           arg2.src=arg3[index];
+
           populateBody("restaurantName",arg,menuPicArray,document.getElementById("vegnonveg").checked);
          
           
