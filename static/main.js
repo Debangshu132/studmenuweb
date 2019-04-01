@@ -429,7 +429,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     divChildPlusMinus.className="menuitemsbodyplusminus";
     divChildBasePrice.className="menuitemsbodybaseprice";
     divChildBasePrice.innerHTML="&#x20b9; "+JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
-    divChildServes.innerHTML="Serves "+JSON.stringify(jsonofitems[itemnamearray[i]]["serves"])
+    divChildServes.innerHTML="Serves "+jsonofitems[itemnamearray[i]]["serves"];
     
     
     divChildPicVegNonveg.src=generalIcons[jsonofitems[tempname]["vegnonveg"]];
