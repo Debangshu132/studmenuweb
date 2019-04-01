@@ -739,7 +739,7 @@ html, body {
    position:fixed;
    height:40px;
    width:40px;
-   left:90%;
+   left:85%;
    top:25px;
   
  }
@@ -748,13 +748,13 @@ html, body {
    position:absolute;
    top:-18px;
    left:14px;
-   width:15px;
+   width:12px;
    border-radius:50%;
    text-align:center;
    font-size:10px;
    font-weight:bold;
    color:white;
-   height:15px;
+   height:12px;
     border: 3px solid white;
  }
  .carticon{
