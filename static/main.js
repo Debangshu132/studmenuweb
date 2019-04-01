@@ -333,7 +333,12 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
       return function() {
           window.footerItemClicked=itemname;
           clearFooter("menuitbody");
-          clearAllBorders(fd,itemname);
+         // clearAllBorders(fd,itemname);
+         var a=document.getElementsByClassName("menuitemspic");
+        for (var i=0; i < a.length; i++) {
+        a[i].src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+fd+"/Category%201/Uncolored/"+itemname+".png";
+          }
+           
           arg2.src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+fd+"/Category%201/Colored/"+itemname+".png";
            
 
