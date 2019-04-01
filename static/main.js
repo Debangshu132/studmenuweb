@@ -289,7 +289,7 @@ window.onload = function() {
   window.foodDrinksChecked="Food";
   window.footerItemClicked="Bytes";
   document.getElementById("drink").style.background="#ddd";
-  document.getElementById("carticonnumber").visibility="invisible";
+  document.getElementById("carticonnumber").style.visibility="invisible";
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
   populateBody("restaurantName",menuitemjson["Food"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
