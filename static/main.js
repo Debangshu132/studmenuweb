@@ -286,6 +286,7 @@ populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkC
 
 
 window.onload = function() {
+  window.itemsOrdered=0;
   window.foodDrinksChecked="Food";
   window.footerItemClicked="Bytes";
   document.getElementById("drink").style.background="#ddd";
@@ -345,6 +346,8 @@ function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypicco
   }(item,img,arraypiccolored,i,foodOrDrink[i]);
   div.appendChild(img);
   div.appendChild(divChild);
+
+
   var currentDiv = document.getElementById("div1"); 
   document.getElementById("menuite").insertBefore(div,currentDiv);}
   window.swiper.updateSize(); 
@@ -440,6 +443,9 @@ function populateBodyItems(jsonofitems,vegtrue){
     
     menuitemsbodyplus.onclick=function(arg,arg2,arg3){
       return function() {
+        document.getElementById("carticonnumber").style.visibility="visible";
+        window.itemsOrdered=window.itemsOrdered+1;
+        document.getElementById("carticonnumber").innerHTML=window.itemsOrdered;
         createCustomizationTab(arg,arg2,arg3);
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
     menuitemsbodyminus.onclick=function(arg,arg2){
