@@ -802,7 +802,7 @@ function updatecustomization(checkboxName) {
 
 
 
-function clearAllBorders(){
+function clearAllBorders(fd,itemname){
   var a=document.getElementsByClassName("menuitemspic");
   for (var i=0; i < a.length; i++) {
     a[i].src=picCategoryArrayFood[i] ;
