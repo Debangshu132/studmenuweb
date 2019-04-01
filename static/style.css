@@ -734,13 +734,30 @@ html, body {
  
 
  }
+ 
+ .cartcontainer{
+   position:fixed;
+   height:40px;
+   width:40px;
+   left:90%;
+   top:25px;
+   background:yellow;
+ }
+ .carticonnumber{
+   background:red;
+   position:absolute;
+   top:-16px;
+   left:16px;
+   width:15px;
+   border-radius:50%;
+   text-align:center;
+   font-size:10px;
+   color:white;
+   height:15px;
+ }
  .carticon{
-   float:right;
-   padding-right:25px;
-   margin-top:-25px;
-   height:55%;
+  background:black;
   
-
  }
 
 .containerbody {
