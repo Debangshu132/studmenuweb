@@ -420,6 +420,8 @@ function populateBodyItems(jsonofitems,vegtrue){
     var divChildPicVegNonveg=document.createElement("IMG");
     var divChildPlusMinus = document.createElement("div");  
     var divChildDescriptionOfFood = document.createElement("div");
+    var divChildServes=document.createElement("div");
+    divChildServes.className='menuitemsserves';
     divChildDescriptionOfFood.className="menuitemsbodydescription";
     divChildDescriptionOfFood.style.visibility="hidden";
     divChildPic.className="menuitemsbodypic";
@@ -427,7 +429,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     divChildPlusMinus.className="menuitemsbodyplusminus";
     divChildBasePrice.className="menuitemsbodybaseprice";
     divChildBasePrice.innerHTML="&#x20b9; "+JSON.stringify(jsonofitems[itemnamearray[i]]["price"]);
-    
+    divChildServes.innerHTML="Serves "+JSON.stringify(jsonofitems[itemnamearray[i]]["serves"])
     
     
     divChildPicVegNonveg.src=generalIcons[jsonofitems[tempname]["vegnonveg"]];
@@ -499,7 +501,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     div.appendChild(divChildPic);
     div.appendChild(divChild);
     div.appendChild(divChildPlusMinus);  
-    
+    div.appendChild(divChildServes);
     div.appendChild(divChildDescriptionOfFood);   
     div.appendChild(divChildBasePrice); 
     document.getElementById("menuitbody").appendChild(div);}}
