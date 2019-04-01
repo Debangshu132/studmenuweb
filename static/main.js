@@ -107,7 +107,7 @@ window.menuPicArray=[
     }
   }
 
-document.getElementById("carticoncontainer").onclick=function(menuPicArray){
+document.getElementById("cartcontainer").onclick=function(menuPicArray){
  deletecartquantityzeroitems(); 
  var cart=document.createElement('div');
  cart.className="cart";
