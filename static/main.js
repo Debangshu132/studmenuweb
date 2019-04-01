@@ -811,7 +811,7 @@ function clearAllBorders(fd,itemname){
   var a=document.getElementsByClassName("menuitemspic");
   for (var i=0; i < a.length; i++) {
     
-    a[i].src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+window.foodDrinksChecked+"/Category%201/Uncolored/"+window.foodDrinksChecked[i]+".png";
+    a[i].src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+window.foodDrinksChecked+"/Category%201/Uncolored/"+food[i]+".png";
            
   }
 }
