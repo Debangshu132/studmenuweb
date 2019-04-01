@@ -746,7 +746,7 @@ html, body {
  .carticonnumber{
    background:red;
    position:absolute;
-   top:-18px;
+   top:-20px;
    left:14px;
    width:12px;
    border-radius:50%;
@@ -758,7 +758,8 @@ html, body {
     border: 3px solid white;
  }
  .carticon{
-
+  height:30px;
+  width:30px;
   
  }
 
