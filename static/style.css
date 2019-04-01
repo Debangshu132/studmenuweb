@@ -736,17 +736,17 @@ html, body {
  }
  
  .cartcontainer{
-   position:fixed;
+   position:relative;
    height:0.8cm;
    width:0.8cm;
    left:85%;
-   top:25px;
+   top:-15px;
   
  }
  .carticonnumber{
    background:red;
    position:absolute;
-   top:-0.5cm;
+   top:-0.6cm;
    left:0.4cm;
    width:0.3cm;
    border-radius:50%;
