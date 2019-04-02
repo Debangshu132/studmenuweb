@@ -415,6 +415,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     var menuitemsbodyquantity=document.createElement("div");
     menuitemsbodyquantity.className="menuitemsbodyquantity";
     menuitemsbodyquantity.innerHTML="0";
+    menuitemsbodyquantity.style.visibility="hidden";
     var menuitemsbodyminus=document.createElement("div");
     menuitemsbodyminus.className="menuitemsbodyminus";
     menuitemsbodyminus.innerHTML="_";
@@ -430,7 +431,7 @@ function populateBodyItems(jsonofitems,vegtrue){
         
              if(window.cart[singleitems]["item"]===arg){
                  singleitemcount=window.cart[singleitems]["quantity"];
-                 
+                 arg5.style.visibility="visible";
              }    
                }
          if(singleitemcount===0){
