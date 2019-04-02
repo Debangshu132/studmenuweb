@@ -183,11 +183,11 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
        MessengerExtensions.getUserID(function success(uids) {
         var psid = uids.psid;//This is your page scoped sender_id
         var http = new XMLHttpRequest();
-        alert(JSON.stringify(window.cart));
+     
         for(var j=0;j<window.cart.length;j++){
           delete window.cart[j].image;
         }
-        alert(JSON.stringify(window.cart));
+        
     var url = 'https://studmenu.herokuapp.com/cart/'+JSON.stringify({"id":psid,"cart":(window.cart)});
     http.open("POST", url, false); 
     http.setRequestHeader("Content-Type", "application/json");
