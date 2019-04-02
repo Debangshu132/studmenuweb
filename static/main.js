@@ -408,19 +408,28 @@ function populateBodyItems(jsonofitems,vegtrue){
     divChildPlusMinus.addEventListener('click', function(pEvent) {
       pEvent.stopPropagation();
     })
-    divChildPlusMinus.style.height="0.7cm";
+    var tempcount=0;
+    for(var index=0;index<window.cart.length;index++){
+     if(window.cart[index]["item"]===tempname){ 
+       tempcount=tempcount+1;
+    }}
+    if(tempcount===0){
+      divChildPlusMinus.style.height="0.7cm";
     divChildPlusMinus.style.borderRadius = "50%";
+    menuitemsbodyquantity.style.visibility="hidden";
+    menuitemsbodyminus.style.visibility="hidden";
+    }
     var menuitemsbodyplus=document.createElement("div");
     menuitemsbodyplus.className="menuitemsbodyplus";
     menuitemsbodyplus.innerHTML="+";
     var menuitemsbodyquantity=document.createElement("div");
     menuitemsbodyquantity.className="menuitemsbodyquantity";
     menuitemsbodyquantity.innerHTML="0";
-    menuitemsbodyquantity.style.visibility="hidden";
+   
     var menuitemsbodyminus=document.createElement("div");
     menuitemsbodyminus.className="menuitemsbodyminus";
     menuitemsbodyminus.innerHTML="_";
-    menuitemsbodyminus.style.visibility="hidden";
+   
     menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5,arg6,arg7){
     
       return function() {
