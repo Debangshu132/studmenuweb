@@ -427,7 +427,7 @@ function populateBodyItems(jsonofitems,vegtrue){
              //alert(window.cart[singleitems]["item"]);
              //alert(arg);
              if(window.cart[singleitems]["item"]===arg){
-                 singleitemcount=singleitemcount+window.cartsingleitems["quantity"];
+                 singleitemcount=singleitemcount+window.cart[singleitems]["quantity"];
                  
              }    
              else{
