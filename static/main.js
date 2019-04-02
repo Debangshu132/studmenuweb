@@ -424,9 +424,9 @@ function populateBodyItems(jsonofitems,vegtrue){
         createCustomizationTab(arg,arg2,arg3,arg4);
         var singleitemcount=0;
         for(var singleitems=0;singleitems < window.cart.length;singleitems++){
-             alert(window.cart[singleitems]["item"]);
-             alert(arg);
-             if(JSON.stringify(window.cart[singleitems]["item"])===arg){
+             //alert(window.cart[singleitems]["item"]);
+             //alert(arg);
+             if(window.cart[singleitems]["item"]===arg){
                  singleitemcount=singleitemcount+singleitems["quantity"];
                  
              }    
