@@ -408,6 +408,15 @@ function populateBodyItems(jsonofitems,vegtrue){
     divChildPlusMinus.addEventListener('click', function(pEvent) {
       pEvent.stopPropagation();
     })
+    
+    var menuitemsbodyplus=document.createElement("div");
+    menuitemsbodyplus.className="menuitemsbodyplus";
+    menuitemsbodyplus.innerHTML="+";
+    var menuitemsbodyquantity=document.createElement("div");
+    menuitemsbodyquantity.className="menuitemsbodyquantity";
+    menuitemsbodyquantity.innerHTML="0";
+
+
     var tempcount=0;
     for(var index=0;index<window.cart.length;index++){
      if(window.cart[index]["item"]===tempname){ 
@@ -419,12 +428,6 @@ function populateBodyItems(jsonofitems,vegtrue){
     menuitemsbodyquantity.style.visibility="hidden";
     menuitemsbodyminus.style.visibility="hidden";
     }
-    var menuitemsbodyplus=document.createElement("div");
-    menuitemsbodyplus.className="menuitemsbodyplus";
-    menuitemsbodyplus.innerHTML="+";
-    var menuitemsbodyquantity=document.createElement("div");
-    menuitemsbodyquantity.className="menuitemsbodyquantity";
-    menuitemsbodyquantity.innerHTML="0";
    
     var menuitemsbodyminus=document.createElement("div");
     menuitemsbodyminus.className="menuitemsbodyminus";
