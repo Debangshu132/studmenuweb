@@ -424,14 +424,14 @@ function populateBodyItems(jsonofitems,vegtrue){
         createCustomizationTab(arg,arg2,arg3,arg4);
         var singleitemcount=0;
         for(var singleitems=0;singleitems < window.cart.length;singleitems++){
-             if(JSON.stringify(singleitems["item"])===JSON.stringify(tempname)){
+             if(JSON.stringify(window.cart[singleitems]["item"])===arg){
                  singleitemcount=singleitemcount+singleitems["quantity"];
              }    
              else{
               singleitemcount=1;
              }    }
-             alert(JSON.stringify(singleitems["item"]));
-             alert(JSON.stringify(tempname));
+             alert(JSON.stringify(window.cart[singleitems]["item"]));
+             alert(arg);
              
              arg5.innerHTML=JSON.stringify(singleitemcount);    
         document.getElementById("carticonnumber").style.visibility="visible";
