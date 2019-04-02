@@ -430,6 +430,7 @@ function populateBodyItems(jsonofitems,vegtrue){
              else{
               singleitemcount=1;
              }    }
+             alert(arg5);
              arg5.innerHTML=JSON.stringify(singleitemcount);    
         document.getElementById("carticonnumber").style.visibility="visible";
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
