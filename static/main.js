@@ -420,8 +420,9 @@ function populateBodyItems(jsonofitems,vegtrue){
     menuitemsbodyminus.innerHTML="_";
     
     menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5){
-      alert(window.cart);
+    
       return function() {
+        alert(window.cart);
         createCustomizationTab(arg,arg2,arg3,arg4);
         var singleitemcount=0;
         for(var singleitems=0;singleitems < window.cart.length;singleitems++){
@@ -442,9 +443,10 @@ function populateBodyItems(jsonofitems,vegtrue){
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity);
     menuitemsbodyminus.onclick=function(arg,arg2,arg5){
-      alert(window.cart);
+     
 
         return function() {
+          alert(window.cart);
           checkandminus(arg,arg2);
 
           var singleitemcount=0;
