@@ -426,11 +426,12 @@ function populateBodyItems(jsonofitems,vegtrue){
         for(var singleitems=0;singleitems < window.cart.length;singleitems++){
              if(JSON.stringify(window.cart[singleitems]["item"])===arg){
                  singleitemcount=singleitemcount+singleitems["quantity"];
+                 alert(JSON.stringify(window.cart[singleitems]["item"]));
              }    
              else{
               singleitemcount=1;
              }    }
-             alert(JSON.stringify(window.cart[singleitems]["item"]));
+             
              alert(arg);
              
              arg5.innerHTML=JSON.stringify(singleitemcount);    
