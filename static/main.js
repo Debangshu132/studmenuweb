@@ -420,6 +420,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     menuitemsbodyminus.innerHTML="_";
     
     menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5){
+      alert(window.cart);
       return function() {
         createCustomizationTab(arg,arg2,arg3,arg4);
         var singleitemcount=0;
@@ -441,7 +442,7 @@ function populateBodyItems(jsonofitems,vegtrue){
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity);
     menuitemsbodyminus.onclick=function(arg,arg2,arg5){
-
+      alert(window.cart);
 
         return function() {
           checkandminus(arg,arg2);
