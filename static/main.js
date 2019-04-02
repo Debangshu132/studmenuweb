@@ -447,9 +447,9 @@ function populateBodyItems(jsonofitems,vegtrue){
      
 
         return function() {
-          
-          checkandminus(arg,arg2);
           alert(JSON.stringify(window.cart));
+          checkandminus(arg,arg2);
+         
           var singleitemcount=0;
           for(var singleitems=0;singleitems < window.cart.length;singleitems++){
           if(window.cart[singleitems]["item"]===arg){
