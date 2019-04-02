@@ -408,7 +408,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     divChildPlusMinus.addEventListener('click', function(pEvent) {
       pEvent.stopPropagation();
     })
-    
+    divChildPlusMinus.style.height="0.6cm";
     var menuitemsbodyplus=document.createElement("div");
     menuitemsbodyplus.className="menuitemsbodyplus";
     menuitemsbodyplus.innerHTML="+";
@@ -420,7 +420,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     menuitemsbodyminus.className="menuitemsbodyminus";
     menuitemsbodyminus.innerHTML="_";
     menuitemsbodyminus.style.visibility="hidden";
-    menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5,arg6){
+    menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5,arg6,arg7){
     
       return function() {
        
@@ -433,6 +433,7 @@ function populateBodyItems(jsonofitems,vegtrue){
                  singleitemcount=window.cart[singleitems]["quantity"];
                  arg5.style.visibility="visible";
                  arg6.style.visibility="visible";
+                 arg7.style.height='1.6cm';
              }    
                }
          if(singleitemcount===0){
@@ -444,8 +445,8 @@ function populateBodyItems(jsonofitems,vegtrue){
              arg5.innerHTML=JSON.stringify(singleitemcount);    
         document.getElementById("carticonnumber").style.visibility="visible";
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
-      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity,menuitemsbodyminus);
-    menuitemsbodyminus.onclick=function(arg,arg2,arg5,arg6){
+      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity,menuitemsbodyminus,divChildPlusMinus);
+    menuitemsbodyminus.onclick=function(arg,arg2,arg5,arg6,arg7){
      
 
         return function() {
@@ -461,6 +462,7 @@ function populateBodyItems(jsonofitems,vegtrue){
           singleitemcount=0;
           arg5.style.visibility="hidden";
           arg6.style.visibility="hidden";
+          arg7.style.height='0.6cm';
          }     
          arg5.innerHTML=JSON.stringify(singleitemcount);  
 
@@ -472,7 +474,7 @@ function populateBodyItems(jsonofitems,vegtrue){
           
           
           document.getElementById("carticonnumber").innerHTML=window.cart.length;
-        }}(tempname,jsonofitems[tempname],menuitemsbodyquantity,menuitemsbodyminus);  
+        }}(tempname,jsonofitems[tempname],menuitemsbodyquantity,menuitemsbodyminus,divChildPlusMinus);  
     
     
     
