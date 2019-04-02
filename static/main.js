@@ -424,16 +424,15 @@ function populateBodyItems(jsonofitems,vegtrue){
         createCustomizationTab(arg,arg2,arg3,arg4);
         var singleitemcount=0;
         for(var singleitems=0;singleitems < window.cart.length;singleitems++){
-             //alert(window.cart[singleitems]["item"]);
-             //alert(arg);
+        
              if(window.cart[singleitems]["item"]===arg){
                  singleitemcount=window.cart[singleitems]["quantity"];
                  
              }    
-             else{
-              singleitemcount=1;
-              
-             }    }
+               }
+         if(singleitemcount===0){
+          singleitemcount=1;
+         }      
              
              
              
