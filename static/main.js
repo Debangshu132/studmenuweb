@@ -435,6 +435,7 @@ function populateBodyItems(jsonofitems,vegtrue){
                  arg5.style.visibility="visible";
                  arg6.style.visibility="visible";
                  arg7.style.height='1.6cm';
+                 arg7.style.borderRadius = "5px";
                  
              }    
                }
