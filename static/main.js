@@ -409,6 +409,7 @@ function populateBodyItems(jsonofitems,vegtrue){
       pEvent.stopPropagation();
     })
     divChildPlusMinus.style.height="0.6cm";
+    divChildPlusMinus.style.borderRadius = "50%";
     var menuitemsbodyplus=document.createElement("div");
     menuitemsbodyplus.className="menuitemsbodyplus";
     menuitemsbodyplus.innerHTML="+";
@@ -434,7 +435,7 @@ function populateBodyItems(jsonofitems,vegtrue){
                  arg5.style.visibility="visible";
                  arg6.style.visibility="visible";
                  arg7.style.height='1.6cm';
-                 arg7.style.borderRadius = "50%";
+                 
              }    
                }
          if(singleitemcount===0){
@@ -464,6 +465,7 @@ function populateBodyItems(jsonofitems,vegtrue){
           arg5.style.visibility="hidden";
           arg6.style.visibility="hidden";
           arg7.style.height='0.6cm';
+          arg7.style.borderRadius = "50%";
          }     
          arg5.innerHTML=JSON.stringify(singleitemcount);  
 
