@@ -414,7 +414,18 @@ function populateBodyItems(jsonofitems,vegtrue){
     menuitemsbodyplus.innerHTML="+";
     var menuitemsbodyquantity=document.createElement("div");
     menuitemsbodyquantity.className="menuitemsbodyquantity";
-    menuitemsbodyquantity.innerHTML="0";
+    menuitemsbodyquantity.innerHTML="0";     
+
+
+    for(var singleitems=0;singleitems < window.cart.length;singleitems++){
+     if(window.cart[singleitems]["item"]===tempname){
+      menuitemsbodyquantity.innerHTML=window.cart[singleitems]["quantity"];
+      }    
+    }
+
+
+
+   
     var menuitemsbodyminus=document.createElement("div");
     menuitemsbodyminus.className="menuitemsbodyminus";
     menuitemsbodyminus.innerHTML="_";
