@@ -457,6 +457,7 @@ function populateBodyItems(jsonofitems,vegtrue){
                }
          if(singleitemcount===0){
           singleitemcount=0;
+          arg5.style.visibility="hidden";
          }     
          arg5.innerHTML=JSON.stringify(singleitemcount);  
 
