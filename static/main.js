@@ -424,7 +424,7 @@ function populateBodyItems(jsonofitems,vegtrue){
       return function() {
        
         createCustomizationTab(arg,arg2,arg3,arg4);
-        alert(JSON.stringify(window.cart));
+       
         var singleitemcount=0;
         for(var singleitems=0;singleitems < window.cart.length;singleitems++){
         
@@ -447,7 +447,7 @@ function populateBodyItems(jsonofitems,vegtrue){
      
 
         return function() {
-          alert(JSON.stringify(window.cart));
+         
           checkandminus(arg,arg2);
          
           var singleitemcount=0;
