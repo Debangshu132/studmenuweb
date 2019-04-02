@@ -444,7 +444,7 @@ function populateBodyItems(jsonofitems,vegtrue){
 
 
         return function() {
-          checkandminus(arg,arg2);
+          checkandminus(arg,arg2,arg5);
 
           var singleitemcount=0;
           for(var singleitems=0;singleitems < window.cart.length;singleitems++){
@@ -454,6 +454,7 @@ function populateBodyItems(jsonofitems,vegtrue){
          if(singleitemcount===0){
           singleitemcount=0;
          }     
+         arg5.innerHTML=JSON.stringify(singleitemcount);  
 
 
     
@@ -463,7 +464,7 @@ function populateBodyItems(jsonofitems,vegtrue){
           
           
           document.getElementById("carticonnumber").innerHTML=window.cart.length;
-        }}(tempname,jsonofitems[tempname]);  
+        }}(tempname,jsonofitems[tempname],menuitemsbodyquantity);  
     
     
     
