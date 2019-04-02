@@ -419,8 +419,8 @@ function populateBodyItems(jsonofitems,vegtrue){
     var menuitemsbodyminus=document.createElement("div");
     menuitemsbodyminus.className="menuitemsbodyminus";
     menuitemsbodyminus.innerHTML="_";
-    
-    menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5){
+    menuitemsbodyminus.style.visibility="hidden";
+    menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5,arg6){
     
       return function() {
        
@@ -432,6 +432,7 @@ function populateBodyItems(jsonofitems,vegtrue){
              if(window.cart[singleitems]["item"]===arg){
                  singleitemcount=window.cart[singleitems]["quantity"];
                  arg5.style.visibility="visible";
+                 arg6.style.visibility="visible";
              }    
                }
          if(singleitemcount===0){
@@ -443,8 +444,8 @@ function populateBodyItems(jsonofitems,vegtrue){
              arg5.innerHTML=JSON.stringify(singleitemcount);    
         document.getElementById("carticonnumber").style.visibility="visible";
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
-      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity);
-    menuitemsbodyminus.onclick=function(arg,arg2,arg5){
+      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity,menuitemsbodyminus);
+    menuitemsbodyminus.onclick=function(arg,arg2,arg5,arg6){
      
 
         return function() {
@@ -459,6 +460,7 @@ function populateBodyItems(jsonofitems,vegtrue){
          if(singleitemcount===0){
           singleitemcount=0;
           arg5.style.visibility="hidden";
+          arg6.style.visibility="hidden";
          }     
          arg5.innerHTML=JSON.stringify(singleitemcount);  
 
@@ -470,7 +472,7 @@ function populateBodyItems(jsonofitems,vegtrue){
           
           
           document.getElementById("carticonnumber").innerHTML=window.cart.length;
-        }}(tempname,jsonofitems[tempname],menuitemsbodyquantity);  
+        }}(tempname,jsonofitems[tempname],menuitemsbodyquantity,menuitemsbodyminus);  
     
     
     
