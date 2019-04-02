@@ -419,7 +419,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     menuitemsbodyminus.className="menuitemsbodyminus";
     menuitemsbodyminus.innerHTML="_";
     
-    menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4){
+    menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5){
       return function() {
         createCustomizationTab(arg,arg2,arg3,arg4);
         var singleitemcount=0;
@@ -430,10 +430,10 @@ function populateBodyItems(jsonofitems,vegtrue){
              else{
               singleitemcount=1;
              }    }
-             menuitemsbodyquantity.innerHTML=JSON.stringify(singleitemcount);    
+             arg5.innerHTML=JSON.stringify(singleitemcount);    
         document.getElementById("carticonnumber").style.visibility="visible";
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
-      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"]);
+      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity);
     menuitemsbodyminus.onclick=function(arg,arg2){
         return function() {
           checkandminus(arg,arg2);
@@ -450,6 +450,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     
     
       divChildPlusMinus.appendChild(menuitemsbodyplus);
+      divChildPlusMinus.appendChild(menuitemsbodyquantity);
       divChildPlusMinus.appendChild(menuitemsbodyminus);
     
       
@@ -875,3 +876,4 @@ document.onreadystatechange = function () {
       },1000);
   }
 }
+
