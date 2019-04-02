@@ -155,8 +155,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
 
   plusbutton.innerHTML="+";
   minusbutton.innerHTML="-";
-  cartitempic.src='../static/'+[Math.floor(1+Math.random() * 10)]+'.jpg' ;
-  //"url('https://storage.googleapis.com/meallionpics/Restaurants/CAD/Food/"+window.footerItemClicked+"/"+tempname+".jpg')"
+  cartitempic.src=window.cart[i]['image'];
 
 
 
@@ -451,13 +450,13 @@ function populateBodyItems(jsonofitems,vegtrue){
     
     //divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
     
-    menuitemsbodyplus.onclick=function(arg,arg2,arg3){
+    menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4){
       return function() {
         
-        createCustomizationTab(arg,arg2,arg3);
+        createCustomizationTab(arg,arg2,arg3,arg4);
         document.getElementById("carticonnumber").style.visibility="visible";
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
-      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
+      }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"]);
     menuitemsbodyminus.onclick=function(arg,arg2){
         return function() {
           checkandminus(arg,arg2);
@@ -590,7 +589,7 @@ function  checkandminus(item,text){
 }
 
 
-function createCustomizationTab(item,text,baseprice){
+function createCustomizationTab(item,text,baseprice,image){
     
     if(text["customization"]===true){
           var addtocart=document.createElement('div'); 
@@ -723,7 +722,7 @@ function createCustomizationTab(item,text,baseprice){
             for(var i=0;i < multiplechoicearr.length;i++){
               customization[multiplechoicearr[i]]=updatecustomization(multiplechoicearr[i]);}
               var quantityofitems=quantityvalue;
-            updatecart(item,customization,quantityofitems,true);
+            updatecart(item,customization,quantityofitems,true,image);
           }
 
           var quantitywrapper = document.createElement("div");
@@ -742,7 +741,7 @@ function createCustomizationTab(item,text,baseprice){
             document.getElementById("menu").appendChild(customizationtabcontent);}
         else{
           //alert("updating");
-          updatecart(item,baseprice,1,false);
+          updatecart(item,baseprice,1,false,image);
           
           
         }   
@@ -750,14 +749,14 @@ function createCustomizationTab(item,text,baseprice){
 
     
 }
-function updatecart(item,customization,quantity,customizationOrNot){
+function updatecart(item,customization,quantity,customizationOrNot,image){
   if(customizationOrNot==true){
   var priceofindividualitem=calculatepriceofindividualitem(customization)*parseInt(quantity);
-  var newitem={"item":item,"customization":customization,"quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
+  var newitem={"item":item,"customization":customization,"quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending","image":image};
   }
   if(customizationOrNot==false){
     var priceofindividualitem=customization;
-    var newitem={"item":item,"customization":"","quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending"};
+    var newitem={"item":item,"customization":"","quantity":parseInt(quantity),"price":priceofindividualitem,"status":"pending","image":image};
     }
   
   if(window.cart.length>0){
