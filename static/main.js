@@ -415,6 +415,10 @@ function populateBodyItems(jsonofitems,vegtrue){
     var menuitemsbodyquantity=document.createElement("div");
     menuitemsbodyquantity.className="menuitemsbodyquantity";
     menuitemsbodyquantity.innerHTML="0";
+    var menuitemsbodyminus=document.createElement("div");
+    menuitemsbodyminus.className="menuitemsbodyminus";
+    menuitemsbodyminus.innerHTML="_";
+   
 
 
     var tempcount=0;
@@ -429,10 +433,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     menuitemsbodyminus.style.visibility="hidden";
     }
    
-    var menuitemsbodyminus=document.createElement("div");
-    menuitemsbodyminus.className="menuitemsbodyminus";
-    menuitemsbodyminus.innerHTML="_";
-   
+    
     menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4,arg5,arg6,arg7){
     
       return function() {
