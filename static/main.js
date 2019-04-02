@@ -460,11 +460,12 @@ function populateBodyItems(jsonofitems,vegtrue){
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"]);
     menuitemsbodyminus.onclick=function(arg,arg2){
         return function() {
-          if(window.cart.length===1){
+          checkandminus(arg,arg2);
+          if(window.cart.length===0){
           document.getElementById("carticonnumber").style.visibility="hidden";}
 
           
-          checkandminus(arg,arg2);
+          
           document.getElementById("carticonnumber").innerHTML=window.cart.length;
         }}(tempname,jsonofitems[tempname]);  
     
