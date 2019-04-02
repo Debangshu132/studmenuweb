@@ -128,8 +128,6 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
  cartheaderback.onclick=function(){
   document.getElementById("cart").remove();
  }
- //cartheader.innerHTML="cart";
- //document.getElementById("customizationtab").remove();
  cart.appendChild(cartheader);
  for(var i=0;i<window.cart.length;i++){
   var cartitem=document.createElement('div');
@@ -142,7 +140,6 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   var changecartitem=document.createElement('div');
   var cartitempic=document.createElement('IMG');
 
-  
   cartitemname.className="cartitemname";
   cartcustomizationname.className="cartcustomizationname";
   cartitempricename.className="cartitempricename";
@@ -156,8 +153,6 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   plusbutton.innerHTML="+";
   minusbutton.innerHTML="-";
   cartitempic.src=window.cart[i]['image'];
-
-
 
 
   var cartitemnamestring=JSON.stringify(window.cart[i]["item"]).substring(1,JSON.stringify(window.cart[i]["item"]).length-1);
@@ -179,9 +174,8 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartorderbutton.innerHTML="ORDER";
   cartorderbutton.onclick=function(){
 
-      // the Messenger Extensions JS SDK is done loading
-       MessengerExtensions.getUserID(function success(uids) {
-        var psid = uids.psid;//This is your page scoped sender_id
+  MessengerExtensions.getUserID(function success(uids) {
+        var psid = uids.psid;
         var http = new XMLHttpRequest();
      
         for(var j=0;j<window.cart.length;j++){
@@ -193,28 +187,18 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
     http.setRequestHeader("Content-Type", "application/json");
     http.send(window.cart);
 
-
-
     var http2 = new XMLHttpRequest();
     var url2 = 'https://studmenuweb.herokuapp.com/ordered/';
     http2.open("POST", url2, false); 
     http2.setRequestHeader("Content-Type", "application/json");
     http2.send();
 
-
-
-
-
     MessengerExtensions.requestCloseBrowser();
         
     }, function error(err) {
         alert("Messenger Extension Error: " + err);
     });
-
-    
-  
-
-  }
+}
   plusbutton.onclick=function(arg,arg2,arg3){
     return function(){
      var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];
@@ -237,15 +221,9 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
     arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
   } 
     if(window.cart[arg]["quantity"]===0){
-     
-      arg4.remove();
-      //window.cart.splice(arg,1);
-      // 
-    
-    }}
+     arg4.remove();
+     }}
 }(i,cartitemquantityname,cartitempricename,cartitem);
-
-
   cartitem.appendChild(cartitempic);
   changecartitem.appendChild(plusbutton);
   changecartitem.appendChild(cartitemquantityname);
@@ -254,17 +232,12 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartitem.appendChild(cartcustomizationname);
   cartitem.appendChild(cartitempricename);
   cartitem.appendChild(changecartitem);
- 
   cart.appendChild(cartitem);
  
  }
-
-
  cart.appendChild( cartorderbutton);
  document.getElementById("menuitbody").appendChild(cart);
 }
-
-
 
 document.getElementById("food").onclick=function()
 {
@@ -274,8 +247,6 @@ document.getElementById("food").onclick=function()
   clearFooter("menuite");
   populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
 } 
-
-
 
 document.getElementById("drink").onclick=function()
 {  window.foodDrinksChecked="Drinks";
@@ -309,19 +280,12 @@ function refreshPopulateBody(){
 }  
  
 
-  
-
-
 function clearFooter(elementID)
-{document.getElementById(elementID).innerHTML = "";
-
-
-}
+{document.getElementById(elementID).innerHTML = "";}
 function populateFooter(restaurantName,foodOrDrink,foodDrink,arraypic,arraypiccolored){
   
   for(i=0;i<foodOrDrink.length;i++){
   var div = document.createElement("div");
- 
   div.className="swiper-slide";
   var img = document.createElement("img");
   img.src = "https://storage.googleapis.com/meallionpics/Restaurants/CAD/"+foodDrink+"/Category%201/Colored/"+foodOrDrink[i]+".png";
@@ -448,17 +412,25 @@ function populateBodyItems(jsonofitems,vegtrue){
     var menuitemsbodyplus=document.createElement("div");
     menuitemsbodyplus.className="menuitemsbodyplus";
     menuitemsbodyplus.innerHTML="+";
+    var menuitemsbodyquantity=document.createElement("div");
+    menuitemsbodyquantity.className="menuitemsbodyquantity";
+    menuitemsbodyquantity.innerHTML="0";
     var menuitemsbodyminus=document.createElement("div");
     menuitemsbodyminus.className="menuitemsbodyminus";
     menuitemsbodyminus.innerHTML="_";
     
-    
-    //divChildPlusMinus.innerHTML  = '<img class="menuitemsbodyplus" " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ22akRsJMV7hsI-OPSvJj7BHWM-qaLCO6Ea0U3gY0esVB2al8Gg"><br /><img class="menuitemsbodyminus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX///8AAADz8/NfX1+UlJT4+Pitra1XV1cQNkZNAAAAeElEQVR4nO3Y2QkAIRBEQXU98s/YGBYGZpCqDN5nd2sAAAAAAAAAAAAAAAAAAAAAAAAAAAAApFujlhVeuM9XydnhhbPXMhUqVJhOoUKF+RQqVJhPoUKF+eIL39/47/80AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx2ARGUD9oUhrtMAAAAAElFTkSuQmCC">';
-    
     menuitemsbodyplus.onclick=function(arg,arg2,arg3,arg4){
       return function() {
-        
         createCustomizationTab(arg,arg2,arg3,arg4);
+        var singleitemcount=0;
+        for(var singleitems=0;singleitems < window.cart.length;singleitems++){
+             if(singleitems["item"]===tempname){
+                 singleitemcount=singleitemcount+singleitems["quantity"];
+             }    
+             else{
+              singleitemcount=1;
+             }    }
+             menuitemsbodyquantity.innerHTML=JSON.stringify(singleitemcount);    
         document.getElementById("carticonnumber").style.visibility="visible";
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"]);
