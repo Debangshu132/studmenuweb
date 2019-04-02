@@ -440,11 +440,11 @@ function populateBodyItems(jsonofitems,vegtrue){
         document.getElementById("carticonnumber").style.visibility="visible";
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity);
-    menuitemsbodyminus.onclick=function(arg,arg2){
+    menuitemsbodyminus.onclick=function(arg,arg2,arg5){
 
 
         return function() {
-          checkandminus(arg,arg2,arg5);
+          checkandminus(arg,arg2);
 
           var singleitemcount=0;
           for(var singleitems=0;singleitems < window.cart.length;singleitems++){
