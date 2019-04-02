@@ -441,8 +441,22 @@ function populateBodyItems(jsonofitems,vegtrue){
         document.getElementById("carticonnumber").innerHTML=window.cart.length;
       }}(tempname,jsonofitems[tempname],jsonofitems[itemnamearray[i]]["price"],jsonofitems[itemnamearray[i]]["image"],menuitemsbodyquantity);
     menuitemsbodyminus.onclick=function(arg,arg2){
+
+
         return function() {
           checkandminus(arg,arg2);
+
+          var singleitemcount=0;
+          for(var singleitems=0;singleitems < window.cart.length;singleitems++){
+          if(window.cart[singleitems]["item"]===arg){
+                 singleitemcount=window.cart[singleitems]["quantity"];}    
+               }
+         if(singleitemcount===0){
+          singleitemcount=0;
+         }     
+
+
+    
           if(window.cart.length===0){
           document.getElementById("carticonnumber").style.visibility="hidden";}
 
