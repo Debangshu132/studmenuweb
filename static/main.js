@@ -424,15 +424,18 @@ function populateBodyItems(jsonofitems,vegtrue){
         createCustomizationTab(arg,arg2,arg3,arg4);
         var singleitemcount=0;
         for(var singleitems=0;singleitems < window.cart.length;singleitems++){
+             alert(JSON.stringify(window.cart[singleitems]["item"]));
+             alert(arg);
              if(JSON.stringify(window.cart[singleitems]["item"])===arg){
                  singleitemcount=singleitemcount+singleitems["quantity"];
-                 alert(JSON.stringify(window.cart[singleitems]["item"]));
+                 
              }    
              else{
               singleitemcount=1;
+              
              }    }
              
-             alert(arg);
+             
              
              arg5.innerHTML=JSON.stringify(singleitemcount);    
         document.getElementById("carticonnumber").style.visibility="visible";
@@ -880,3 +883,4 @@ document.onreadystatechange = function () {
       },1000);
   }
 }
+
