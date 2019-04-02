@@ -570,16 +570,17 @@ function  checkandminus(item,text){
      if(countfitemareadypresentincart===1){
          for(var j=0;j<window.cart.length;j++){
            if(JSON.stringify(window.cart[j]["item"])===JSON.stringify(item)){
-            if(parseInt(window.cart[j]["quantity"])>1){
+            
+            if(parseInt(window.cart[j]["quantity"])===1){
+              window.cart.splice(j,1);
+              console.log(window.cart);
+             }
+             else if(parseInt(window.cart[j]["quantity"])>1){
               var priceofsingleitem=parseInt(window.cart[j]["price"])/parseInt(window.cart[j]["quantity"]);
               window.cart[j]["quantity"]=window.cart[j]["quantity"]-1;
               window.cart[j]["price"]=window.cart[j]["price"]-priceofsingleitem;
               console.log(window.cart);
             } 
-            if(parseInt(window.cart[j]["quantity"])===1){
-              window.cart.splice(j,1);
-              console.log(window.cart);
-             }
                  
                   
            }
