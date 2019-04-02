@@ -241,7 +241,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
 }(i,cartitemquantityname,cartitempricename,cartitem);
 
 
-
+  cartitem.appendChild(cartitempic);
   changecartitem.appendChild(plusbutton);
   changecartitem.appendChild(cartitemquantityname);
   changecartitem.appendChild(minusbutton);
@@ -249,7 +249,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartitem.appendChild(cartcustomizationname);
   cartitem.appendChild(cartitempricename);
   cartitem.appendChild(changecartitem);
-  cartitem.appendChild(cartitempic);
+ 
   cart.appendChild(cartitem);
  
  }
