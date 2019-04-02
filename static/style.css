@@ -220,7 +220,7 @@ html, body {
   height: 100%; /* Full height */
   background-color: #fff; /* Fallback color */
   color:#000; /* Black w/ opacity */
-  margin:5px;
+  margin:0px;
   overflow-y: scroll;
   
 }
@@ -244,7 +244,7 @@ html, body {
 .cartheader{
   width:100%;
   
-
+ background:white;
   display:inline-block;
 }
 .cartheaderback{
@@ -323,10 +323,12 @@ box-shadow: 5px 10px;
 }
 .cartorderbutton{
   text-align: center;
+  padding-top:5px;
   height:30px;
   width:100%;
   position:fixed;
   background: green;
+  z-index:10;
   bottom: 0;
     left: 0;
     
@@ -949,8 +951,9 @@ html, body {
   height: 100%; /* Full height */
   background-color: #fff; /* Fallback color */
   color:#000; /* Black w/ opacity */
-  margin:5px;
+  margin:0px;
   overflow-y: scroll;
+ 
   
 }
 .cartitem{
@@ -971,8 +974,11 @@ html, body {
   -moz-box-shadow: 0 0 10px rgb(200,200,200);
 }
 .cartheader{
+  position:fixed;
+  z-index:40;
   width:100%;
-  
+  -webkit-box-shadow: 0 0 10px rgb(200,200,200);
+  -moz-box-shadow: 0 0 10px rgb(200,200,200);
 
   display:inline-block;
 }
@@ -1002,7 +1008,7 @@ height:60px;
 border-radius: 10px;
 background-size: cover;
 background-repeat: no-repeat;
-z-index: 3;
+z-index: 2;
 box-shadow: 5px 10px; 
 -webkit-box-shadow: 0 0 20px rgb(200,200,200);
 -moz-box-shadow: 0 0 20px rgb(200,200,200);}
