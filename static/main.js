@@ -408,7 +408,7 @@ function populateBodyItems(jsonofitems,vegtrue){
     divChildPlusMinus.addEventListener('click', function(pEvent) {
       pEvent.stopPropagation();
     })
-    divChildPlusMinus.style.height="0.6cm";
+    divChildPlusMinus.style.height="0.7cm";
     divChildPlusMinus.style.borderRadius = "50%";
     var menuitemsbodyplus=document.createElement("div");
     menuitemsbodyplus.className="menuitemsbodyplus";
@@ -465,7 +465,7 @@ function populateBodyItems(jsonofitems,vegtrue){
           singleitemcount=0;
           arg5.style.visibility="hidden";
           arg6.style.visibility="hidden";
-          arg7.style.height='0.6cm';
+          arg7.style.height='0.7cm';
           arg7.style.borderRadius = "50%";
          }     
          arg5.innerHTML=JSON.stringify(singleitemcount);  
