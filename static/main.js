@@ -173,7 +173,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER";
   cartorderbutton.onclick=function(){
-
+    cart.innerHTML=
   MessengerExtensions.getUserID(function success(uids) {
         var psid = uids.psid;
         var http = new XMLHttpRequest();
@@ -245,6 +245,7 @@ document.getElementById("food").onclick=function()
   document.getElementById("drink").style.background="#efefef";
   document.getElementById("food").style.background="#fff";
   clearFooter("menuite");
+  clearAllBorders();
   populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
 } 
 
@@ -253,8 +254,8 @@ document.getElementById("drink").onclick=function()
   document.getElementById("food").style.background="#efefef";
 document.getElementById("drink").style.background="#fff";
 clearFooter("menuite");
-
-populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkColored);
+clearAllBorders();
+populateFooter("CAD",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkColored);
 }  
 
 
@@ -268,8 +269,9 @@ window.onload = function() {
   document.getElementById("carticonnumber").style.visibility="hidden";
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Food"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
-  populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
+  populateBody("restaurantName",menuitemjson["Food"]["Bestseller"],menuPicArray,document.getElementById("vegnonveg").checked);
+  clearAllBorders();
+  populateFooter("CAD",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
   };
 function refreshPopulateBody(){
   //alert(JSON.stringify(window.footerItemClicked));
