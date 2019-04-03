@@ -115,13 +115,13 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
  //cart.innerHTML=JSON.stringify(window.cart);
  var cartheader=document.createElement('div');
  var cartorderbutton=document.createElement('div');
- var cartheaderback=document.createElement('IMG'); 
+ var cartheaderback=document.createElement('div'); 
  var cartheadername=document.createElement('div');
  cartheader.className="cartheader";
  cartheaderback.className="cartheaderback";
  cartheadername.className="cartheadername";
  cartorderbutton.className="cartorderbutton";
- cartheaderback.setAttribute("src","https://img.icons8.com/windows/32/000000/left.png");
+ cartheaderback.innerHTML="&#8592;";
  cartheadername.innerHTML="cart"
  cartheader.appendChild(cartheaderback);
  cartheader.appendChild(cartheadername);
