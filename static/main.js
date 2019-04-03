@@ -175,6 +175,8 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartorderbutton.onclick=function(){
     var ordergif=document.createElement('IMG');
     ordergif.className='ordergif';
+    ordergif.style.width="100%";
+    ordergif.style.height="100%";
     ordergif.src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif';
     cart.appendChild(ordergif);
     //cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif'>";
