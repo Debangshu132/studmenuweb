@@ -173,7 +173,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER";
   cartorderbutton.onclick=function(){
-    cart.innerHTML=
+    cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif' height='90%' width='100%' >";
   MessengerExtensions.getUserID(function success(uids) {
         var psid = uids.psid;
         var http = new XMLHttpRequest();
