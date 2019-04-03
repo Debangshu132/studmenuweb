@@ -1143,15 +1143,14 @@ border-radius: 5px;
 }
 .menuitemsbodyrating{
   margin-top:-3.4cm;
-  margin-left:2.7cm;
+  margin-left:-1.7cm;
 }
 .divChildPicVegNonveg{
   max-width: 12%;
   max-height: 12%;
   position:relative;
   top:1.7cm;
-  left:0.9cm;
-
+  left:0.9cm;-1
 }
 .menuitemsnamebody{
   float:left;
