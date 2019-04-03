@@ -156,7 +156,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
 
 
   var cartitemnamestring=JSON.stringify(window.cart[i]["item"]).substring(1,JSON.stringify(window.cart[i]["item"]).length-1);
-  tomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
+  cartcustomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('"',' ');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
