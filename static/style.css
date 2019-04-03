@@ -376,7 +376,7 @@ box-shadow: 5px 10px;
   float:left;
    padding-left:2.4cm;
    margin-top:-2cm;
-   font-size: 15px;
+   font-size: 13px;
   font-weight:bold;
 }
 .menuitemsbodyactualpic{
@@ -1068,6 +1068,7 @@ border-radius: 5px;
 
     font-weight: bold;
     font-size: 19px;
+    font-family: "Times New Roman", Times, serif;
  
 }
 .cartplusbutton{
@@ -1079,6 +1080,7 @@ border-radius: 5px;
     font-weight: bold;
     font-size: 25px;
     color:#01b460;
+    font-family: "Times New Roman", Times, serif;
  
 }
 .cartorderbutton{
@@ -1146,7 +1148,7 @@ border-radius: 5px;
   float:left;
    padding-left:2.4cm;
    margin-top:-2cm;
-   font-size: 15px;
+   font-size: 13px;
   font-weight:bold;
 }
 .menuitemsbodyactualpic{
