@@ -993,11 +993,12 @@ html, body {
 }
 .cartitemname{
   position:relative;
-  left:-15%;
+
+  left:-11%;
   top:0.1cm;
   font-weight:bold;
-  font-size: 15px;
-  margin-left:2.2cm;
+  font-size: 13px;
+
 }
 .cartitempic{ 
 position:relative;
@@ -1043,6 +1044,7 @@ width:0.7cm;
   height:1.6cm;
   float:right;
   position:relative;
+  display:inline-block;
   top:-.93cm;
   left:-0.0cm;
   z-index:4;
