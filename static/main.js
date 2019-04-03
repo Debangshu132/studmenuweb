@@ -156,7 +156,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
 
 
   var cartitemnamestring=JSON.stringify(window.cart[i]["item"]).substring(1,JSON.stringify(window.cart[i]["item"]).length-1);
-  var cartcustomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
+  tomizationnamestring=JSON.stringify(window.cart[i]["customization"]).replace('{"','');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('":["',' : ');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('"',' ');
   cartcustomizationnamestring=cartcustomizationnamestring.replace('"],"',' ; ');
@@ -242,7 +242,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
 document.getElementById("food").onclick=function()
 {
   window.foodDrinksChecked="Food";
-  document.getElementById("drink").style.background="#ddd";
+  document.getElementById("drink").style.background="#efefef";
   document.getElementById("food").style.background="#fff";
   clearFooter("menuite");
   populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
@@ -250,7 +250,7 @@ document.getElementById("food").onclick=function()
 
 document.getElementById("drink").onclick=function()
 {  window.foodDrinksChecked="Drinks";
-  document.getElementById("food").style.background="#ddd";
+  document.getElementById("food").style.background="#efefef";
 document.getElementById("drink").style.background="#fff";
 clearFooter("menuite");
 
@@ -264,7 +264,7 @@ window.onload = function() {
   window.itemsOrdered=0;
   window.foodDrinksChecked="Food";
   window.footerItemClicked="Bytes";
-  document.getElementById("drink").style.background="#ddd";
+  document.getElementById("drink").style.background="#efefef";
   document.getElementById("carticonnumber").style.visibility="hidden";
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
