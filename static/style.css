@@ -1189,9 +1189,11 @@ border-radius: 5px;
     margin:0px;
     height:0.7cm;
     width:100%;
-    font-weight: bold;
-    font-size: 25px;
+    
+    font-size: 26px;
     color:#01b460;
+    font-family: "Times New Roman", Times, serif;
+    font-weight:bold;
     
 
  }
