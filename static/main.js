@@ -439,8 +439,8 @@ function populateBodyItems(jsonofitems,vegtrue){
     }}
     if(tempcount===0){
     divChildPlusMinus.style.height="0.7cm";
-    divChildPlusMinus.style.color="#fff";
-    divChildPlusMinus.style.background="#01b460";
+    //divChildPlusMinus.style.color="#fff";
+    //divChildPlusMinus.style.background="#01b460";
     divChildPlusMinus.style.borderRadius = "50%";
     menuitemsbodyquantity.style.visibility="hidden";
     menuitemsbodyminus.style.visibility="hidden";
@@ -493,8 +493,7 @@ function populateBodyItems(jsonofitems,vegtrue){
           arg6.style.visibility="hidden";
           arg7.style.height='0.7cm';
           arg7.style.borderRadius = "50%";
-          arg7.style.color="#fff";
-          arg7.style.background="#01b460";
+        
          }     
          arg5.innerHTML=JSON.stringify(singleitemcount);  
 
