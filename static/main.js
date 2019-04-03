@@ -245,7 +245,6 @@ document.getElementById("food").onclick=function()
   document.getElementById("drink").style.background="#efefef";
   document.getElementById("food").style.background="#fff";
   clearFooter("menuite");
-  clearAllBorders();
   populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
 } 
 
@@ -254,8 +253,8 @@ document.getElementById("drink").onclick=function()
   document.getElementById("food").style.background="#efefef";
 document.getElementById("drink").style.background="#fff";
 clearFooter("menuite");
-clearAllBorders();
-populateFooter("CAD",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkColored);
+
+populateFooter("Taj",drink,"Drinks",picCategoryArrayDrink,picCategoryArrayDrinkColored);
 }  
 
 
@@ -270,8 +269,8 @@ window.onload = function() {
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
   populateBody("restaurantName",menuitemjson["Food"]["Bestseller"],menuPicArray,document.getElementById("vegnonveg").checked);
-  clearAllBorders();
-  populateFooter("CAD",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
+
+  populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
   };
 function refreshPopulateBody(){
   //alert(JSON.stringify(window.footerItemClicked));
@@ -944,3 +943,4 @@ document.onreadystatechange = function () {
       },1000);
   }
 }
+
