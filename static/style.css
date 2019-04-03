@@ -1004,7 +1004,7 @@ html, body {
 }
 .cartitemname{
   position:relative;
-  left:-2.2cm;
+  left:-15%;
   top:0.1cm;
   font-weight:bold;
   font-size: 15px;
@@ -1045,7 +1045,7 @@ box-shadow: 5px 10px;
   color:#aaa;
   top:0.5cm;
   left:18%;
-  padding-left:10px;
+  
   padding-top:5px;
 
 }
@@ -1557,3 +1557,4 @@ body {
  }
  
  
+
