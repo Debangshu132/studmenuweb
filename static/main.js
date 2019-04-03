@@ -169,7 +169,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartcustomizationnamestring=cartcustomizationnamestring.replace(',',' , &#x20b9; ');
   cartitemname.innerHTML=cartitemnamestring;
   cartcustomizationname.innerHTML=cartcustomizationnamestring;
-  cartitempricename.innerHTML="&#9733;  "+JSON.stringify(window.cart[i]["price"]);
+  cartitempricename.innerHTML="&#x20b9; "+JSON.stringify(window.cart[i]["price"]);
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER";
   cartorderbutton.onclick=function(){
@@ -205,7 +205,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
     window.cart[arg]["quantity"]=window.cart[arg]["quantity"]+1; 
     window.cart[arg]["price"]=window.cart[arg]["price"]+priceperitem;   
     arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
-    arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
+    arg3.innerHTML="&#x20b9; "+JSON.stringify(window.cart[arg]["price"]);
   }
 
   }(i,cartitemquantityname,cartitempricename);
@@ -218,7 +218,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
     window.cart[arg]["quantity"]=window.cart[arg]["quantity"]-1;
     window.cart[arg]["price"]=window.cart[arg]["price"]-priceperitem;   
     arg2.innerHTML=JSON.stringify(window.cart[arg]["quantity"]);
-    arg3.innerHTML="Price:Rs"+JSON.stringify(window.cart[arg]["price"]);
+    arg3.innerHTML="&#x20b9; "+JSON.stringify(window.cart[arg]["price"]);
   } 
     if(window.cart[arg]["quantity"]===0){
      arg4.remove();
