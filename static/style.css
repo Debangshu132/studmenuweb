@@ -724,7 +724,7 @@ html, body {
  
  .cartcontainer{
    position:fixed;
-   margin-top:-2%;
+   margin-top:-0.1cm;
    float:right;   
    height:0.8cm;
    width:0.8cm;
