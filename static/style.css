@@ -66,7 +66,7 @@ html, body {
     margin-left: auto;
     margin-right:auto;
     color: #555;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     
     
 }
@@ -625,7 +625,7 @@ body {
 
 
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
 
 
 
@@ -712,7 +712,7 @@ html, body {
   position:fixed;
   padding-left:0%;
   margin-left:0%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background:#efefef;
 }
 
@@ -1398,8 +1398,6 @@ body {
 
 
 
-
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 
 
 
