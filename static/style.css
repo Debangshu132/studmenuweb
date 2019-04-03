@@ -738,11 +738,13 @@ html, body {
  }
  
  .cartcontainer{
-   position:relative;
+   display:inline-block;
+   float:right;   
    height:0.8cm;
    width:0.8cm;
-   left:88%;
-   top:-25%;
+   margin-right:5px;
+   background:red;
+  
   
  }
  .carticonnumber{
@@ -1446,10 +1448,17 @@ body {
 .search > div > input:valid {
   width: 80%;
 }
+.vegonly{
+  display:inline-block;
+  font-size:11px;
+  width:11%;
+  margin-left:60%;
+  color:#666; 
+}
 .switch {
   position: relative;
   display: inline-block;
-  margin-left:70%;
+  
   margin-top:25px;
   width: 30px;
   height: 15px;
