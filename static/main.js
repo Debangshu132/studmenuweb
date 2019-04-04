@@ -172,17 +172,8 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartitempricename.innerHTML="&#x20b9; "+JSON.stringify(window.cart[i]["price"]);
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER";
-  window.ordergif=document.createElement('IMG');
-  window.ordergif.className='ordergif';
-  window.ordergif.style.width="100%";
-  window.ordergif.style.height="0%";
-  window.ordergif.src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif";
   
-  cart.appendChild(window.ordergif);
   cartorderbutton.onclick=function(){
-    window.ordergif.style.marginTop="40%";  
-    window.ordergif.style.marginBottom="40%";  
-    window.ordergif.style.height="40%";
     cartorderbutton.style.background="#2adeb1";
     cart.style.background="#2adeb1";
     cartorderbutton.innerHTML="Processing..."
