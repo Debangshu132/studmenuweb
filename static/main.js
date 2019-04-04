@@ -176,10 +176,10 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
     ordergif.className='ordergif';
     ordergif.style.width="100%";
     ordergif.style.height="90%";
-    ordergif.src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif";
-    cart.appendChild(ordergif);
-  cartorderbutton.onclick=function(){
    
+    cart.appendChild(ordergif);
+  cartorderbutton.onclick=function(arg){
+    arg.src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif";
     //cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif'>";
   MessengerExtensions.getUserID(function success(uids) {
     
@@ -206,7 +206,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
     }, function error(err) {
         alert("Messenger Extension Error: " + err);
     });
-}
+}(ordergif);
   plusbutton.onclick=function(arg,arg2,arg3){
     return function(){
      var priceperitem=  parseInt(window.cart[arg]["price"])/ window.cart[arg]["quantity"];
