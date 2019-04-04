@@ -224,6 +224,9 @@ html, body {
   overflow-y: scroll;
   
 }
+.ordergif{
+  margin-top:40%;
+}
 .cartitem{
   margin-top:40px;
   width:80%;
