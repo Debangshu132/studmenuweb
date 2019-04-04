@@ -224,7 +224,10 @@ html, body {
   overflow-y: scroll;
   
 }
-
+.ordergif{
+  margin-top:40%;
+  margin-bottom:40%;
+}
 .cartitem{
   margin-top:40px;
   width:80%;
@@ -1092,6 +1095,9 @@ border-radius: 5px;
   background: green;
   bottom: 0;
     left: 0;
+    font-size:17px;
+    font-weight:bold;
+    
     
     color:white;
 }
