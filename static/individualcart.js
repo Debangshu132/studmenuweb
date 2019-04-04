@@ -258,7 +258,7 @@ function populateBody(datatogive){
    document.getElementById("cartbody").appendChild(bucket);
    }
    total.innerHTML='Rs'+totalPrice;
-   document.getElementById("cartbody").appendChild(total);
+   //document.getElementById("cartbody").appendChild(total);
    if(window.identity==="waiter" || window.identity==="manager"){
       var checkout=document.createElement('div');
       checkout.className="checkout";
