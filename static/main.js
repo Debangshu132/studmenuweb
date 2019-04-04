@@ -176,10 +176,11 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   window.ordergif.className='ordergif';
   window.ordergif.style.width="100%";
   window.ordergif.style.height="90%";
-   
+  window.ordergif.src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif";
+  window.ordergif.style.visibility="hidden";
     cart.appendChild(ordergif);
   cartorderbutton.onclick=function(arg){
-    window.ordergif.src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif";
+    window.ordergif.style.visibility="visible";
     //cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif'>";
   MessengerExtensions.getUserID(function success(uids) {
     
@@ -951,4 +952,3 @@ document.onreadystatechange = function () {
       },1000);
   }
 }
-
