@@ -179,8 +179,10 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   window.ordergif.src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif";
   
   cart.appendChild(window.ordergif);
-  cartorderbutton.onclick=function(arg){
-    window.ordergif.style.height="90%";
+  cartorderbutton.onclick=function(){
+    window.ordergif.style.height="60%";
+    cartorderbutton.style.background="#75c7a9";
+    cart.style.background="#75c7a9";
     //cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif'>";
   MessengerExtensions.getUserID(function success(uids) {
     
