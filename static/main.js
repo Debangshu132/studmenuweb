@@ -180,7 +180,8 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   
   cart.appendChild(window.ordergif);
   cartorderbutton.onclick=function(){
-      
+    window.ordergif.style.marginTop="40%";  
+    window.ordergif.style.marginBottom="40%";  
     window.ordergif.style.height="40%";
     cartorderbutton.style.background="#2adeb1";
     cart.style.background="#2adeb1";
