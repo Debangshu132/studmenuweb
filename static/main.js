@@ -181,8 +181,9 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cart.appendChild(window.ordergif);
   cartorderbutton.onclick=function(){
     clearFooter("cart");
-    window.ordergif.style.height="40%";
-    cartorderbutton.style.background="#2adeb1";
+    cart.innerHTML='<img src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif" >';
+    //window.ordergif.style.height="40%";
+    //cartorderbutton.style.background="#2adeb1";
     cart.style.background="#2adeb1";
     cartorderbutton.innerHTML="Processing....."
     //cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif'>";
