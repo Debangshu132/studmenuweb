@@ -172,16 +172,17 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cartitempricename.innerHTML="&#x20b9; "+JSON.stringify(window.cart[i]["price"]);
   cartitemquantityname.innerHTML=JSON.stringify(window.cart[i]["quantity"]);
   cartorderbutton.innerHTML="ORDER";
+  var ordergif=document.createElement('IMG');
+    ordergif.className='ordergif';
+    ordergif.style.width="100%";
+    ordergif.style.height="90%";
+    ordergif.src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif";
+    cart.appendChild(ordergif);
   cartorderbutton.onclick=function(){
    
     //cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif'>";
   MessengerExtensions.getUserID(function success(uids) {
-    var ordergif=document.createElement('IMG');
-    ordergif.className='ordergif';
-    ordergif.style.width="100%";
-    ordergif.style.height="100%";
-    ordergif.src="https://storage.googleapis.com/meallionpics/General/Icons/Order.gif";
-    cart.appendChild(ordergif);
+    
         var psid = uids.psid;
         var http = new XMLHttpRequest();
      
