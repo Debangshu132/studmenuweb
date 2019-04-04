@@ -181,8 +181,8 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   cart.appendChild(window.ordergif);
   cartorderbutton.onclick=function(){
     window.ordergif.style.height="60%";
-    cartorderbutton.style.background="#75c7a9";
-    cart.style.background="#75c7a9";
+    cartorderbutton.style.background="#2adeb1";
+    cart.style.background="#2adeb1";
     //cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif'>";
   MessengerExtensions.getUserID(function success(uids) {
     
