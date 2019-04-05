@@ -122,7 +122,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
  cartheadername.className="cartheadername";
  cartorderbutton.className="cartorderbutton";
  cartheaderback.innerHTML="&#8592;";
- cartheadername.innerHTML="cart";
+ cartheadername.innerHTML="Cart";
  cartheader.appendChild(cartheaderback);
  cartheader.appendChild(cartheadername);
  cartheaderback.onclick=function(){
@@ -175,7 +175,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
   
   cartorderbutton.onclick=function(){
     cartorderbutton.style.background="#2adeb1";
-    cart.style.background="#2adeb1";
+    //cart.style.background="#2adeb1";
     cartorderbutton.innerHTML="Processing..."
     //cart.innerHTML="<img src='https://storage.googleapis.com/meallionpics/General/Icons/Order.gif'>";
   MessengerExtensions.getUserID(function success(uids) {
