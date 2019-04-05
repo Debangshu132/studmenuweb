@@ -122,7 +122,7 @@ document.getElementById("cartcontainer").onclick=function(menuPicArray){
  cartheadername.className="cartheadername";
  cartorderbutton.className="cartorderbutton";
  cartheaderback.innerHTML="&#8592;";
- cartheadername.innerHTML="cart"
+ cartheadername.innerHTML="cart";
  cartheader.appendChild(cartheaderback);
  cartheader.appendChild(cartheadername);
  cartheaderback.onclick=function(){
@@ -273,7 +273,7 @@ window.onload = function() {
   document.getElementById("carticonnumber").style.visibility="hidden";
   window.menuitemjson=JSON.parse(menuitem);
   clearFooter("menuitbody");
-  populateBody("restaurantName",menuitemjson["Food"]["Bestseller"],menuPicArray,document.getElementById("vegnonveg").checked);
+  populateBody("restaurantName",menuitemjson["Food"]["Bytes"],menuPicArray,document.getElementById("vegnonveg").checked);
 
   populateFooter("Taj",food,"Food",picCategoryArrayFood,picCategoryArrayFoodColored);
   };
@@ -948,3 +948,4 @@ document.onreadystatechange = function () {
       },1000);
   }
 }
+
